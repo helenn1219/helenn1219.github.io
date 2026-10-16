@@ -1,0 +1,7 @@
+.lp{position:fixed;left:0;top:0;z-index:300;width:min(240px,24vw);pointer-events:none;will-change:transform;}
+.lp-card{background:#fff;border:1px solid rgba(30,31,28,.12);border-radius:8px;overflow:hidden;
+  box-shadow:0 24px 48px -20px rgba(30,31,28,.42),0 2px 6px rgba(30,31,28,.08);
+  opacity:0;transform:scale(.92);transform-origin:var(--ox,0%) 50%;transition:opacity .2s ease,transform .25s cubic-bezier(.2,.7,.2,1);}
+.lp.is-on .lp-card{opacity:.8;transform:none;}
+.lp img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:#eef0f2;}
+@media(prefers-reduced-motion:reduce){.lp-card{transform:none;transition:none;}}

@@ -1,0 +1,7 @@
+.grain-host{position:relative;--grain-ink:#DCE987;--grain-accent:#B9C94A;}
+.grain-bg{position:absolute;right:0;top:var(--grain-top,76px);width:min(86vw,1280px);height:min(96svh,900px);z-index:0;pointer-events:none;}
+.grain-host > :not(.grain-bg){position:relative;z-index:1;}
+@media(max-width:768px){.grain-bg{--grain-top:64px;width:100%;height:70svh;}}
+.grain-bg.grain-orbs{left:0;right:0;top:0;width:100%;height:100%;}
+
+.grain-orbs-page{position:absolute;left:0;top:0;width:100%;height:100svh;z-index:-1;pointer-events:none;}

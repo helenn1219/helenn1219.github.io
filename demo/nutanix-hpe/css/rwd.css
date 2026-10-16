@@ -1,0 +1,369 @@
+@media screen and (min-width:1420px) {
+    .container-fluid.w-1480 {
+        max-width: 1980px;
+    } 
+    .d3 {
+        width: 19rem!important;
+        right: -12%;
+    }
+    .arrow {
+        top: 12vh;
+    }
+
+}
+@media screen and (max-width:1200px) {
+    .d1 {
+    top: 83%;
+    width: 17rem;
+    left: -10%;
+    }
+}
+@media screen and (min-width:991px) {
+    #lead-banner .banner-bg {
+     /*   background-size: contain;*/
+    }
+    #lead-banner .logo {
+        max-width: 11rem;
+        margin: 38px 65px;
+    }
+    .content-right {
+        top: 8rem !important;
+    }
+    
+}
+@media screen and (max-width:991px) {
+
+
+
+    /* -------------------- */
+    #navBg {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        transition: .5s;
+        display: none;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 15;
+    }
+
+    #navBg.open {
+        display: block;
+    }
+
+    /* ▼ 首頁BANNER ▼ */
+    #lead-banner .container-fluid div {
+        margin: 0 auto;
+        text-align: center;
+
+    }
+    #lead-banner .content-right{
+        position: relative !important;
+        right: 0 !important;
+        display: block;
+    }
+    /*前言*/
+    .cama{
+        max-width: 250px;
+        height: auto;
+        padding: 10px 3rem;
+        margin: 0 auto;
+    }
+    /*1.*/
+    .hpe-img {
+        background: url(../img/HPE-s.png) no-repeat center top;
+        background-size: contain;
+        max-width: 100% !important;
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        height: 28rem;
+    }
+    .intro .container-fluid {
+        padding: 0;
+    }
+    /* ▼ 客戶案例 ▼ */
+    .case .swiper-pagination {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100% !important;
+        height: auto;
+    }
+
+    .swiper-container3 {
+        width: 100%;
+        position: relative;
+        right: 0;
+        height: 100%;
+    }
+
+    .case .slide {
+        display: block !important;
+    }
+
+    .swiper-pagination:before {
+        width: 100%;
+        height: 1px;
+        top: 100%;
+    }
+
+    .swiper-pagination span {
+        border-left: 0;
+        border-bottom: 5px solid transparent;
+    }
+
+    .swiper-pagination span.swiper-pagination-bullet-active-main {
+        background-color: #b3d4fc;
+        border-left: 0;
+        border-bottom: 5px solid #4a90e2;
+    }
+
+    .case .swiper-wrapper {
+        align-items: flex-start;
+        margin-top: 16px;
+    }
+
+    .arrow{
+         top: 28%;
+
+    }
+    .video {
+        width: 90%;
+        height: 40vh;
+    }
+    .video-bg {
+    }
+}
+@media screen and (min-width:767px){
+    .gotoform .left, .gotoform .right{
+        max-width: 47%;
+    }
+    
+}
+@media screen and (min-width:1024px){
+    .ad h5{
+        font-size: 25px;
+    }
+    .text-op {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width:767px) and (max-width:1280px){
+   /* .ad{
+        margin-left: 20px;
+    }*/
+    .swiper-container {
+        padding-bottom: 39.66%
+    }
+    .video {
+        width: 100px;
+        height: 50vh;
+    }
+}
+@media screen and (min-width:767px) and (max-width:991px){
+/*    #lead-banner .content-right {
+        top: -10%;
+    }*/
+    #lead-banner .content-right .og {
+        max-width: 72vh;
+    }
+    .arrow {
+        top: 10vh;
+    }
+    .d3 {
+        top: 50%;
+        width: 14rem!important;
+        right: -13%;
+    }
+    .d2 {
+        top: 74%;
+        z-index: 100;
+        width: 17rem;
+        left: -10%;
+    }
+}
+@media screen and (max-width:767px) {
+    h2 {
+        font-size: 1.8rem !important;
+    }
+    #lead-banner .content-right {
+        margin: 0 auto!important;
+        max-width: 90%;
+        position: absolute;
+        /* right: -5%; */
+        top: 7rem;
+        width: 100vh;
+        text-align: center;
+    }
+    #lead-banner .content-right .og {
+        max-width: 50vh;
+    }
+    .intro ul{
+        flex-wrap: wrap;
+    }
+    .intro ul .mx-3{
+        margin: inherit !important;
+    }
+    .intro .intro-left{
+        padding-top: 10px;
+        text-align: center;
+    }
+    .intro .intro-left ul{
+        display: inline-block;
+    }
+    .intro .intro1{
+        flex-direction: column-reverse;
+    }
+    .text-op{
+        margin: 18px 0px;
+        line-height: 28px;
+    }
+    /* ▼ 案件影片 ▼ */
+    .case-video .video-frame:after {
+        left: 60%;
+        top: 50%;
+        transform: translate(-60%, -50%);
+    }
+
+
+    /* ▼ 下載電子書 ▼ */
+    .form-deco {
+        display: none;
+    }
+
+    .form ,.ad-box{
+        max-width: 100% !important;
+        flex: 100%;
+    }
+/*    .ad{
+         margin: 15px;
+    }*/
+
+}
+@media screen and (max-width: 768px){
+    .swiper-container {
+        padding-bottom: 76.66%;
+    }
+/*    #lead-banner {
+        height: 90vh;
+    }*/
+    .arrow {
+        top: 21%;
+    }
+    .d1,.d2,.d3{
+        display: none;
+    }
+    .ad{
+      max-height: 100%;  
+    }
+    .ad-img-g .ad-img {
+        background: url(../img/ad-s.png) no-repeat center;
+        background-size: contain;
+        width: 100%;
+    }
+    .gift li img {
+        width: 20px;
+        height: 20px;
+    }
+    .open{
+        padding-bottom: 20vh;
+    }
+    .video-bg {
+        min-height: 28vh;
+        top: 8px;
+    }
+
+}
+
+
+@media screen and (max-width:575px) {
+
+    /* ▼ 首頁BANNER ▼ */
+    #lead-banner .word {
+         max-width: 300px;
+    }
+
+
+    #lead-banner h1 {
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
+
+    #lead-banner h2 {
+        font-size: 8vmin;
+        line-height: 2rem;
+    }
+
+    #lead-banner h3 {
+        font-size: 5vmin;
+    }
+
+    #lead-banner .container-fluid div {
+   
+    }
+    .arrow {
+        top: 24%;
+    }
+    /* ▼ 案件影片 ▼ */
+/*    .case-video .video-frame {
+        padding: 15px 0 0;
+    }
+
+    .case-video .video-frame:after {
+        left: 50%;
+        top: 36%;
+        transform: translate(-50%, -36%);
+    }*/
+    video {
+        width: 100%;
+ /*       transform: translate(-50%, -130%) !important;*/
+
+    }
+
+/*    .open{
+        padding-bottom: 25vh;
+    }*/
+    .intro{
+        padding-top: 4vh;
+    }
+
+    /* ▼ 客戶案例 ▼ */
+    .show-mob {
+        display: block;
+    }
+
+    .hide-mob {
+        display: none;
+    }
+
+    /**/
+    .form-control, .time-text{
+        font-size: 0.85rem;
+    }
+
+
+}
+
+@media screen and (max-width:414px) {
+    .ad, .more{
+        max-height: fit-content;
+    }
+    .ad h5,.more h5{
+        font-size: 20px;
+    }
+    #lead-banner .logo{
+        width: 19vh;
+    }
+    .ad-up {
+        margin: 30px 20px 0;
+    }
+    .wc {
+        width: 6rem !important;
+    }
+}
+@media screen and (max-width:330px) {
+    .ad ,.more {
+        line-height: 1px;
+    }
+}

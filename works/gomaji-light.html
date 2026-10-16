@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="no-smooth-scroll">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>麻吉城市樂園 活動主視覺與網站 | Helen Hsieh</title>
+<meta name="description" content="為 GOMAJI 夠麻吉品牌識別更新後的城市嘉年華設計宣傳網頁，以更新後的品牌視覺與既有角色 Maji Friend 為基礎，在 3 週內同時完成品牌識別介紹與購票導購兩項任務。">
+<meta property="og:title" content="麻吉城市樂園 活動主視覺與網站 | Helen Hsieh">
+<meta property="og:description" content="為 GOMAJI 夠麻吉品牌識別更新後的城市嘉年華設計宣傳網頁，以更新後的品牌視覺與既有角色 Maji Friend 為基礎。">
+<meta property="og:image" content="https://helenn1219.github.io/img/og/gomaji.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E3A26B; --accent-solid:#D9641E; --accent-wash:rgba(217,100,30,.09); --accent-glow:rgba(217,100,30,.38);}
+</style>
+<style>
+
+.puli-v3{--read:680px;--col:680px;--toc-w:190px;--toc-gap:48px;--bar-gap:20px;}
+.v3-frame{padding-left:var(--page-x);padding-right:var(--page-x);}
+
+.puli-v3 .v3-intro .detail-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);grid-template-areas:"lede lede" "role meta";column-gap:64px;row-gap:0;padding:96px 0 64px;}
+.puli-v3 .v3-intro .detail-main{display:contents;}
+.puli-v3 .v3-intro .detail-lede{grid-area:lede;max-width:780px;margin:0 0 40px;}
+.puli-v3 .v3-intro .case-role{grid-area:role;max-width:none;}
+.puli-v3 .v3-intro .detail-meta{grid-area:meta;max-width:none;margin:0;padding-top:28px;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;align-content:start;}
+.puli-v3 .v3-intro .detail-meta-item:first-child{grid-column:auto;}
+.puli-v3 .meta-sep{display:none;}
+.puli-v3 .meta-line{display:block;}
+@media(max-width:899px){
+  .puli-v3 .v3-intro .detail-body{grid-template-columns:minmax(0,1fr);grid-template-areas:"lede" "role" "meta";padding:64px 0 48px;}
+  .puli-v3 .v3-intro .detail-meta{margin-top:32px;border-top:1px solid var(--border-dim);}
+}
+
+.v3-layout{display:grid;grid-template-columns:var(--toc-w) minmax(0,1fr);column-gap:var(--toc-gap);}
+.v3-toc{align-self:start;position:sticky;top:calc(var(--nav-h,96px) + 24px);padding-top:24px;padding-bottom:28px;}
+.v3-main{min-width:0;}
+.puli-v3 .v3-main > .case-section{padding-left:0;padding-right:0;scroll-margin-top:calc(var(--anchor-offset,120px) - 56px);}
+.puli-v3 .v3-main > #entry{scroll-margin-top:var(--anchor-offset,120px);}
+.puli-v3 #entry{padding-left:0;padding-right:0;}
+.puli-v3 #entry > *{margin-left:0;margin-right:0;}
+.puli-v3 #entry > .v2-wide{max-width:none;}
+
+.puli-v3 #entry .case-subhead{margin-left:0;margin-right:0;margin-bottom:14px;}
+
+.puli-v3 #entry > .v2-video{margin-left:0;}
+.puli-v3 .v3-main .case-row,.puli-v3 .v3-main .puli-aside{max-width:100%;}
+.puli-v3 .v3-main > .case-section--end{padding-bottom:24px;}
+
+.puli-v3 .case-text p,.puli-v3 .case-role p{font-family:var(--sans);font-size:17.5px;line-height:1.82;font-weight:400;}
+.puli-v3 .detail-lede{font-weight:400;}
+.puli-v3 .onsite-title{font-weight:400;}
+.puli-v3 .case-subhead{font-family:var(--sans);font-size:20px;font-weight:500;line-height:1.5;}
+.puli-v3 .case-figure figcaption,.puli-v3 .case-note,.puli-v3 .case-more,.puli-v3 .case-row-arrow{font-size:14px;line-height:1.7;font-weight:400;}
+.puli-v3 .case-figure figcaption b{font-size:14.5px;font-weight:500;}
+.puli-v3 .case-note{font-size:15.5px;}
+.puli-v3 .detail-meta-value{font-size:15px;font-weight:400;}
+.puli-v3 .detail-meta-label{font-size:11px;}
+@media(max-width:768px){.puli-v3 .case-text p,.puli-v3 .case-role p{font-size:16.5px;line-height:1.8;}.puli-v3 .case-subhead{font-size:18.5px;}}
+
+.puli-v3.v3-past-hero nav::before,.puli-v3.menu-open nav::before{background:#0D1114;border-bottom:1px solid var(--border-dim);}
+
+.v3-toc-label{display:block;margin-bottom:14px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,237,230,.6);}
+.v3-toc-toggle{display:none;}
+.v3-toc ol{list-style:none;display:flex;flex-direction:column;border-left:1px solid var(--border-dim);}
+.v3-toc a{display:flex;gap:10px;align-items:baseline;margin-left:-1px;padding:8px 0 8px 14px;border-left:2px solid transparent;font-size:15px;font-weight:400;line-height:1.5;color:rgba(240,237,230,.7);text-decoration:none;transition:color .2s,border-color .2s;}
+.v3-toc a b{flex:none;font-family:var(--serif);font-weight:400;font-size:13.5px;color:var(--accent);}
+.v3-toc a:hover{color:var(--text);}
+.v3-toc a[aria-current]{color:var(--text);border-left-color:var(--accent);}
+.v3-toc a:focus-visible,.v3-toc-toggle:focus-visible{outline:1px solid var(--accent);outline-offset:2px;}
+@media(max-width:1179px){
+  .v3-layout{grid-template-columns:minmax(0,1fr);}
+  .v3-toc{top:var(--nav-h,72px);z-index:50;margin:0 calc(-1 * var(--page-x));padding:0 var(--page-x);background:var(--bg);border-top:1px solid var(--border-dim);border-bottom:1px solid var(--border-dim);}
+  .puli-v3 .v3-main > #entry{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}
+  .v3-toc-label{display:none;}
+  .v3-toc-toggle{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:10px;width:100%;min-height:48px;cursor:pointer;font-size:15px;color:var(--text);}
+  .v3-toc-toggle-label{font-size:11.5px;letter-spacing:.2em;color:rgba(240,237,230,.6);}
+  .v3-toc-current{flex:1;}
+  .v3-toc-caret{transition:transform .2s;}
+  .v3-toc.is-open .v3-toc-caret{transform:rotate(180deg);}
+  .v3-toc{padding-bottom:0;}
+  .v3-toc ol{display:none;border-left:none;padding-bottom:16px;}
+  .v3-toc.is-open ol{display:flex;}
+  .v3-toc a{margin-left:0;padding:10px 0 10px 12px;}
+}
+
+.v3-dock{height:calc(var(--bar-h,48px) + 96px);padding-top:48px;display:flex;justify-content:center;border-top:1px solid var(--border-dim);margin:0 var(--page-x);}
+.v3-switch{z-index:90;display:flex;align-items:center;gap:2px;height:max-content;padding:5px;border:1px solid rgba(240,237,230,.14);border-radius:999px;background:rgba(13,17,20,.94);}
+.v3-switch.is-floating{position:fixed;left:50%;bottom:var(--bar-gap);transform:translateX(-50%);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .2s;}
+
+.v3-switch.is-floating.is-shown,.v3-switch.is-floating:focus-within{opacity:1;pointer-events:auto;}
+
+.v3-switch.is-off{visibility:hidden;}
+.v3-switch-item{display:inline-flex;align-items:center;min-height:38px;padding:0 15px;border-radius:999px;font-size:14px;font-weight:400;color:rgba(240,237,230,.88);text-decoration:none;white-space:nowrap;}
+a.v3-switch-item:hover{color:var(--text);background:rgba(240,237,230,.07);}
+a.v3-switch-item:focus-visible{outline:1px solid var(--accent);outline-offset:1px;}
+.v3-switch .is-disabled{color:rgba(240,237,230,.36);}
+.v3-sep{width:1px;height:16px;background:rgba(240,237,230,.14);}
+.v3-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+@media(max-width:480px){.puli-v3{--bar-gap:12px;}.v3-long{display:none;}.v3-switch-item{padding:0 12px;}}
+@media(prefers-reduced-motion:reduce){.v3-switch,.v3-toc a,.v3-toc-caret{transition:none;}}
+
+@media(max-width:768px){.puli-v3 nav{padding-top:10px;padding-bottom:10px;}}
+
+.puli-v3 #cross-device .case-row--slots2 .case-figure > a{position:relative;}
+.v3-mark{position:absolute;border:2px solid var(--accent);border-radius:8px;pointer-events:none;box-shadow:0 0 0 2px rgba(255,255,255,.55);}
+.v3-mark--web{left:95.2%;top:10.6%;width:4.8%;height:25.4%;border-right:none;border-radius:8px 0 0 8px;}
+.v3-mark--kiosk{left:59.2%;top:92.6%;width:36.4%;height:5.8%;}
+.v3-mark-label{position:absolute;white-space:nowrap;padding:2px 7px;border-radius:4px;background:var(--accent);color:#fff;font-size:12px;line-height:1.5;font-weight:500;letter-spacing:.02em;}
+.v3-mark--web .v3-mark-label{right:calc(100% + 6px);top:0;}
+.v3-mark--kiosk .v3-mark-label{right:0;bottom:calc(100% + 6px);}
+
+.v3-foot-label{margin-bottom:12px;font-size:13px;letter-spacing:.12em;color:var(--accent,var(--gold));}
+.puli-v3 .footer-col h4.v3-foot-h{font-size:12px;letter-spacing:.1em;text-transform:none;}
+
+body.v3-light{--bg:#F6F4EF;--bg-mid:#ECE8E0;--text:#1E1F1C;--text-dim:#5E5D57;--gold:#8A6A1F;--border:rgba(139,38,53,.22);--border-dim:rgba(30,31,28,.13);--accent:#8B2635;--accent-wash:rgba(139,38,53,.06);}
+
+.v3-light .case-text p,.v3-light .case-role p{color:rgba(30,31,28,.88);}
+.v3-light .detail-meta-value{color:rgba(30,31,28,.86);}
+.v3-light .case-figure figcaption,.v3-light .v2-more,.v3-light .case-note,.v3-light .case-row-arrow,.v3-light .case-more{color:rgba(30,31,28,.74);}
+.v3-light .v3-toc-label,.v3-light .v3-toc-toggle-label{color:rgba(30,31,28,.64);}
+.v3-light .v3-toc a{color:rgba(30,31,28,.74);}
+.v3-light .v3-toc a:hover,.v3-light .v3-toc a[aria-current]{color:var(--text);}
+.v3-light .footer-label,.v3-light .footer-col h4{color:rgba(138,106,31,.85);}
+.v3-light .footer-info p,.v3-light .footer-col a{color:rgba(30,31,28,.66);}
+.v3-light .footer-col p{color:rgba(30,31,28,.55);}
+
+.v3-light .v3-switch{background:rgba(246,244,239,.96);border-color:rgba(30,31,28,.16);box-shadow:0 2px 12px rgba(30,31,28,.08);}
+.v3-light .v3-switch-item{color:rgba(30,31,28,.86);}
+.v3-light a.v3-switch-item:hover{color:var(--text);background:rgba(30,31,28,.06);}
+.v3-light .v3-switch .is-disabled{color:rgba(30,31,28,.36);}
+.v3-light .v3-sep{background:rgba(30,31,28,.16);}
+
+.v3-light .detail-hero{--text:#F5EFE6;--text-dim:#CFCBC2;--accent:#B97D86;color:#F5EFE6;}
+.v3-light .detail-hero-overlay{background:linear-gradient(180deg,rgba(13,17,20,.18) 0%,rgba(13,17,20,.32) 30%,rgba(13,17,20,.62) 62%,rgba(13,17,20,.74) 86%,var(--bg) 100%);}
+.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#F5EFE6;--text-dim:#CFCBC2;}
+.v3-light.v3-past-hero nav::before,.v3-light.menu-open nav::before{background:#F6F4EF;border-bottom:1px solid var(--border-dim);}
+.v3-light.v3-past-hero .nav-logo img,.v3-light.menu-open .nav-logo img{filter:invert(1) hue-rotate(180deg);}
+
+.v4 nav::before{background:#F6F4EF;border-bottom:1px solid var(--border-dim);}
+
+@media(min-width:769px){body.v4 nav{height:76px;padding-top:0;padding-bottom:0;}}
+
+body.v4.v3-light:not(.menu-open) nav::before{background:rgba(246,244,239,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);}
+.v4.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#1E1F1C;--text-dim:#5E5D57;}
+.v4 .nav-logo img{filter:invert(1) hue-rotate(180deg);}
+
+.v4-head{padding-top:calc(var(--nav-h,96px) + 56px);padding-bottom:40px;}
+.v4-back{display:inline-block;margin-bottom:28px;font-size:14px;color:rgba(30,31,28,.7);text-decoration:none;}
+.v4-back:hover{color:var(--accent);}
+.v4-title{font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:500;line-height:1.18;letter-spacing:.01em;color:var(--text);word-break:keep-all;}
+.v4-role{margin-top:14px;font-size:14px;letter-spacing:.04em;color:rgba(30,31,28,.62);}
+.v4 .nb{white-space:nowrap;}
+.v4-sub{max-width:34em;margin-top:18px;font-size:18px;line-height:1.7;font-weight:400;color:rgba(30,31,28,.8);}
+.v4-live{display:inline-block;margin-top:22px;font-size:15px;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;}
+.v4-back:focus-visible,.v4-live:focus-visible{outline:1px solid var(--accent);outline-offset:4px;}
+
+.v4-show{margin:0;}
+.v4-show figure{margin:0;}
+.v4-show-row{display:flex;gap:24px;align-items:flex-start;}
+.v4-show-row > figure{min-width:0;}
+.v4-show a{display:block;}
+.v4-show-web{flex:1.7778 1 0;}
+.v4-show-kiosk{flex:.5625 1 0;}
+.v4-show img{display:block;width:100%;height:auto;border-radius:var(--img-radius,8px);}
+.v4-show figcaption{margin-top:10px;font-size:14px;line-height:1.7;color:rgba(30,31,28,.72);}
+@media(max-width:768px){
+  .v4-head{padding-top:calc(var(--nav-h,64px) + 36px);padding-bottom:28px;}
+  .v4-back{margin-bottom:20px;}
+  .v4-sub{font-size:16.5px;}
+  .v4-show-row{gap:14px;}
+}
+
+@media(max-width:600px){.v4-show-row > .v4-show-kiosk{display:none;}}
+
+.v4 .v3-intro .v4-info{display:block;padding-top:44px;}
+.v4 .v3-intro .v4-info .detail-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 32px;margin:0;}
+.v4-info-cols{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);column-gap:64px;margin-top:40px;}
+.v4 .v3-intro .v4-info-cols > .case-role{grid-area:auto;max-width:none;}
+.v4-q{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.v4-q li{font-size:17px;font-weight:400;line-height:1.7;color:rgba(30,31,28,.88);}
+
+body.puli-article{--q-accent:#B97D86;}body.fox-article{--q-accent:#6683B7;}body.mp-article{--q-accent:#D4B26A;}body.mu-article{--q-accent:#8FB59A;}body.gm-article{--q-accent:#EB7934;}
+.v4-q a{color:inherit;text-decoration:none;}
+.v4-q-t{background:linear-gradient(var(--q-accent,currentColor),var(--q-accent,currentColor)) 0 100%/0 2px no-repeat;padding-bottom:3px;transition:background-size .35s ease;}
+.v4-q-arr{display:inline-block;margin-left:8px;color:var(--q-accent,currentColor);transition:transform .35s ease;}
+.v4-q a:hover .v4-q-t,.v4-q a:focus-visible .v4-q-t{background-size:100% 2px;}
+.v4-q a:hover .v4-q-arr,.v4-q a:focus-visible .v4-q-arr{transform:translateX(4px);}
+@media(prefers-reduced-motion:reduce){.v4-q-t,.v4-q-arr{transition:none;}.v4-q a:hover .v4-q-arr,.v4-q a:focus-visible .v4-q-arr{transform:none;}}
+@media(max-width:899px){.v4-info-cols{grid-template-columns:minmax(0,1fr);row-gap:32px;}}
+@media(max-width:768px){.v4 .v3-intro .v4-info{padding-top:36px;}.v4 .v3-intro .v4-info .detail-meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px;}.v4-info-cols{margin-top:32px;}}
+
+.v4 .v3-main{container-type:inline-size;}
+.v4 #entry > .v4-drag{max-width:none;margin-top:0;}
+.v4-drag-text .case-text{max-width:none;}
+.v4 #entry .v4-hint{width:auto;max-width:16em;margin:5em auto 0;text-align:center;}
+.v4-hint img{display:block;width:115px;height:auto;margin:0 auto;}
+
+.v4 #entry .v4-drag > .case-figure--video{width:100%;max-width:280px;margin:28px auto 0;}
+@container (min-width:800px){
+
+  .v4-drag{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px;align-items:start;}
+  .v4 #entry .v4-drag > .case-figure--video{max-width:260px;margin:7px auto 0;}
+}
+
+.v4 .footer-col h4.v3-foot-h{color:var(--accent);}
+
+.v4{--read:700px;--col:700px;}
+
+.v4 .v3-main .case-subhead,.v4 #entry > .case-subhead{max-width:none;}
+
+.v4 .v3-intro .v4-info .detail-meta{padding-bottom:28px;border-bottom:1px solid var(--border-dim);}
+.v4 .v3-intro .v4-info-cols > .case-role{border-top:none;padding-top:0;}
+.v4-info-cols{margin-top:36px;}
+
+.v4 footer{position:relative;border-top:none;}
+.v4 footer::before{content:"";position:absolute;top:0;left:var(--page-x);right:var(--page-x);border-top:1px solid var(--border-dim);}
+
+body.v4{--serif:'Manrope','Noto Sans TC',sans-serif;--sans:'Manrope','Noto Sans TC',sans-serif;font-family:var(--sans);font-weight:400;letter-spacing:.2px;}
+
+body.v4 .v4-title{font-family:var(--sans);font-size:52px;font-weight:600;letter-spacing:1px;line-height:1.2;}
+
+body.v4 .onsite-title{font-family:var(--sans);font-size:30px;font-weight:600;letter-spacing:.8px;line-height:1.4;}
+
+body.v4 .case-subhead{font-family:var(--sans);font-size:21px;font-weight:600;letter-spacing:.8px;line-height:1.5;}
+
+body.v4 .detail-tag,body.v4 .detail-meta-label,body.v4 .case-role h2,body.v4 .v4-role{font-size:14px;font-weight:500;letter-spacing:.8px;line-height:1.5;text-transform:none;opacity:1;color:var(--accent);}
+body.v4 .detail-meta-label{margin-bottom:6px;}
+body.v4 .v4-role{margin-top:16px;}
+
+body.v4 .v4-sub,body.v4 .case-text p,body.v4 .case-role p,body.v4 .v4-q li,body.v4 .case-note{font-family:var(--sans);font-size:18px;font-weight:400;letter-spacing:.2px;line-height:1.8;}
+
+body.v4 .detail-meta-value{font-size:16px;font-weight:400;letter-spacing:.2px;line-height:1.65;}
+
+body.v4 .case-figure figcaption,body.v4 .v4-show figcaption{font-size:14px;font-weight:400;letter-spacing:.2px;line-height:1.7;}
+body.v4 .case-figure figcaption b{font-size:14px;font-weight:500;}
+
+body.v4 .nav-links a{font-size:14px;letter-spacing:.08em;}
+body.v4 .nav-cv{font-size:14px;letter-spacing:.06em;padding:8px 18px;}
+body.v4 .mobile-menu-cv-label{font-size:14px;letter-spacing:.08em;}
+body.v4 .mobile-menu-links a{font-family:var(--sans);font-weight:500;}
+body.v4 .v3-toc-label,body.v4 .v3-toc-toggle-label{font-size:14px;letter-spacing:.08em;text-transform:uppercase;}
+body.v4 .v3-toc a{font-size:15px;}
+body.v4 .v3-toc a b{font-family:var(--sans);font-size:14px;font-weight:500;}
+body.v4 .v4-back{font-size:14px;}
+body.v4 .v4-live{font-size:15px;}
+body.v4 .v3-mark-label{font-size:13px;}
+@media(max-width:540px){
+  body.v4 .v4-title{font-size:36px;}
+  body.v4 .onsite-title{font-size:26px;}
+  body.v4 .case-subhead{font-size:20px;}
+  body.v4 .v4-sub,body.v4 .case-text p,body.v4 .case-role p,body.v4 .v4-q li,body.v4 .case-note{font-size:17px;}
+}
+
+body.v4 footer.v4-foot{display:block;padding:56px var(--page-x) 64px;}
+.v4-foot-title{margin-bottom:16px;font-size:30px;font-weight:600;letter-spacing:.8px;line-height:1.4;color:var(--text);}
+.v4-foot p{font-size:16px;font-weight:400;line-height:1.7;color:rgba(30,31,28,.86);}
+.v4-foot-links{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:12px;}
+.v4-foot-links a{font-size:16px;font-weight:500;color:var(--accent);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;}
+.v4-foot-links a:hover{text-decoration-thickness:2px;}
+.v4-foot-links a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+.v4-foot p.v4-foot-copy{margin-top:28px;font-size:14px;color:#5E5D57;}
+
+body.v4 footer.v4-foot{position:relative;}
+.v4-foot p.v4-foot-copy{position:absolute;right:var(--page-x);bottom:64px;margin:0;line-height:1.7;}
+@media(max-width:540px){.v4-foot p.v4-foot-copy{position:static;margin-top:28px;text-align:right;}}
+@media(max-width:540px){.v4-foot-title{font-size:26px;}}
+
+.v3-light .case-flow-label,.v3-light .case-flow-branch-label{color:rgba(30,31,28,.66);font-size:14px;}
+.v3-light .case-flow-step{color:var(--text);border-color:rgba(30,31,28,.2);background:rgba(255,255,255,.5);}
+.v3-light .case-flow > li + li::before{color:rgba(30,31,28,.45);}
+.v3-light .case-flow-branch{border-left-color:rgba(30,31,28,.2);}
+.v3-light .case-flow-note{color:rgba(30,31,28,.74);}
+.v3-light .case-lane h3{color:var(--text);}
+.v3-light .case-lane li{color:rgba(30,31,28,.84);}
+.v3-light .case-lane p{color:rgba(30,31,28,.74);}
+
+.v4 .onsite-title em{font-style:normal;color:inherit;}
+
+body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:rgba(235,121,52,.08);--border:rgba(235,121,52,.3);}
+.gm-article .v3-toc a[aria-current]{border-left-color:var(--accent-solid);}
+.gm-article .v4-live{border-bottom-color:var(--accent-solid);}
+.gm-article .v4-foot-links a{text-decoration-color:var(--accent-solid);}
+
+.v4 .v3-main > .case-section--tight{scroll-margin-top:var(--anchor-offset,120px);padding-top:24px;}
+@media(max-width:1179px){.v4 .v3-main > .case-section--tight{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}}
+.v4 .v3-intro .v4-info .detail-meta{position:static;border-top:1px solid var(--border-dim);}
+.v4 .case-role p + p{margin-top:12px;}
+
+.gm-article .v4-show-row > .v4-show-web{flex:1 1 0;}
+
+.gm-article .gm-hero img{width:min(100%,1040px);margin:0 auto;aspect-ratio:1414/900;border-radius:0;filter:drop-shadow(0 24px 30px rgba(30,31,28,.18));}
+
+.gm-grid,.gm-onsite{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 24px;}
+.gm-onsite-hero{grid-column:1 / -1;}
+
+@media(min-width:601px){.gm-onsite-hero img{aspect-ratio:2400/1067;object-fit:cover;object-position:50% 0;}}
+.gm-video{position:relative;aspect-ratio:16/9;border-radius:var(--img-radius,8px);overflow:hidden;background:#fff;}
+.gm-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+@media(max-width:600px){.gm-grid,.gm-onsite{grid-template-columns:minmax(0,1fr);gap:28px;}}
+
+.gm-article .case-figure img,.gm-article .v4-show img{display:block;width:100%;height:auto;border-radius:var(--img-radius,8px);}
+
+.gm-final-row{display:flex;gap:24px;align-items:flex-start;}
+.gm-frame{position:relative;overflow:hidden;background:#fff;}
+.gm-frame--web{box-shadow:inset 0 0 0 1px rgba(30,31,28,.16);}
+.gm-frame--web{flex:1.6 1 0;aspect-ratio:16/10;border-radius:var(--img-radius,8px);}
+
+.gm-frame--phone{flex:.4621 1 0;aspect-ratio:390/844;border-radius:var(--img-radius,8px);box-shadow:inset 0 0 0 1px rgba(30,31,28,.16);}
+.gm-scroll{position:absolute;inset:1px;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.gm-scroll::-webkit-scrollbar{display:none;}
+.gm-article .gm-scroll img{display:block;width:100%;height:auto;border-radius:0;}
+.gm-scroll:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+
+@media(max-width:600px){
+  .gm-final-row{flex-direction:column;align-items:center;gap:20px;}
+  .gm-frame--web{flex:none;width:100%;}
+  .gm-frame--phone{flex:none;width:min(240px,70%);}
+
+  .gm-frame--phone,.gm-cap-both{display:none;}
+}
+
+.gm-article a.gm-lb{cursor:zoom-in;}
+.gm-video-catch{position:absolute;inset:0;z-index:1;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:zoom-in;}
+.gm-video-catch:focus-visible{outline:2px solid var(--accent);outline-offset:-4px;}
+.gm-lightbox{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:88px var(--page-x) 96px;background:#F6F4EF;opacity:0;transition:opacity .2s ease;}
+.gm-lightbox.open{opacity:1;}
+.gm-lightbox[hidden]{display:none;}
+.gm-lb-stage{width:100%;max-width:1400px;max-height:100%;aspect-ratio:16/9;}
+.gm-lb-stage img,.gm-lb-stage iframe{display:block;width:100%;height:100%;object-fit:contain;border:0;}
+.gm-lb-stage iframe{background:#000;border-radius:6px;}
+.gm-lightbox button{position:absolute;display:flex;align-items:center;justify-content:center;border:1px solid rgba(30,31,28,.22);border-radius:50%;background:#F6F4EF;color:var(--text);font-size:18px;cursor:pointer;transition:border-color .2s,color .2s;}
+.gm-lightbox button:hover{border-color:var(--accent);color:var(--accent);}
+.gm-lightbox button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.gm-lb-close{top:24px;right:var(--page-x);width:44px;height:44px;font-size:15px;}
+
+.gm-lightbox .gm-lb-prev,.gm-lightbox .gm-lb-next{border-radius:4px;}
+.gm-lb-prev,.gm-lb-next{top:50%;transform:translateY(-50%);width:52px;height:52px;}
+.gm-lb-prev{left:calc(var(--page-x) - 72px);}
+.gm-lb-next{right:calc(var(--page-x) - 72px);}
+.gm-lb-caption{position:absolute;left:0;right:0;bottom:28px;padding:0 120px;text-align:center;font-size:14px;line-height:1.6;color:rgba(30,31,28,.78);}
+.gm-lb-count{margin-right:12px;font-variant-numeric:tabular-nums;color:rgba(30,31,28,.55);}
+@media(max-width:1023px){.gm-lb-prev{left:12px;}.gm-lb-next{right:12px;}.gm-lightbox{padding:88px 76px 104px;}}
+@media(max-width:600px){
+  .gm-lightbox{padding:72px 12px 132px;}
+  .gm-lb-close{right:12px;top:12px;}
+  .gm-lb-prev,.gm-lb-next{top:auto;bottom:24px;transform:none;}
+  .gm-lb-prev{left:calc(50% - 64px);}.gm-lb-next{right:calc(50% - 64px);}
+  .gm-lb-caption{bottom:88px;padding:0 16px;font-size:13px;}
+}
+@media(prefers-reduced-motion:reduce){.gm-lightbox{transition:none;}}
+</style>
+<link rel="stylesheet" href="../css/link-preview.css">
+<link rel="stylesheet" href="../css/site-brand.css">
+<link rel="stylesheet" href="../css/hero-grain.css">
+<link rel="stylesheet" href="../css/site-logo.css">
+<link rel="stylesheet" href="../css/site-footer.css">
+</head>
+<body id="top" class="case-template case-lede-first gm-article puli-v3 v3-light v4">
+
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><svg class="logo-h" viewBox="-3.5 -1.5 53.5 52.5" role="img" aria-label="Helen Hsieh 首頁"><path d="M43 5V45M24 25H43"/><circle class="s" cx="5" cy="8" r="7.4" style="--dx:9px"/><circle class="s" cx="5" cy="25" r="7.4" style="--dx:0px"/><circle class="s" cx="5" cy="42" r="7.4" style="--dx:9px"/></svg></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#works">Work</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cv" href="../cv/Helen-Hsieh-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+  <button class="nav-toggle" id="navToggle" aria-label="開啟導覽選單" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-menu-links">
+    <li><a href="../index.html#works">Work</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="../cv/Helen-Hsieh-CV.pdf" target="_blank" rel="noopener">CV ↗</a></li>
+  </ul>
+</div>
+
+<header class="v3-frame v4-head">
+  <a class="v4-back" href="../index.html#works">← 返回所有專案</a>
+  <h1 class="v4-title">麻吉城市樂園<br>活動主視覺與網站</h1>
+  <ul class="v4-role" aria-label="負責項目"><li class="v4-chip">活動主視覺</li><li class="v4-chip">網站 UI</li><li class="v4-chip">切版</li></ul>
+  <p class="v4-sub">為 GOMAJI 夠麻吉品牌識別更新後的城市嘉年華設計宣傳網頁，以更新後的品牌視覺與既有角色 Maji Friend 為基礎，在 3 週內同時完成品牌識別介紹與購票導購兩項任務。</p>
+  <a class="v4-live" href="https://event.gomaji.com/activities/202306/carnivalcity2023/" data-preview="../img/link-preview/gomaji-live-site.webp" target="_blank" rel="noopener">查看上線網站 ↗</a>
+</header>
+
+<div class="v3-frame v4-show">
+  <div class="v4-show-row">
+    <figure class="v4-show-web gm-hero"><img src="../img/gomaji-process/gomaji-mockup.webp" srcset="../img/gomaji-process/gomaji-mockup-900.webp 900w, ../img/gomaji-process/gomaji-mockup.webp 1414w" sizes="(max-width: 1240px) 92vw, 1040px" alt="麻吉城市樂園活動網站在筆電與手機上的首頁畫面：遊樂園插畫主視覺與活動名稱，手機版下方有 9 折現金抵用券，右上角有品牌角色" width="1414" height="900" fetchpriority="high"><figcaption>案例主視覺</figcaption></figure>
+  </div>
+</div>
+
+<div class="v3-frame v3-intro">
+<div class="detail-body v4-info">
+  <div class="detail-meta">
+    <div class="detail-meta-item"><div class="detail-meta-label">客戶</div><div class="detail-meta-value">GOMAJI 夠麻吉</div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">我的角色</div><div class="detail-meta-value">活動主視覺、網站 UI、前端切版</div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">專案時程</div><div class="detail-meta-value"><span class="nb">2023.06</span> · <span class="nb">企劃 1.5 週＋設計 1.5 週</span>（共 3 週）</div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">工具</div><div class="detail-meta-value">Photoshop · Illustrator · Sublime</div></div>
+  </div>
+  <div class="v4-info-cols">
+    <div class="case-role">
+      <h2>我的工作</h2>
+      <p>品牌 Logo、Maji Friend 角色與既有識別來自 GOMAJI；我以此為基礎，設計活動主視覺的城市背景、元素組合、活動主標、配色與構圖。</p>
+      <p>網站以單頁式捲動把活動亮點、美食主打星、活動資訊等內容分區導覽，我負責網站 UI 與 HTML/CSS 切版，並運用動畫插件製作標題動效，確保購票入口在每個裝置上都清楚可見。活動方向由 PM 決定，網站需要的內容項目由 PM 口頭提出；因時程緊迫，我一邊設計一邊整理網站架構與頁面規劃。平台整合與部署由工程團隊負責。</p>
+    </div>
+    <div class="case-role v4-challenges">
+      <h2>設計挑戰</h2>
+      <ul class="v4-q">
+        <li><a href="#process"><span class="v4-q-t">如何用既有品牌元素做出城市樂園的主視覺，並讓訪客一路捲動到購票入口</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+<div class="v3-frame v3-layout">
+  <div class="v3-toc" role="navigation" aria-label="案例章節">
+    <span class="v3-toc-label">In This Case</span>
+    <button class="v3-toc-toggle" type="button" aria-expanded="false" aria-controls="v3TocList"><span class="v3-toc-toggle-label">In This Case</span><span class="v3-toc-current">01 主視覺與網頁規範</span><svg class="v3-toc-caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <ol id="v3TocList">
+      <li><a href="#process"><b>01</b><span>主視覺與網頁規範</span></a></li>
+      <li><a href="#onsite"><b>02</b><span>活動現場</span></a></li>
+      <li><a href="#outcome"><b>03</b><span>成果</span></a></li>
+    </ol>
+  </div>
+  <div class="v3-main">
+
+<section class="case-section case-section--tight" id="process">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>01 · DESIGN PROCESS</span>
+    <h2 class="onsite-title">從品牌元素建立活動主視覺與網頁規範</h2>
+  </div>
+  <div class="case-text">
+    <p>以下依序呈現活動背景、網頁設計規範與實體物料延伸。</p>
+  </div>
+  <div class="gm-grid case-media">
+    <figure class="case-figure"><a class="gm-lb" data-lb="0" aria-haspopup="dialog" href="../img/gomaji-process/process-2-background.jpg" target="_blank" rel="noopener"><img src="../img/gomaji-process/process-2-background-w860.webp" alt="麻吉城市樂園 活動背景與目的" width="1800" height="1012" loading="lazy"></a><figcaption><b>活動背景</b>推廣品牌新視覺與精神，帶入「城市」與「樂園」主題，結合品牌既有角色 Maji Friend</figcaption></figure>
+    <figure class="case-figure"><a class="gm-lb" data-lb="1" aria-haspopup="dialog" href="../img/gomaji-process/process-3-designspec.jpg" target="_blank" rel="noopener"><img src="../img/gomaji-process/process-3-designspec-w860.webp" alt="麻吉城市樂園 網頁設計規範" width="1800" height="1012" loading="lazy"></a><figcaption><b>設計規範</b>目標客群、五色系統與網頁／手機版切版規劃，Slogan 以對話框搭配品牌輔助圖案<br><span>點圖放大</span></figcaption></figure>
+    <figure class="case-figure"><a class="gm-lb" data-lb="2" aria-haspopup="dialog" href="../img/gomaji-process/process-4-extension.jpg" target="_blank" rel="noopener"><img src="../img/gomaji-process/process-4-extension-w860.webp" alt="麻吉城市樂園 活動延伸設計與現場物料" width="1800" height="1012" loading="lazy"></a><figcaption><b>實體延伸</b>我將主視覺延伸為邀請卡、Banner、背板與旗幟；DM 使用此視覺，但 DM 與指示物非本人製作</figcaption></figure>
+    <figure class="case-figure"><div class="gm-video"><iframe src="https://www.youtube.com/embed/7Y2rm-JwWdo" title="麻吉城市樂園 活動宣傳影片（YouTube）" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><button type="button" class="gm-lb gm-video-catch" data-lb="3" data-video="https://www.youtube.com/embed/7Y2rm-JwWdo?autoplay=1" aria-haspopup="dialog" aria-label="放大播放：麻吉城市樂園 活動宣傳影片"></button></div><figcaption><b>活動花絮</b>活動宣傳影片</figcaption></figure>
+  </div>
+</section>
+
+<section class="case-section" id="onsite">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>02 · ON-SITE · 2023.06</span>
+    <h2 class="onsite-title">主視覺從螢幕走進活動現場</h2>
+  </div>
+  <div class="case-text">
+    <p>2023 年 6 月，麻吉城市樂園在新店陽光運動公園正式登場，以下是活動現場實拍畫面。</p>
+  </div>
+  <div class="gm-onsite case-media">
+    <figure class="case-figure gm-onsite-hero"><span class="fig-media"><img src="../img/gomaji-onsite/onesite-2-w1770.webp" alt="麻吉城市樂園活動現場舞台與滿場參與人潮" width="2400" height="1600" loading="lazy"></span><figcaption><b>活動現場</b>舞台背板沿用活動主視覺</figcaption></figure>
+    <figure class="case-figure"><span class="fig-media"><img src="../img/gomaji-onsite/onesite-1-w860.webp" alt="麻吉城市樂園活動網頁實際使用畫面" width="2400" height="1600" loading="lazy"></span><figcaption><b>活動網頁現場使用示意</b></figcaption></figure>
+    <figure class="case-figure"><span class="fig-media"><img src="../img/gomaji-onsite/onesite-3-w860.webp" alt="麻吉城市樂園駐唱嘉賓演出" width="2400" height="1600" loading="lazy"></span><figcaption><b>麻吉嘉賓演出</b></figcaption></figure>
+  </div>
+</section>
+
+<section class="case-section case-section--end case-outcome" id="outcome">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>03 · OUTCOME</span>
+    <h2 class="onsite-title">網站隨活動上線，承接活動資訊與購票入口</h2>
+  </div>
+  <div class="case-text">
+    <p>同一套主視覺也延伸到我設計的邀請卡、Banner、背板與旗幟，用於活動現場。</p>
+  </div>
+  <figure class="case-figure gm-final case-media">
+    <div class="gm-final-row">
+      <div class="gm-frame gm-frame--web"><div class="gm-scroll" tabindex="0" role="region" aria-label="網頁版上線網站截圖，可在框內捲動"><img src="../img/gomaji-web/desktop-full/part-01.jpg" alt="麻吉城市樂園活動網站桌機版完整頁面：主視覺、活動亮點、演出卡司、抽獎、美食主打星、活動資訊與會場地圖" width="1440" height="1600" loading="lazy" decoding="async"><img src="../img/gomaji-web/desktop-full/part-02.jpg" alt="" width="1440" height="1600" loading="lazy" decoding="async"><img src="../img/gomaji-web/desktop-full/part-03.jpg" alt="" width="1440" height="1600" loading="lazy" decoding="async"><img src="../img/gomaji-web/desktop-full/part-04.jpg" alt="" width="1440" height="1600" loading="lazy" decoding="async"><img src="../img/gomaji-web/desktop-full/part-05.jpg" alt="" width="1440" height="1600" loading="lazy" decoding="async"><img src="../img/gomaji-web/desktop-full/part-06.jpg" alt="" width="1440" height="1600" loading="lazy" decoding="async"><img src="../img/gomaji-web/desktop-full/part-07.jpg" alt="" width="1440" height="1600" loading="lazy" decoding="async"><img src="../img/gomaji-web/desktop-full/part-08.jpg" alt="" width="1440" height="1314" loading="lazy" decoding="async"></div></div>
+      <div class="gm-frame gm-frame--phone"><div class="gm-scroll" tabindex="0" role="region" aria-label="手機版上線網站截圖，可在框內捲動"><img src="../img/gomaji-web/web-mobile-full-480-w480.webp" alt="麻吉城市樂園活動網站手機版完整頁面" width="480" height="15207" loading="lazy" decoding="async"></div></div>
+    </div>
+    <figcaption><b>最終畫面</b>上線網站截圖，<span class="gm-cap-both">左為網頁版、右為手機版；</span>可在框內捲動瀏覽</figcaption>
+  </figure>
+</section>
+  </div>
+</div>
+
+<div class="v3-dock">
+  <div class="v3-switch is-floating" role="navigation" aria-label="專案切換">
+    <a class="v3-switch-item" href="museum-light.html">← 上一個<span class="v3-long">專案</span><span class="v3-sr">：國立歷史博物館 AR 探索</span></a>
+    <span class="v3-sep" aria-hidden="true"></span>
+    <a class="v3-switch-item" href="../index.html#works">所有專案</a>
+    <span class="v3-sep" aria-hidden="true"></span>
+    <span class="v3-switch-item is-disabled" aria-disabled="true" title="這是最後一個專案">下一個<span class="v3-long">專案</span> →</span>
+  </div>
+</div>
+
+<footer id="contact" class="ft" aria-labelledby="contactTitle">
+  <div class="ft-center">
+    <div class="ft-head">
+      <h2 class="ft-title" id="contactTitle" lang="en"><span class="ph">Let’s make things</span> <span class="ph">clearer, <em>Together.</em></span></h2>
+      <ul class="ft-tags" aria-label="技能與對應案例">
+        <li><a class="ft-tag ft-tag--ui" href="foxconn-light.html#modes"><span lang="en">Interaction Design</span><span class="sr">：鴻海｜路線模式切換</span></a></li>
+        <li><a class="ft-tag ft-tag--ix" href="museum-light.html#lantern"><span lang="en">Prototyping</span><span class="sr">：史博館｜天燈操作流程與 Prototype</span></a></li>
+        <li><a class="ft-tag ft-tag--flow" href="gomaji-light.html#process"><span lang="en">Visual Design</span><span class="sr">：麻吉城市樂園｜主視覺與網頁規範</span></a></li>
+        <li><a class="ft-tag ft-tag--code" href="mamypoko-light.html#build"><span lang="en">HTML / CSS</span><span class="sr">：滿意寶寶｜規範、切版與確認</span></a></li>
+      </ul>
+    </div>
+    <div class="ft-cta">
+      <a class="ft-btn" href="mailto:helenn1219@gmail.com"><span class="sr">寄信給我：</span>helenn1219@gmail.com</a>
+      <button type="button" class="ft-copy" data-copy="helenn1219@gmail.com" aria-label="複製 Email 地址">複製</button>
+    </div>
+    <p class="ft-note">開放 UI/UX 與 Product Designer 工作機會，台灣與海外</p>
+    <p class="ft-links">
+      <a href="https://www.linkedin.com/in/helenhsieh-thedesigner" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../cv/Helen-Hsieh-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+    </p>
+  </div>
+  <div class="ft-bottom">
+    <p>© 2026 Helen Hsieh</p>
+    <a class="ft-top" href="#top" aria-label="返回頁面頂部"><span lang="en">TOP</span> <svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 13.5V3M4 7l4-4 4 4"/></svg></a>
+  </div>
+</footer>
+
+<script src="../js/nav.js"></script>
+<script>
+
+</script>
+
+<div class="gm-lightbox" id="gmLightbox" role="dialog" aria-modal="true" aria-label="設計軌跡放大檢視" hidden>
+  <button type="button" class="gm-lb-close" id="gmLbClose" aria-label="關閉">✕</button>
+  <button type="button" class="gm-lb-prev" id="gmLbPrev" aria-label="上一張">←</button>
+  <div class="gm-lb-stage" id="gmLbStage"></div>
+  <button type="button" class="gm-lb-next" id="gmLbNext" aria-label="下一張">→</button>
+  <p class="gm-lb-caption"><span class="gm-lb-count" id="gmLbCount"></span><span id="gmLbCaption"></span></p>
+</div>
+<script>
+(function () {
+  const triggers = [...document.querySelectorAll('.gm-lb')].sort((a, b) => a.dataset.lb - b.dataset.lb);
+  const lb = document.getElementById('gmLightbox');
+  if (!lb || !triggers.length) return;
+  const stage = document.getElementById('gmLbStage'), cap = document.getElementById('gmLbCaption'), count = document.getElementById('gmLbCount');
+  const closeBtn = document.getElementById('gmLbClose');
+
+  const items = triggers.map(t => {
+    const fc = t.closest('figure').querySelector('figcaption');
+    const b = fc.querySelector('b'), title = b ? b.textContent.trim() : '';
+    const rest = fc.textContent.replace(title, '').trim();
+    const caption = rest ? `${title}｜${rest}` : title;
+    if (t.dataset.video) return { type: 'video', src: t.dataset.video, caption };
+    const img = t.querySelector('img');
+    return { type: 'image', src: t.getAttribute('href'), alt: img ? img.alt : title, caption };
+  });
+  let idx = 0, last = null;
+  const render = () => {
+    const it = items[idx];
+    stage.classList.toggle('is-video', it.type === 'video');
+    stage.innerHTML = it.type === 'image'
+      ? `<img src="${it.src}" alt="${it.alt}">`
+      : `<iframe src="${it.src}" title="麻吉城市樂園 活動宣傳影片（YouTube）" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+    count.textContent = `${idx + 1}／${items.length}`;
+    cap.textContent = it.caption;
+  };
+  const inertBg = on => [...document.body.children].forEach(el => { if (el === lb || el.tagName === 'SCRIPT') return; on ? el.setAttribute('inert', '') : el.removeAttribute('inert'); });
+  const open = i => { last = triggers[i]; idx = i; render(); lb.hidden = false; void lb.offsetWidth; lb.classList.add('open'); document.body.style.overflow = 'hidden'; inertBg(true); closeBtn.focus(); };
+  const close = () => { lb.classList.remove('open'); lb.hidden = true; stage.innerHTML = ''; document.body.style.overflow = ''; inertBg(false); if (last) last.focus(); };
+  const step = d => { idx = (idx + d + items.length) % items.length; render(); };
+  triggers.forEach((t, i) => t.addEventListener('click', e => { e.preventDefault(); open(i); }));
+  closeBtn.addEventListener('click', close);
+  document.getElementById('gmLbPrev').addEventListener('click', () => step(-1));
+  document.getElementById('gmLbNext').addEventListener('click', () => step(1));
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  window.addEventListener('keydown', e => {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') step(-1);
+    else if (e.key === 'ArrowRight') step(1);
+    else if (e.key === 'Tab') {
+      const f = [...lb.querySelectorAll('button, iframe')]; const first = f[0], end = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); end.focus(); }
+      else if (!e.shiftKey && document.activeElement === end) { e.preventDefault(); first.focus(); }
+    }
+  });
+})();
+</script>
+<script>
+
+(function () {
+  const body = document.body;
+  const nav = document.getElementById('mainNav');
+  const toc = document.querySelector('.v3-toc');
+  const toggle = toc.querySelector('.v3-toc-toggle');
+  const current = toc.querySelector('.v3-toc-current');
+  const links = [...toc.querySelectorAll('a[href^="#"]')];
+  const sections = links.map(a => document.getElementById(a.hash.slice(1)));
+  const narrow = window.matchMedia('(max-width: 1179px)');
+  const dock = document.querySelector('.v3-dock');
+  const bar = dock.querySelector('.v3-switch');
+
+  const hero = document.querySelector('.detail-hero') || document.querySelector('.v4-show');
+  let offset = 120, navH = 96, barGap = 20, dockPad = 48;
+
+  function measure() {
+    navH = nav ? nav.getBoundingClientRect().height : 96;
+    body.style.setProperty('--nav-h', navH + 'px');
+    offset = navH + (narrow.matches ? toggle.offsetHeight : 0) + 20;
+    body.style.setProperty('--anchor-offset', offset + 'px');
+    body.style.setProperty('--bar-h', bar.offsetHeight + 'px');
+    barGap = parseFloat(getComputedStyle(body).getPropertyValue('--bar-gap')) || 20;
+    dockPad = parseFloat(getComputedStyle(dock).paddingTop) || 48;
+  }
+
+  function setOpen(open) {
+    toc.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+
+  function update() {
+
+    let idx = 0;
+    sections.forEach((s, i) => { if (s.getBoundingClientRect().top - offset <= 8) idx = i; });
+    links.forEach((a, i) => { if (i === idx) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
+    current.textContent = links[idx].textContent.replace(/^(\d+)/, '$1 ');
+
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    body.classList.toggle('v3-past-hero', heroBottom < navH);
+    toc.classList.toggle('is-stuck', narrow.matches && toc.getBoundingClientRect().top <= navH + 1);
+
+    const docked = dock.getBoundingClientRect().top + dockPad <= window.innerHeight - barGap - bar.offsetHeight;
+    bar.classList.toggle('is-floating', !docked);
+
+    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open'));
+
+    const overlay = body.classList.contains('menu-open') || !!document.querySelector('[role="dialog"]:not([hidden]), .lightbox.open, .taitra-lightbox.open');
+    bar.classList.toggle('is-off', overlay);
+  }
+
+  let ticking = false;
+  const schedule = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; update(); }); } };
+
+  toggle.addEventListener('click', () => {
+    const open = !toc.classList.contains('is-open');
+
+    if (open && narrow.matches) {
+      const gap = toc.getBoundingClientRect().top - navH;
+      if (gap > 1) window.scrollTo(0, window.scrollY + gap);
+    }
+    setOpen(open);
+    schedule();
+  });
+  links.forEach(a => a.addEventListener('click', () => { if (narrow.matches) setOpen(false); }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && toc.classList.contains('is-open')) { setOpen(false); toggle.focus(); } });
+  const onBreakpoint = () => { setOpen(false); measure(); schedule(); };
+  if (narrow.addEventListener) narrow.addEventListener('change', onBreakpoint); else narrow.addListener(onBreakpoint);
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', () => { measure(); schedule(); });
+  new MutationObserver(schedule).observe(body, { attributes: true, attributeFilter: ['class'] });
+  window.addEventListener('load', () => { measure(); schedule(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); schedule(); });
+
+  measure();
+  update();
+})();
+</script>
+<script src="../js/link-preview.js"></script>
+<script src="../js/site-footer.js"></script>
+<script src="../js/site-cursor.js"></script>
+<script src="../js/hero-orb.js" data-host="body" data-page data-shift-y="-.15" data-alpha=".7" data-colors="241,196,166|235,169,126|247,222,206"></script>
+</body>
+</html>

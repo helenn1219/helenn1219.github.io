@@ -1,0 +1,405 @@
+#lead-banner{
+    height: 80vh; 
+    background-color: #024DA1;
+    background-size: cover ,cover;
+    position: relative;
+}
+#lead-banner .banner-bg{
+    background: url(../img/banner.jpg) no-repeat center top;
+    position: absolute;
+    right: 0;
+    background-size: cover;
+}
+#lead-banner h1{
+    font-size: 5.5vh;
+    color: #B9CE42;
+    line-height: 3.2rem;
+}
+#lead-banner h2{
+    display: inline-block;
+    position: relative;
+    font-size: 3.5vh;
+    margin-top: 10px;
+    color: #fff;
+    left: 5px;
+    margin-bottom: 0px;
+}
+#lead-banner h3{
+    display: inline-block;
+    position: relative;
+    color: #fff;
+    font-size: 2.6vh;
+    font-weight: 300;
+    left: 5px;
+}
+#lead-banner .bground{
+    position: fixed;
+    justify-content: center;
+}
+#lead-banner .fixed-bg{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 100%;
+}
+.content-left{
+    padding: 0;
+}
+#lead-banner .logo{
+    max-width: 10rem;
+    margin: 40px 17px 0px 17px;
+    left: 0;
+}
+#lead-banner .content-right{
+    position: absolute;
+    right: -5%;
+    top: 10rem;
+    width: 100vh;
+
+}
+
+
+
+#lead-banner .btn-prime{
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: 500;
+} 
+/* 前言
+=============================================================== */
+.bg-grey{
+    background-color: #e8e8e8;
+}
+.open {
+    min-height: 35vh;
+    display: flex;
+    align-items: center;
+}
+.open h6{
+    text-align: center;
+    padding: 5px;
+    line-height: 30px;
+}
+
+
+/* 1.取代傳統基礎架構，超融合基礎架構HCI 成為時代主流
+=============================================================== */
+.intro h2{
+    color: #034ea2;
+    font-size: 1.8rem;
+}
+.intro img{
+    max-width: 20rem;
+    width: inherit;
+}
+
+
+/* 特色
+=============================================================== */
+
+.features .bg-white {
+    position: relative;
+    height: 101%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+}
+.features h5{
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+.features ul li p{
+    display: inline-block;
+}
+.features .last{
+    justify-content: center;
+    margin: inherit;
+}
+.features .align-items-stretch{
+    padding-top: 5vh;
+    margin-top: 25px;
+}
+#more{
+    display: inline-block;
+    border: solid 1.5px #99c10a;
+    color: #99c10a;
+}
+#hide-area{
+    margin: inherit;
+}
+.border-green{
+    border-color: #B9CE42 !important;
+    border-width: 2px !important;
+}
+.img-out{
+    /*display: flex;*/
+}
+.f-img{
+    display: block;
+    max-width: 6rem;
+    position: relative;
+    margin: 10px auto;
+}
+.text-s{
+    font-size: 16px;
+}
+.green-title{
+    display: block;
+    color: #fff;
+    background-color: #B9CE42;
+    border-radius: 50px;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    padding: 9px 0;
+    z-index: 200;
+}
+.green-title h5{
+    font-size: 1.2rem;
+    margin: 0 10px;
+}
+
+/* 立即體驗！
+=============================================================== */
+.check-text{
+    font-size: 15px;
+    padding-left: 2px;
+}
+
+/*左*/
+.ad-box{
+    max-width: 100%;
+    position: relative;
+    align-self: center;
+}
+.ad{
+    background:rgba(225,225,225,0.3);
+    border-radius: 20px;
+    max-width: 100%;
+    max-height: 81vh;;
+    padding: 30px;
+    overflow: hidden;
+    margin-bottom: 5rem;
+}
+.ad img{
+    display: flex;
+    overflow: hidden;
+}
+.ad h5{
+    color: #034ea2;
+    font-size: 23px;
+    font-weight: 500;
+}
+.ad p{
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    line-height: 1.5 !important;
+}
+.ad-content{
+    display: -webkit-box;
+}
+.circle-g{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: #B9CE42;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: 8px;
+}
+.circle{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: 8px;
+}
+.more{
+    color: #fff;
+    max-width: 100%;
+    padding: 20px;
+    display: block;
+}
+.ad-img-g{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ad-img-g .ad-img{
+    max-width: 10rem;
+    margin: 0 1%;
+}
+/*右*/
+#form .ad-content{
+    justify-content: space-between;
+}
+#form .right h3{
+    text-align: center;
+    margin-top: 10px;
+}
+.download .date{
+    background-image: url(../img/caret.png);
+    background-repeat: no-repeat;
+    background-size: 8px;
+    background-position: right 16px center;
+}
+.download select {
+    background-image: url(../img/caret.png);
+    background-repeat: no-repeat;
+    background-size: 8px;
+    background-position: right 16px center;
+}
+.download img {
+  /*  max-width: initial;*/
+    float: right;
+    display: block;
+    width: auto;
+    height: auto;
+}
+.download .container-fluid{
+    padding-top: 1%;
+}
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+.time-text{
+    position: absolute;
+    z-index: 1;
+    left: 13px;
+    top: 8px;
+    background-color: #fff;
+    padding-right: 34px;
+}
+
+.tel {
+    display: flex;
+}
+
+.tel input {
+    border: none;
+    background-color: transparent;
+}
+
+.tel input:focus {
+    outline: none;
+}
+
+.tel input:nth-of-type(1) {
+    width: 50%;
+    /*min-width: 260px;*/
+}
+
+.tel input:nth-of-type(2) {
+    width: 20%;
+    /*min-width: 100px; */
+}
+
+.tel input:nth-of-type(3) {
+    width: 20%;
+}
+
+.download .bg-white {
+    padding: 1rem!important;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.area-code{
+    width: 30%;
+  /*  min-width: 100px;*/
+}
+.city{
+    width: 25%;
+}
+.area{
+    width: 25%;
+}
+.address{
+    width: 50%;
+}
+
+
+/*MODAL*/
+.modal {
+  text-align: center;
+  padding: 0!important;
+
+}
+
+
+.modal-dialog {
+  display: flex;
+  vertical-align: middle;
+}
+.thankyou-content{
+  
+    
+}
+.thankyou-content .text-box{
+    justify-content: center;
+    padding: 27px;
+    width: 48vh;
+}
+.thankyou-content .text-box h4{
+    color: #024da0;
+}
+.thankyou-content .text-box h6{
+    margin: 10px 0;
+}
+.thankyou-content .text-box p{
+    font-size: 15px;
+}
+.thankyou-content .close{
+    padding: 10px;
+    position: absolute;
+    right: 0;
+}
+.modal-content{
+    align-items: center;
+    /*margin: auto 20px;*/
+}
+
+
+
+
+/*裝飾*/
+.d1,.d2,.d3{
+    display: block;
+    position: absolute;
+}
+.d1{
+    z-index: 20;
+    top: 45%;
+    width: 16rem;
+    left: -8%;
+}
+.d2{
+    top: 70%;
+    z-index: 0;
+    width: 20rem;
+    left: -6%;
+}
+.d3{
+    z-index: 100;
+    top: 68%;
+    width: 16rem!important;
+    right: -12%;
+}
+
+
+.line{
+    width: 38.5px;
+    margin-right: 4px;
+}
+

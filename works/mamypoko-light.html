@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="no-smooth-scroll">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>嬌聯滿意寶寶 LINE 優惠券前台 | Helen Hsieh</title>
+<meta name="description" content="滿意寶寶 LINE 優惠券前台：實體門市與 EC 兩種兌換分支、條碼與倒數的兌換畫面、票券狀態設計，以及前台所有頁面的 HTML/CSS 切版。">
+<meta property="og:title" content="嬌聯滿意寶寶 LINE 優惠券前台 | Helen Hsieh">
+<meta property="og:description" content="把既定的多通路兌換規則，落實為 LINE 前台的操作與票券狀態介面，並完成前台所有頁面的 HTML/CSS 切版。">
+<meta property="og:image" content="https://helenn1219.github.io/img/og/mamypoko-front.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#D4B26A; --accent-solid:#A6782E; --accent-wash:rgba(166,120,46,.09); --accent-glow:rgba(166,120,46,.38);}
+</style>
+<style>
+
+.puli-v3{--read:680px;--col:680px;--toc-w:190px;--toc-gap:48px;--bar-gap:20px;}
+.v3-frame{padding-left:var(--page-x);padding-right:var(--page-x);}
+
+.puli-v3 .v3-intro .detail-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);grid-template-areas:"lede lede" "role meta";column-gap:64px;row-gap:0;padding:96px 0 64px;}
+.puli-v3 .v3-intro .detail-main{display:contents;}
+.puli-v3 .v3-intro .detail-lede{grid-area:lede;max-width:780px;margin:0 0 40px;}
+.puli-v3 .v3-intro .case-role{grid-area:role;max-width:none;}
+.puli-v3 .v3-intro .detail-meta{grid-area:meta;max-width:none;margin:0;padding-top:28px;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;align-content:start;}
+.puli-v3 .v3-intro .detail-meta-item:first-child{grid-column:auto;}
+.puli-v3 .meta-sep{display:none;}
+.puli-v3 .meta-line{display:block;}
+@media(max-width:899px){
+  .puli-v3 .v3-intro .detail-body{grid-template-columns:minmax(0,1fr);grid-template-areas:"lede" "role" "meta";padding:64px 0 48px;}
+  .puli-v3 .v3-intro .detail-meta{margin-top:32px;border-top:1px solid var(--border-dim);}
+}
+
+.v3-layout{display:grid;grid-template-columns:var(--toc-w) minmax(0,1fr);column-gap:var(--toc-gap);}
+.v3-toc{align-self:start;position:sticky;top:calc(var(--nav-h,96px) + 24px);padding-top:24px;padding-bottom:28px;}
+.v3-main{min-width:0;}
+.puli-v3 .v3-main > .case-section{padding-left:0;padding-right:0;scroll-margin-top:calc(var(--anchor-offset,120px) - 56px);}
+.puli-v3 .v3-main > #entry{scroll-margin-top:var(--anchor-offset,120px);}
+.puli-v3 #entry{padding-left:0;padding-right:0;}
+.puli-v3 #entry > *{margin-left:0;margin-right:0;}
+.puli-v3 #entry > .v2-wide{max-width:none;}
+
+.puli-v3 #entry .case-subhead{margin-left:0;margin-right:0;margin-bottom:14px;}
+
+.puli-v3 #entry > .v2-video{margin-left:0;}
+.puli-v3 .v3-main .case-row,.puli-v3 .v3-main .puli-aside{max-width:100%;}
+.puli-v3 .v3-main > .case-section--end{padding-bottom:24px;}
+
+.puli-v3 .case-text p,.puli-v3 .case-role p{font-family:var(--sans);font-size:17.5px;line-height:1.82;font-weight:400;}
+.puli-v3 .detail-lede{font-weight:400;}
+.puli-v3 .onsite-title{font-weight:400;}
+.puli-v3 .case-subhead{font-family:var(--sans);font-size:20px;font-weight:500;line-height:1.5;}
+.puli-v3 .case-figure figcaption,.puli-v3 .case-note,.puli-v3 .case-more,.puli-v3 .case-row-arrow{font-size:14px;line-height:1.7;font-weight:400;}
+.puli-v3 .case-figure figcaption b{font-size:14.5px;font-weight:500;}
+.puli-v3 .case-note{font-size:15.5px;}
+.puli-v3 .detail-meta-value{font-size:15px;font-weight:400;}
+.puli-v3 .detail-meta-label{font-size:11px;}
+@media(max-width:768px){.puli-v3 .case-text p,.puli-v3 .case-role p{font-size:16.5px;line-height:1.8;}.puli-v3 .case-subhead{font-size:18.5px;}}
+
+.puli-v3.v3-past-hero nav::before,.puli-v3.menu-open nav::before{background:#0D1114;border-bottom:1px solid var(--border-dim);}
+
+.v3-toc-label{display:block;margin-bottom:14px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,237,230,.6);}
+.v3-toc-toggle{display:none;}
+.v3-toc ol{list-style:none;display:flex;flex-direction:column;border-left:1px solid var(--border-dim);}
+.v3-toc a{display:flex;gap:10px;align-items:baseline;margin-left:-1px;padding:8px 0 8px 14px;border-left:2px solid transparent;font-size:15px;font-weight:400;line-height:1.5;color:rgba(240,237,230,.7);text-decoration:none;transition:color .2s,border-color .2s;}
+.v3-toc a b{flex:none;font-family:var(--serif);font-weight:400;font-size:13.5px;color:var(--accent);}
+.v3-toc a:hover{color:var(--text);}
+.v3-toc a[aria-current]{color:var(--text);border-left-color:var(--accent);}
+.v3-toc a:focus-visible,.v3-toc-toggle:focus-visible{outline:1px solid var(--accent);outline-offset:2px;}
+@media(max-width:1179px){
+  .v3-layout{grid-template-columns:minmax(0,1fr);}
+  .v3-toc{top:var(--nav-h,72px);z-index:50;margin:0 calc(-1 * var(--page-x));padding:0 var(--page-x);background:var(--bg);border-top:1px solid var(--border-dim);border-bottom:1px solid var(--border-dim);}
+  .puli-v3 .v3-main > #entry{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}
+  .v3-toc-label{display:none;}
+  .v3-toc-toggle{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:10px;width:100%;min-height:48px;cursor:pointer;font-size:15px;color:var(--text);}
+  .v3-toc-toggle-label{font-size:11.5px;letter-spacing:.2em;color:rgba(240,237,230,.6);}
+  .v3-toc-current{flex:1;}
+  .v3-toc-caret{transition:transform .2s;}
+  .v3-toc.is-open .v3-toc-caret{transform:rotate(180deg);}
+  .v3-toc{padding-bottom:0;}
+  .v3-toc ol{display:none;border-left:none;padding-bottom:16px;}
+  .v3-toc.is-open ol{display:flex;}
+  .v3-toc a{margin-left:0;padding:10px 0 10px 12px;}
+}
+
+.v3-dock{height:calc(var(--bar-h,48px) + 96px);padding-top:48px;display:flex;justify-content:center;border-top:1px solid var(--border-dim);margin:0 var(--page-x);}
+.v3-switch{z-index:90;display:flex;align-items:center;gap:2px;height:max-content;padding:5px;border:1px solid rgba(240,237,230,.14);border-radius:999px;background:rgba(13,17,20,.94);}
+.v3-switch.is-floating{position:fixed;left:50%;bottom:var(--bar-gap);transform:translateX(-50%);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .2s;}
+
+.v3-switch.is-floating.is-shown,.v3-switch.is-floating:focus-within{opacity:1;pointer-events:auto;}
+
+.v3-switch.is-off{visibility:hidden;}
+.v3-switch-item{display:inline-flex;align-items:center;min-height:38px;padding:0 15px;border-radius:999px;font-size:14px;font-weight:400;color:rgba(240,237,230,.88);text-decoration:none;white-space:nowrap;}
+a.v3-switch-item:hover{color:var(--text);background:rgba(240,237,230,.07);}
+a.v3-switch-item:focus-visible{outline:1px solid var(--accent);outline-offset:1px;}
+.v3-switch .is-disabled{color:rgba(240,237,230,.36);}
+.v3-sep{width:1px;height:16px;background:rgba(240,237,230,.14);}
+.v3-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+@media(max-width:480px){.puli-v3{--bar-gap:12px;}.v3-long{display:none;}.v3-switch-item{padding:0 12px;}}
+@media(prefers-reduced-motion:reduce){.v3-switch,.v3-toc a,.v3-toc-caret{transition:none;}}
+
+@media(max-width:768px){.puli-v3 nav{padding-top:10px;padding-bottom:10px;}}
+
+.puli-v3 #cross-device .case-row--slots2 .case-figure > a{position:relative;}
+.v3-mark{position:absolute;border:2px solid var(--accent);border-radius:8px;pointer-events:none;box-shadow:0 0 0 2px rgba(255,255,255,.55);}
+.v3-mark--web{left:95.2%;top:10.6%;width:4.8%;height:25.4%;border-right:none;border-radius:8px 0 0 8px;}
+.v3-mark--kiosk{left:59.2%;top:92.6%;width:36.4%;height:5.8%;}
+.v3-mark-label{position:absolute;white-space:nowrap;padding:2px 7px;border-radius:4px;background:var(--accent);color:#fff;font-size:12px;line-height:1.5;font-weight:500;letter-spacing:.02em;}
+.v3-mark--web .v3-mark-label{right:calc(100% + 6px);top:0;}
+.v3-mark--kiosk .v3-mark-label{right:0;bottom:calc(100% + 6px);}
+
+.v3-foot-label{margin-bottom:12px;font-size:13px;letter-spacing:.12em;color:var(--accent,var(--gold));}
+.puli-v3 .footer-col h4.v3-foot-h{font-size:12px;letter-spacing:.1em;text-transform:none;}
+
+body.v3-light{--bg:#F6F4EF;--bg-mid:#ECE8E0;--text:#1E1F1C;--text-dim:#5E5D57;--gold:#8A6A1F;--border:rgba(139,38,53,.22);--border-dim:rgba(30,31,28,.13);--accent:#8B2635;--accent-wash:rgba(139,38,53,.06);}
+
+.v3-light .case-text p,.v3-light .case-role p{color:rgba(30,31,28,.88);}
+.v3-light .detail-meta-value{color:rgba(30,31,28,.86);}
+.v3-light .case-figure figcaption,.v3-light .v2-more,.v3-light .case-note,.v3-light .case-row-arrow,.v3-light .case-more{color:rgba(30,31,28,.74);}
+.v3-light .v3-toc-label,.v3-light .v3-toc-toggle-label{color:rgba(30,31,28,.64);}
+.v3-light .v3-toc a{color:rgba(30,31,28,.74);}
+.v3-light .v3-toc a:hover,.v3-light .v3-toc a[aria-current]{color:var(--text);}
+.v3-light .footer-label,.v3-light .footer-col h4{color:rgba(138,106,31,.85);}
+.v3-light .footer-info p,.v3-light .footer-col a{color:rgba(30,31,28,.66);}
+.v3-light .footer-col p{color:rgba(30,31,28,.55);}
+
+.v3-light .v3-switch{background:rgba(246,244,239,.96);border-color:rgba(30,31,28,.16);box-shadow:0 2px 12px rgba(30,31,28,.08);}
+.v3-light .v3-switch-item{color:rgba(30,31,28,.86);}
+.v3-light a.v3-switch-item:hover{color:var(--text);background:rgba(30,31,28,.06);}
+.v3-light .v3-switch .is-disabled{color:rgba(30,31,28,.36);}
+.v3-light .v3-sep{background:rgba(30,31,28,.16);}
+
+.v3-light .detail-hero{--text:#F5EFE6;--text-dim:#CFCBC2;--accent:#B97D86;color:#F5EFE6;}
+.v3-light .detail-hero-overlay{background:linear-gradient(180deg,rgba(13,17,20,.18) 0%,rgba(13,17,20,.32) 30%,rgba(13,17,20,.62) 62%,rgba(13,17,20,.74) 86%,var(--bg) 100%);}
+.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#F5EFE6;--text-dim:#CFCBC2;}
+.v3-light.v3-past-hero nav::before,.v3-light.menu-open nav::before{background:#F6F4EF;border-bottom:1px solid var(--border-dim);}
+.v3-light.v3-past-hero .nav-logo img,.v3-light.menu-open .nav-logo img{filter:invert(1) hue-rotate(180deg);}
+
+.v4 nav::before{background:#F6F4EF;border-bottom:1px solid var(--border-dim);}
+
+@media(min-width:769px){body.v4 nav{height:76px;padding-top:0;padding-bottom:0;}}
+
+body.v4.v3-light:not(.menu-open) nav::before{background:rgba(246,244,239,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);}
+.v4.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#1E1F1C;--text-dim:#5E5D57;}
+.v4 .nav-logo img{filter:invert(1) hue-rotate(180deg);}
+
+.v4-head{padding-top:calc(var(--nav-h,96px) + 56px);padding-bottom:40px;}
+.v4-back{display:inline-block;margin-bottom:28px;font-size:14px;color:rgba(30,31,28,.7);text-decoration:none;}
+.v4-back:hover{color:var(--accent);}
+.v4-title{font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:500;line-height:1.18;letter-spacing:.01em;color:var(--text);word-break:keep-all;}
+.v4-role{margin-top:14px;font-size:14px;letter-spacing:.04em;color:rgba(30,31,28,.62);}
+.v4 .nb{white-space:nowrap;}
+.v4-sub{max-width:34em;margin-top:18px;font-size:18px;line-height:1.7;font-weight:400;color:rgba(30,31,28,.8);}
+.v4-live{display:inline-block;margin-top:22px;font-size:15px;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;}
+.v4-back:focus-visible,.v4-live:focus-visible{outline:1px solid var(--accent);outline-offset:4px;}
+
+.v4-show{margin:0;}
+.v4-show figure{margin:0;}
+.v4-show-row{display:flex;gap:24px;align-items:flex-start;}
+.v4-show-row > figure{min-width:0;}
+.v4-show a{display:block;}
+.v4-show-web{flex:1.7778 1 0;}
+.v4-show-kiosk{flex:.5625 1 0;}
+.v4-show img{display:block;width:100%;height:auto;border-radius:var(--img-radius,8px);}
+.v4-show figcaption{margin-top:10px;font-size:14px;line-height:1.7;color:rgba(30,31,28,.72);}
+@media(max-width:768px){
+  .v4-head{padding-top:calc(var(--nav-h,64px) + 36px);padding-bottom:28px;}
+  .v4-back{margin-bottom:20px;}
+  .v4-sub{font-size:16.5px;}
+  .v4-show-row{gap:14px;}
+}
+
+@media(max-width:600px){.v4-show-row > .v4-show-kiosk{display:none;}}
+
+.v4 .v3-intro .v4-info{display:block;padding-top:44px;}
+.v4 .v3-intro .v4-info .detail-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 32px;margin:0;}
+.v4-info-cols{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);column-gap:64px;margin-top:40px;}
+.v4 .v3-intro .v4-info-cols > .case-role{grid-area:auto;max-width:none;}
+.v4-q{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.v4-q li{font-size:17px;font-weight:400;line-height:1.7;color:rgba(30,31,28,.88);}
+
+body.puli-article{--q-accent:#B97D86;}body.fox-article{--q-accent:#6683B7;}body.mp-article{--q-accent:#D4B26A;}body.mu-article{--q-accent:#8FB59A;}body.gm-article{--q-accent:#EB7934;}
+.v4-q a{color:inherit;text-decoration:none;}
+.v4-q-t{background:linear-gradient(var(--q-accent,currentColor),var(--q-accent,currentColor)) 0 100%/0 2px no-repeat;padding-bottom:3px;transition:background-size .35s ease;}
+.v4-q-arr{display:inline-block;margin-left:8px;color:var(--q-accent,currentColor);transition:transform .35s ease;}
+.v4-q a:hover .v4-q-t,.v4-q a:focus-visible .v4-q-t{background-size:100% 2px;}
+.v4-q a:hover .v4-q-arr,.v4-q a:focus-visible .v4-q-arr{transform:translateX(4px);}
+@media(prefers-reduced-motion:reduce){.v4-q-t,.v4-q-arr{transition:none;}.v4-q a:hover .v4-q-arr,.v4-q a:focus-visible .v4-q-arr{transform:none;}}
+@media(max-width:899px){.v4-info-cols{grid-template-columns:minmax(0,1fr);row-gap:32px;}}
+@media(max-width:768px){.v4 .v3-intro .v4-info{padding-top:36px;}.v4 .v3-intro .v4-info .detail-meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px;}.v4-info-cols{margin-top:32px;}}
+
+.v4 .v3-main{container-type:inline-size;}
+.v4 #entry > .v4-drag{max-width:none;margin-top:0;}
+.v4-drag-text .case-text{max-width:none;}
+.v4 #entry .v4-hint{width:auto;max-width:16em;margin:5em auto 0;text-align:center;}
+.v4-hint img{display:block;width:115px;height:auto;margin:0 auto;}
+
+.v4 #entry .v4-drag > .case-figure--video{width:100%;max-width:280px;margin:28px auto 0;}
+@container (min-width:800px){
+
+  .v4-drag{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px;align-items:start;}
+  .v4 #entry .v4-drag > .case-figure--video{max-width:260px;margin:7px auto 0;}
+}
+
+.v4 .footer-col h4.v3-foot-h{color:var(--accent);}
+
+.v4{--read:700px;--col:700px;}
+
+.v4 .v3-main .case-subhead,.v4 #entry > .case-subhead{max-width:none;}
+
+.v4 .v3-intro .v4-info .detail-meta{padding-bottom:28px;border-bottom:1px solid var(--border-dim);}
+.v4 .v3-intro .v4-info-cols > .case-role{border-top:none;padding-top:0;}
+.v4-info-cols{margin-top:36px;}
+
+.v4 footer{position:relative;border-top:none;}
+.v4 footer::before{content:"";position:absolute;top:0;left:var(--page-x);right:var(--page-x);border-top:1px solid var(--border-dim);}
+
+body.v4{--serif:'Manrope','Noto Sans TC',sans-serif;--sans:'Manrope','Noto Sans TC',sans-serif;font-family:var(--sans);font-weight:400;letter-spacing:.2px;}
+
+body.v4 .v4-title{font-family:var(--sans);font-size:52px;font-weight:600;letter-spacing:1px;line-height:1.2;}
+
+body.v4 .onsite-title{font-family:var(--sans);font-size:30px;font-weight:600;letter-spacing:.8px;line-height:1.4;}
+
+body.v4 .case-subhead{font-family:var(--sans);font-size:21px;font-weight:600;letter-spacing:.8px;line-height:1.5;}
+
+body.v4 .detail-tag,body.v4 .detail-meta-label,body.v4 .case-role h2,body.v4 .v4-role{font-size:14px;font-weight:500;letter-spacing:.8px;line-height:1.5;text-transform:none;opacity:1;color:var(--accent);}
+body.v4 .detail-meta-label{margin-bottom:6px;}
+body.v4 .v4-role{margin-top:16px;}
+
+body.v4 .v4-sub,body.v4 .case-text p,body.v4 .case-role p,body.v4 .v4-q li,body.v4 .case-note{font-family:var(--sans);font-size:18px;font-weight:400;letter-spacing:.2px;line-height:1.8;}
+
+body.v4 .detail-meta-value{font-size:16px;font-weight:400;letter-spacing:.2px;line-height:1.65;}
+
+body.v4 .case-figure figcaption,body.v4 .v4-show figcaption{font-size:14px;font-weight:400;letter-spacing:.2px;line-height:1.7;}
+body.v4 .case-figure figcaption b{font-size:14px;font-weight:500;}
+
+body.v4 .nav-links a{font-size:14px;letter-spacing:.08em;}
+body.v4 .nav-cv{font-size:14px;letter-spacing:.06em;padding:8px 18px;}
+body.v4 .mobile-menu-cv-label{font-size:14px;letter-spacing:.08em;}
+body.v4 .mobile-menu-links a{font-family:var(--sans);font-weight:500;}
+body.v4 .v3-toc-label,body.v4 .v3-toc-toggle-label{font-size:14px;letter-spacing:.08em;text-transform:uppercase;}
+body.v4 .v3-toc a{font-size:15px;}
+body.v4 .v3-toc a b{font-family:var(--sans);font-size:14px;font-weight:500;}
+body.v4 .v4-back{font-size:14px;}
+body.v4 .v4-live{font-size:15px;}
+body.v4 .v3-mark-label{font-size:13px;}
+@media(max-width:540px){
+  body.v4 .v4-title{font-size:36px;}
+  body.v4 .onsite-title{font-size:26px;}
+  body.v4 .case-subhead{font-size:20px;}
+  body.v4 .v4-sub,body.v4 .case-text p,body.v4 .case-role p,body.v4 .v4-q li,body.v4 .case-note{font-size:17px;}
+}
+
+body.v4 footer.v4-foot{display:block;padding:56px var(--page-x) 64px;}
+.v4-foot-title{margin-bottom:16px;font-size:30px;font-weight:600;letter-spacing:.8px;line-height:1.4;color:var(--text);}
+.v4-foot p{font-size:16px;font-weight:400;line-height:1.7;color:rgba(30,31,28,.86);}
+.v4-foot-links{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:12px;}
+.v4-foot-links a{font-size:16px;font-weight:500;color:var(--accent);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;}
+.v4-foot-links a:hover{text-decoration-thickness:2px;}
+.v4-foot-links a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+.v4-foot p.v4-foot-copy{margin-top:28px;font-size:14px;color:#5E5D57;}
+
+body.v4 footer.v4-foot{position:relative;}
+.v4-foot p.v4-foot-copy{position:absolute;right:var(--page-x);bottom:64px;margin:0;line-height:1.7;}
+@media(max-width:540px){.v4-foot p.v4-foot-copy{position:static;margin-top:28px;text-align:right;}}
+@media(max-width:540px){.v4-foot-title{font-size:26px;}}
+
+.v3-light .case-flow-label,.v3-light .case-flow-branch-label{color:rgba(30,31,28,.66);font-size:14px;}
+.v3-light .case-flow-step{color:var(--text);border-color:rgba(30,31,28,.2);background:rgba(255,255,255,.5);}
+.v3-light .case-flow > li + li::before{color:rgba(30,31,28,.45);}
+.v3-light .case-flow-branch{border-left-color:rgba(30,31,28,.2);}
+.v3-light .case-flow-note{color:rgba(30,31,28,.74);}
+.v3-light .case-lane h3{color:var(--text);}
+.v3-light .case-lane li{color:rgba(30,31,28,.84);}
+.v3-light .case-lane p{color:rgba(30,31,28,.74);}
+
+.v4 .onsite-title em{font-style:normal;color:inherit;}
+
+body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:rgba(126,90,28,.06);--border:rgba(126,90,28,.22);}
+
+.v4 .v3-main > .case-section--tight{scroll-margin-top:var(--anchor-offset,120px);padding-top:24px;}
+@media(max-width:1179px){.v4 .v3-main > .case-section--tight{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}}
+.v4 .v3-intro .v4-info .detail-meta{position:static;border-top:1px solid var(--border-dim);}
+.v4 .case-role p + p{margin-top:12px;}
+
+.mp-article .v4-show-row > .v4-show-web{flex:1 1 0;}
+
+.v4 .v3-main .case-row--phones2{max-width:calc(var(--phone-max) * 2 + 24px);}
+
+.mp-article .mp-build-top{max-width:var(--show);align-items:start;}
+.mp-article .mp-build-top > .case-text{max-width:none;}
+.mp-article .mp-build-top .case-figure{max-width:var(--phone-max);}
+.v4 .v3-main .mp-build-cms{max-width:var(--show);margin-top:48px;}
+
+.v4 .v3-main .mp-row-phones3{max-width:calc(var(--phone-max) * 3 + 48px);}
+
+.mp-article .case-lanes-wrap{max-width:var(--show,100%);}
+.mp-article .case-lanes-wrap .case-lanes{display:flex;flex-direction:column;gap:18px;padding-left:28px;}
+.mp-article .case-lane{position:relative;display:grid;grid-template-columns:84px minmax(0,1fr);column-gap:16px;align-items:start;padding:0;border:0;}
+
+.mp-article .case-lane::before{content:'';position:absolute;left:-28px;top:-18px;bottom:0;border-left:1px solid rgba(30,31,28,.28);}
+.mp-article .case-lane:first-child::before{top:-10px;}
+.mp-article .case-lane:last-child::before{bottom:auto;height:40px;}
+.mp-article .case-lane:first-child:last-child::before{height:32px;}
+.mp-article .case-lane::after{content:'';position:absolute;left:-28px;top:22px;width:20px;border-top:1px solid rgba(30,31,28,.28);}
+.mp-article .case-lane h3{grid-column:1;margin:0;padding-top:11px;font-size:15px;font-weight:600;line-height:1.4;}
+
+.mp-article .case-lane ol{grid-column:2;display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;gap:12px 40px;}
+.mp-article .case-lane li{flex:0 1 auto;min-width:0;}
+.mp-article .case-lane li{position:relative;padding:10px 16px;border:1px solid rgba(30,31,28,.2);border-radius:var(--img-radius,8px);background:rgba(255,255,255,.5);font-size:14px;line-height:1.5;color:var(--text);}
+.mp-article .case-lane li::before{content:none;}
+.mp-article .case-lane li + li::before{content:'→';position:absolute;left:-28px;top:50%;transform:translateY(-50%);color:rgba(30,31,28,.45);font-size:14px;}
+.mp-article .case-lane p{grid-column:2;margin-top:12px;font-size:13.5px;line-height:1.7;color:rgba(30,31,28,.66);}
+
+@media(max-width:600px){
+  .mp-article .case-lanes-wrap .case-lanes{padding-left:22px;gap:24px;}
+  .mp-article .case-lane{grid-template-columns:minmax(0,1fr);row-gap:10px;}
+  .mp-article .case-lane::before{left:-22px;top:-24px;}
+  .mp-article .case-lane:last-child::before{height:35px;}
+  .mp-article .case-lane::after{left:-22px;top:11px;width:14px;}
+  .mp-article .case-lane h3,.mp-article .case-lane ol,.mp-article .case-lane p{grid-column:1;}
+  .mp-article .case-lane h3{padding-top:0;}
+  .mp-article .case-lane ol{flex-direction:column;align-items:flex-start;gap:26px;}
+  .mp-article .case-lane li + li::before{content:'↓';left:16px;top:-22px;transform:none;}
+}
+
+.mp-article .mp-hero img{aspect-ratio:2240/936;object-fit:contain;background:#0d1114;}
+@media(max-width:600px){.mp-article .mp-hero img{aspect-ratio:16/9;}}
+
+.mp-article .mp-hero{--mpc-bg:#EFE6D2;}
+.mp-article .mp-hero .mpm{position:relative;aspect-ratio:2240/936;overflow:hidden;border-radius:var(--img-radius,8px);background:var(--mpc-bg);}
+.mp-article .mp-hero .mpm:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.mp-article .mp-hero .mpm-track{display:flex;align-items:center;gap:clamp(16px,2.4vw,32px);width:max-content;height:100%;padding:0 calc(clamp(16px,2.4vw,32px) / 2);animation:mpm-scroll 48s linear infinite;}
+.mp-article .mp-hero .mpm-dup{display:contents;}
+.mp-article .mp-hero .mpm img{flex:none;width:auto;height:82%;max-width:none;aspect-ratio:auto;object-fit:contain;background:none;border-radius:clamp(8px,1.4vw,18px);box-shadow:0 18px 36px -22px rgba(30,31,28,.45);}
+.mp-article .mp-hero .mpm:hover .mpm-track,.mp-article .mp-hero .mpm:focus-within .mpm-track{animation-play-state:paused;}
+@keyframes mpm-scroll{to{transform:translateX(-50%);}}
+@media(max-width:600px){.mp-article .mp-hero .mpm{aspect-ratio:16/9;}.mp-article .mp-hero .mpm-track{animation-duration:36s;}}
+
+@media(prefers-reduced-motion:reduce){
+  .mp-article .mp-hero .mpm{overflow-x:auto;scrollbar-width:thin;}
+  .mp-article .mp-hero .mpm-track{animation:none;}
+  .mp-article .mp-hero .mpm-dup{display:none;}
+}
+
+.zp-open{all:unset;box-sizing:border-box;display:inline;margin-left:4px;color:var(--accent);border-bottom:1px solid transparent;cursor:pointer;transition:border-color .2s;}
+.zp-open:hover{border-bottom-color:currentColor;}
+.zp-open:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.zp{position:fixed;inset:0;z-index:300;background:#F6F4EF;opacity:0;transition:opacity .2s ease;}
+.zp.open{opacity:1;}
+.zp[hidden]{display:none;}
+.zp-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:76px 24px 84px;overflow:hidden;cursor:zoom-in;}
+.zp-stage:focus-visible{outline:2px solid var(--accent);outline-offset:-6px;}
+.zp-stage img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;user-select:none;-webkit-user-drag:none;}
+.zp.is-zoom .zp-stage{display:block;overflow:auto;cursor:grab;}
+.zp.is-zoom .zp-stage.is-dragging{cursor:grabbing;}
+.zp.is-zoom .zp-stage img{max-width:none;max-height:none;margin:0 auto;}
+.zp-bar{position:absolute;left:0;right:0;bottom:24px;display:flex;align-items:center;justify-content:center;gap:16px;pointer-events:none;}
+.zp-bar > *{pointer-events:auto;}
+.zp-title{font-size:14px;line-height:1.6;color:rgba(30,31,28,.78);}
+.zp.is-zoom .zp-title{display:flex;align-items:center;height:44px;padding:0 16px;border:1px solid rgba(30,31,28,.12);border-radius:4px;background:#F6F4EF;}
+.zp button{display:flex;align-items:center;justify-content:center;border:1px solid rgba(30,31,28,.22);background:#F6F4EF;color:var(--text);cursor:pointer;transition:border-color .2s,color .2s;}
+.zp button:hover{border-color:var(--accent);color:var(--accent);}
+.zp button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.zp-close{position:absolute;top:24px;right:var(--page-x);width:44px;height:44px;border-radius:50%;font-size:15px;}
+.zp-zoom{width:44px;height:44px;border-radius:4px;font-size:18px;}
+@media(max-width:600px){.zp-stage{padding:68px 8px 84px;}.zp-close{top:12px;right:12px;}}
+@media(prefers-reduced-motion:reduce){.zp{transition:none;}}
+</style>
+<link rel="stylesheet" href="../css/site-brand.css">
+<link rel="stylesheet" href="../css/hero-grain.css">
+<link rel="stylesheet" href="../css/site-logo.css">
+<link rel="stylesheet" href="../css/site-footer.css">
+</head>
+<body id="top" class="case-template case-lede-first mp-article puli-v3 v3-light v4">
+
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><svg class="logo-h" viewBox="-3.5 -1.5 53.5 52.5" role="img" aria-label="Helen Hsieh 首頁"><path d="M43 5V45M24 25H43"/><circle class="s" cx="5" cy="8" r="7.4" style="--dx:9px"/><circle class="s" cx="5" cy="25" r="7.4" style="--dx:0px"/><circle class="s" cx="5" cy="42" r="7.4" style="--dx:9px"/></svg></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#works">Work</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cv" href="../cv/Helen-Hsieh-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+  <button class="nav-toggle" id="navToggle" aria-label="開啟導覽選單" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-menu-links">
+    <li><a href="../index.html#works">Work</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="../cv/Helen-Hsieh-CV.pdf" target="_blank" rel="noopener">CV ↗</a></li>
+  </ul>
+</div>
+
+<header class="v3-frame v4-head">
+  <a class="v4-back" href="../index.html#works">← 返回所有專案</a>
+  <h1 class="v4-title">嬌聯滿意寶寶<br>LINE 優惠券前台</h1>
+  <ul class="v4-role" aria-label="負責項目"><li class="v4-chip">前台 UI/UX</li><li class="v4-chip">介面規範</li><li class="v4-chip">前台切版</li></ul>
+  <p class="v4-sub">滿意寶寶透過 LINE 發放電子折價券，消費者領券後，可以到實體門市出示條碼兌換，或前往 EC 電商平台使用。品牌端則透過 CMS 設定活動內容。</p>
+</header>
+
+<div class="v3-frame v4-show">
+  <div class="v4-show-row">
+
+    <figure class="v4-show-web mp-hero">
+      <div class="mpm" tabindex="0" role="region" aria-label="滿意寶寶 LINE 優惠券前台畫面（共 8 張，自動緩慢捲動，滑鼠移上去暫停）">
+        <div class="mpm-track">
+          <img src="../img/mamypoko-mockup/mamypoko-2-home-w520.webp" alt="前台活動首頁：好友專屬標題、內容文字與領取折價券按鈕" width="520" height="925" decoding="async">
+          <img src="../img/mamypoko-mockup/mamypoko-4-cupon-w520.webp" alt="我的折價券：可使用、已使用、已失效分頁與折價券卡片的立即兌換按鈕" width="520" height="925" decoding="async">
+          <img src="../img/mamypoko-mockup/mamypoko-7-redeem-w520.webp" alt="實體門市兌換中畫面：丁丁藥局、倒數 29:54、條碼與確認兌換按鈕" width="520" height="925" decoding="async">
+          <img src="../img/mamypoko-mockup/mamypoko-5-channels-w520.webp" alt="選擇兌換通路畫面，列出丁丁藥局、啄木鳥、佑全等實體門市" width="520" height="925" decoding="async">
+          <img src="../img/mamypoko-mockup/mamypoko-6-shopee-w520.webp" alt="EC 分支：蝦皮拍賣折價序號與前往平台的按鈕" width="520" height="925" decoding="async">
+          <img src="../img/mamypoko-mockup/mamypoko-7a-confirm.jpg" alt="開始兌換前的確認提示：折價券只能於丁丁藥局實體通路收銀處使用一次，按確認兌換後會立即開始倒數，有效時間為 30 分鐘" width="750" height="1334" decoding="async">
+          <img src="../img/mamypoko-mockup/mamypoko-8-success.jpg" alt="兌換完成提示，顯示兌換日期與客服資訊" width="750" height="1334" decoding="async">
+          <img src="../img/mamypoko-mockup/mamypoko-9-expired.jpg" alt="兌換已過期提示：本電子兌換券已過期" width="750" height="1334" decoding="async">
+
+          <span class="mpm-dup" aria-hidden="true">
+          <img src="../img/mamypoko-mockup/mamypoko-2-home-w520.webp" alt="" data-alt="前台活動首頁：好友專屬標題、內容文字與領取折價券按鈕" width="520" height="925" decoding="async" loading="lazy">
+          <img src="../img/mamypoko-mockup/mamypoko-4-cupon-w520.webp" alt="" data-alt="我的折價券：可使用、已使用、已失效分頁與折價券卡片的立即兌換按鈕" width="520" height="925" decoding="async" loading="lazy">
+          <img src="../img/mamypoko-mockup/mamypoko-7-redeem-w520.webp" alt="" data-alt="實體門市兌換中畫面：丁丁藥局、倒數 29:54、條碼與確認兌換按鈕" width="520" height="925" decoding="async" loading="lazy">
+          <img src="../img/mamypoko-mockup/mamypoko-5-channels-w520.webp" alt="" data-alt="選擇兌換通路畫面，列出丁丁藥局、啄木鳥、佑全等實體門市" width="520" height="925" decoding="async" loading="lazy">
+          <img src="../img/mamypoko-mockup/mamypoko-6-shopee-w520.webp" alt="" data-alt="EC 分支：蝦皮拍賣折價序號與前往平台的按鈕" width="520" height="925" decoding="async" loading="lazy">
+          <img src="../img/mamypoko-mockup/mamypoko-7a-confirm.jpg" alt="" data-alt="開始兌換前的確認提示：折價券只能於丁丁藥局實體通路收銀處使用一次，按確認兌換後會立即開始倒數，有效時間為 30 分鐘" width="750" height="1334" decoding="async" loading="lazy">
+          <img src="../img/mamypoko-mockup/mamypoko-8-success.jpg" alt="" data-alt="兌換完成提示，顯示兌換日期與客服資訊" width="750" height="1334" decoding="async" loading="lazy">
+          <img src="../img/mamypoko-mockup/mamypoko-9-expired.jpg" alt="" data-alt="兌換已過期提示：本電子兌換券已過期" width="750" height="1334" decoding="async" loading="lazy">
+          </span>
+        </div>
+      </div>
+      <figcaption>活動頁、我的折價券、通路分支與兌換結果</figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="v3-frame v3-intro">
+<div class="detail-body v4-info">
+  <div class="detail-meta">
+    <div class="detail-meta-item"><div class="detail-meta-label">我的角色</div><div class="detail-meta-value">前台 UI/UX、介面規範、前台切版</div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">專案期間</div><div class="detail-meta-value"><span class="nb">2020</span> · <span class="nb">約 6 個月</span></div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">使用平台</div><div class="detail-meta-value">LINE LIFF 消費者前台</div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">合作對象</div><div class="detail-meta-value">客戶、PM、<span class="nb">CMS 設計師</span>、<span class="nb">工程團隊</span></div></div>
+  </div>
+  <div class="v4-info-cols">
+    <div class="case-role">
+      <h2>我的工作</h2>
+      <p>依 PM 提供的流程圖設計 LINE 前台介面，規劃前台文字與元件的呈現規則，並完成前台所有頁面的 HTML/CSS 切版與部分 jQuery 互動。</p>
+      <p>兌換規則由客戶與 PM 定義；品牌端 CMS 介面由另一位設計師負責，我與 CMS 設計師、工程師協作，確認設定如何呈現在前台。</p>
+    </div>
+    <div class="case-role v4-challenges">
+      <h2>設計挑戰</h2>
+      <ul class="v4-q">
+        <li><a href="#flow"><span class="v4-q-t">如何讓門市與 EC 兩種兌換方式共用前段流程</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
+        <li><a href="#redeem"><span class="v4-q-t">如何讓門市人員快速辨識條碼與剩餘時間</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
+        <li><a href="#build"><span class="v4-q-t">如何讓 CMS 設定的內容在前台穩定呈現</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+<div class="v3-frame v3-layout">
+  <div class="v3-toc" role="navigation" aria-label="案例章節">
+    <span class="v3-toc-label">In This Case</span>
+    <button class="v3-toc-toggle" type="button" aria-expanded="false" aria-controls="v3TocList"><span class="v3-toc-toggle-label">In This Case</span><span class="v3-toc-current">01 兌換流程</span><svg class="v3-toc-caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <ol id="v3TocList">
+      <li><a href="#flow"><b>01</b><span>兌換流程</span></a></li>
+      <li><a href="#redeem"><b>02</b><span>門市兌換畫面</span></a></li>
+      <li><a href="#states"><b>03</b><span>票券狀態</span></a></li>
+      <li><a href="#build"><b>04</b><span>規範、切版與確認</span></a></li>
+      <li><a href="#outcome"><b>05</b><span>成果與回顧</span></a></li>
+    </ol>
+  </div>
+  <div class="v3-main">
+
+<section class="case-section case-section--tight" id="flow">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>01 · FLOW</span>
+    <h2 class="onsite-title">從共同入口銜接不同兌換通路</h2>
+  </div>
+  <div class="case-text">
+    <p>我依 PM 提供的流程圖設計前台介面。實體門市與 EC 的兌換方式不同，但前段流程共用：從 LINE 進入活動頁領券（是否需要填寫基本資料，依活動設定），再到「我的折價券」選擇要兌換的優惠券與通路。選擇通路後，才分成兩種兌換方式。</p>
+  </div>
+  <div class="case-lanes-wrap">
+    <span class="case-flow-label">共同流程</span>
+    <ol class="case-flow" aria-label="共同流程">
+      <li><span class="case-flow-step">從 LINE 進入</span></li>
+      <li><span class="case-flow-step">活動頁領券</span></li>
+      <li><span class="case-flow-step">我的折價券</span></li>
+      <li><span class="case-flow-step">選擇兌換通路</span></li>
+    </ol>
+    <span class="case-flow-label case-flow-label--fork">依選擇的通路，擇一進行</span>
+    <div class="case-lanes">
+      <div class="case-lane">
+        <h3>實體門市</h3>
+        <ol>
+          <li>確認兌換提示：按下後開始 30 分鐘倒數</li>
+          <li>出示條碼與倒數</li>
+          <li>門市人員點選「確認兌換」</li>
+        </ol>
+        <p>30 分鐘內完成為「兌換完成」，逾時則為「已過期」。</p>
+      </div>
+      <div class="case-lane">
+        <h3>EC 電商</h3>
+        <ol>
+          <li>顯示該平台的折價序號</li>
+          <li>提供前往平台的入口</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="case-row case-row--phones2 case-media">
+    <figure class="case-figure" style="--r:0.5622">
+      <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-5-channels-w520.webp" alt="選擇兌換通路畫面，列出丁丁藥局、啄木鳥、佑全等實體門市" width="750" height="1334" loading="lazy"></span>
+      <figcaption><b>選擇兌換通路</b>共同流程的最後一步</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:0.5622">
+      <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-6-shopee-w520.webp" alt="EC 分支：蝦皮拍賣折價序號與前往平台的按鈕" width="750" height="1334" loading="lazy"></span>
+      <figcaption><b>EC 分支</b>顯示平台折價序號與前往平台的入口</figcaption>
+    </figure>
+  </div>
+  <p class="case-more">補充：<button type="button" class="zp-open" aria-haspopup="dialog" aria-controls="mpFlow">PM 提供的原始流程圖（特定活動） <span aria-hidden="true">⤢</span></button></p>
+</section>
+
+<section class="case-section" id="redeem">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>02 · REDEMPTION</span>
+    <h2 class="onsite-title">讓門市人員快速辨識兌換資訊</h2>
+  </div>
+  <div class="case-text">
+    <p>消費者在門市出示手機時，需要讓門市人員辨識條碼與剩餘兌換時間。我將條碼與倒數相對放大，並安排按鈕與提示文字的位置，呈現既定的「由門市人員確認兌換」操作要求。</p>
+  </div>
+  <div class="case-row case-row--phones2 mp-row-phones3 case-media">
+    <figure class="case-figure" style="--r:0.5622">
+      <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-4-cupon-w520.webp" alt="我的折價券：可使用、已使用、已失效分頁與折價券卡片的立即兌換按鈕" width="750" height="1334" loading="lazy"></span>
+      <figcaption><b>我的折價券</b>選擇要兌換的優惠券</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:0.5622">
+      <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-7a-confirm.jpg" alt="開始兌換前的確認提示：折價券只能於丁丁藥局實體通路收銀處使用一次，按確認兌換後會立即開始倒數，有效時間為 30 分鐘" width="750" height="1334" loading="lazy"></span>
+      <figcaption><b>開始兌換前的確認提示</b>說明按下「確認兌換」後會立即開始倒數</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:0.5622">
+      <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-7-redeem-w520.webp" alt="實體門市兌換中畫面：丁丁藥局、倒數 29:54、條碼與確認兌換按鈕" width="750" height="1334" loading="lazy"></span>
+      <figcaption><b>兌換中</b>條碼與倒數相對放大；按鈕下方註明由門市人員點選</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="case-section" id="states">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>03 · STATES</span>
+    <h2 class="onsite-title">讓票券狀態與兌換結果清楚可辨</h2>
+  </div>
+  <div class="case-text">
+    <p>「我的折價券」是管理入口，依可使用、已使用、已失效分頁。兌換結果則以提示畫面告知：兌換完成會顯示兌換日期，已過期則告知本券已過期，兩者都附上客服時間與電話。兌換中的畫面見 02。</p>
+  </div>
+  <div class="mp-states case-media">
+    <div class="mp-states-group mp-states-group--entry">
+      <span class="case-flow-label">管理入口</span>
+      <figure class="case-figure">
+        <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-4-cupon-w520.webp" alt="我的折價券：可使用、已使用、已失效分頁" width="750" height="1334" loading="lazy"></span>
+        <figcaption><b>我的折價券</b>可使用／已使用／已失效分頁</figcaption>
+      </figure>
+    </div>
+    <div class="mp-states-group mp-states-group--results">
+      <span class="case-flow-label">兌換結果</span>
+      <div class="mp-states-pair">
+        <figure class="case-figure">
+          <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-8-success.jpg" alt="兌換完成提示，顯示兌換日期與客服資訊" width="750" height="1334" loading="lazy"></span>
+          <figcaption><b>兌換完成</b>顯示兌換日期</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-9-expired.jpg" alt="兌換已過期提示：本電子兌換券已過期" width="750" height="1334" loading="lazy"></span>
+          <figcaption><b>已過期</b>告知本券已過期</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <div class="case-text case-text--after">
+    <p>兌換未成功時，前台會提示重新兌換。「已領過」則是領券階段的資格提示，不屬於兌換結果。</p>
+  </div>
+</section>
+
+<section class="case-section" id="build">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>04 · BUILD &amp; QA</span>
+    <h2 class="onsite-title">讓活動內容在設定範圍內穩定呈現</h2>
+  </div>
+  <div class="case-split case-split--phone mp-build-top">
+    <div class="case-text">
+      <p>設計前，我先規劃可選字級、字數上限，以及換行與文字超出範圍的處理規則，讓品牌端能在既定範圍內設定內容。接著測試不同字級的前台呈現，與 CMS 設計師討論對應設定，再將確認的文字樣式落實於 HTML/CSS，交由工程師整合。</p>
+      <p>前台所有頁面的切版與部分 jQuery 互動由我完成；之後在測試環境操作領券與兌換流程，確認頁面銜接，以及 CMS 設定在前台的呈現。</p>
+    </div>
+    <figure class="case-figure mp-build-front" style="--r:0.5622">
+      <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-2-home-w520.webp" alt="前台活動首頁：好友專屬標題、內容文字與領取折價券按鈕" width="750" height="1334" loading="lazy"></span>
+      <figcaption><b>前台活動首頁</b>內容文字與按鈕依設定呈現</figcaption>
+    </figure>
+  </div>
+  <div class="case-row mp-build-cms case-media">
+    <figure class="case-figure" style="--r:1.3534">
+      <span class="fig-media"><img src="../img/mamypoko-process/mamypoko-cms-type.jpg" alt="CMS 文字樣式選擇：標題、副標題、內容、按鈕文字各有兩個字級選項與色號欄位" width="720" height="532" loading="lazy"></span>
+      <figcaption><b>CMS 文字樣式選擇</b>各類文字提供預設字級選項。CMS 介面由另一位設計師負責。</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:1.3387">
+      <span class="fig-media"><img src="../img/mamypoko-process/mamypoko-cms-home-fields.jpg" alt="CMS 活動首頁欄位：內容文字與按鈕標題旁註明最佳字數，右側為前台欄位示意圖" width="1000" height="747" loading="lazy"></span>
+      <figcaption><b>CMS 活動首頁欄位</b>欄位旁註明字數，右側對照前台位置。CMS 介面由另一位設計師負責。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="case-section case-section--end case-outcome" id="outcome">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>05 · OUTCOME</span>
+    <h2 class="onsite-title">完成多通路優惠券的前台設計與實作</h2>
+  </div>
+  <div class="case-text">
+    <p>專案約六個月，前台與品牌端 CMS 同步交付。我完成的前台涵蓋領券、我的折價券、實體門市與 EC 兩種兌換方式，以及兌換結果畫面。</p>
+  </div>
+  <h3 class="case-subhead">回顧</h3>
+  <div class="case-text">
+    <p>這次的前台設計需要同時考慮兩件事：品牌端如何在 CMS 設定內容，以及設定後如何呈現在消費者看到的介面。</p>
+  </div>
+</section>
+
+  </div>
+</div>
+
+<div class="v3-dock">
+  <div class="v3-switch is-floating" role="navigation" aria-label="專案切換">
+    <a class="v3-switch-item" href="puli-v4-light.html">← 上一個<span class="v3-long">專案</span><span class="v3-sr">：埔里酒廠智慧導覽系統</span></a>
+    <span class="v3-sep" aria-hidden="true"></span>
+    <a class="v3-switch-item" href="../index.html#works">所有專案</a>
+    <span class="v3-sep" aria-hidden="true"></span>
+    <a class="v3-switch-item" href="foxconn-light.html">下一個<span class="v3-long">專案</span><span class="v3-sr">：鴻海嘉年華活動導覽</span> →</a>
+  </div>
+</div>
+
+<footer id="contact" class="ft" aria-labelledby="contactTitle">
+  <div class="ft-center">
+    <div class="ft-head">
+      <h2 class="ft-title" id="contactTitle" lang="en"><span class="ph">Let’s make things</span> <span class="ph">clearer, <em>Together.</em></span></h2>
+      <ul class="ft-tags" aria-label="技能與對應案例">
+        <li><a class="ft-tag ft-tag--ui" href="foxconn-light.html#modes"><span lang="en">Interaction Design</span><span class="sr">：鴻海｜路線模式切換</span></a></li>
+        <li><a class="ft-tag ft-tag--ix" href="museum-light.html#lantern"><span lang="en">Prototyping</span><span class="sr">：史博館｜天燈操作流程與 Prototype</span></a></li>
+        <li><a class="ft-tag ft-tag--flow" href="gomaji-light.html#process"><span lang="en">Visual Design</span><span class="sr">：麻吉城市樂園｜主視覺與網頁規範</span></a></li>
+        <li><a class="ft-tag ft-tag--code" href="mamypoko-light.html#build"><span lang="en">HTML / CSS</span><span class="sr">：滿意寶寶｜規範、切版與確認</span></a></li>
+      </ul>
+    </div>
+    <div class="ft-cta">
+      <a class="ft-btn" href="mailto:helenn1219@gmail.com"><span class="sr">寄信給我：</span>helenn1219@gmail.com</a>
+      <button type="button" class="ft-copy" data-copy="helenn1219@gmail.com" aria-label="複製 Email 地址">複製</button>
+    </div>
+    <p class="ft-note">開放 UI/UX 與 Product Designer 工作機會，台灣與海外</p>
+    <p class="ft-links">
+      <a href="https://www.linkedin.com/in/helenhsieh-thedesigner" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../cv/Helen-Hsieh-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+    </p>
+  </div>
+  <div class="ft-bottom">
+    <p>© 2026 Helen Hsieh</p>
+    <a class="ft-top" href="#top" aria-label="返回頁面頂部"><span lang="en">TOP</span> <svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 13.5V3M4 7l4-4 4 4"/></svg></a>
+  </div>
+</footer>
+
+<div class="zp" id="mpFlow" role="dialog" aria-modal="true" aria-labelledby="mpFlowTitle" hidden>
+  <div class="zp-stage" tabindex="0" aria-label="圖片（放大後可用方向鍵或拖曳移動）">
+    <img data-src="../img/mamypoko-process/mamypoko-flow.jpg" alt="PM 提供的特定活動流程圖：從 LINE 加入好友、領券、是否為會員的判斷、活動頁與表單，到我的折價券、門市兌換條碼與兌換成功或過期，並標註各步驟的文案確認" width="2000" height="1117" draggable="false">
+  </div>
+  <div class="zp-bar">
+    <p class="zp-title" id="mpFlowTitle">PM 提供的原始流程圖（特定活動）</p>
+    <button type="button" class="zp-zoom" aria-pressed="false" aria-label="放大到原尺寸"><span aria-hidden="true">＋</span></button>
+  </div>
+  <button type="button" class="zp-close" aria-label="關閉">✕</button>
+</div>
+
+<script src="../js/nav.js"></script>
+<script>
+</script>
+<script>
+
+(function () {
+  const body = document.body;
+  const nav = document.getElementById('mainNav');
+  const toc = document.querySelector('.v3-toc');
+  const toggle = toc.querySelector('.v3-toc-toggle');
+  const current = toc.querySelector('.v3-toc-current');
+  const links = [...toc.querySelectorAll('a[href^="#"]')];
+  const sections = links.map(a => document.getElementById(a.hash.slice(1)));
+  const narrow = window.matchMedia('(max-width: 1179px)');
+  const dock = document.querySelector('.v3-dock');
+  const bar = dock.querySelector('.v3-switch');
+
+  const hero = document.querySelector('.detail-hero') || document.querySelector('.v4-show');
+  let offset = 120, navH = 96, barGap = 20, dockPad = 48;
+
+  function measure() {
+    navH = nav ? nav.getBoundingClientRect().height : 96;
+    body.style.setProperty('--nav-h', navH + 'px');
+    offset = navH + (narrow.matches ? toggle.offsetHeight : 0) + 20;
+    body.style.setProperty('--anchor-offset', offset + 'px');
+    body.style.setProperty('--bar-h', bar.offsetHeight + 'px');
+    barGap = parseFloat(getComputedStyle(body).getPropertyValue('--bar-gap')) || 20;
+    dockPad = parseFloat(getComputedStyle(dock).paddingTop) || 48;
+  }
+
+  function setOpen(open) {
+    toc.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+
+  function update() {
+
+    let idx = 0;
+    sections.forEach((s, i) => { if (s.getBoundingClientRect().top - offset <= 8) idx = i; });
+    links.forEach((a, i) => { if (i === idx) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
+    current.textContent = links[idx].textContent.replace(/^(\d+)/, '$1 ');
+
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    body.classList.toggle('v3-past-hero', heroBottom < navH);
+    toc.classList.toggle('is-stuck', narrow.matches && toc.getBoundingClientRect().top <= navH + 1);
+
+    const docked = dock.getBoundingClientRect().top + dockPad <= window.innerHeight - barGap - bar.offsetHeight;
+    bar.classList.toggle('is-floating', !docked);
+
+    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open'));
+
+    const overlay = body.classList.contains('menu-open') || !!document.querySelector('[role="dialog"]:not([hidden]), .lightbox.open, .taitra-lightbox.open');
+    bar.classList.toggle('is-off', overlay);
+  }
+
+  let ticking = false;
+  const schedule = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; update(); }); } };
+
+  toggle.addEventListener('click', () => {
+    const open = !toc.classList.contains('is-open');
+
+    if (open && narrow.matches) {
+      const gap = toc.getBoundingClientRect().top - navH;
+      if (gap > 1) window.scrollTo(0, window.scrollY + gap);
+    }
+    setOpen(open);
+    schedule();
+  });
+  links.forEach(a => a.addEventListener('click', () => { if (narrow.matches) setOpen(false); }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && toc.classList.contains('is-open')) { setOpen(false); toggle.focus(); } });
+  const onBreakpoint = () => { setOpen(false); measure(); schedule(); };
+  if (narrow.addEventListener) narrow.addEventListener('change', onBreakpoint); else narrow.addListener(onBreakpoint);
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', () => { measure(); schedule(); });
+  new MutationObserver(schedule).observe(body, { attributes: true, attributeFilter: ['class'] });
+  window.addEventListener('load', () => { measure(); schedule(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); schedule(); });
+
+  measure();
+  update();
+})();
+</script>
+<script>
+
+(function () {
+  document.querySelectorAll('.zp-open').forEach(openBtn => {
+    const dlg = document.getElementById(openBtn.getAttribute('aria-controls'));
+    if (!dlg) return;
+    const stage = dlg.querySelector('.zp-stage'), img = stage.querySelector('img');
+    const zoomBtn = dlg.querySelector('.zp-zoom'), closeBtn = dlg.querySelector('.zp-close');
+    let last = null, y = 0, zoomed = false, drag = null;
+    const inertBg = on => [...document.body.children].forEach(el => { if (el === dlg || el.tagName === 'SCRIPT') return; on ? el.setAttribute('inert', '') : el.removeAttribute('inert'); });
+    function setZoom(on, cx, cy) {
+      const r = img.getBoundingClientRect();
+      const fx = cx == null ? .5 : Math.min(Math.max((cx - r.left) / r.width, 0), 1);
+      const fy = cy == null ? .5 : Math.min(Math.max((cy - r.top) / r.height, 0), 1);
+      zoomed = on;
+      dlg.classList.toggle('is-zoom', on);
+      img.style.width = on ? img.getAttribute('width') + 'px' : '';
+      zoomBtn.setAttribute('aria-pressed', String(on));
+      zoomBtn.setAttribute('aria-label', on ? '縮小到整張' : '放大到原尺寸');
+      zoomBtn.firstElementChild.textContent = on ? '－' : '＋';
+      if (on) {
+        stage.scrollLeft = img.offsetLeft + fx * img.offsetWidth - stage.clientWidth / 2;
+        stage.scrollTop = img.offsetTop + fy * img.offsetHeight - stage.clientHeight / 2;
+      }
+    }
+    function open() {
+      last = openBtn; y = window.scrollY;
+      if (!img.getAttribute('src')) img.setAttribute('src', img.dataset.src);
+      document.documentElement.style.overflow = 'hidden';
+      dlg.hidden = false; requestAnimationFrame(() => dlg.classList.add('open'));
+      inertBg(true); setZoom(false); closeBtn.focus();
+    }
+    function close() {
+      if (dlg.hidden) return;
+      dlg.classList.remove('open'); dlg.hidden = true; inertBg(false);
+      document.documentElement.style.overflow = ''; window.scrollTo(0, y);
+      if (last) last.focus({ preventScroll: true });
+    }
+    openBtn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    zoomBtn.addEventListener('click', () => setZoom(!zoomed));
+    stage.addEventListener('pointerdown', e => { if (e.button !== 0) return; drag = { x: e.clientX, y: e.clientY, l: stage.scrollLeft, t: stage.scrollTop, moved: false }; });
+    stage.addEventListener('pointermove', e => {
+      if (!drag || !zoomed) return;
+      const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      if (Math.abs(dx) + Math.abs(dy) > 5) { drag.moved = true; stage.classList.add('is-dragging'); }
+      stage.scrollLeft = drag.l - dx; stage.scrollTop = drag.t - dy;
+    });
+    stage.addEventListener('pointerup', e => {
+      if (!drag) return;
+      const moved = drag.moved; drag = null; stage.classList.remove('is-dragging');
+      if (moved) return;
+      if (e.target === img) setZoom(!zoomed, e.clientX, e.clientY);
+      else if (e.target === stage && !zoomed) close();
+    });
+    stage.addEventListener('pointerleave', () => { drag = null; stage.classList.remove('is-dragging'); });
+    window.addEventListener('keydown', e => {
+      if (dlg.hidden) return;
+      if (e.key === 'Escape') { e.preventDefault(); close(); }
+      else if (e.key === '+' || e.key === '=') setZoom(true);
+      else if (e.key === '-') setZoom(false);
+      else if (e.key === 'Tab') {
+        const f = [stage, zoomBtn, closeBtn], i = f.indexOf(document.activeElement);
+        if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+        else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+      }
+    });
+  });
+})();
+</script>
+<script src="../js/site-footer.js"></script>
+<script src="../js/site-cursor.js"></script>
+<script src="../js/hero-orb.js" data-host="body" data-page data-shift-y="-.15" data-alpha=".7" data-colors="231,213,158|220,195,115|242,232,201"></script>
+</body>
+</html>

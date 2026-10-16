@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="no-smooth-scroll">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>國立歷史博物館 AR 探索 | Helen Hsieh</title>
+<meta name="description" content="訪客透過「i史博」App 在戶外參與四款 AR 互動；我將既定企劃轉為操作流程、原型與介面，並依現場使用情況調整提示與可讀性。">
+<meta property="og:title" content="國立歷史博物館 AR 探索 | Helen Hsieh">
+<meta property="og:description" content="錦鯉互動、角色合照、天燈祈福與隱藏探索：將既定 AR 企劃轉為操作流程與介面。">
+<meta property="og:image" content="https://helenn1219.github.io/img/og/museum.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#808B81; --accent-solid:#2C3E2D; --accent-wash:rgba(44,62,45,.09); --accent-glow:rgba(44,62,45,.38);}
+
+.level-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.level-card{display:flex;flex-direction:column;gap:8px;}
+.level-img{border-radius:8px;overflow:hidden;background:var(--bg-mid);margin-bottom:8px;}
+.level-img img{display:block;width:100%;height:auto;}
+.level-tag{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent,var(--gold));}
+.level-title{font-family:var(--serif);font-size:clamp(20px,2vw,26px);font-weight:400;line-height:1.3;}
+.level-title-en{font-size:13px;color:rgba(240,237,230,.4);font-style:italic;}
+.level-desc{font-size:14px;line-height:1.7;color:rgba(240,237,230,.6);}
+@media(max-width:900px){.level-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.level-grid{grid-template-columns:1fr;}}
+</style>
+<style>
+
+.puli-v3{--read:680px;--col:680px;--toc-w:190px;--toc-gap:48px;--bar-gap:20px;}
+.v3-frame{padding-left:var(--page-x);padding-right:var(--page-x);}
+
+.puli-v3 .v3-intro .detail-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);grid-template-areas:"lede lede" "role meta";column-gap:64px;row-gap:0;padding:96px 0 64px;}
+.puli-v3 .v3-intro .detail-main{display:contents;}
+.puli-v3 .v3-intro .detail-lede{grid-area:lede;max-width:780px;margin:0 0 40px;}
+.puli-v3 .v3-intro .case-role{grid-area:role;max-width:none;}
+.puli-v3 .v3-intro .detail-meta{grid-area:meta;max-width:none;margin:0;padding-top:28px;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;align-content:start;}
+.puli-v3 .v3-intro .detail-meta-item:first-child{grid-column:auto;}
+.puli-v3 .meta-sep{display:none;}
+.puli-v3 .meta-line{display:block;}
+@media(max-width:899px){
+  .puli-v3 .v3-intro .detail-body{grid-template-columns:minmax(0,1fr);grid-template-areas:"lede" "role" "meta";padding:64px 0 48px;}
+  .puli-v3 .v3-intro .detail-meta{margin-top:32px;border-top:1px solid var(--border-dim);}
+}
+
+.v3-layout{display:grid;grid-template-columns:var(--toc-w) minmax(0,1fr);column-gap:var(--toc-gap);}
+.v3-toc{align-self:start;position:sticky;top:calc(var(--nav-h,96px) + 24px);padding-top:24px;padding-bottom:28px;}
+.v3-main{min-width:0;}
+.puli-v3 .v3-main > .case-section{padding-left:0;padding-right:0;scroll-margin-top:calc(var(--anchor-offset,120px) - 56px);}
+.puli-v3 .v3-main > #entry{scroll-margin-top:var(--anchor-offset,120px);}
+.puli-v3 #entry{padding-left:0;padding-right:0;}
+.puli-v3 #entry > *{margin-left:0;margin-right:0;}
+.puli-v3 #entry > .v2-wide{max-width:none;}
+
+.puli-v3 #entry .case-subhead{margin-left:0;margin-right:0;margin-bottom:14px;}
+
+.puli-v3 #entry > .v2-video{margin-left:0;}
+.puli-v3 .v3-main .case-row,.puli-v3 .v3-main .puli-aside{max-width:100%;}
+.puli-v3 .v3-main > .case-section--end{padding-bottom:24px;}
+
+.puli-v3 .case-text p,.puli-v3 .case-role p{font-family:var(--sans);font-size:17.5px;line-height:1.82;font-weight:400;}
+.puli-v3 .detail-lede{font-weight:400;}
+.puli-v3 .onsite-title{font-weight:400;}
+.puli-v3 .case-subhead{font-family:var(--sans);font-size:20px;font-weight:500;line-height:1.5;}
+.puli-v3 .case-figure figcaption,.puli-v3 .case-note,.puli-v3 .case-more,.puli-v3 .case-row-arrow{font-size:14px;line-height:1.7;font-weight:400;}
+.puli-v3 .case-figure figcaption b{font-size:14.5px;font-weight:500;}
+.puli-v3 .case-note{font-size:15.5px;}
+.puli-v3 .detail-meta-value{font-size:15px;font-weight:400;}
+.puli-v3 .detail-meta-label{font-size:11px;}
+@media(max-width:768px){.puli-v3 .case-text p,.puli-v3 .case-role p{font-size:16.5px;line-height:1.8;}.puli-v3 .case-subhead{font-size:18.5px;}}
+
+.puli-v3.v3-past-hero nav::before,.puli-v3.menu-open nav::before{background:#0D1114;border-bottom:1px solid var(--border-dim);}
+
+.v3-toc-label{display:block;margin-bottom:14px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,237,230,.6);}
+.v3-toc-toggle{display:none;}
+.v3-toc ol{list-style:none;display:flex;flex-direction:column;border-left:1px solid var(--border-dim);}
+.v3-toc a{display:flex;gap:10px;align-items:baseline;margin-left:-1px;padding:8px 0 8px 14px;border-left:2px solid transparent;font-size:15px;font-weight:400;line-height:1.5;color:rgba(240,237,230,.7);text-decoration:none;transition:color .2s,border-color .2s;}
+.v3-toc a b{flex:none;font-family:var(--serif);font-weight:400;font-size:13.5px;color:var(--accent);}
+.v3-toc a:hover{color:var(--text);}
+.v3-toc a[aria-current]{color:var(--text);border-left-color:var(--accent);}
+.v3-toc a:focus-visible,.v3-toc-toggle:focus-visible{outline:1px solid var(--accent);outline-offset:2px;}
+@media(max-width:1179px){
+  .v3-layout{grid-template-columns:minmax(0,1fr);}
+  .v3-toc{top:var(--nav-h,72px);z-index:50;margin:0 calc(-1 * var(--page-x));padding:0 var(--page-x);background:var(--bg);border-top:1px solid var(--border-dim);border-bottom:1px solid var(--border-dim);}
+  .puli-v3 .v3-main > #entry{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}
+  .v3-toc-label{display:none;}
+  .v3-toc-toggle{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:10px;width:100%;min-height:48px;cursor:pointer;font-size:15px;color:var(--text);}
+  .v3-toc-toggle-label{font-size:11.5px;letter-spacing:.2em;color:rgba(240,237,230,.6);}
+  .v3-toc-current{flex:1;}
+  .v3-toc-caret{transition:transform .2s;}
+  .v3-toc.is-open .v3-toc-caret{transform:rotate(180deg);}
+  .v3-toc{padding-bottom:0;}
+  .v3-toc ol{display:none;border-left:none;padding-bottom:16px;}
+  .v3-toc.is-open ol{display:flex;}
+  .v3-toc a{margin-left:0;padding:10px 0 10px 12px;}
+}
+
+.v3-dock{height:calc(var(--bar-h,48px) + 96px);padding-top:48px;display:flex;justify-content:center;border-top:1px solid var(--border-dim);margin:0 var(--page-x);}
+.v3-switch{z-index:90;display:flex;align-items:center;gap:2px;height:max-content;padding:5px;border:1px solid rgba(240,237,230,.14);border-radius:999px;background:rgba(13,17,20,.94);}
+.v3-switch.is-floating{position:fixed;left:50%;bottom:var(--bar-gap);transform:translateX(-50%);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .2s;}
+
+.v3-switch.is-floating.is-shown,.v3-switch.is-floating:focus-within{opacity:1;pointer-events:auto;}
+
+.v3-switch.is-off{visibility:hidden;}
+.v3-switch-item{display:inline-flex;align-items:center;min-height:38px;padding:0 15px;border-radius:999px;font-size:14px;font-weight:400;color:rgba(240,237,230,.88);text-decoration:none;white-space:nowrap;}
+a.v3-switch-item:hover{color:var(--text);background:rgba(240,237,230,.07);}
+a.v3-switch-item:focus-visible{outline:1px solid var(--accent);outline-offset:1px;}
+.v3-switch .is-disabled{color:rgba(240,237,230,.36);}
+.v3-sep{width:1px;height:16px;background:rgba(240,237,230,.14);}
+.v3-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+@media(max-width:480px){.puli-v3{--bar-gap:12px;}.v3-long{display:none;}.v3-switch-item{padding:0 12px;}}
+@media(prefers-reduced-motion:reduce){.v3-switch,.v3-toc a,.v3-toc-caret{transition:none;}}
+
+@media(max-width:768px){.puli-v3 nav{padding-top:10px;padding-bottom:10px;}}
+
+.puli-v3 #cross-device .case-row--slots2 .case-figure > a{position:relative;}
+.v3-mark{position:absolute;border:2px solid var(--accent);border-radius:8px;pointer-events:none;box-shadow:0 0 0 2px rgba(255,255,255,.55);}
+.v3-mark--web{left:95.2%;top:10.6%;width:4.8%;height:25.4%;border-right:none;border-radius:8px 0 0 8px;}
+.v3-mark--kiosk{left:59.2%;top:92.6%;width:36.4%;height:5.8%;}
+.v3-mark-label{position:absolute;white-space:nowrap;padding:2px 7px;border-radius:4px;background:var(--accent);color:#fff;font-size:12px;line-height:1.5;font-weight:500;letter-spacing:.02em;}
+.v3-mark--web .v3-mark-label{right:calc(100% + 6px);top:0;}
+.v3-mark--kiosk .v3-mark-label{right:0;bottom:calc(100% + 6px);}
+
+.v3-foot-label{margin-bottom:12px;font-size:13px;letter-spacing:.12em;color:var(--accent,var(--gold));}
+.puli-v3 .footer-col h4.v3-foot-h{font-size:12px;letter-spacing:.1em;text-transform:none;}
+
+body.v3-light{--bg:#F6F4EF;--bg-mid:#ECE8E0;--text:#1E1F1C;--text-dim:#5E5D57;--gold:#8A6A1F;--border:rgba(139,38,53,.22);--border-dim:rgba(30,31,28,.13);--accent:#8B2635;--accent-wash:rgba(139,38,53,.06);}
+
+.v3-light .case-text p,.v3-light .case-role p{color:rgba(30,31,28,.88);}
+.v3-light .detail-meta-value{color:rgba(30,31,28,.86);}
+.v3-light .case-figure figcaption,.v3-light .v2-more,.v3-light .case-note,.v3-light .case-row-arrow,.v3-light .case-more{color:rgba(30,31,28,.74);}
+.v3-light .v3-toc-label,.v3-light .v3-toc-toggle-label{color:rgba(30,31,28,.64);}
+.v3-light .v3-toc a{color:rgba(30,31,28,.74);}
+.v3-light .v3-toc a:hover,.v3-light .v3-toc a[aria-current]{color:var(--text);}
+.v3-light .footer-label,.v3-light .footer-col h4{color:rgba(138,106,31,.85);}
+.v3-light .footer-info p,.v3-light .footer-col a{color:rgba(30,31,28,.66);}
+.v3-light .footer-col p{color:rgba(30,31,28,.55);}
+
+.v3-light .v3-switch{background:rgba(246,244,239,.96);border-color:rgba(30,31,28,.16);box-shadow:0 2px 12px rgba(30,31,28,.08);}
+.v3-light .v3-switch-item{color:rgba(30,31,28,.86);}
+.v3-light a.v3-switch-item:hover{color:var(--text);background:rgba(30,31,28,.06);}
+.v3-light .v3-switch .is-disabled{color:rgba(30,31,28,.36);}
+.v3-light .v3-sep{background:rgba(30,31,28,.16);}
+
+.v3-light .detail-hero{--text:#F5EFE6;--text-dim:#CFCBC2;--accent:#B97D86;color:#F5EFE6;}
+.v3-light .detail-hero-overlay{background:linear-gradient(180deg,rgba(13,17,20,.18) 0%,rgba(13,17,20,.32) 30%,rgba(13,17,20,.62) 62%,rgba(13,17,20,.74) 86%,var(--bg) 100%);}
+.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#F5EFE6;--text-dim:#CFCBC2;}
+.v3-light.v3-past-hero nav::before,.v3-light.menu-open nav::before{background:#F6F4EF;border-bottom:1px solid var(--border-dim);}
+.v3-light.v3-past-hero .nav-logo img,.v3-light.menu-open .nav-logo img{filter:invert(1) hue-rotate(180deg);}
+
+.v4 nav::before{background:#F6F4EF;border-bottom:1px solid var(--border-dim);}
+
+@media(min-width:769px){body.v4 nav{height:76px;padding-top:0;padding-bottom:0;}}
+
+body.v4.v3-light:not(.menu-open) nav::before{background:rgba(246,244,239,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);}
+.v4.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#1E1F1C;--text-dim:#5E5D57;}
+.v4 .nav-logo img{filter:invert(1) hue-rotate(180deg);}
+
+.v4-head{padding-top:calc(var(--nav-h,96px) + 56px);padding-bottom:40px;}
+.v4-back{display:inline-block;margin-bottom:28px;font-size:14px;color:rgba(30,31,28,.7);text-decoration:none;}
+.v4-back:hover{color:var(--accent);}
+.v4-title{font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:500;line-height:1.18;letter-spacing:.01em;color:var(--text);word-break:keep-all;}
+.v4-role{margin-top:14px;font-size:14px;letter-spacing:.04em;color:rgba(30,31,28,.62);}
+.v4 .nb{white-space:nowrap;}
+.v4-sub{max-width:34em;margin-top:18px;font-size:18px;line-height:1.7;font-weight:400;color:rgba(30,31,28,.8);}
+.v4-live{display:inline-block;margin-top:22px;font-size:15px;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;}
+.v4-back:focus-visible,.v4-live:focus-visible{outline:1px solid var(--accent);outline-offset:4px;}
+
+.v4-show{margin:0;}
+.v4-show figure{margin:0;}
+.v4-show-row{display:flex;gap:24px;align-items:flex-start;}
+.v4-show-row > figure{min-width:0;}
+.v4-show a{display:block;}
+.v4-show-web{flex:1.7778 1 0;}
+.v4-show-kiosk{flex:.5625 1 0;}
+.v4-show img{display:block;width:100%;height:auto;border-radius:var(--img-radius,8px);}
+.v4-show figcaption{margin-top:10px;font-size:14px;line-height:1.7;color:rgba(30,31,28,.72);}
+@media(max-width:768px){
+  .v4-head{padding-top:calc(var(--nav-h,64px) + 36px);padding-bottom:28px;}
+  .v4-back{margin-bottom:20px;}
+  .v4-sub{font-size:16.5px;}
+  .v4-show-row{gap:14px;}
+}
+
+@media(max-width:600px){.v4-show-row > .v4-show-kiosk{display:none;}}
+
+.v4 .v3-intro .v4-info{display:block;padding-top:44px;}
+.v4 .v3-intro .v4-info .detail-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 32px;margin:0;}
+.v4-info-cols{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);column-gap:64px;margin-top:40px;}
+.v4 .v3-intro .v4-info-cols > .case-role{grid-area:auto;max-width:none;}
+.v4-q{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.v4-q li{font-size:17px;font-weight:400;line-height:1.7;color:rgba(30,31,28,.88);}
+
+body.puli-article{--q-accent:#B97D86;}body.fox-article{--q-accent:#6683B7;}body.mp-article{--q-accent:#D4B26A;}body.mu-article{--q-accent:#8FB59A;}body.gm-article{--q-accent:#EB7934;}
+.v4-q a{color:inherit;text-decoration:none;}
+.v4-q-t{background:linear-gradient(var(--q-accent,currentColor),var(--q-accent,currentColor)) 0 100%/0 2px no-repeat;padding-bottom:3px;transition:background-size .35s ease;}
+.v4-q-arr{display:inline-block;margin-left:8px;color:var(--q-accent,currentColor);transition:transform .35s ease;}
+.v4-q a:hover .v4-q-t,.v4-q a:focus-visible .v4-q-t{background-size:100% 2px;}
+.v4-q a:hover .v4-q-arr,.v4-q a:focus-visible .v4-q-arr{transform:translateX(4px);}
+@media(prefers-reduced-motion:reduce){.v4-q-t,.v4-q-arr{transition:none;}.v4-q a:hover .v4-q-arr,.v4-q a:focus-visible .v4-q-arr{transform:none;}}
+@media(max-width:899px){.v4-info-cols{grid-template-columns:minmax(0,1fr);row-gap:32px;}}
+@media(max-width:768px){.v4 .v3-intro .v4-info{padding-top:36px;}.v4 .v3-intro .v4-info .detail-meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px;}.v4-info-cols{margin-top:32px;}}
+
+.v4 .v3-main{container-type:inline-size;}
+.v4 #entry > .v4-drag{max-width:none;margin-top:0;}
+.v4-drag-text .case-text{max-width:none;}
+.v4 #entry .v4-hint{width:auto;max-width:16em;margin:5em auto 0;text-align:center;}
+.v4-hint img{display:block;width:115px;height:auto;margin:0 auto;}
+
+.v4 #entry .v4-drag > .case-figure--video{width:100%;max-width:280px;margin:28px auto 0;}
+@container (min-width:800px){
+
+  .v4-drag{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px;align-items:start;}
+  .v4 #entry .v4-drag > .case-figure--video{max-width:260px;margin:7px auto 0;}
+}
+
+.v4 .footer-col h4.v3-foot-h{color:var(--accent);}
+
+.v4{--read:700px;--col:700px;}
+
+.v4 .v3-main .case-subhead,.v4 #entry > .case-subhead{max-width:none;}
+
+.v4 .v3-intro .v4-info .detail-meta{padding-bottom:28px;border-bottom:1px solid var(--border-dim);}
+.v4 .v3-intro .v4-info-cols > .case-role{border-top:none;padding-top:0;}
+.v4-info-cols{margin-top:36px;}
+
+.v4 footer{position:relative;border-top:none;}
+.v4 footer::before{content:"";position:absolute;top:0;left:var(--page-x);right:var(--page-x);border-top:1px solid var(--border-dim);}
+
+body.v4{--serif:'Manrope','Noto Sans TC',sans-serif;--sans:'Manrope','Noto Sans TC',sans-serif;font-family:var(--sans);font-weight:400;letter-spacing:.2px;}
+
+body.v4 .v4-title{font-family:var(--sans);font-size:52px;font-weight:600;letter-spacing:1px;line-height:1.2;}
+
+body.v4 .onsite-title{font-family:var(--sans);font-size:30px;font-weight:600;letter-spacing:.8px;line-height:1.4;}
+
+body.v4 .case-subhead{font-family:var(--sans);font-size:21px;font-weight:600;letter-spacing:.8px;line-height:1.5;}
+
+body.v4 .detail-tag,body.v4 .detail-meta-label,body.v4 .case-role h2,body.v4 .v4-role{font-size:14px;font-weight:500;letter-spacing:.8px;line-height:1.5;text-transform:none;opacity:1;color:var(--accent);}
+body.v4 .detail-meta-label{margin-bottom:6px;}
+body.v4 .v4-role{margin-top:16px;}
+
+body.v4 .v4-sub,body.v4 .case-text p,body.v4 .case-role p,body.v4 .v4-q li,body.v4 .case-note{font-family:var(--sans);font-size:18px;font-weight:400;letter-spacing:.2px;line-height:1.8;}
+
+body.v4 .detail-meta-value{font-size:16px;font-weight:400;letter-spacing:.2px;line-height:1.65;}
+
+body.v4 .case-figure figcaption,body.v4 .v4-show figcaption{font-size:14px;font-weight:400;letter-spacing:.2px;line-height:1.7;}
+body.v4 .case-figure figcaption b{font-size:14px;font-weight:500;}
+
+body.v4 .nav-links a{font-size:14px;letter-spacing:.08em;}
+body.v4 .nav-cv{font-size:14px;letter-spacing:.06em;padding:8px 18px;}
+body.v4 .mobile-menu-cv-label{font-size:14px;letter-spacing:.08em;}
+body.v4 .mobile-menu-links a{font-family:var(--sans);font-weight:500;}
+body.v4 .v3-toc-label,body.v4 .v3-toc-toggle-label{font-size:14px;letter-spacing:.08em;text-transform:uppercase;}
+body.v4 .v3-toc a{font-size:15px;}
+body.v4 .v3-toc a b{font-family:var(--sans);font-size:14px;font-weight:500;}
+body.v4 .v4-back{font-size:14px;}
+body.v4 .v4-live{font-size:15px;}
+body.v4 .v3-mark-label{font-size:13px;}
+@media(max-width:540px){
+  body.v4 .v4-title{font-size:36px;}
+  body.v4 .onsite-title{font-size:26px;}
+  body.v4 .case-subhead{font-size:20px;}
+  body.v4 .v4-sub,body.v4 .case-text p,body.v4 .case-role p,body.v4 .v4-q li,body.v4 .case-note{font-size:17px;}
+}
+
+body.v4 footer.v4-foot{display:block;padding:56px var(--page-x) 64px;}
+.v4-foot-title{margin-bottom:16px;font-size:30px;font-weight:600;letter-spacing:.8px;line-height:1.4;color:var(--text);}
+.v4-foot p{font-size:16px;font-weight:400;line-height:1.7;color:rgba(30,31,28,.86);}
+.v4-foot-links{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:12px;}
+.v4-foot-links a{font-size:16px;font-weight:500;color:var(--accent);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;}
+.v4-foot-links a:hover{text-decoration-thickness:2px;}
+.v4-foot-links a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+.v4-foot p.v4-foot-copy{margin-top:28px;font-size:14px;color:#5E5D57;}
+
+body.v4 footer.v4-foot{position:relative;}
+.v4-foot p.v4-foot-copy{position:absolute;right:var(--page-x);bottom:64px;margin:0;line-height:1.7;}
+@media(max-width:540px){.v4-foot p.v4-foot-copy{position:static;margin-top:28px;text-align:right;}}
+@media(max-width:540px){.v4-foot-title{font-size:26px;}}
+
+.v3-light .case-flow-label,.v3-light .case-flow-branch-label{color:rgba(30,31,28,.66);font-size:14px;}
+.v3-light .case-flow-step{color:var(--text);border-color:rgba(30,31,28,.2);background:rgba(255,255,255,.5);}
+.v3-light .case-flow > li + li::before{color:rgba(30,31,28,.45);}
+.v3-light .case-flow-branch{border-left-color:rgba(30,31,28,.2);}
+.v3-light .case-flow-note{color:rgba(30,31,28,.74);}
+.v3-light .case-lane h3{color:var(--text);}
+.v3-light .case-lane li{color:rgba(30,31,28,.84);}
+.v3-light .case-lane p{color:rgba(30,31,28,.74);}
+
+.v4 .onsite-title em{font-style:normal;color:inherit;}
+
+.mu-article{--page-x:max(10vw, calc((100vw - 1120px) / 2));--show:1120px;--phone-max:280px;}
+@media(max-width:768px){.mu-article{--page-x:6vw;}}
+
+body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:rgba(70,112,79,.06);--border:rgba(70,112,79,.22);}
+
+.v4 .v3-main > .case-section--tight{scroll-margin-top:var(--anchor-offset,120px);padding-top:24px;}
+@media(max-width:1179px){.v4 .v3-main > .case-section--tight{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}}
+.v4 .v3-intro .v4-info .detail-meta{position:static;border-top:1px solid var(--border-dim);}
+.v4 .case-role p + p{margin-top:12px;}
+
+.mu-article .v4-show-row > .v4-show-web{flex:1 1 0;}
+
+.mu-article .case-section{padding-top:88px;}
+.mu-article .v3-main > .case-section--tight{padding-top:24px;}
+.mu-article .case-media{margin-top:28px;}
+.mu-article .case-figure figcaption{margin-top:10px;}
+.mu-article .case-subhead,.mu-article .case-outcome .case-subhead{margin:44px 0 14px;}
+@media(max-width:768px){.mu-article .case-section{padding-top:64px;}.mu-article .case-subhead,.mu-article .case-outcome .case-subhead{margin-top:36px;}}
+
+.v3-light .level-title{font-family:var(--sans);font-size:20px;font-weight:600;color:var(--text);}
+.v3-light .level-title-en{font-size:14px;color:rgba(30,31,28,.6);}
+.v3-light .level-tag{font-size:12px;letter-spacing:.12em;color:var(--accent);}
+.v3-light .level-desc{font-size:15px;color:rgba(30,31,28,.78);}
+.v3-light .case-group-text h3{color:var(--text);}
+.v3-light .case-group-text p{font-size:16px;color:rgba(30,31,28,.82);}
+
+.v4 .v3-main .case-row--phones{max-width:calc(var(--phone-max) * 2 + 24px);}
+
+.v4 .v3-main .mu-row-phones3{max-width:calc(var(--phone-max) * 3 + 48px);}
+
+.v3-light .level-title .level-num{margin-right:10px;font-size:15px;font-weight:500;color:var(--accent);}
+
+.v3-light .level-title .level-num{font-family:var(--sans);letter-spacing:.04em;}
+
+.mu-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:28px;}
+.mu-empty{display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;padding:12px;border:1px dashed rgba(30,31,28,.3);border-radius:var(--img-radius,8px);background:rgba(255,255,255,.4);text-align:center;}
+.mu-empty span{font-size:13px;line-height:1.6;color:rgba(30,31,28,.56);}
+
+.mu-article .mu-hero-empty{aspect-ratio:1120/468;}
+@media(max-width:600px){.mu-article .mu-hero-empty{aspect-ratio:16/9;}}
+.mu-article .mu-hero-empty span{text-align:center;}
+.mu-article .mu-hero img{aspect-ratio:2240/936;object-fit:cover;object-position:50% 50%;}
+@media(max-width:600px){.mu-article .mu-hero img{aspect-ratio:16/9;}}
+
+.mu-flow-open{all:unset;box-sizing:border-box;display:inline;margin-left:4px;color:var(--accent);border-bottom:1px solid transparent;cursor:pointer;transition:border-color .2s;}
+.mu-flow-open:hover{border-bottom-color:currentColor;}
+.mu-flow-open:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+.mu-flow{position:fixed;inset:0;z-index:300;background:#F6F4EF;opacity:0;transition:opacity .2s ease;}
+.mu-flow.open{opacity:1;}
+.mu-flow[hidden]{display:none;}
+
+.mu-flow-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:76px 24px 84px;overflow:hidden;cursor:zoom-in;}
+.mu-flow-stage:focus-visible{outline:2px solid var(--accent);outline-offset:-6px;}
+
+.mu-flow-stage img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;user-select:none;-webkit-user-drag:none;}
+.mu-flow.is-zoom .mu-flow-stage{display:block;overflow:auto;padding:76px 24px 84px;cursor:grab;}
+.mu-flow.is-zoom .mu-flow-stage.is-dragging{cursor:grabbing;}
+.mu-flow.is-zoom .mu-flow-stage img{max-width:none;max-height:none;width:3004px;margin:0 auto;}
+.mu-flow-bar{position:absolute;left:0;right:0;bottom:24px;display:flex;align-items:center;justify-content:center;gap:16px;pointer-events:none;}
+.mu-flow-bar > *{pointer-events:auto;}
+.mu-flow-title{font-size:14px;line-height:1.6;color:rgba(30,31,28,.78);}
+
+.mu-flow.is-zoom .mu-flow-title{display:flex;align-items:center;height:44px;padding:0 16px;border:1px solid rgba(30,31,28,.12);border-radius:4px;background:#F6F4EF;}
+.mu-flow button{display:flex;align-items:center;justify-content:center;border:1px solid rgba(30,31,28,.22);background:#F6F4EF;color:var(--text);cursor:pointer;transition:border-color .2s,color .2s;}
+.mu-flow button:hover{border-color:var(--accent);color:var(--accent);}
+.mu-flow button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.mu-flow-close{position:absolute;top:24px;right:var(--page-x);width:44px;height:44px;border-radius:50%;font-size:15px;}
+.mu-flow-zoom{width:44px;height:44px;border-radius:4px;font-size:18px;}
+@media(max-width:600px){.mu-flow-stage{padding:68px 8px 84px;}.mu-flow-close{top:12px;right:12px;}}
+@media(prefers-reduced-motion:reduce){.mu-flow{transition:none;}}
+
+.mu-compare:has(.mu-frame-btn){gap:28px;padding:28px 28px 22px;border-radius:12px;background:#d7ded9;}
+.mu-frame-btn{all:unset;box-sizing:border-box;display:block;width:100%;border-radius:10px;cursor:pointer;opacity:.45;transition:opacity .3s ease;}
+.mu-frame-btn img{display:block;width:100%;height:auto;}
+.mu-frame-btn:hover{opacity:.75;}
+.mu-frame-btn[aria-pressed="true"]{opacity:1;cursor:default;}
+.mu-frame-btn:focus-visible{outline:2px solid var(--accent);outline-offset:4px;}
+.mu-compare:has(.mu-frame-btn) figcaption{margin-top:14px;text-align:center;color:rgba(30,31,28,.55);transition:color .3s ease;}
+.mu-compare:has(.mu-frame-btn) figcaption::before{content:'';display:block;width:20px;height:2px;margin:0 auto 10px;border-radius:1px;background:transparent;transition:background-color .3s ease;}
+.mu-compare .case-figure:has(.mu-frame-btn[aria-pressed="true"]) figcaption{color:rgba(30,31,28,.86);}
+.mu-compare .case-figure:has(.mu-frame-btn[aria-pressed="true"]) figcaption::before{background:var(--accent);}
+.mu-compare .case-figure:has(.mu-frame-btn[aria-pressed="true"]) figcaption b{color:var(--accent);}
+@media(max-width:600px){.mu-compare:has(.mu-frame-btn){gap:16px;padding:18px 16px 16px;}}
+@media(prefers-reduced-motion:reduce){.mu-frame-btn,.mu-compare figcaption,.mu-compare figcaption::before,.mu-frame-ov{transition:none;}}
+
+.mu-frame-stage{position:relative;}
+
+.mu-frame-stage .mu-frame-ov{position:absolute;left:2.52%;top:23.1%;width:97.3%;height:auto;opacity:0;transition:opacity .35s ease;pointer-events:none;}
+.mu-frame-view[data-mode="light"] .mu-frame-ov--light,.mu-frame-view[data-mode="dark"] .mu-frame-ov--dark{opacity:1;}
+
+.mu-frame-badge{position:absolute;right:10px;top:68%;padding:3px 10px;border-radius:999px;background:rgba(30,31,28,.72);color:#fff;font-size:12px;line-height:1.6;letter-spacing:.04em;}
+
+@media(min-width:761px){
+  .mu-article #review .case-split--phone:has(.mu-frame-view){--cap-space:88px;align-items:stretch;padding-bottom:var(--cap-space);}
+  .mu-article #review .case-split--phone:has(.mu-frame-view) > .case-text{display:flex;flex-direction:column;}
+  .mu-article #review .case-split--phone:has(.mu-frame-view) > .case-text > .mu-compare{margin-top:auto;}
+  .mu-article #review .case-split--phone:has(.mu-frame-view) > .case-text > p:last-of-type{margin-bottom:28px;}
+  .mu-article #review .mu-frame-view{align-self:end;position:relative;}
+  .mu-article #review .mu-frame-view > figcaption{position:absolute;top:100%;left:0;right:0;}
+}
+
+@media(min-width:601px){
+  .mu-article .case-group-shots > .case-figure:has(img[src*="onsite-5-ar-lantern"]){margin-top:57.79%;}
+}
+</style>
+<link rel="stylesheet" href="../css/site-brand.css">
+<link rel="stylesheet" href="../css/hero-grain.css">
+<link rel="stylesheet" href="../css/site-logo.css">
+<link rel="stylesheet" href="../css/site-footer.css">
+</head>
+<body id="top" class="case-template case-lede-first mu-article puli-v3 v3-light v4">
+
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><svg class="logo-h" viewBox="-3.5 -1.5 53.5 52.5" role="img" aria-label="Helen Hsieh 首頁"><path d="M43 5V45M24 25H43"/><circle class="s" cx="5" cy="8" r="7.4" style="--dx:9px"/><circle class="s" cx="5" cy="25" r="7.4" style="--dx:0px"/><circle class="s" cx="5" cy="42" r="7.4" style="--dx:9px"/></svg></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#works">Work</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cv" href="../cv/Helen-Hsieh-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+  <button class="nav-toggle" id="navToggle" aria-label="開啟導覽選單" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-menu-links">
+    <li><a href="../index.html#works">Work</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="../cv/Helen-Hsieh-CV.pdf" target="_blank" rel="noopener">CV ↗</a></li>
+  </ul>
+</div>
+
+<header class="v3-frame v4-head">
+  <a class="v4-back" href="../index.html#works">← 返回所有專案</a>
+  <h1 class="v4-title">國立歷史博物館<br>AR 探索</h1>
+  <ul class="v4-role" aria-label="負責項目"><li class="v4-chip">UI/UX 設計</li><li class="v4-chip">流程</li><li class="v4-chip">原型</li><li class="v4-chip">介面</li></ul>
+  <p class="v4-sub">訪客透過「i史博」App，在戶外場域參與錦鯉互動、角色合照、天燈祈福與隱藏探索。我將既定企劃轉為操作流程與介面，並依現場使用情況調整提示與可讀性。</p>
+</header>
+
+<div class="v3-frame v4-show">
+  <div class="v4-show-row">
+    <figure class="v4-show-web mu-hero"><img src="../img/museum-onsite/main.webp" srcset="../img/museum-onsite/main-1120.webp 1120w, ../img/museum-onsite/main.webp 2240w" sizes="(max-width: 1240px) 92vw, 1120px" alt="國立歷史博物館庭院中手持手機開啟 AR 探索，畫面裡的虛擬角色也出現在庭院中，周圍是錦鯉、拍照與天燈關卡圖示" width="2240" height="936" fetchpriority="high"></figure>
+  </div>
+</div>
+
+<div class="v3-frame v3-intro">
+<div class="detail-body v4-info">
+  <div class="detail-meta">
+    <div class="detail-meta-item"><div class="detail-meta-label">我的角色</div><div class="detail-meta-value">UI/UX 設計（流程、原型、介面）</div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">參與期間</div><div class="detail-meta-value"><span class="nb">2024.09–2024.12</span></div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">專案範圍</div><div class="detail-meta-value">「i史博」App 新增<span class="nb">四款戶外 AR 互動</span></div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">合作對象</div><div class="detail-meta-value">館方、PM、企劃、<span class="nb">AR／工程團隊</span></div></div>
+  </div>
+  <div class="v4-info-cols">
+    <div class="case-role">
+      <h2>我的工作</h2>
+      <p>我負責 User Flow、Wireframe、可點擊 Prototype 與高保真 UI，設計關卡入口、操作提示、按鈕與互動狀態，並參與現場操作確認與介面調整。</p>
+      <p>四款關卡的主題與主要玩法由館方、客戶與 PM 定義；角色造型、3D 建模、AR 定位與渲染由其他團隊負責。</p>
+    </div>
+    <div class="case-role v4-challenges">
+      <h2>設計挑戰</h2>
+      <ul class="v4-q">
+        <li><a href="#entry"><span class="v4-q-t">如何讓訪客從 App 入口找到並進入戶外 AR 關卡</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
+        <li><a href="#lantern"><span class="v4-q-t">如何讓天燈從製作祝福銜接到施放與拍攝</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
+        <li><a href="#review"><span class="v4-q-t">如何讓操作提示在相機背景上容易辨識</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+<div class="v3-frame v3-layout">
+  <div class="v3-toc" role="navigation" aria-label="案例章節">
+    <span class="v3-toc-label">In This Case</span>
+    <button class="v3-toc-toggle" type="button" aria-expanded="false" aria-controls="v3TocList"><span class="v3-toc-toggle-label">In This Case</span><span class="v3-toc-current">01 探索入口</span><svg class="v3-toc-caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <ol id="v3TocList">
+      <li><a href="#entry"><b>01</b><span>探索入口</span></a></li>
+      <li><a href="#games"><b>02</b><span>四款遊戲互動</span></a></li>
+      <li><a href="#lantern"><b>03</b><span>天燈操作流程</span></a></li>
+      <li><a href="#review"><b>04</b><span>現場確認與調整</span></a></li>
+      <li><a href="#outcome"><b>05</b><span>成果與回顧</span></a></li>
+    </ol>
+  </div>
+  <div class="v3-main">
+
+<section class="case-section case-section--tight" id="entry">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>01 · ENTRY</span>
+    <h2 class="onsite-title">從 App 入口<em>找到戶外 AR 體驗</em></h2>
+  </div>
+  <div class="case-text">
+    <p>戶外 AR 整合在既有的「i史博」App 中。訪客從 AR 探索列表選擇關卡，進入相機畫面後，可以自由探索，或跟著虛擬角色前往關卡，完成後回到探索介面，再選下一關。這兩種探索方式由館方與企劃規劃，我把它們整理成 User Flow，釐清入口、關卡、完成與返回之間的畫面關係。</p>
+  </div>
+  <span class="case-flow-label case-flow-label--top">流程概覽（各關卡依操作條件另有分支）</span>
+  <ol class="case-flow case-flow--wrap" aria-label="AR 探索流程概覽">
+    <li><span class="case-flow-step">App 探索入口</span></li>
+    <li><span class="case-flow-step">選擇探索方式或關卡</span></li>
+    <li><span class="case-flow-step">AR 互動</span></li>
+    <li><span class="case-flow-step">完成關卡</span></li>
+    <li><span class="case-flow-step">返回探索介面</span></li>
+  </ol>
+  <div class="case-row case-row--phones mu-row-phones3 case-media">
+    <figure class="case-figure" style="--r:0.4618">
+      <span class="fig-media"><img src="../img/museum-ui/main-game-w560.webp" alt="App 探索入口：AR 探索列表中的關卡卡片、說明與 GO 按鈕" width="750" height="1624" loading="lazy"></span>
+      <figcaption><b>App 探索入口</b>關卡卡片附說明與「GO」入口</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:0.4618">
+      <span class="fig-media"><img src="../img/museum-ui/choose-mode-w560.webp" alt="AR 相機畫面設計稿：酷獸詢問要帶訪客走或自由探索，下方有「帶我走」與「自由探索」兩個按鈕" width="750" height="1624" loading="lazy"></span>
+      <figcaption><b>選擇探索方式</b>跟著酷獸前往關卡，或自由探索</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:0.4618">
+      <span class="fig-media"><img src="../img/museum-ui/ar-guide-w560.webp" alt="AR 相機畫面上的操作提示：點選關卡、前往遊戲關卡、注意散落的能量、跟著酷獸走" width="750" height="1624" loading="lazy"></span>
+      <figcaption><b>相機畫面上的操作提示</b>標示關卡圖示、能量與跟隨角色的位置</figcaption>
+    </figure>
+  </div>
+  <p class="case-more">完整 User Flow：<button type="button" class="mu-flow-open" aria-haspopup="dialog">虛擬角色導引流程圖 <span aria-hidden="true">⤢</span></button></p>
+</section>
+
+<section class="case-section" id="games">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>02 · EXPERIENCES</span>
+    <h2 class="onsite-title">把四款企劃<em>轉成對應的操作介面</em></h2>
+  </div>
+  <div class="case-text">
+    <p>依四款 AR 關卡的操作需求，設計對應的提示、控制與結果畫面。以下呈現各關卡的介面與參與範圍，天燈的操作流程於下一章展開。</p>
+  </div>
+  <div class="level-grid case-media">
+    <div class="level-card">
+      <div class="level-img"><img src="../img/museum-ui/game-1-crop-w638.webp" alt="網羅吉祥 AR 網撈錦鯉關卡畫面" loading="lazy"></div>
+      <h3 class="level-title"><span class="level-num">A.</span>網羅吉祥</h3>
+      <p class="level-desc">負責錦鯉互動的操作提示與控制介面。</p>
+    </div>
+    <div class="level-card">
+      <div class="level-img"><img src="../img/museum-ui/game-2-crop-w638.webp" alt="吉祥物大合照 AR 拍照關卡畫面" loading="lazy"></div>
+      <h3 class="level-title"><span class="level-num">B.</span>吉祥物大合照</h3>
+      <p class="level-desc">設計與虛擬角色合照的拍照介面與操作狀態。</p>
+    </div>
+    <div class="level-card">
+      <div class="level-img"><img src="../img/museum-ui/game-3-crop-w638.webp" alt="開館點燈祈福 AR 天燈關卡畫面" loading="lazy"></div>
+      <h3 class="level-title"><span class="level-num">C.</span>開館點燈祈福</h3>
+      <p class="level-desc">建立祝福到施放完成的操作銜接與 Prototype。</p>
+    </div>
+    <div class="level-card">
+      <div class="level-img"><img src="../img/museum-ui/game-4-crop-w638.webp" alt="隱藏探索 AR 放大鏡搜尋關卡畫面" loading="lazy"></div>
+      <h3 class="level-title"><span class="level-num">D.</span>隱藏探索</h3>
+      <p class="level-desc">設計 AR 放大鏡、資訊卡片與完成狀態；探索點由館方規劃。</p>
+    </div>
+  </div>
+</section>
+
+<section class="case-section" id="lantern">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>03 · INTERACTION</span>
+    <h2 class="onsite-title">遊戲展示：從製作祝福到拍攝天燈</h2>
+  </div>
+  <div class="case-text">
+    <p>「開館點燈祈福」的主要玩法與基礎流程由館方與 PM 提供。我參與畫面間的銜接，以及確認、返回、重拍、儲存與分享等操作設計，並製作可點擊 Prototype 讓團隊確認。</p>
+  </div>
+  <div class="case-groups case-media">
+    <div class="case-group">
+      <div class="case-group-text">
+        <h3>建立祝福</h3>
+        <p>從關卡卡片進入後，先以教學說明兩種方式：繪製圖案或輸入文字；完成製作後，按「下一步，查看天燈」進入 AR。</p>
+      </div>
+      <div class="case-group-shots">
+        <figure class="case-figure"><span class="fig-media"><img src="../img/museum-ui/lantern-1-outdoor.jpg" alt="開館點燈祈福關卡卡片與 GO 按鈕" width="480" height="1039" loading="lazy"></span><figcaption>關卡入口</figcaption></figure>
+        <figure class="case-figure"><span class="fig-media"><img src="../img/museum-ui/lantern-2-tutorial.jpg" alt="操作教學：繪製圖案或輸入文字" width="480" height="1039" loading="lazy"></span><figcaption>操作教學</figcaption></figure>
+        <figure class="case-figure"><span class="fig-media"><img src="../img/museum-ui/lantern-3-write.jpg" alt="製作頁：繪製圖案與輸入文字頁籤，下一步查看天燈" width="480" height="1039" loading="lazy"></span><figcaption>製作頁｜以頁籤切換繪製圖案與輸入文字</figcaption></figure>
+      </div>
+    </div>
+    <div class="case-group">
+      <div class="case-group-text">
+        <h3>沿用既有 App 的頁籤樣式</h3>
+        <p>製作祝福內容時，使用者可以繪製圖案或輸入文字。我沿用既有 App 的頁籤樣式，維持介面外觀的一致性。</p>
+        <p>切換繪圖與文字方式前，介面會提示原本內容將被清除，確認後才切換。</p>
+      </div>
+      <div class="case-group-shots">
+        <figure class="case-figure"><span class="fig-media"><img src="../img/museum-ui/lantern-3a-draw.jpg" alt="繪製圖案頁籤：虛線框內繪製圖案、清除全部與下一步查看天燈" width="480" height="1039" loading="lazy"></span><figcaption>繪製圖案</figcaption></figure>
+        <figure class="case-figure"><span class="fig-media"><img src="../img/museum-ui/lantern-3-write.jpg" alt="輸入文字頁籤：在框內輸入天燈上的文字（24 字數為限）" width="480" height="1039" loading="lazy"></span><figcaption>輸入文字</figcaption></figure>
+        <figure class="case-figure"><span class="fig-media"><img src="../img/museum-ui/lantern-3b-switch.jpg" alt="切換確認提示：目前內容將被清除，確定切換為輸入文字嗎？否／是" width="480" height="1039" loading="lazy"></span><figcaption>切換前的確認提示</figcaption></figure>
+      </div>
+    </div>
+    <div class="case-group">
+      <div class="case-group-text">
+        <h3>施放時切換為拍攝介面</h3>
+        <p>施放天燈時，我收起擺放與施放按鈕，保留拍照操作，讓畫面接近全螢幕相機，幫助使用者辨認此時可以拍攝。</p>
+      </div>
+      <div class="case-group-shots">
+        <figure class="case-figure"><span class="fig-media"><img src="../img/museum-ui/lantern-4-place.jpg" alt="施放前的 AR 畫面：擺放天燈、拍照、施放天燈三個按鈕" width="480" height="1039" loading="lazy"></span><figcaption>施放前｜擺放天燈、拍照、施放天燈</figcaption></figure>
+        <figure class="case-figure"><span class="fig-media"><img src="../img/museum-ui/lantern-5-release.jpg" alt="施放中：擺放與施放按鈕收起，只留拍照按鈕" width="480" height="1039" loading="lazy"></span><figcaption>施放中｜兩側按鈕收起，只留拍照</figcaption></figure>
+      </div>
+    </div>
+    <div class="case-group">
+      <div class="case-group-text">
+        <h3>完成與後續</h3>
+        <p>完成後可以重拍、儲存或分享，下方按鈕回到戶外探索介面。</p>
+      </div>
+      <div class="case-group-shots">
+        <figure class="case-figure"><span class="fig-media"><img src="../img/museum-ui/lantern-6-done.jpg" alt="完成畫面：重拍、儲存、分享與回到戶外酷獸奇航" width="480" height="1039" loading="lazy"></span><figcaption>完成畫面</figcaption></figure>
+        <figure class="case-figure"><span class="fig-media"><img src="../img/museum-ui/lantern-7-saved.jpg" alt="儲存後的提示：祈福天燈已儲存到相簿，可再次施放或結束遊戲" width="480" height="1039" loading="lazy"></span><figcaption>儲存到相簿｜提示已儲存，可再次施放或結束遊戲</figcaption></figure>
+        <figure class="case-figure"><span class="fig-media"><img src="../img/museum-onsite/onsite-5-ar-lantern-w360.webp" alt="下載的天燈照片：寫著笑臉的 AR 天燈飄在史博館屋簷上方的天空" width="1125" height="1785" loading="lazy"></span><figcaption>下載的照片｜現場拍攝的 AR 天燈照片</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case-section" id="review">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>04 · ON-SITE REVIEW</span>
+    <h2 class="onsite-title">讓操作提示<em>在相機背景上更容易辨識</em></h2>
+  </div>
+  <div class="case-split case-split--phone">
+    <div class="case-text">
+      <p>我在辦公室透過 Prototype 與測試版本確認流程，也到史博館現場操作各關卡。AR 以即時相機畫面為背景，色彩與亮度會隨場景改變，提示與文字可能不容易看清楚。</p>
+      <p>現場確認後，我調整了提示與文字底色：隱藏探索的文字由偏淺的底色改為深底白字，提升辨識度；按鈕的位置、大小與視覺層級也依現場操作調整。AR 物件的位置、定位與載入等技術問題，則回報給工程團隊處理。</p>
+      <div class="mu-compare" role="group" aria-label="文字框底色對照：點選後，右側相機畫面會換成該底色">
+        <figure class="case-figure"><button type="button" class="mu-frame-btn" data-mode="light" aria-pressed="false" aria-controls="muFrameView"><img src="../img/museum-ui/text-frame-light.png" alt="調整前示意（依當時調整方向重製）：偏淺的半透明底色加白字" width="533" height="525" loading="lazy"></button><figcaption><b>調整前示意</b>偏淺的文字底色</figcaption></figure>
+        <figure class="case-figure"><button type="button" class="mu-frame-btn" data-mode="dark" aria-pressed="true" aria-controls="muFrameView"><img src="../img/museum-ui/text-frame-dark.png" alt="調整後示意（依當時調整方向重製）：深色半透明底色加白字" width="533" height="525" loading="lazy"></button><figcaption><b>調整後示意</b>深底白字</figcaption></figure>
+      </div>
+    </div>
+    <figure class="case-figure mu-frame-view" id="muFrameView" data-mode="dark" style="--r:0.4618">
+      <span class="fig-media mu-frame-stage"><img src="../img/museum-ui/ar-camera-hint-ui-w560.webp" alt="AR 相機畫面設計稿：問號提示、距離標示與能量列疊在真實場景上" width="750" height="1624" loading="lazy"><img class="mu-frame-ov mu-frame-ov--light" src="../img/museum-ui/text-frame-light.png" alt="" width="533" height="525" loading="lazy"><img class="mu-frame-ov mu-frame-ov--dark" src="../img/museum-ui/text-frame-dark.png" alt="" width="533" height="525" loading="lazy"><span class="mu-frame-badge" aria-live="polite">調整後</span></span>
+      <figcaption><b>相機背景與提示的使用情境（重製示意）</b>文字框依當時的調整方向重製，疊於相機畫面設計稿，並非原始前後截圖；可點選左側文字框切換比較。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="case-section case-section--end case-outcome" id="outcome">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>05 · OUTCOME</span>
+    <h2 class="onsite-title">四款戶外 AR 互動上線，<em>整合於「i史博」App</em></h2>
+  </div>
+  <div class="case-text">
+    <p>團隊將錦鯉互動、角色合照、天燈祈福與隱藏探索整合至既有「i史博」App。我交付四款互動的操作流程、Wireframe、可點擊 Prototype 與高保真 UI。</p>
+    <p>工程實作後，我參與現場操作確認，依相機背景與使用情境調整文字底色、按鈕位置及視覺層級。</p>
+  </div>
+  <div class="case-row case-row--outcome case-media">
+    <figure class="case-figure" style="--r:0.5625">
+      <video controls preload="none" poster="../video/poster-museum-onsite.jpg" playsinline aria-label="史博館現場以手機操作 AR 探索的錄影"><source src="../video/museum-onsite.mp4" type="video/mp4"></video>
+      <figcaption><b>現場錄影</b>在史博館以手機操作 AR 探索</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:0.75">
+      <span class="fig-media"><img src="../img/museum-onsite/onsite-1-ar-menu-w980.webp" alt="史博館庭院中手持手機，畫面是 App 的「戶外酷獸奇航」關卡卡片與 GO 入口，背景是彩色雕塑與大樹" width="1200" height="1600" loading="lazy"></span>
+      <figcaption><b>庭院現場</b>在史博館庭院以手機開啟「戶外酷獸奇航」關卡入口</figcaption>
+    </figure>
+  </div>
+
+  <h3 class="case-subhead">回顧</h3>
+  <div class="case-text">
+    <p>延伸既有 App 時，需要兼顧原本的介面樣式與不同關卡的操作需求。這次經驗也讓我更重視現場確認：流程在設計稿中成立，提示與按鈕仍可能受到相機背景影響，必須放回真實場景檢查與調整。</p>
+  </div>
+</section>
+
+  </div>
+</div>
+
+<div class="v3-dock">
+  <div class="v3-switch is-floating" role="navigation" aria-label="專案切換">
+    <a class="v3-switch-item" href="foxconn-light.html">← 上一個<span class="v3-long">專案</span><span class="v3-sr">：鴻海嘉年華活動導覽</span></a>
+    <span class="v3-sep" aria-hidden="true"></span>
+    <a class="v3-switch-item" href="../index.html#works">所有專案</a>
+    <span class="v3-sep" aria-hidden="true"></span>
+    <a class="v3-switch-item" href="gomaji-light.html">下一個<span class="v3-long">專案</span><span class="v3-sr">：麻吉城市樂園 活動主視覺與網站</span> →</a>
+  </div>
+</div>
+
+<footer id="contact" class="ft" aria-labelledby="contactTitle">
+  <div class="ft-center">
+    <div class="ft-head">
+      <h2 class="ft-title" id="contactTitle" lang="en"><span class="ph">Let’s make things</span> <span class="ph">clearer, <em>Together.</em></span></h2>
+      <ul class="ft-tags" aria-label="技能與對應案例">
+        <li><a class="ft-tag ft-tag--ui" href="foxconn-light.html#modes"><span lang="en">Interaction Design</span><span class="sr">：鴻海｜路線模式切換</span></a></li>
+        <li><a class="ft-tag ft-tag--ix" href="museum-light.html#lantern"><span lang="en">Prototyping</span><span class="sr">：史博館｜天燈操作流程與 Prototype</span></a></li>
+        <li><a class="ft-tag ft-tag--flow" href="gomaji-light.html#process"><span lang="en">Visual Design</span><span class="sr">：麻吉城市樂園｜主視覺與網頁規範</span></a></li>
+        <li><a class="ft-tag ft-tag--code" href="mamypoko-light.html#build"><span lang="en">HTML / CSS</span><span class="sr">：滿意寶寶｜規範、切版與確認</span></a></li>
+      </ul>
+    </div>
+    <div class="ft-cta">
+      <a class="ft-btn" href="mailto:helenn1219@gmail.com"><span class="sr">寄信給我：</span>helenn1219@gmail.com</a>
+      <button type="button" class="ft-copy" data-copy="helenn1219@gmail.com" aria-label="複製 Email 地址">複製</button>
+    </div>
+    <p class="ft-note">開放 UI/UX 與 Product Designer 工作機會，台灣與海外</p>
+    <p class="ft-links">
+      <a href="https://www.linkedin.com/in/helenhsieh-thedesigner" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../cv/Helen-Hsieh-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+    </p>
+  </div>
+  <div class="ft-bottom">
+    <p>© 2026 Helen Hsieh</p>
+    <a class="ft-top" href="#top" aria-label="返回頁面頂部"><span lang="en">TOP</span> <svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 13.5V3M4 7l4-4 4 4"/></svg></a>
+  </div>
+</footer>
+
+<div class="mu-flow" id="muFlow" role="dialog" aria-modal="true" aria-labelledby="muFlowTitle" hidden>
+  <div class="mu-flow-stage" id="muFlowStage" tabindex="0" aria-label="流程圖（放大後可用方向鍵或拖曳移動）">
+    <img id="muFlowImg" data-src="../img/museum-flow-clear.png" alt="虛擬角色導引流程圖：從 AR 酷獸導引入口、教學、相機畫面到「帶我走／自由探索／隱藏探索」三種選擇，以及單一關卡從入口、遊戲、是否過關到完成的流程與對應畫面" width="3004" height="2103" draggable="false">
+  </div>
+  <div class="mu-flow-bar">
+    <p class="mu-flow-title" id="muFlowTitle">虛擬角色導引流程圖</p>
+    <button type="button" class="mu-flow-zoom" id="muFlowZoom" aria-pressed="false" aria-label="放大到原尺寸"><span aria-hidden="true">＋</span></button>
+  </div>
+  <button type="button" class="mu-flow-close" id="muFlowClose" aria-label="關閉">✕</button>
+</div>
+
+<script src="../js/nav.js"></script>
+<script>
+
+</script>
+<script>
+
+(function () {
+  const body = document.body;
+  const nav = document.getElementById('mainNav');
+  const toc = document.querySelector('.v3-toc');
+  const toggle = toc.querySelector('.v3-toc-toggle');
+  const current = toc.querySelector('.v3-toc-current');
+  const links = [...toc.querySelectorAll('a[href^="#"]')];
+  const sections = links.map(a => document.getElementById(a.hash.slice(1)));
+  const narrow = window.matchMedia('(max-width: 1179px)');
+  const dock = document.querySelector('.v3-dock');
+  const bar = dock.querySelector('.v3-switch');
+
+  const hero = document.querySelector('.detail-hero') || document.querySelector('.v4-show');
+  let offset = 120, navH = 96, barGap = 20, dockPad = 48;
+
+  function measure() {
+    navH = nav ? nav.getBoundingClientRect().height : 96;
+    body.style.setProperty('--nav-h', navH + 'px');
+    offset = navH + (narrow.matches ? toggle.offsetHeight : 0) + 20;
+    body.style.setProperty('--anchor-offset', offset + 'px');
+    body.style.setProperty('--bar-h', bar.offsetHeight + 'px');
+    barGap = parseFloat(getComputedStyle(body).getPropertyValue('--bar-gap')) || 20;
+    dockPad = parseFloat(getComputedStyle(dock).paddingTop) || 48;
+  }
+
+  function setOpen(open) {
+    toc.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+
+  function update() {
+
+    let idx = 0;
+    sections.forEach((s, i) => { if (s.getBoundingClientRect().top - offset <= 8) idx = i; });
+    links.forEach((a, i) => { if (i === idx) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
+    current.textContent = links[idx].textContent.replace(/^(\d+)/, '$1 ');
+
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    body.classList.toggle('v3-past-hero', heroBottom < navH);
+    toc.classList.toggle('is-stuck', narrow.matches && toc.getBoundingClientRect().top <= navH + 1);
+
+    const docked = dock.getBoundingClientRect().top + dockPad <= window.innerHeight - barGap - bar.offsetHeight;
+    bar.classList.toggle('is-floating', !docked);
+
+    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open'));
+
+    const overlay = body.classList.contains('menu-open') || !!document.querySelector('[role="dialog"]:not([hidden]), .lightbox.open, .taitra-lightbox.open');
+    bar.classList.toggle('is-off', overlay);
+  }
+
+  let ticking = false;
+  const schedule = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; update(); }); } };
+
+  toggle.addEventListener('click', () => {
+    const open = !toc.classList.contains('is-open');
+
+    if (open && narrow.matches) {
+      const gap = toc.getBoundingClientRect().top - navH;
+      if (gap > 1) window.scrollTo(0, window.scrollY + gap);
+    }
+    setOpen(open);
+    schedule();
+  });
+  links.forEach(a => a.addEventListener('click', () => { if (narrow.matches) setOpen(false); }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && toc.classList.contains('is-open')) { setOpen(false); toggle.focus(); } });
+  const onBreakpoint = () => { setOpen(false); measure(); schedule(); };
+  if (narrow.addEventListener) narrow.addEventListener('change', onBreakpoint); else narrow.addListener(onBreakpoint);
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', () => { measure(); schedule(); });
+  new MutationObserver(schedule).observe(body, { attributes: true, attributeFilter: ['class'] });
+  window.addEventListener('load', () => { measure(); schedule(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); schedule(); });
+
+  measure();
+  update();
+})();
+</script>
+<script>
+
+(function () {
+  const openBtn = document.querySelector('.mu-flow-open');
+  const dlg = document.getElementById('muFlow');
+  if (!openBtn || !dlg) return;
+  const stage = document.getElementById('muFlowStage'), img = document.getElementById('muFlowImg');
+  const zoomBtn = document.getElementById('muFlowZoom'), closeBtn = document.getElementById('muFlowClose');
+  let last = null, y = 0, zoomed = false, drag = null;
+  const inertBg = on => [...document.body.children].forEach(el => { if (el === dlg || el.tagName === 'SCRIPT') return; on ? el.setAttribute('inert', '') : el.removeAttribute('inert'); });
+  function setZoom(on, cx, cy) {
+    const r = img.getBoundingClientRect();
+    const fx = cx == null ? .5 : Math.min(Math.max((cx - r.left) / r.width, 0), 1);
+    const fy = cy == null ? .5 : Math.min(Math.max((cy - r.top) / r.height, 0), 1);
+    zoomed = on;
+    dlg.classList.toggle('is-zoom', on);
+    zoomBtn.setAttribute('aria-pressed', String(on));
+    zoomBtn.setAttribute('aria-label', on ? '縮小到整張' : '放大到原尺寸');
+    zoomBtn.firstElementChild.textContent = on ? '－' : '＋';
+    if (on) {
+      stage.scrollLeft = img.offsetLeft + fx * img.offsetWidth - stage.clientWidth / 2;
+      stage.scrollTop = img.offsetTop + fy * img.offsetHeight - stage.clientHeight / 2;
+    }
+  }
+  function open() {
+    last = openBtn; y = window.scrollY;
+    if (!img.getAttribute('src')) img.setAttribute('src', img.dataset.src);
+    document.documentElement.style.overflow = 'hidden';
+    dlg.hidden = false; requestAnimationFrame(() => dlg.classList.add('open'));
+    inertBg(true); setZoom(false); closeBtn.focus();
+  }
+  function close() {
+    if (dlg.hidden) return;
+    dlg.classList.remove('open'); dlg.hidden = true; inertBg(false);
+    document.documentElement.style.overflow = ''; window.scrollTo(0, y);
+    if (last) last.focus({ preventScroll: true });
+  }
+  openBtn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  zoomBtn.addEventListener('click', () => setZoom(!zoomed));
+
+  stage.addEventListener('pointerdown', e => { if (e.button !== 0) return; drag = { x: e.clientX, y: e.clientY, l: stage.scrollLeft, t: stage.scrollTop, moved: false }; });
+  stage.addEventListener('pointermove', e => {
+    if (!drag || !zoomed) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (Math.abs(dx) + Math.abs(dy) > 5) { drag.moved = true; stage.classList.add('is-dragging'); }
+    stage.scrollLeft = drag.l - dx; stage.scrollTop = drag.t - dy;
+  });
+  const endDrag = e => {
+    if (!drag) return;
+    const wasMove = drag.moved; drag = null; stage.classList.remove('is-dragging');
+    if (!wasMove && e.type === 'pointerup' && e.target === img) setZoom(!zoomed, e.clientX, e.clientY);
+    else if (!wasMove && e.type === 'pointerup' && e.target === stage && !zoomed) close();
+  };
+  stage.addEventListener('pointerup', endDrag);
+  stage.addEventListener('pointerleave', () => { drag = null; stage.classList.remove('is-dragging'); });
+  window.addEventListener('keydown', e => {
+    if (dlg.hidden) return;
+    if (e.key === 'Escape') { e.preventDefault(); close(); }
+    else if (e.key === '+' || e.key === '=') setZoom(true);
+    else if (e.key === '-') setZoom(false);
+    else if (e.key === 'Tab') {
+      const f = [stage, zoomBtn, closeBtn], i = f.indexOf(document.activeElement);
+      if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+    }
+  });
+})();
+</script>
+<script>
+
+(function () {
+  const view = document.getElementById('muFrameView');
+  const btns = [...document.querySelectorAll('.mu-frame-btn')];
+  if (!view || !btns.length) return;
+  const badge = view.querySelector('.mu-frame-badge');
+  const label = { light: '調整前', dark: '調整後' };
+  btns.forEach(b => b.addEventListener('click', () => {
+    const m = b.dataset.mode;
+    view.dataset.mode = m;
+    btns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    badge.textContent = label[m];
+  }));
+})();
+</script>
+<script src="../js/site-footer.js"></script>
+<script src="../js/site-cursor.js"></script>
+<script src="../js/hero-orb.js" data-host="body" data-page data-shift-y="-.15" data-alpha=".7" data-colors="172,191,176|135,162,141|209,219,211"></script>
+</body>
+</html>

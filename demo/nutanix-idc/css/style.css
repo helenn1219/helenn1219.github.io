@@ -1,0 +1,185 @@
+*{
+	position: relative;
+	box-sizing: border-box;
+	margin: 0;
+}
+body{
+	font-family: Microsoft JhengHei;
+}
+.bg-box img{
+	display: inline-block;
+	width: 100%;
+}
+.bg-box .topmask{
+	display: flex;
+	flex-wrap: nowrap;
+	position: absolute;
+	top: 0;
+	left: 0;
+} 
+.bg-box .topmask .text-box{
+	position: absolute;
+	z-index: 1;
+	color: #fff;
+	left: 50px;
+	top: 70px;
+}
+
+.text-box .logo{
+	width: 250px;
+}
+
+.text-box h2{
+	font-size: 60px;
+	font-weight: 800;
+	letter-spacing: 2px;
+	margin: 130px 0 90px;
+}
+.text-box h5{
+	font-size: 35px;
+	margin-bottom: 5px;
+	font-weight: 500;
+
+}
+.text-box h4{
+	font-size: 40px;
+	font-weight: 500;
+	font-size: 35px;
+	margin-bottom: 100px;
+}
+.text-box span{
+	font-size: 30px;
+	font-weight: 800;
+	background-color: #99cc00;
+	padding: 10px 35px;
+	border-radius: 10px;
+}
+.text-box a{
+	text-decoration: none;
+	color: #000;
+}
+.text-box .cursor{
+	position: absolute;
+	left: 260px;
+	top: 550px;
+	width: 40px;
+	transform: rotate(-30deg);
+}
+section{
+	/*width: 1300px;*/
+}
+.content{
+	line-height: 45px;
+	letter-spacing: 1px;
+}
+.content h3{
+	text-align: center;
+	font-size: 35px;
+	color: 	#4682B4;
+	margin: 20px 0;
+}
+.content h4{
+	font-size: 25px;
+	padding: 0 100px;
+	font-weight: 200;
+}
+.content .black{
+	font-weight: 800;
+}
+
+
+
+section .about{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	justify-content: center;
+	top: 20px;
+}
+.about h6,.about p{
+	bottom: 180px;
+	left: 70px;
+}
+
+.about img{
+	width: 280px;
+	left: 780px;
+	top: 20px;
+}
+.about .block,.about .block-c{
+	width: 1300px;
+	height: 300px;
+	border: #4682B4 solid 3px;
+	border-radius: 50px;
+	margin-top: 50px;
+
+
+}
+.about span{
+	background-color: #4682B4;
+	border-radius: 10px;
+	color: #fff;
+	font-size: 20px;
+	padding: 10px 20px;
+	bottom: 250px;
+	left: 10px;
+}
+.about h6{
+	font-size: 22px;
+	font-weight: 600;
+	margin: 20px 0;
+}
+.about p{
+	font-size: 20px;
+}
+.about .block-c span{
+	left: 1150px;
+}
+.about .block-c .img-c{
+	left: -50px;
+}
+.about .block-c .text h6, .about .block-c .text p{
+	left: 600px;
+}
+
+.button a{
+	text-decoration: none;
+	color: #fff;
+}
+.button span{
+	font-size: 20px;
+	font-weight: 800px;
+	padding: 20px 40px;
+	border-radius: 10px;
+	flex-wrap: nowrap;
+}
+.button{
+	text-align: center;
+	top: 100px;
+}
+
+.button .left-btn {
+	background-color: #808080;
+	margin: 0 10px;
+}
+.button .right-btn {
+	background-color: #99cc00;
+	margin: 0 10px;
+}
+
+footer{
+	padding-top: 200px;
+	text-align: center;
+	line-height: 30px;
+}
+footer .icons img{
+	width: 25px;
+}
+footer p{
+	color: #A9A9A9;
+}
+footer a{
+	text-decoration: none;
+	color: #4682B4;
+}
+
