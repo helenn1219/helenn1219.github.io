@@ -170,3 +170,16 @@
   p.addEventListener('pointermove', e => { const r = p.getBoundingClientRect(); set((e.clientX - r.left) / r.width - .5, (e.clientY - r.top) / r.height - .5); });
   p.addEventListener('pointerleave', () => set(0, 0));
 })();
+
+// 手機版作品卡的橫向圖片列：只有在真的能左右捲動時，才讓鍵盤可以聚焦並用方向鍵捲動
+(function () {
+  const rows = [...document.querySelectorAll('.scroll-x')];
+  if (!rows.length) return;
+  const sync = () => rows.forEach(el => {
+    if (el.scrollWidth > el.clientWidth + 4) {
+      el.setAttribute('tabindex', '0'); el.setAttribute('role', 'region'); el.setAttribute('aria-label', el.dataset.label || '可左右捲動的圖片');
+    } else { el.removeAttribute('tabindex'); el.removeAttribute('role'); el.removeAttribute('aria-label'); }
+  });
+  sync();
+  let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(sync, 150); });
+})();

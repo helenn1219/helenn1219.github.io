@@ -49,3 +49,10 @@ body.v4:not(.menu-open) nav#mainNav.nav-top::before{background:transparent;-webk
 body.v4 .rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);}
 body.v4 .rv.rv-in{opacity:1;transform:none;}
 @media(prefers-reduced-motion:reduce){body.v4 .rv{opacity:1;transform:none;transition:none;}}
+
+/* 鍵盤跳轉連結：Tab 第一下出現，直接跳到案例內容 */
+.skip{position:absolute;left:var(--page-x,24px);top:-60px;z-index:400;padding:8px 14px;background:#242421;color:#fff;text-decoration:none;font-size:14px;border-radius:6px;}
+.skip:focus{top:12px;}
+
+/* 設計挑戰連結：最後一個字和箭頭不分開換行，避免箭頭單獨落到下一行 */
+.v4-q-end{white-space:nowrap;}
