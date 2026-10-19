@@ -8,7 +8,13 @@
 <meta property="og:title" content="嬌聯滿意寶寶 LINE 優惠券前台 | Helen Hsieh">
 <meta property="og:description" content="把既定的多通路兌換規則，落實為 LINE 前台的操作與票券狀態介面，並完成前台所有頁面的 HTML/CSS 切版。">
 <meta property="og:image" content="https://helenn1219.github.io/img/og/mamypoko-front.jpg">
+<link rel="canonical" href="https://helenn1219.github.io/mamypoko/">
+<meta property="og:url" content="https://helenn1219.github.io/mamypoko/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -451,7 +457,7 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
     <div class="case-role">
       <h2>我的工作</h2>
       <p>依 PM 提供的流程圖設計 LINE 前台介面，規劃前台文字與元件的呈現規則，並完成前台所有頁面的 HTML/CSS 切版與部分 jQuery 互動。</p>
-      <p>兌換規則由客戶與 PM 定義；品牌端 CMS 介面由另一位設計師負責，我與 CMS 設計師、工程師協作，確認設定如何呈現在前台。</p>
+      <p>兌換規則由客戶與 PM 定義，品牌端 CMS 介面由另一位設計師負責。我與 CMS 設計師、工程師協作，確認設定內容如何呈現在前台。</p>
     </div>
     <div class="case-role v4-challenges">
       <h2>設計挑戰</h2>
@@ -503,7 +509,7 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
           <li>出示條碼與倒數</li>
           <li>門市人員點選「確認兌換」</li>
         </ol>
-        <p>30 分鐘內完成為「兌換完成」，逾時則為「已過期」。</p>
+        <p>30 分鐘內完成兌換，顯示「兌換完成」；逾時則顯示「已過期」。</p>
       </div>
       <div class="case-lane">
         <h3>EC 電商</h3>
@@ -533,7 +539,7 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
     <h2 class="onsite-title">讓門市人員快速辨識兌換資訊</h2>
   </div>
   <div class="case-text">
-    <p>消費者在門市出示手機時，需要讓門市人員辨識條碼與剩餘兌換時間。我將條碼與倒數相對放大，並安排按鈕與提示文字的位置，呈現既定的「由門市人員確認兌換」操作要求。</p>
+    <p>消費者在門市出示手機時，需要讓門市人員辨識條碼與剩餘兌換時間。我將條碼與倒數相對放大，並安排按鈕與提示文字的位置，讓介面符合既定的「由門市人員確認兌換」操作要求。</p>
   </div>
   <div class="case-row case-row--phones2 mp-row-phones3 case-media">
     <figure class="case-figure" style="--r:0.5622">
@@ -557,7 +563,7 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
     <h2 class="onsite-title">讓票券狀態與兌換結果清楚可辨</h2>
   </div>
   <div class="case-text">
-    <p>「我的折價券」是管理入口，依可使用、已使用、已失效分頁。兌換結果則以提示畫面告知：兌換完成會顯示兌換日期，已過期則告知本券已過期，兩者都附上客服時間與電話。兌換中的畫面見 02。</p>
+    <p>「我的折價券」是票券管理入口，以可使用、已使用、已失效分頁。兌換結果則以提示畫面呈現：完成兌換時顯示兌換日期，逾時則顯示本券已過期，兩者都附上客服時間與電話。兌換中的畫面見 02。</p>
   </div>
   <div class="mp-states case-media">
     <div class="mp-states-group mp-states-group--entry">
@@ -593,8 +599,8 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
   </div>
   <div class="case-split case-split--phone mp-build-top">
     <div class="case-text">
-      <p>設計前，我先規劃可選字級、字數上限，以及換行與文字超出範圍的處理規則，讓品牌端能在既定範圍內設定內容。接著測試不同字級的前台呈現，與 CMS 設計師討論對應設定，再將確認的文字樣式落實於 HTML/CSS，交由工程師整合。</p>
-      <p>前台所有頁面的切版與部分 jQuery 互動由我完成；之後在測試環境操作領券與兌換流程，確認頁面銜接，以及 CMS 設定在前台的呈現。</p>
+      <p>設計前，我先規劃可選字級、字數上限，以及換行與文字超出範圍的處理規則，讓品牌端能在既定範圍內設定內容。接著測試不同字級在前台的呈現，與 CMS 設計師討論對應設定，再以 HTML/CSS 實作確認後的文字樣式，交由工程師整合。</p>
+      <p>前台所有頁面的切版與部分 jQuery 互動由我完成。之後，我在測試環境操作領券與兌換流程，確認頁面切換，以及 CMS 設定在前台的呈現。</p>
     </div>
     <figure class="case-figure mp-build-front" style="--r:0.5622">
       <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-2-home-w520.webp" alt="前台活動首頁：好友專屬標題、內容文字與領取折價券按鈕" width="750" height="1334" loading="lazy"></span>
@@ -619,11 +625,11 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
     <h2 class="onsite-title">完成多通路優惠券的前台設計與實作</h2>
   </div>
   <div class="case-text">
-    <p>專案約六個月，前台與品牌端 CMS 同步交付。我完成的前台涵蓋領券、我的折價券、實體門市與 EC 兩種兌換方式，以及兌換結果畫面。</p>
+    <p>專案歷時約六個月，前台與品牌端 CMS 同步交付。我完成的前台涵蓋領券、我的折價券、實體門市與 EC 兩種兌換方式，以及兌換結果畫面。</p>
   </div>
   <h3 class="case-subhead">回顧</h3>
   <div class="case-text">
-    <p>這次的前台設計需要同時考慮兩件事：品牌端如何在 CMS 設定內容，以及設定後如何呈現在消費者看到的介面。</p>
+    <p>這次的前台設計需要同時考慮兩件事：品牌端如何在 CMS 設定內容，以及這些設定如何呈現在消費者使用的介面上。</p>
   </div>
 </section>
 
@@ -632,11 +638,11 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
 
 <div class="v3-dock">
   <div class="v3-switch is-floating" role="navigation" aria-label="專案切換">
-    <a class="v3-switch-item" href="puli-v4-light.html">← 上一個<span class="v3-long">專案</span><span class="v3-sr">：埔里酒廠智慧導覽系統</span></a>
+    <a class="v3-switch-item" href="../puli/">← 上一個<span class="v3-long">專案</span><span class="v3-sr">：埔里酒廠智慧導覽系統</span></a>
     <span class="v3-sep" aria-hidden="true"></span>
     <a class="v3-switch-item" href="../index.html#works">所有專案</a>
     <span class="v3-sep" aria-hidden="true"></span>
-    <a class="v3-switch-item" href="foxconn-light.html">下一個<span class="v3-long">專案</span><span class="v3-sr">：鴻海嘉年華活動導覽</span> →</a>
+    <a class="v3-switch-item" href="../foxconn/">下一個<span class="v3-long">專案</span><span class="v3-sr">：鴻海嘉年華活動導覽</span> →</a>
   </div>
 </div>
 
@@ -645,10 +651,10 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
     <div class="ft-head">
       <h2 class="ft-title" id="contactTitle" lang="en"><span class="ph">Let’s make things</span> <span class="ph">clearer, <em>Together.</em></span></h2>
       <ul class="ft-tags" aria-label="技能與對應案例">
-        <li><a class="ft-tag ft-tag--ui" href="foxconn-light.html#modes"><span lang="en">Interaction Design</span><span class="sr">：鴻海｜路線模式切換</span></a></li>
-        <li><a class="ft-tag ft-tag--ix" href="museum-light.html#lantern"><span lang="en">Prototyping</span><span class="sr">：史博館｜天燈操作流程與 Prototype</span></a></li>
-        <li><a class="ft-tag ft-tag--flow" href="gomaji-light.html#process"><span lang="en">Visual Design</span><span class="sr">：麻吉城市樂園｜主視覺與網頁規範</span></a></li>
-        <li><a class="ft-tag ft-tag--code" href="mamypoko-light.html#build"><span lang="en">HTML / CSS</span><span class="sr">：滿意寶寶｜規範、切版與確認</span></a></li>
+        <li><a class="ft-tag ft-tag--ui" href="../foxconn/#modes"><span lang="en">Interaction Design</span><span class="sr">：鴻海｜路線模式切換</span></a></li>
+        <li><a class="ft-tag ft-tag--ix" href="../museum/#lantern"><span lang="en">Prototyping</span><span class="sr">：史博館｜天燈操作流程與 Prototype</span></a></li>
+        <li><a class="ft-tag ft-tag--flow" href="../gomaji/#process"><span lang="en">Visual Design</span><span class="sr">：麻吉城市樂園｜主視覺與網頁規範</span></a></li>
+        <li><a class="ft-tag ft-tag--code" href="../mamypoko/#build"><span lang="en">HTML / CSS</span><span class="sr">：滿意寶寶｜規範、切版與確認</span></a></li>
       </ul>
     </div>
     <div class="ft-cta">

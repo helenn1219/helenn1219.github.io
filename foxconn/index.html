@@ -3,19 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>麻吉城市樂園 活動主視覺與網站 | Helen Hsieh</title>
-<meta name="description" content="為 GOMAJI 夠麻吉品牌識別更新後的城市嘉年華設計宣傳網頁，以更新後的品牌視覺與既有角色 Maji Friend 為基礎，在 3 週內同時完成品牌識別介紹與購票導購兩項任務。">
-<meta property="og:title" content="麻吉城市樂園 活動主視覺與網站 | Helen Hsieh">
-<meta property="og:description" content="為 GOMAJI 夠麻吉品牌識別更新後的城市嘉年華設計宣傳網頁，以更新後的品牌視覺與既有角色 Maji Friend 為基礎。">
-<meta property="og:image" content="https://helenn1219.github.io/img/og/gomaji.jpg">
+<title>鴻海嘉年華活動導覽 | Helen Hsieh</title>
+<meta name="description" content="為台北大巨蛋鴻海嘉年華設計的 App 與 Web 導覽：搜尋目的地、查看樓層，並切換步行與無障礙路徑。">
+<meta property="og:title" content="鴻海嘉年華活動導覽 | Helen Hsieh">
+<meta property="og:description" content="協助員工與眷屬搜尋目的地、查看樓層，並切換步行與無障礙路徑；整合於集團員工 App，另提供 Web 版。">
+<meta property="og:image" content="https://helenn1219.github.io/img/og/foxconn.jpg">
+<link rel="canonical" href="https://helenn1219.github.io/foxconn/">
+<meta property="og:url" content="https://helenn1219.github.io/foxconn/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--accent:#E3A26B; --accent-solid:#D9641E; --accent-wash:rgba(217,100,30,.09); --accent-glow:rgba(217,100,30,.38);}
+:root{--accent:#6683B7; --accent-solid:#003087; --accent-wash:rgba(0,48,135,.09); --accent-glow:rgba(0,48,135,.38);}
 </style>
 <style>
 
@@ -269,89 +275,23 @@ body.v4 footer.v4-foot{position:relative;}
 @media(max-width:540px){.v4-foot p.v4-foot-copy{position:static;margin-top:28px;text-align:right;}}
 @media(max-width:540px){.v4-foot-title{font-size:26px;}}
 
-.v3-light .case-flow-label,.v3-light .case-flow-branch-label{color:rgba(30,31,28,.66);font-size:14px;}
-.v3-light .case-flow-step{color:var(--text);border-color:rgba(30,31,28,.2);background:rgba(255,255,255,.5);}
-.v3-light .case-flow > li + li::before{color:rgba(30,31,28,.45);}
-.v3-light .case-flow-branch{border-left-color:rgba(30,31,28,.2);}
-.v3-light .case-flow-note{color:rgba(30,31,28,.74);}
-.v3-light .case-lane h3{color:var(--text);}
-.v3-light .case-lane li{color:rgba(30,31,28,.84);}
-.v3-light .case-lane p{color:rgba(30,31,28,.74);}
+body.v3-light.fox-article{--accent:#003087;--accent-wash:rgba(0,48,135,.06);--border:rgba(0,48,135,.22);}
 
-.v4 .onsite-title em{font-style:normal;color:inherit;}
-
-body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:rgba(235,121,52,.08);--border:rgba(235,121,52,.3);}
-.gm-article .v3-toc a[aria-current]{border-left-color:var(--accent-solid);}
-.gm-article .v4-live{border-bottom-color:var(--accent-solid);}
-.gm-article .v4-foot-links a{text-decoration-color:var(--accent-solid);}
-
-.v4 .v3-main > .case-section--tight{scroll-margin-top:var(--anchor-offset,120px);padding-top:24px;}
+.v4 .v3-main > .case-section--tight{scroll-margin-top:var(--anchor-offset,120px);}
 @media(max-width:1179px){.v4 .v3-main > .case-section--tight{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}}
+
+.fox-article .v4-show-row > .v4-show-web{flex:1.7794 1 0;}
+.fox-article .v4-show-row > .v4-show-kiosk{flex:.4607 1 0;}
+
 .v4 .v3-intro .v4-info .detail-meta{position:static;border-top:1px solid var(--border-dim);}
 .v4 .case-role p + p{margin-top:12px;}
 
-.gm-article .v4-show-row > .v4-show-web{flex:1 1 0;}
+.v4 .v3-main > .case-section--tight{padding-top:24px;}
 
-.gm-article .gm-hero img{width:min(100%,1040px);margin:0 auto;aspect-ratio:1414/900;border-radius:0;filter:drop-shadow(0 24px 30px rgba(30,31,28,.18));}
+body.v3-light.fox-article video{background:#fff;}
 
-.gm-grid,.gm-onsite{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 24px;}
-.gm-onsite-hero{grid-column:1 / -1;}
-
-@media(min-width:601px){.gm-onsite-hero img{aspect-ratio:2400/1067;object-fit:cover;object-position:50% 0;}}
-.gm-video{position:relative;aspect-ratio:16/9;border-radius:var(--img-radius,8px);overflow:hidden;background:#fff;}
-.gm-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-@media(max-width:600px){.gm-grid,.gm-onsite{grid-template-columns:minmax(0,1fr);gap:28px;}}
-
-.gm-article .case-figure img,.gm-article .v4-show img{display:block;width:100%;height:auto;border-radius:var(--img-radius,8px);}
-
-.gm-final-row{display:flex;gap:24px;align-items:flex-start;}
-.gm-frame{position:relative;overflow:hidden;background:#fff;}
-.gm-frame--web{box-shadow:inset 0 0 0 1px rgba(30,31,28,.16);}
-.gm-frame--web{flex:1.6 1 0;aspect-ratio:16/10;border-radius:var(--img-radius,8px);}
-
-.gm-frame--phone{flex:.4621 1 0;aspect-ratio:390/844;border-radius:var(--img-radius,8px);box-shadow:inset 0 0 0 1px rgba(30,31,28,.16);}
-.gm-scroll{position:absolute;inset:1px;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
-.gm-scroll::-webkit-scrollbar{display:none;}
-.gm-article .gm-scroll img{display:block;width:100%;height:auto;border-radius:0;}
-.gm-scroll:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
-
-@media(max-width:600px){
-  .gm-final-row{flex-direction:column;align-items:center;gap:20px;}
-  .gm-frame--web{flex:none;width:100%;}
-  .gm-frame--phone{flex:none;width:min(240px,70%);}
-
-  .gm-frame--phone,.gm-cap-both{display:none;}
-}
-
-.gm-article a.gm-lb{cursor:zoom-in;}
-.gm-video-catch{position:absolute;inset:0;z-index:1;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:zoom-in;}
-.gm-video-catch:focus-visible{outline:2px solid var(--accent);outline-offset:-4px;}
-.gm-lightbox{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:88px var(--page-x) 96px;background:#F6F4EF;opacity:0;transition:opacity .2s ease;}
-.gm-lightbox.open{opacity:1;}
-.gm-lightbox[hidden]{display:none;}
-.gm-lb-stage{width:100%;max-width:1400px;max-height:100%;aspect-ratio:16/9;}
-.gm-lb-stage img,.gm-lb-stage iframe{display:block;width:100%;height:100%;object-fit:contain;border:0;}
-.gm-lb-stage iframe{background:#000;border-radius:6px;}
-.gm-lightbox button{position:absolute;display:flex;align-items:center;justify-content:center;border:1px solid rgba(30,31,28,.22);border-radius:50%;background:#F6F4EF;color:var(--text);font-size:18px;cursor:pointer;transition:border-color .2s,color .2s;}
-.gm-lightbox button:hover{border-color:var(--accent);color:var(--accent);}
-.gm-lightbox button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
-.gm-lb-close{top:24px;right:var(--page-x);width:44px;height:44px;font-size:15px;}
-
-.gm-lightbox .gm-lb-prev,.gm-lightbox .gm-lb-next{border-radius:4px;}
-.gm-lb-prev,.gm-lb-next{top:50%;transform:translateY(-50%);width:52px;height:52px;}
-.gm-lb-prev{left:calc(var(--page-x) - 72px);}
-.gm-lb-next{right:calc(var(--page-x) - 72px);}
-.gm-lb-caption{position:absolute;left:0;right:0;bottom:28px;padding:0 120px;text-align:center;font-size:14px;line-height:1.6;color:rgba(30,31,28,.78);}
-.gm-lb-count{margin-right:12px;font-variant-numeric:tabular-nums;color:rgba(30,31,28,.55);}
-@media(max-width:1023px){.gm-lb-prev{left:12px;}.gm-lb-next{right:12px;}.gm-lightbox{padding:88px 76px 104px;}}
-@media(max-width:600px){
-  .gm-lightbox{padding:72px 12px 132px;}
-  .gm-lb-close{right:12px;top:12px;}
-  .gm-lb-prev,.gm-lb-next{top:auto;bottom:24px;transform:none;}
-  .gm-lb-prev{left:calc(50% - 64px);}.gm-lb-next{right:calc(50% - 64px);}
-  .gm-lb-caption{bottom:88px;padding:0 16px;font-size:13px;}
-}
-@media(prefers-reduced-motion:reduce){.gm-lightbox{transition:none;}}
+.fox-article .fox-row-phones3{max-width:calc(var(--phone-max) * 3 + 48px);}
+@media(max-width:600px){.fox-article .fox-row-phones3 > .case-figure{max-width:var(--phone-max);}}
 </style>
 <link rel="stylesheet" href="../css/link-preview.css">
 <link rel="stylesheet" href="../css/site-brand.css">
@@ -359,7 +299,7 @@ body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:r
 <link rel="stylesheet" href="../css/site-logo.css">
 <link rel="stylesheet" href="../css/site-footer.css">
 </head>
-<body id="top" class="case-template case-lede-first gm-article puli-v3 v3-light v4">
+<body id="top" class="case-template case-lede-first fox-article puli-v3 v3-light v4">
 
 <nav id="mainNav">
   <a href="../index.html" class="nav-logo"><svg class="logo-h" viewBox="-3.5 -1.5 53.5 52.5" role="img" aria-label="Helen Hsieh 首頁"><path d="M43 5V45M24 25H43"/><circle class="s" cx="5" cy="8" r="7.4" style="--dx:9px"/><circle class="s" cx="5" cy="25" r="7.4" style="--dx:0px"/><circle class="s" cx="5" cy="42" r="7.4" style="--dx:9px"/></svg></a>
@@ -385,36 +325,39 @@ body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:r
 
 <header class="v3-frame v4-head">
   <a class="v4-back" href="../index.html#works">← 返回所有專案</a>
-  <h1 class="v4-title">麻吉城市樂園<br>活動主視覺與網站</h1>
-  <ul class="v4-role" aria-label="負責項目"><li class="v4-chip">活動主視覺</li><li class="v4-chip">網站 UI</li><li class="v4-chip">切版</li></ul>
-  <p class="v4-sub">為 GOMAJI 夠麻吉品牌識別更新後的城市嘉年華設計宣傳網頁，以更新後的品牌視覺與既有角色 Maji Friend 為基礎，在 3 週內同時完成品牌識別介紹與購票導購兩項任務。</p>
-  <a class="v4-live" href="https://event.gomaji.com/activities/202306/carnivalcity2023/" data-preview="../img/link-preview/gomaji-live-site.webp" target="_blank" rel="noopener">查看上線網站 ↗</a>
+  <h1 class="v4-title">鴻海嘉年華<br>活動導覽</h1>
+  <ul class="v4-role" aria-label="負責項目"><li class="v4-chip">UI/UX 設計</li><li class="v4-chip">導覽地圖</li><li class="v4-chip">App／Web 介面</li></ul>
+  <p class="v4-sub">為參加台北大巨蛋嘉年華的員工與眷屬設計導覽介面：搜尋攤位、廁所、電梯等地點，設定起點與終點後查看路線。功能是路線規劃與模擬導覽，不是即時定位導航；主要在集團員工 App 內使用，另提供 Web 版。</p>
+  <a class="v4-live" href="https://omnig-anyplace-foxconn.omniguider.com/arena/" data-preview="../img/link-preview/foxconn-live-site.webp" target="_blank" rel="noopener">查看上線網站 ↗</a>
 </header>
 
 <div class="v3-frame v4-show">
   <div class="v4-show-row">
-    <figure class="v4-show-web gm-hero"><img src="../img/gomaji-process/gomaji-mockup.webp" srcset="../img/gomaji-process/gomaji-mockup-900.webp 900w, ../img/gomaji-process/gomaji-mockup.webp 1414w" sizes="(max-width: 1240px) 92vw, 1040px" alt="麻吉城市樂園活動網站在筆電與手機上的首頁畫面：遊樂園插畫主視覺與活動名稱，手機版下方有 9 折現金抵用券，右上角有品牌角色" width="1414" height="900" fetchpriority="high"><figcaption>案例主視覺</figcaption></figure>
+    <figure class="v4-show-web"><span class="fig-media"><img src="../img/foxconn-case/cover-web-search-w1920.webp" alt="網頁版搜尋位置：左上搜尋面板、上方分類標籤、大巨蛋導覽地圖與右側樓層切換" width="1920" height="1080"></span><figcaption>網頁版｜搜尋位置</figcaption></figure>
+    <figure class="v4-show-kiosk"><span class="fig-media"><img src="../img/foxconn-case/cover-app-route-w450.webp" alt="App 路線規劃：起點與終點、步行與無障礙切換、結束導航按鈕，下方為模擬導覽的上一步、播放與速度控制" width="750" height="1622"></span><figcaption>App｜路線規劃與模擬導覽</figcaption></figure>
   </div>
 </div>
 
 <div class="v3-frame v3-intro">
 <div class="detail-body v4-info">
   <div class="detail-meta">
-    <div class="detail-meta-item"><div class="detail-meta-label">客戶</div><div class="detail-meta-value">GOMAJI 夠麻吉</div></div>
-    <div class="detail-meta-item"><div class="detail-meta-label">我的角色</div><div class="detail-meta-value">活動主視覺、網站 UI、前端切版</div></div>
-    <div class="detail-meta-item"><div class="detail-meta-label">專案時程</div><div class="detail-meta-value"><span class="nb">2023.06</span> · <span class="nb">企劃 1.5 週＋設計 1.5 週</span>（共 3 週）</div></div>
-    <div class="detail-meta-item"><div class="detail-meta-label">工具</div><div class="detail-meta-value">Photoshop · Illustrator · Sublime</div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">我的角色</div><div class="detail-meta-value">UI/UX Designer</div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">設計期間</div><div class="detail-meta-value"><span class="nb">2024.09–2024.12</span></div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">活動規模</div><div class="detail-meta-value"><span class="nb">約 3.5 萬人參與</span> · <span class="nb">7 個樓層</span></div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">使用平台</div><div class="detail-meta-value"><span class="nb">員工 App</span> · <span class="nb">Web</span></div></div>
   </div>
   <div class="v4-info-cols">
     <div class="case-role">
       <h2>我的工作</h2>
-      <p>品牌 Logo、Maji Friend 角色與既有識別來自 GOMAJI；我以此為基礎，設計活動主視覺的城市背景、元素組合、活動主標、配色與構圖。</p>
-      <p>網站以單頁式捲動把活動亮點、美食主打星、活動資訊等內容分區導覽，我負責網站 UI 與 HTML/CSS 切版，並運用動畫插件製作標題動效，確保購票入口在每個裝置上都清楚可見。活動方向由 PM 決定，網站需要的內容項目由 PM 口頭提出；因時程緊迫，我一邊設計一邊整理網站架構與頁面規劃。平台整合與部署由工程團隊負責。</p>
+      <p>參與資訊架構與操作流程規劃，負責搜尋、路線規劃與地點資訊介面，以及導覽地圖、App／Web 共用元件與介面規範。</p>
+      <p>客戶提出無障礙需求後，我提出雙模式切換的介面方案。地點分類由 PM 規劃，攤位位置與路徑資料由 PM 提供或確認。</p>
     </div>
     <div class="case-role v4-challenges">
       <h2>設計挑戰</h2>
       <ul class="v4-q">
-        <li><a href="#process"><span class="v4-q-t">如何用既有品牌元素做出城市樂園的主視覺，並讓訪客一路捲動到購票入口</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
+        <li><a href="#search"><span class="v4-q-t">找到地點後，如何接續規劃路線</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
+        <li><a href="#modes"><span class="v4-q-t">切換路線模式時，如何保留起點與終點</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
+        <li><a href="#map"><span class="v4-q-t">如何把工程圖整理成易讀的導覽地圖</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
       </ul>
     </div>
   </div>
@@ -423,72 +366,149 @@ body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:r
 <div class="v3-frame v3-layout">
   <div class="v3-toc" role="navigation" aria-label="案例章節">
     <span class="v3-toc-label">In This Case</span>
-    <button class="v3-toc-toggle" type="button" aria-expanded="false" aria-controls="v3TocList"><span class="v3-toc-toggle-label">In This Case</span><span class="v3-toc-current">01 主視覺與網頁規範</span><svg class="v3-toc-caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="v3-toc-toggle" type="button" aria-expanded="false" aria-controls="v3TocList"><span class="v3-toc-toggle-label">In This Case</span><span class="v3-toc-current">01 搜尋地點</span><svg class="v3-toc-caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     <ol id="v3TocList">
-      <li><a href="#process"><b>01</b><span>主視覺與網頁規範</span></a></li>
-      <li><a href="#onsite"><b>02</b><span>活動現場</span></a></li>
-      <li><a href="#outcome"><b>03</b><span>成果</span></a></li>
+      <li><a href="#search"><b>01</b><span>搜尋地點</span></a></li>
+      <li><a href="#modes"><b>02</b><span>路線規劃</span></a></li>
+      <li><a href="#map"><b>03</b><span>導覽地圖</span></a></li>
+      <li><a href="#platform"><b>04</b><span>App／Web 介面</span></a></li>
+      <li><a href="#outcome"><b>05</b><span>成果與回顧</span></a></li>
     </ol>
   </div>
   <div class="v3-main">
 
-<section class="case-section case-section--tight" id="process">
+<section class="case-section case-section--tight" id="search">
   <div class="case-head">
-    <span class="detail-tag"><i class="detail-tag-dot"></i>01 · DESIGN PROCESS</span>
-    <h2 class="onsite-title">從品牌元素建立活動主視覺與網頁規範</h2>
+    <span class="detail-tag"><i class="detail-tag-dot"></i>01 · SEARCH</span>
+    <h2 class="onsite-title">從搜尋地點接續規劃路線</h2>
   </div>
   <div class="case-text">
-    <p>以下依序呈現活動背景、網頁設計規範與實體物料延伸。</p>
+    <p>場館範圍大，訪客需要查找攤位、廁所與電梯等地點。我依 PM 提供的分類，設計搜尋入口、結果列表與選取後的操作，讓訪客找到地點後，就能設為起點或終點，再查看路線。</p>
   </div>
-  <div class="gm-grid case-media">
-    <figure class="case-figure"><a class="gm-lb" data-lb="0" aria-haspopup="dialog" href="../img/gomaji-process/process-2-background.jpg" target="_blank" rel="noopener"><img src="../img/gomaji-process/process-2-background-w860.webp" alt="麻吉城市樂園 活動背景與目的" width="1800" height="1012" loading="lazy"></a><figcaption><b>活動背景</b>推廣品牌新視覺與精神，帶入「城市」與「樂園」主題，結合品牌既有角色 Maji Friend</figcaption></figure>
-    <figure class="case-figure"><a class="gm-lb" data-lb="1" aria-haspopup="dialog" href="../img/gomaji-process/process-3-designspec.jpg" target="_blank" rel="noopener"><img src="../img/gomaji-process/process-3-designspec-w860.webp" alt="麻吉城市樂園 網頁設計規範" width="1800" height="1012" loading="lazy"></a><figcaption><b>設計規範</b>目標客群、五色系統與網頁／手機版切版規劃，Slogan 以對話框搭配品牌輔助圖案<br><span>點圖放大</span></figcaption></figure>
-    <figure class="case-figure"><a class="gm-lb" data-lb="2" aria-haspopup="dialog" href="../img/gomaji-process/process-4-extension.jpg" target="_blank" rel="noopener"><img src="../img/gomaji-process/process-4-extension-w860.webp" alt="麻吉城市樂園 活動延伸設計與現場物料" width="1800" height="1012" loading="lazy"></a><figcaption><b>實體延伸</b>我將主視覺延伸為邀請卡、Banner、背板與旗幟；DM 使用此視覺，但 DM 與指示物非本人製作</figcaption></figure>
-    <figure class="case-figure"><div class="gm-video"><iframe src="https://www.youtube.com/embed/7Y2rm-JwWdo" title="麻吉城市樂園 活動宣傳影片（YouTube）" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><button type="button" class="gm-lb gm-video-catch" data-lb="3" data-video="https://www.youtube.com/embed/7Y2rm-JwWdo?autoplay=1" aria-haspopup="dialog" aria-label="放大播放：麻吉城市樂園 活動宣傳影片"></button></div><figcaption><b>活動花絮</b>活動宣傳影片</figcaption></figure>
+  <div class="case-row fox-row-phones3 case-media">
+    <figure class="case-figure" style="--r:0.4607">
+      <span class="fig-media device-trim"><img src="../img/foxconn-mockup/mockup-1-w1080.webp" alt="App 搜尋位置：搜尋框下方列出 B1 的符合位置" loading="lazy"></span>
+      <figcaption><b>搜尋結果列表</b>輸入後列出符合的地點</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:0.4607">
+      <span class="fig-media device-trim"><img src="../img/foxconn-mockup/mockup-3-w1080.webp" alt="App 選取地點後：上方分類標籤，底部卡片有設為起點與設為終點按鈕" loading="lazy"></span>
+      <figcaption><b>選取地點後</b>上方為 PM 提供的分類；底部可直接設為起點或終點</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:0.4607">
+      <span class="fig-media device-trim"><img src="../img/foxconn-mockup/mockup-5.png" alt="App 路徑規劃：終點已帶入大園美式漢堡，起點欄位下方列出點擊地圖圖標、在地圖上選擇等選項" loading="lazy"></span>
+      <figcaption><b>設定起點</b>選好終點後進入路徑規劃，接著選擇起點</figcaption>
+    </figure>
   </div>
 </section>
 
-<section class="case-section" id="onsite">
+<section class="case-section" id="modes">
   <div class="case-head">
-    <span class="detail-tag"><i class="detail-tag-dot"></i>02 · ON-SITE · 2023.06</span>
-    <h2 class="onsite-title">主視覺從螢幕走進活動現場</h2>
+    <span class="detail-tag"><i class="detail-tag-dot"></i>02 · ROUTE MODES</span>
+    <h2 class="onsite-title">切換路線模式，不必重新設定地點</h2>
+  </div>
+  <div class="fox-aside">
+    <div class="case-text fox-aside-main">
+      <p>我將步行／無障礙模式切換與模擬導航入口放在同一排，保留地圖顯示空間，也讓操作區排列更整齊。我也提出在切換模式時保留已選擇的起點與終點，讓訪客不用重新設定地點，就能查看另一種路線。</p>
+    </div>
+    <figure class="case-figure case-figure--video fox-aside-media">
+      <video class="loop-demo" width="888" height="1504" muted loop playsinline preload="none" tabindex="0" poster="../video/poster-foxconn-route-modes.jpg" aria-label="手機瀏覽器測試錄影：設定起點與終點，從步行切換為無障礙模式後起終點不變，再播放模擬導覽。點擊或按空白鍵可暫停／播放"><source src="../video/foxconn-route-modes-w600.mp4" type="video/mp4"></video>
+      <figcaption><b>切換模式並保留起終點</b>手機瀏覽器測試畫面：設定起終點 → 步行切換為無障礙，起終點不變 → 播放模擬導覽。點擊可暫停／播放。</figcaption>
+    </figure>
+    <div class="fox-aside-sub">
+      <figure class="case-figure fox-panel">
+        <span class="fig-media"><img src="../img/foxconn-mockup/web-3-panel-w1100.webp" alt="網頁版路線規劃面板：起點、終點，下方同一排是步行與無障礙切換及模擬導航按鈕" width="1120" height="840" loading="lazy"></span>
+        <figcaption><b>控制區（網頁版局部）</b>模式切換與「模擬導航」在同一排</figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="fox-aside fox-aside--after">
+    <div class="case-text fox-aside-main">
+      <p>訪客自行選擇起點與終點後，可播放模擬導覽並調整速度；跨越樓層時，畫面會自動切換至對應樓層。這些功能由 PM 依過往類似專案提出，我負責介面與操作方式的設計。</p>
+    </div>
+    <figure class="case-figure case-figure--video fox-aside-media">
+      <video class="loop-demo" src="../video/foxconn-speeds-demo-w600.mp4" poster="../video/poster-foxconn-speeds-demo.jpg" width="886" height="1508" style="width:100%;height:auto;aspect-ratio:886/1508;object-fit:contain" muted loop playsinline preload="none" tabindex="0" aria-label="手機瀏覽器測試錄影：設定起點與終點後播放模擬導覽。點擊或按空白鍵可暫停／播放"></video>
+      <figcaption><b>模擬導覽</b>手機瀏覽器測試畫面：設定起終點後開始播放。點擊可暫停／播放。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="case-section" id="map">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>03 · MAP DESIGN</span>
+    <h2 class="onsite-title">簡化工程圖，保留導覽所需的位置資訊</h2>
   </div>
   <div class="case-text">
-    <p>2023 年 6 月，麻吉城市樂園在新店陽光運動公園正式登場，以下是活動現場實拍畫面。</p>
+    <p>原始工程圖包含柱子、牆壁等建築細節，一般訪客不容易閱讀。工程師先以顏色與線條標記區域及設施位置，我再保留訪客需要的資訊，省略與導覽無關的內容，同時讓地圖位置與工程端資料一致，供路線指引使用。</p>
+    <p>廁所、電梯、出入口與樓梯等設施，透過顏色、POI 標記與圖示區分；各分公司的攤位位置則與 PM 確認。</p>
   </div>
-  <div class="gm-onsite case-media">
-    <figure class="case-figure gm-onsite-hero"><span class="fig-media"><img src="../img/gomaji-onsite/onesite-2-w1770.webp" alt="麻吉城市樂園活動現場舞台與滿場參與人潮" width="2400" height="1600" loading="lazy"></span><figcaption><b>活動現場</b>舞台背板沿用活動主視覺</figcaption></figure>
-    <figure class="case-figure"><span class="fig-media"><img src="../img/gomaji-onsite/onesite-1-w860.webp" alt="麻吉城市樂園活動網頁實際使用畫面" width="2400" height="1600" loading="lazy"></span><figcaption><b>活動網頁現場使用示意</b></figcaption></figure>
-    <figure class="case-figure"><span class="fig-media"><img src="../img/gomaji-onsite/onesite-3-w860.webp" alt="麻吉城市樂園駐唱嘉賓演出" width="2400" height="1600" loading="lazy"></span><figcaption><b>麻吉嘉賓演出</b></figcaption></figure>
+  <div class="case-row case-row--pair case-media">
+    <figure class="case-figure" style="--r:1.0309">
+      <span class="fig-media"><img src="../img/foxconn-case/map-source-detail.jpg" alt="台北大巨蛋地下一層原始工程圖局部：東側看台、外圍走道與廣場的柱位與牆線" width="1000" height="970" loading="lazy"></span>
+      <figcaption><b>原始工程圖局部</b>柱位、牆線與座位線條密集</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:1.0309">
+      <span class="fig-media"><img src="../img/foxconn-case/map-illustrated-detail-aligned.jpg" alt="導覽地圖同一區域：看台分區色彩、出入口編號、廁所、電梯與樓梯等 POI 圖示" width="1000" height="970" loading="lazy"></span>
+      <figcaption><b>導覽地圖（同一區域）</b>以顏色、POI 標記與圖示區分設施，其餘建築細節省略</figcaption>
+    </figure>
+  </div>
+  <figure class="case-figure case-media fox-wide">
+    <span class="fig-media"><img src="../img/foxconn-case/cover-web-route-w1920.webp" alt="導覽地圖整合進網頁版：左上路徑規劃面板（起點、終點、步行／無障礙切換）與路線播放控制，右側樓層切換" width="1920" height="1080" loading="lazy"></span>
+    <figcaption><b>整合進網頁版介面</b>路徑規劃面板、路線播放控制與樓層切換疊在地圖上</figcaption>
+  </figure>
+</section>
+
+<section class="case-section" id="platform">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>04 · CROSS-PLATFORM</span>
+    <h2 class="onsite-title">依螢幕空間安排地點資訊</h2>
+  </div>
+  <div class="case-text">
+    <p>手機螢幕空間有限，我依重要性安排資訊與操作順序。訪客在員工 App 內點選地點後，底部會滑出資訊面板，顯示地點資訊與「設為起點／終點」按鈕，也能向上拉開面板查看詳細內容。Web 版則以左側面板呈現，讓地圖保持可見。</p>
+  </div>
+  <div class="fox-row-platform case-media">
+    <figure class="case-figure case-figure--video">
+      <video class="loop-demo" src="../video/foxconn-slideup-demo-w600.mp4" poster="../video/poster-foxconn-slideup-demo.jpg" width="888" height="1516" muted loop playsinline preload="none" tabindex="0" aria-label="手機瀏覽器測試錄影：搜尋並選取地點後，底部資訊面板滑出，向上拉展開詳細內容後再收合。點擊或按空白鍵可暫停／播放"></video>
+      <figcaption><b>手機：底部資訊面板</b>手機瀏覽器測試畫面：選取地點 → 面板滑出 → 向上拉展開 → 收合。點擊可暫停／播放。</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:1.5574">
+      <span class="fig-media"><img src="../img/foxconn-mockup/web-4-poi-w1140.webp" alt="網頁版地點資訊：左側面板依序為名稱、設為起點與設為終點、圖片與說明，右側地圖保持可見" width="1520" height="976" loading="lazy"></span>
+      <figcaption><b>Web 版</b>地點資訊以左側面板呈現，地圖保持可見</figcaption>
+    </figure>
   </div>
 </section>
 
 <section class="case-section case-section--end case-outcome" id="outcome">
   <div class="case-head">
-    <span class="detail-tag"><i class="detail-tag-dot"></i>03 · OUTCOME</span>
-    <h2 class="onsite-title">網站隨活動上線，承接活動資訊與購票入口</h2>
+    <span class="detail-tag"><i class="detail-tag-dot"></i>05 · OUTCOME</span>
+    <h2 class="onsite-title">交付 App 與 Web 導覽，並在活動現場複查</h2>
   </div>
-  <div class="case-text">
-    <p>同一套主視覺也延伸到我設計的邀請卡、Banner、背板與旗幟，用於活動現場。</p>
-  </div>
-  <figure class="case-figure gm-final case-media">
-    <div class="gm-final-row">
-      <div class="gm-frame gm-frame--web"><div class="gm-scroll" tabindex="0" role="region" aria-label="網頁版上線網站截圖，可在框內捲動"><img src="../img/gomaji-web/desktop-full/part-01.jpg" alt="麻吉城市樂園活動網站桌機版完整頁面：主視覺、活動亮點、演出卡司、抽獎、美食主打星、活動資訊與會場地圖" width="1440" height="1600" loading="lazy" decoding="async"><img src="../img/gomaji-web/desktop-full/part-02.jpg" alt="" width="1440" height="1600" loading="lazy" decoding="async"><img src="../img/gomaji-web/desktop-full/part-03.jpg" alt="" width="1440" height="1600" loading="lazy" decoding="async"><img src="../img/gomaji-web/desktop-full/part-04.jpg" alt="" width="1440" height="1600" loading="lazy" decoding="async"><img src="../img/gomaji-web/desktop-full/part-05.jpg" alt="" width="1440" height="1600" loading="lazy" decoding="async"><img src="../img/gomaji-web/desktop-full/part-06.jpg" alt="" width="1440" height="1600" loading="lazy" decoding="async"><img src="../img/gomaji-web/desktop-full/part-07.jpg" alt="" width="1440" height="1600" loading="lazy" decoding="async"><img src="../img/gomaji-web/desktop-full/part-08.jpg" alt="" width="1440" height="1314" loading="lazy" decoding="async"></div></div>
-      <div class="gm-frame gm-frame--phone"><div class="gm-scroll" tabindex="0" role="region" aria-label="手機版上線網站截圖，可在框內捲動"><img src="../img/gomaji-web/web-mobile-full-480-w480.webp" alt="麻吉城市樂園活動網站手機版完整頁面" width="480" height="15207" loading="lazy" decoding="async"></div></div>
+  <div class="fox-aside">
+    <div class="case-text fox-aside-main">
+      <p>系統於 2025 年 1 月 24 日隨嘉年華活動上線，我的交付包含 App 與 Web 介面、導覽地圖與 Figma 介面規範。上線後，我到台北大巨蛋現場操作，確認搜尋、樓層切換與步行／無障礙模式切換是否正常運作。</p>
     </div>
-    <figcaption><b>最終畫面</b>上線網站截圖，<span class="gm-cap-both">左為網頁版、右為手機版；</span>可在框內捲動瀏覽</figcaption>
-  </figure>
+    <figure class="case-figure case-figure--video fox-aside-media">
+      <video controls preload="none" poster="../video/poster-onsite.jpg" playsinline aria-label="活動現場以手機開啟導覽的錄影"><source src="../video/foxconn-onsite.mp4" type="video/mp4"></video>
+      <figcaption><b>活動現場</b>在大巨蛋觀眾席以手機開啟導覽</figcaption>
+    </figure>
+    <div class="fox-aside-sub">
+      <h3 class="case-subhead">回顧</h3>
+      <div class="case-text">
+        <p>客戶只提出「要支援無障礙」，沒有指定做法。把需求轉成具體介面時，我要顧及小螢幕上的地圖空間，也要讓訪客切換模式後能繼續操作，不必重新設定起終點。</p>
+      </div>
+    </div>
+  </div>
 </section>
+
   </div>
 </div>
 
 <div class="v3-dock">
   <div class="v3-switch is-floating" role="navigation" aria-label="專案切換">
-    <a class="v3-switch-item" href="museum-light.html">← 上一個<span class="v3-long">專案</span><span class="v3-sr">：國立歷史博物館 AR 探索</span></a>
+    <a class="v3-switch-item" href="../mamypoko/">← 上一個<span class="v3-long">專案</span><span class="v3-sr">：嬌聯滿意寶寶 LINE 優惠券前台</span></a>
     <span class="v3-sep" aria-hidden="true"></span>
     <a class="v3-switch-item" href="../index.html#works">所有專案</a>
     <span class="v3-sep" aria-hidden="true"></span>
-    <span class="v3-switch-item is-disabled" aria-disabled="true" title="這是最後一個專案">下一個<span class="v3-long">專案</span> →</span>
+    <a class="v3-switch-item" href="../museum/">下一個<span class="v3-long">專案</span><span class="v3-sr">：國立歷史博物館 AR 探索</span> →</a>
   </div>
 </div>
 
@@ -497,10 +517,10 @@ body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:r
     <div class="ft-head">
       <h2 class="ft-title" id="contactTitle" lang="en"><span class="ph">Let’s make things</span> <span class="ph">clearer, <em>Together.</em></span></h2>
       <ul class="ft-tags" aria-label="技能與對應案例">
-        <li><a class="ft-tag ft-tag--ui" href="foxconn-light.html#modes"><span lang="en">Interaction Design</span><span class="sr">：鴻海｜路線模式切換</span></a></li>
-        <li><a class="ft-tag ft-tag--ix" href="museum-light.html#lantern"><span lang="en">Prototyping</span><span class="sr">：史博館｜天燈操作流程與 Prototype</span></a></li>
-        <li><a class="ft-tag ft-tag--flow" href="gomaji-light.html#process"><span lang="en">Visual Design</span><span class="sr">：麻吉城市樂園｜主視覺與網頁規範</span></a></li>
-        <li><a class="ft-tag ft-tag--code" href="mamypoko-light.html#build"><span lang="en">HTML / CSS</span><span class="sr">：滿意寶寶｜規範、切版與確認</span></a></li>
+        <li><a class="ft-tag ft-tag--ui" href="../foxconn/#modes"><span lang="en">Interaction Design</span><span class="sr">：鴻海｜路線模式切換</span></a></li>
+        <li><a class="ft-tag ft-tag--ix" href="../museum/#lantern"><span lang="en">Prototyping</span><span class="sr">：史博館｜天燈操作流程與 Prototype</span></a></li>
+        <li><a class="ft-tag ft-tag--flow" href="../gomaji/#process"><span lang="en">Visual Design</span><span class="sr">：麻吉城市樂園｜主視覺與網頁規範</span></a></li>
+        <li><a class="ft-tag ft-tag--code" href="../mamypoko/#build"><span lang="en">HTML / CSS</span><span class="sr">：滿意寶寶｜規範、切版與確認</span></a></li>
       </ul>
     </div>
     <div class="ft-cta">
@@ -522,63 +542,17 @@ body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:r
 <script src="../js/nav.js"></script>
 <script>
 
-</script>
+document.querySelectorAll('video.loop-demo').forEach(v => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let userPaused = reduce.matches, inView = false;
+  const sync = () => { if (inView && !userPaused && !document.hidden) { const p = v.play(); if (p) p.catch(() => {}); } else v.pause(); };
+  const toggle = () => { userPaused = !v.paused; if (v.paused) { userPaused = false; const p = v.play(); if (p) p.catch(() => {}); } else v.pause(); };
+  v.addEventListener('click', toggle);
+  v.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); } });
+  if ('IntersectionObserver' in window) new IntersectionObserver(es => { inView = es[0].intersectionRatio >= .5; sync(); }, { threshold: [0, .5] }).observe(v);
+  document.addEventListener('visibilitychange', sync);
+});
 
-<div class="gm-lightbox" id="gmLightbox" role="dialog" aria-modal="true" aria-label="設計軌跡放大檢視" hidden>
-  <button type="button" class="gm-lb-close" id="gmLbClose" aria-label="關閉">✕</button>
-  <button type="button" class="gm-lb-prev" id="gmLbPrev" aria-label="上一張">←</button>
-  <div class="gm-lb-stage" id="gmLbStage"></div>
-  <button type="button" class="gm-lb-next" id="gmLbNext" aria-label="下一張">→</button>
-  <p class="gm-lb-caption"><span class="gm-lb-count" id="gmLbCount"></span><span id="gmLbCaption"></span></p>
-</div>
-<script>
-(function () {
-  const triggers = [...document.querySelectorAll('.gm-lb')].sort((a, b) => a.dataset.lb - b.dataset.lb);
-  const lb = document.getElementById('gmLightbox');
-  if (!lb || !triggers.length) return;
-  const stage = document.getElementById('gmLbStage'), cap = document.getElementById('gmLbCaption'), count = document.getElementById('gmLbCount');
-  const closeBtn = document.getElementById('gmLbClose');
-
-  const items = triggers.map(t => {
-    const fc = t.closest('figure').querySelector('figcaption');
-    const b = fc.querySelector('b'), title = b ? b.textContent.trim() : '';
-    const rest = fc.textContent.replace(title, '').trim();
-    const caption = rest ? `${title}｜${rest}` : title;
-    if (t.dataset.video) return { type: 'video', src: t.dataset.video, caption };
-    const img = t.querySelector('img');
-    return { type: 'image', src: t.getAttribute('href'), alt: img ? img.alt : title, caption };
-  });
-  let idx = 0, last = null;
-  const render = () => {
-    const it = items[idx];
-    stage.classList.toggle('is-video', it.type === 'video');
-    stage.innerHTML = it.type === 'image'
-      ? `<img src="${it.src}" alt="${it.alt}">`
-      : `<iframe src="${it.src}" title="麻吉城市樂園 活動宣傳影片（YouTube）" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
-    count.textContent = `${idx + 1}／${items.length}`;
-    cap.textContent = it.caption;
-  };
-  const inertBg = on => [...document.body.children].forEach(el => { if (el === lb || el.tagName === 'SCRIPT') return; on ? el.setAttribute('inert', '') : el.removeAttribute('inert'); });
-  const open = i => { last = triggers[i]; idx = i; render(); lb.hidden = false; void lb.offsetWidth; lb.classList.add('open'); document.body.style.overflow = 'hidden'; inertBg(true); closeBtn.focus(); };
-  const close = () => { lb.classList.remove('open'); lb.hidden = true; stage.innerHTML = ''; document.body.style.overflow = ''; inertBg(false); if (last) last.focus(); };
-  const step = d => { idx = (idx + d + items.length) % items.length; render(); };
-  triggers.forEach((t, i) => t.addEventListener('click', e => { e.preventDefault(); open(i); }));
-  closeBtn.addEventListener('click', close);
-  document.getElementById('gmLbPrev').addEventListener('click', () => step(-1));
-  document.getElementById('gmLbNext').addEventListener('click', () => step(1));
-  lb.addEventListener('click', e => { if (e.target === lb) close(); });
-  window.addEventListener('keydown', e => {
-    if (lb.hidden) return;
-    if (e.key === 'Escape') close();
-    else if (e.key === 'ArrowLeft') step(-1);
-    else if (e.key === 'ArrowRight') step(1);
-    else if (e.key === 'Tab') {
-      const f = [...lb.querySelectorAll('button, iframe')]; const first = f[0], end = f[f.length - 1];
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); end.focus(); }
-      else if (!e.shiftKey && document.activeElement === end) { e.preventDefault(); first.focus(); }
-    }
-  });
-})();
 </script>
 <script>
 
@@ -662,6 +636,6 @@ body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:r
 <script src="../js/link-preview.js"></script>
 <script src="../js/site-footer.js"></script>
 <script src="../js/site-cursor.js"></script>
-<script src="../js/hero-orb.js" data-host="body" data-page data-shift-y="-.15" data-alpha=".7" data-colors="241,196,166|235,169,126|247,222,206"></script>
+<script src="../js/hero-orb.js" data-host="body" data-page data-shift-y="-.15" data-alpha=".7" data-colors="161,183,221|120,151,206|203,215,236"></script>
 </body>
 </html>

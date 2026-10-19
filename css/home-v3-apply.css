@@ -95,6 +95,7 @@ body.menu-open .hn{background:var(--bg) !important;}
 @media(hover:hover){.hero-title .hl:hover::after{height:calc(100% - .04em);}}
 .hero-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:32px;margin-top:clamp(24px,4vh,44px);}
 .hero-sub{max-width:30em;font-size:16px;line-height:1.85;color:var(--ink-2);text-wrap:pretty;}
+/* 副標依語意切成短詞組（.ph 為 inline-block），只在詞組之間換行，各寬度都不會把詞拆開 */
 .hero-cta{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;color:var(--on-dark);background:var(--ink);border-radius:var(--r-round);text-decoration:none;transition:background-color .18s,transform .18s;}
 .hero-cta .ic{width:26px;height:26px;stroke-width:1.5;}
 .hero-cta:hover{background:var(--brand);transform:translateY(3px);}
@@ -239,8 +240,6 @@ summary.mw-link::-webkit-details-marker{display:none;}
 
 .about{position:relative;z-index:10;background-color:var(--bg);display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);column-gap:clamp(40px,6vw,96px);align-items:start;padding:clamp(40px,6vw,80px) var(--px) clamp(110px,12vw,170px);}
 
-.about-photo{display:block;width:min(100%,420px);aspect-ratio:3/4;height:auto;object-fit:cover;border-radius:var(--r-img);}
-@media(max-width:1023px){.about-photo{width:min(62vw,260px);}}
 .about-figure{position:relative;margin:0;display:flex;justify-content:center;align-items:flex-end;}
 .about-text{padding-top:8px;max-width:640px;}
 .about-lead{margin-top:20px;font-size:clamp(22px,2vw,28px);font-weight:600;line-height:1.5;}
@@ -434,7 +433,24 @@ html.ybs-lock .hn{padding-right:calc(var(--px) + var(--ybs-sbw,0px));}
 /* About（2026-10-18 定稿）：定位句＋三項做法＋工具。照片在左（桌機捲動時固定），手機縮小放在標題旁 */
 .ab{align-items:start;}
 .ab-figure{position:sticky;top:calc(var(--nav-h) + 32px);}
-.ab .about-photo{width:min(100%,340px);}
+/* 人像：剪貼印刷感。斜放網點紙片在肩膀後方，去背人像加白色剪貼邊，放大 130% 由上方裁切；桌機預設黑白，滑鼠移入恢復彩色 */
+.ab-portrait{position:relative;width:min(100%,340px);aspect-ratio:1;overflow:hidden;isolation:isolate;--x:0px;--y:0px;--bx:0px;--by:0px;}
+.ab-paper{position:absolute;z-index:-1;left:15%;top:35%;width:80%;height:65%;background:#DDE792;
+  clip-path:polygon(2% 4%,22% 2%,39% 4%,62% 0,80% 3%,98% 1%,96% 30%,100% 48%,97% 71%,99% 97%,73% 99%,52% 96%,29% 100%,1% 97%,3% 75%,0 51%);
+  transform:translate(var(--bx),var(--by)) rotate(-5deg);transition:transform .35s ease;}
+.ab-paper::before{content:'';position:absolute;inset:0;background-image:radial-gradient(#626B35 .65px,transparent .9px);background-size:4px 4px;opacity:.32;}
+.ab-person{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center top;
+  transform:translate(var(--x),var(--y)) scale(1.3);transform-origin:50% 0;
+  filter:drop-shadow(5px 3px 0 var(--bg)) drop-shadow(-4px -2px 0 var(--bg));transition:filter .65s ease,transform .35s ease;}
+/* 顆粒：只疊在人物輪廓內（以人像的透明度當遮罩），和人像同步縮放與位移 */
+.ab-grain{position:absolute;inset:0;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  2.4 0 0 0 -.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0/180px;mix-blend-mode:overlay;opacity:.8;
+  -webkit-mask:url(../img/about-portrait.webp) center top/contain no-repeat;mask:url(../img/about-portrait.webp) center top/contain no-repeat;
+  transform:translate(var(--x),var(--y)) scale(1.3);transform-origin:50% 0;transition:transform .35s ease;}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .ab-person{filter:grayscale(1) contrast(1.08) drop-shadow(5px 3px 0 var(--bg)) drop-shadow(-4px -2px 0 var(--bg));}
+  .ab-portrait:hover .ab-person{filter:grayscale(0) contrast(1.03) drop-shadow(5px 3px 0 var(--bg)) drop-shadow(-4px -2px 0 var(--bg));}
+}
+@media(prefers-reduced-motion:reduce){.ab-paper{transform:rotate(-5deg);transition:none;}.ab-person,.ab-grain{transform:scale(1.3);transition:none;}}
 .ab-lead{margin-top:20px;font-size:clamp(24px,2.3vw,32px);font-weight:600;line-height:1.4;letter-spacing:-.01em;}
 .ab-lead .ph{display:inline-block;}
 .ab-body{margin-top:14px;font-size:17px;line-height:1.85;color:var(--ink-2);max-width:34em;}
@@ -448,12 +464,12 @@ html.ybs-lock .hn{padding-right:calc(var(--px) + var(--ybs-sbw,0px));}
 .ab-tools span{margin-right:14px;font-size:12.5px;font-weight:600;letter-spacing:.12em;}
 @media(max-width:1023px){
   .ab-figure{position:static;}
-  .ab .about-photo{width:min(44vw,200px);}
+  .ab-portrait{width:min(44vw,220px);}
 }
 @media(max-width:600px){
   .ab{display:block;}
-  .ab-figure{float:right;width:112px;margin:4px 0 12px 16px;}
-  .ab .about-photo{width:112px;}
+  .ab-figure{float:right;width:128px;margin:4px 0 12px 16px;}
+  .ab-portrait{width:128px;}
   .ab-ways{clear:both;}
 }
 @media(prefers-reduced-motion:reduce){.ab-ways b{transition:none;}}

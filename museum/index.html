@@ -4,11 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>國立歷史博物館 AR 探索 | Helen Hsieh</title>
-<meta name="description" content="訪客透過「i史博」App 在戶外參與四款 AR 互動；我將既定企劃轉為操作流程、原型與介面，並依現場使用情況調整提示與可讀性。">
+<meta name="description" content="訪客透過「i史博」App 在戶外參與四款 AR 互動；我將既定企劃轉為操作流程、原型與介面，並依現場使用情況調整提示與文字呈現。">
 <meta property="og:title" content="國立歷史博物館 AR 探索 | Helen Hsieh">
 <meta property="og:description" content="錦鯉互動、角色合照、天燈祈福與隱藏探索：將既定 AR 企劃轉為操作流程與介面。">
 <meta property="og:image" content="https://helenn1219.github.io/img/og/museum.jpg">
+<link rel="canonical" href="https://helenn1219.github.io/museum/">
+<meta property="og:url" content="https://helenn1219.github.io/museum/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="800">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -430,7 +436,7 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
   <a class="v4-back" href="../index.html#works">← 返回所有專案</a>
   <h1 class="v4-title">國立歷史博物館<br>AR 探索</h1>
   <ul class="v4-role" aria-label="負責項目"><li class="v4-chip">UI/UX 設計</li><li class="v4-chip">流程</li><li class="v4-chip">原型</li><li class="v4-chip">介面</li></ul>
-  <p class="v4-sub">訪客透過「i史博」App，在戶外場域參與錦鯉互動、角色合照、天燈祈福與隱藏探索。我將既定企劃轉為操作流程與介面，並依現場使用情況調整提示與可讀性。</p>
+  <p class="v4-sub">訪客透過「i史博」App，在戶外場域參與錦鯉互動、角色合照、天燈祈福與隱藏探索。我將既定企劃轉為操作流程與介面，並依現場使用情況調整提示與文字呈現。</p>
 </header>
 
 <div class="v3-frame v4-show">
@@ -457,7 +463,7 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
       <h2>設計挑戰</h2>
       <ul class="v4-q">
         <li><a href="#entry"><span class="v4-q-t">如何讓訪客從 App 入口找到並進入戶外 AR 關卡</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
-        <li><a href="#lantern"><span class="v4-q-t">如何讓天燈從製作祝福銜接到施放與拍攝</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
+        <li><a href="#lantern"><span class="v4-q-t">如何串起製作祝福、施放天燈與拍攝的步驟</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
         <li><a href="#review"><span class="v4-q-t">如何讓操作提示在相機背景上容易辨識</span><span class="v4-q-arr" aria-hidden="true">→</span></a></li>
       </ul>
     </div>
@@ -484,7 +490,7 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
     <h2 class="onsite-title">從 App 入口<em>找到戶外 AR 體驗</em></h2>
   </div>
   <div class="case-text">
-    <p>戶外 AR 整合在既有的「i史博」App 中。訪客從 AR 探索列表選擇關卡，進入相機畫面後，可以自由探索，或跟著虛擬角色前往關卡，完成後回到探索介面，再選下一關。這兩種探索方式由館方與企劃規劃，我把它們整理成 User Flow，釐清入口、關卡、完成與返回之間的畫面關係。</p>
+    <p>戶外 AR 整合在既有的「i史博」App 中。訪客從 AR 探索列表選擇關卡，進入相機畫面後，可以自由探索，或跟著虛擬角色前往關卡。完成後回到探索介面，再選下一關。這兩種探索方式由館方與企劃規劃，我將它們整理成 User Flow，釐清入口、關卡、完成畫面與返回路徑之間的關係。</p>
   </div>
   <span class="case-flow-label case-flow-label--top">流程概覽（各關卡依操作條件另有分支）</span>
   <ol class="case-flow case-flow--wrap" aria-label="AR 探索流程概覽">
@@ -517,7 +523,7 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
     <h2 class="onsite-title">把四款企劃<em>轉成對應的操作介面</em></h2>
   </div>
   <div class="case-text">
-    <p>依四款 AR 關卡的操作需求，設計對應的提示、控制與結果畫面。以下呈現各關卡的介面與參與範圍，天燈的操作流程於下一章展開。</p>
+    <p>依四款 AR 關卡的操作需求，設計對應的提示、控制與結果畫面。以下呈現各關卡的介面與我的參與範圍，天燈的操作流程會在下一章說明。</p>
   </div>
   <div class="level-grid case-media">
     <div class="level-card">
@@ -533,7 +539,7 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
     <div class="level-card">
       <div class="level-img"><img src="../img/museum-ui/game-3-crop-w638.webp" alt="開館點燈祈福 AR 天燈關卡畫面" loading="lazy"></div>
       <h3 class="level-title"><span class="level-num">C.</span>開館點燈祈福</h3>
-      <p class="level-desc">建立祝福到施放完成的操作銜接與 Prototype。</p>
+      <p class="level-desc">設計從製作祝福到施放完成的流程與 Prototype。</p>
     </div>
     <div class="level-card">
       <div class="level-img"><img src="../img/museum-ui/game-4-crop-w638.webp" alt="隱藏探索 AR 放大鏡搜尋關卡畫面" loading="lazy"></div>
@@ -549,13 +555,13 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
     <h2 class="onsite-title">遊戲展示：從製作祝福到拍攝天燈</h2>
   </div>
   <div class="case-text">
-    <p>「開館點燈祈福」的主要玩法與基礎流程由館方與 PM 提供。我參與畫面間的銜接，以及確認、返回、重拍、儲存與分享等操作設計，並製作可點擊 Prototype 讓團隊確認。</p>
+    <p>「開館點燈祈福」的主要玩法與基礎流程由館方與 PM 提供。我參與畫面之間的切換流程，以及確認、返回、重拍、儲存與分享等操作設計，並製作可點擊 Prototype 供團隊確認。</p>
   </div>
   <div class="case-groups case-media">
     <div class="case-group">
       <div class="case-group-text">
         <h3>建立祝福</h3>
-        <p>從關卡卡片進入後，先以教學說明兩種方式：繪製圖案或輸入文字；完成製作後，按「下一步，查看天燈」進入 AR。</p>
+        <p>從關卡卡片進入後，教學會說明兩種製作方式：繪製圖案或輸入文字。完成後，按「下一步，查看天燈」進入 AR 畫面。</p>
       </div>
       <div class="case-group-shots">
         <figure class="case-figure"><span class="fig-media"><img src="../img/museum-ui/lantern-1-outdoor.jpg" alt="開館點燈祈福關卡卡片與 GO 按鈕" width="480" height="1039" loading="lazy"></span><figcaption>關卡入口</figcaption></figure>
@@ -588,7 +594,7 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
     <div class="case-group">
       <div class="case-group-text">
         <h3>完成與後續</h3>
-        <p>完成後可以重拍、儲存或分享，下方按鈕回到戶外探索介面。</p>
+        <p>完成後可以重拍、儲存或分享，並透過下方按鈕回到戶外探索介面。</p>
       </div>
       <div class="case-group-shots">
         <figure class="case-figure"><span class="fig-media"><img src="../img/museum-ui/lantern-6-done.jpg" alt="完成畫面：重拍、儲存、分享與回到戶外酷獸奇航" width="480" height="1039" loading="lazy"></span><figcaption>完成畫面</figcaption></figure>
@@ -607,7 +613,7 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
   <div class="case-split case-split--phone">
     <div class="case-text">
       <p>我在辦公室透過 Prototype 與測試版本確認流程，也到史博館現場操作各關卡。AR 以即時相機畫面為背景，色彩與亮度會隨場景改變，提示與文字可能不容易看清楚。</p>
-      <p>現場確認後，我調整了提示與文字底色：隱藏探索的文字由偏淺的底色改為深底白字，提升辨識度；按鈕的位置、大小與視覺層級也依現場操作調整。AR 物件的位置、定位與載入等技術問題，則回報給工程團隊處理。</p>
+      <p>現場確認後，我調整了提示與文字底色：隱藏探索的文字由偏淺的底色改為深底白字，以增加文字與背景的對比；按鈕的位置、大小與視覺層級也依現場操作調整。AR 物件的位置、定位與載入等技術問題，則回報給工程團隊處理。</p>
       <div class="mu-compare" role="group" aria-label="文字框底色對照：點選後，右側相機畫面會換成該底色">
         <figure class="case-figure"><button type="button" class="mu-frame-btn" data-mode="light" aria-pressed="false" aria-controls="muFrameView"><img src="../img/museum-ui/text-frame-light.png" alt="調整前示意（依當時調整方向重製）：偏淺的半透明底色加白字" width="533" height="525" loading="lazy"></button><figcaption><b>調整前示意</b>偏淺的文字底色</figcaption></figure>
         <figure class="case-figure"><button type="button" class="mu-frame-btn" data-mode="dark" aria-pressed="true" aria-controls="muFrameView"><img src="../img/museum-ui/text-frame-dark.png" alt="調整後示意（依當時調整方向重製）：深色半透明底色加白字" width="533" height="525" loading="lazy"></button><figcaption><b>調整後示意</b>深底白字</figcaption></figure>
@@ -615,7 +621,7 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
     </div>
     <figure class="case-figure mu-frame-view" id="muFrameView" data-mode="dark" style="--r:0.4618">
       <span class="fig-media mu-frame-stage"><img src="../img/museum-ui/ar-camera-hint-ui-w560.webp" alt="AR 相機畫面設計稿：問號提示、距離標示與能量列疊在真實場景上" width="750" height="1624" loading="lazy"><img class="mu-frame-ov mu-frame-ov--light" src="../img/museum-ui/text-frame-light.png" alt="" width="533" height="525" loading="lazy"><img class="mu-frame-ov mu-frame-ov--dark" src="../img/museum-ui/text-frame-dark.png" alt="" width="533" height="525" loading="lazy"><span class="mu-frame-badge" aria-live="polite">調整後</span></span>
-      <figcaption><b>相機背景與提示的使用情境（重製示意）</b>文字框依當時的調整方向重製，疊於相機畫面設計稿，並非原始前後截圖；可點選左側文字框切換比較。</figcaption>
+      <figcaption><b>相機背景與提示的使用情境（重製示意）</b>文字框依當時的調整方向重製，疊在相機畫面設計稿上，並非原始前後截圖；可點選左側文字框切換比較。</figcaption>
     </figure>
   </div>
 </section>
@@ -642,7 +648,7 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
 
   <h3 class="case-subhead">回顧</h3>
   <div class="case-text">
-    <p>延伸既有 App 時，需要兼顧原本的介面樣式與不同關卡的操作需求。這次經驗也讓我更重視現場確認：流程在設計稿中成立，提示與按鈕仍可能受到相機背景影響，必須放回真實場景檢查與調整。</p>
+    <p>延伸既有 App 時，需要兼顧原本的介面樣式與不同關卡的操作需求。這次經驗也讓我更重視現場確認：即使流程在設計稿中看來可行，提示與按鈕仍可能受到相機背景影響，需要到實際場景檢查與調整。</p>
   </div>
 </section>
 
@@ -651,11 +657,11 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
 
 <div class="v3-dock">
   <div class="v3-switch is-floating" role="navigation" aria-label="專案切換">
-    <a class="v3-switch-item" href="foxconn-light.html">← 上一個<span class="v3-long">專案</span><span class="v3-sr">：鴻海嘉年華活動導覽</span></a>
+    <a class="v3-switch-item" href="../foxconn/">← 上一個<span class="v3-long">專案</span><span class="v3-sr">：鴻海嘉年華活動導覽</span></a>
     <span class="v3-sep" aria-hidden="true"></span>
     <a class="v3-switch-item" href="../index.html#works">所有專案</a>
     <span class="v3-sep" aria-hidden="true"></span>
-    <a class="v3-switch-item" href="gomaji-light.html">下一個<span class="v3-long">專案</span><span class="v3-sr">：麻吉城市樂園 活動主視覺與網站</span> →</a>
+    <a class="v3-switch-item" href="../gomaji/">下一個<span class="v3-long">專案</span><span class="v3-sr">：麻吉城市樂園 活動主視覺與網站</span> →</a>
   </div>
 </div>
 
@@ -664,10 +670,10 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
     <div class="ft-head">
       <h2 class="ft-title" id="contactTitle" lang="en"><span class="ph">Let’s make things</span> <span class="ph">clearer, <em>Together.</em></span></h2>
       <ul class="ft-tags" aria-label="技能與對應案例">
-        <li><a class="ft-tag ft-tag--ui" href="foxconn-light.html#modes"><span lang="en">Interaction Design</span><span class="sr">：鴻海｜路線模式切換</span></a></li>
-        <li><a class="ft-tag ft-tag--ix" href="museum-light.html#lantern"><span lang="en">Prototyping</span><span class="sr">：史博館｜天燈操作流程與 Prototype</span></a></li>
-        <li><a class="ft-tag ft-tag--flow" href="gomaji-light.html#process"><span lang="en">Visual Design</span><span class="sr">：麻吉城市樂園｜主視覺與網頁規範</span></a></li>
-        <li><a class="ft-tag ft-tag--code" href="mamypoko-light.html#build"><span lang="en">HTML / CSS</span><span class="sr">：滿意寶寶｜規範、切版與確認</span></a></li>
+        <li><a class="ft-tag ft-tag--ui" href="../foxconn/#modes"><span lang="en">Interaction Design</span><span class="sr">：鴻海｜路線模式切換</span></a></li>
+        <li><a class="ft-tag ft-tag--ix" href="../museum/#lantern"><span lang="en">Prototyping</span><span class="sr">：史博館｜天燈操作流程與 Prototype</span></a></li>
+        <li><a class="ft-tag ft-tag--flow" href="../gomaji/#process"><span lang="en">Visual Design</span><span class="sr">：麻吉城市樂園｜主視覺與網頁規範</span></a></li>
+        <li><a class="ft-tag ft-tag--code" href="../mamypoko/#build"><span lang="en">HTML / CSS</span><span class="sr">：滿意寶寶｜規範、切版與確認</span></a></li>
       </ul>
     </div>
     <div class="ft-cta">

@@ -10,10 +10,10 @@
 | 路徑 | 內容 |
 |---|---|
 | `index.html` | 首頁 |
-| `works/*-light.html` | 五個案例頁（埔里、滿意寶寶、鴻海、史博館、麻吉） |
+| `puli/` `mamypoko/` `foxconn/` `museum/` `gomaji/` | 五個案例頁（埔里、滿意寶寶、鴻海、史博館、麻吉） |
 | `css/home-v3-apply.css`、`js/home-v3-apply*.js` | 首頁樣式與互動（Hero、專案、更多作品） |
 | `css/site-footer.css`、`js/site-footer.js` | 全站共用頁尾（含上緣彈跳） |
-| `css/about-avatar.css`、`js/about-avatar.js` | About 互動立繪 |
+| `img/about-portrait.webp` | About 去背人像（剪貼印刷感與顆粒的樣式在 `css/home-v3-apply.css`，滑鼠位移在 `js/home-v3-apply-ui.js`） |
 | `css/site-brand.css` | 案例頁品牌色 |
 | `js/vendor/gsap-3.13.0/` | GSAP（首頁 Hero 與更多作品），授權見 LICENSE-NOTE.txt |
 | `img/`、`video/`、`demo/`、`cv/` | 素材、影片、互動 Demo、履歷 |

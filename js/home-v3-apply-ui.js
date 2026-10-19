@@ -158,3 +158,15 @@
     }
   });
 })();
+
+// About 人像：滑鼠移動時人像與紙片往相反方向微幅位移（只在有滑鼠、未開啟減少動態時）
+(function () {
+  const p = document.querySelector('.ab-portrait');
+  if (!p || !matchMedia('(hover: hover) and (pointer: fine)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const set = (x, y) => {
+    p.style.setProperty('--x', x * 10 + 'px'); p.style.setProperty('--y', y * 8 + 'px');
+    p.style.setProperty('--bx', -x * 16 + 'px'); p.style.setProperty('--by', -y * 12 + 'px');
+  };
+  p.addEventListener('pointermove', e => { const r = p.getBoundingClientRect(); set((e.clientX - r.left) / r.width - .5, (e.clientY - r.top) / r.height - .5); });
+  p.addEventListener('pointerleave', () => set(0, 0));
+})();
