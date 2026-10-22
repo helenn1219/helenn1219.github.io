@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en" class="no-smooth-scroll">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MamyPoko LINE Coupons | Helen Hsieh</title>
+<meta name="description" content="MamyPoko LINE coupons: in-store and online redemption, a barcode and countdown screen, coupon states, and every front-end page built in responsive HTML/CSS.">
+<meta property="og:title" content="MamyPoko LINE Coupons | Helen Hsieh">
+<meta property="og:description" content="Turning set multi-channel redemption rules into LINE front-end screens and coupon states, with a responsive HTML/CSS implementation of every front-end page.">
+<meta property="og:image" content="https://helenn1219.github.io/en/img/og/mamypoko-front.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<meta name="theme-color" content="#F6F4EF">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#D4B26A; --accent-solid:#A6782E; --accent-wash:rgba(166,120,46,.09); --accent-glow:rgba(166,120,46,.38);}
+</style>
+<style>
+
+.puli-v3{--read:680px;--col:680px;--toc-w:190px;--toc-gap:48px;--bar-gap:20px;}
+.v3-frame{padding-left:var(--page-x);padding-right:var(--page-x);}
+
+.puli-v3 .v3-intro .detail-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);grid-template-areas:"lede lede" "role meta";column-gap:64px;row-gap:0;padding:96px 0 64px;}
+.puli-v3 .v3-intro .detail-main{display:contents;}
+.puli-v3 .v3-intro .detail-lede{grid-area:lede;max-width:780px;margin:0 0 40px;}
+.puli-v3 .v3-intro .case-role{grid-area:role;max-width:none;}
+.puli-v3 .v3-intro .detail-meta{grid-area:meta;max-width:none;margin:0;padding-top:28px;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;align-content:start;}
+.puli-v3 .v3-intro .detail-meta-item:first-child{grid-column:auto;}
+.puli-v3 .meta-sep{display:none;}
+.puli-v3 .meta-line{display:block;}
+@media(max-width:899px){
+  .puli-v3 .v3-intro .detail-body{grid-template-columns:minmax(0,1fr);grid-template-areas:"lede" "role" "meta";padding:64px 0 48px;}
+  .puli-v3 .v3-intro .detail-meta{margin-top:32px;border-top:1px solid var(--border-dim);}
+}
+
+.v3-layout{display:grid;grid-template-columns:var(--toc-w) minmax(0,1fr);column-gap:var(--toc-gap);}
+.v3-toc{align-self:start;position:sticky;top:calc(var(--nav-h,76px) + 24px);padding-top:24px;padding-bottom:28px;}
+.v3-main{min-width:0;}
+.puli-v3 .v3-main > .case-section{padding-left:0;padding-right:0;scroll-margin-top:calc(var(--anchor-offset,120px) - 56px);}
+.puli-v3 .v3-main > #entry{scroll-margin-top:var(--anchor-offset,120px);}
+.puli-v3 #entry{padding-left:0;padding-right:0;}
+.puli-v3 #entry > *{margin-left:0;margin-right:0;}
+.puli-v3 #entry > .v2-wide{max-width:none;}
+
+.puli-v3 #entry .case-subhead{margin-left:0;margin-right:0;margin-bottom:14px;}
+
+.puli-v3 #entry > .v2-video{margin-left:0;}
+.puli-v3 .v3-main .case-row,.puli-v3 .v3-main .puli-aside{max-width:100%;}
+.puli-v3 .v3-main > .case-section--end{padding-bottom:24px;}
+
+.puli-v3 .case-text p,.puli-v3 .case-role p{font-family:var(--sans);font-size:17.5px;line-height:1.82;font-weight:400;}
+.puli-v3 .detail-lede{font-weight:400;}
+.puli-v3 .onsite-title{font-weight:400;}
+.puli-v3 .case-subhead{font-family:var(--sans);font-size:20px;font-weight:500;line-height:1.5;}
+.puli-v3 .case-figure figcaption,.puli-v3 .case-note,.puli-v3 .case-more,.puli-v3 .case-row-arrow{font-size:14px;line-height:1.7;font-weight:400;}
+.puli-v3 .case-figure figcaption b{font-size:14.5px;font-weight:500;}
+.puli-v3 .case-note{font-size:15.5px;}
+.puli-v3 .detail-meta-value{font-size:15px;font-weight:400;}
+.puli-v3 .detail-meta-label{font-size:11px;}
+@media(max-width:768px){.puli-v3 .case-text p,.puli-v3 .case-role p{font-size:16.5px;line-height:1.8;}.puli-v3 .case-subhead{font-size:18.5px;}}
+
+.puli-v3.v3-past-hero nav::before,.puli-v3.menu-open nav::before{background:#0D1114;border-bottom:1px solid var(--border-dim);}
+
+.v3-toc-label{display:block;margin-bottom:14px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,237,230,.6);}
+.v3-toc-toggle{display:none;}
+.v3-toc ol{list-style:none;display:flex;flex-direction:column;border-left:1px solid var(--border-dim);}
+.v3-toc a{display:flex;gap:10px;align-items:baseline;margin-left:-1px;padding:8px 0 8px 14px;border-left:2px solid transparent;font-size:15px;font-weight:400;line-height:1.5;color:rgba(240,237,230,.7);text-decoration:none;transition:color .2s,border-color .2s;}
+.v3-toc a b{flex:none;font-family:var(--serif);font-weight:400;font-size:13.5px;color:var(--accent);}
+.v3-toc a:hover{color:var(--text);}
+.v3-toc a[aria-current]{color:var(--text);border-left-color:var(--accent);}
+.v3-toc a:focus-visible,.v3-toc-toggle:focus-visible{outline:1px solid var(--accent);outline-offset:2px;}
+@media(max-width:1179px){
+  .v3-layout{grid-template-columns:minmax(0,1fr);}
+  .v3-toc{top:var(--nav-h,72px);z-index:50;margin:0 calc(-1 * var(--page-x));padding:0 var(--page-x);background:var(--bg);border-top:1px solid var(--border-dim);border-bottom:1px solid var(--border-dim);}
+  .puli-v3 .v3-main > #entry{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}
+  .v3-toc-label{display:none;}
+  .v3-toc-toggle{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:10px;width:100%;min-height:48px;cursor:pointer;font-size:15px;color:var(--text);}
+  .v3-toc-toggle-label{font-size:11.5px;letter-spacing:.2em;color:rgba(240,237,230,.6);}
+  .v3-toc-current{flex:1;}
+  .v3-toc-caret{transition:transform .2s;}
+  .v3-toc.is-open .v3-toc-caret{transform:rotate(180deg);}
+  .v3-toc{padding-bottom:0;}
+  .v3-toc ol{display:none;border-left:none;padding-bottom:16px;}
+  .v3-toc.is-open ol{display:flex;}
+  .v3-toc a{margin-left:0;padding:10px 0 10px 12px;}
+}
+
+.v3-dock{height:calc(var(--bar-h,48px) + 96px);padding-top:48px;display:flex;justify-content:center;border-top:1px solid var(--border-dim);margin:0 var(--page-x);}
+.v3-switch{z-index:90;display:flex;align-items:center;gap:2px;height:max-content;padding:5px;border:1px solid rgba(240,237,230,.14);border-radius:999px;background:rgba(13,17,20,.94);}
+.v3-switch.is-floating{position:fixed;left:50%;bottom:var(--bar-gap);transform:translateX(-50%);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .2s;}
+
+.v3-switch.is-floating.is-shown,.v3-switch.is-floating:focus-within{opacity:1;pointer-events:auto;}
+
+.v3-switch.is-off{visibility:hidden;}
+.v3-switch-item{display:inline-flex;align-items:center;min-height:38px;padding:0 15px;border-radius:999px;font-size:14px;font-weight:400;color:rgba(240,237,230,.88);text-decoration:none;white-space:nowrap;}
+a.v3-switch-item:hover{color:var(--text);background:rgba(240,237,230,.07);}
+a.v3-switch-item:focus-visible{outline:1px solid var(--accent);outline-offset:1px;}
+.v3-switch .is-disabled{color:rgba(240,237,230,.36);}
+.v3-sep{width:1px;height:16px;background:rgba(240,237,230,.14);}
+.v3-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+@media(max-width:480px){.puli-v3{--bar-gap:12px;}.v3-long{display:none;}.v3-switch-item{padding:0 12px;}}
+@media(prefers-reduced-motion:reduce){.v3-switch,.v3-toc a,.v3-toc-caret{transition:none;}}
+
+@media(max-width:768px){.puli-v3 nav{padding-top:10px;padding-bottom:10px;}}
+
+.puli-v3 #cross-device .case-row--slots2 .case-figure > a{position:relative;}
+.v3-mark{position:absolute;border:2px solid var(--accent);border-radius:8px;pointer-events:none;box-shadow:0 0 0 2px rgba(255,255,255,.55);}
+.v3-mark--web{left:95.2%;top:10.6%;width:4.8%;height:25.4%;border-right:none;border-radius:8px 0 0 8px;}
+.v3-mark--kiosk{left:59.2%;top:92.6%;width:36.4%;height:5.8%;}
+.v3-mark-label{position:absolute;white-space:nowrap;padding:2px 7px;border-radius:4px;background:var(--accent);color:#fff;font-size:12px;line-height:1.5;font-weight:500;letter-spacing:.02em;}
+.v3-mark--web .v3-mark-label{right:calc(100% + 6px);top:0;}
+.v3-mark--kiosk .v3-mark-label{right:0;bottom:calc(100% + 6px);}
+
+.v3-foot-label{margin-bottom:12px;font-size:13px;letter-spacing:.12em;color:var(--accent,var(--gold));}
+.puli-v3 .footer-col h4.v3-foot-h{font-size:12px;letter-spacing:.1em;text-transform:none;}
+
+body.v3-light{--bg:#F6F4EF;--bg-mid:#ECE8E0;--text:#1E1F1C;--text-dim:#5E5D57;--gold:#8A6A1F;--border:rgba(139,38,53,.22);--border-dim:rgba(30,31,28,.13);--accent:#8B2635;--accent-wash:rgba(139,38,53,.06);}
+
+.v3-light .case-text p,.v3-light .case-role p{color:rgba(30,31,28,.88);}
+.v3-light .detail-meta-value{color:rgba(30,31,28,.86);}
+.v3-light .case-figure figcaption,.v3-light .v2-more,.v3-light .case-note,.v3-light .case-row-arrow,.v3-light .case-more{color:rgba(30,31,28,.74);}
+.v3-light .v3-toc-label,.v3-light .v3-toc-toggle-label{color:rgba(30,31,28,.64);}
+.v3-light .v3-toc a{color:rgba(30,31,28,.74);}
+.v3-light .v3-toc a:hover,.v3-light .v3-toc a[aria-current]{color:var(--text);}
+.v3-light .footer-label,.v3-light .footer-col h4{color:rgba(138,106,31,.85);}
+.v3-light .footer-info p,.v3-light .footer-col a{color:rgba(30,31,28,.66);}
+.v3-light .footer-col p{color:rgba(30,31,28,.55);}
+
+.v3-light .v3-switch{background:rgba(246,244,239,.96);border-color:rgba(30,31,28,.16);box-shadow:0 2px 12px rgba(30,31,28,.08);}
+.v3-light .v3-switch-item{color:rgba(30,31,28,.86);}
+.v3-light a.v3-switch-item:hover{color:var(--text);background:rgba(30,31,28,.06);}
+.v3-light .v3-switch .is-disabled{color:rgba(30,31,28,.36);}
+.v3-light .v3-sep{background:rgba(30,31,28,.16);}
+
+.v3-light .detail-hero{--text:#F5EFE6;--text-dim:#CFCBC2;--accent:#B97D86;color:#F5EFE6;}
+.v3-light .detail-hero-overlay{background:linear-gradient(180deg,rgba(13,17,20,.18) 0%,rgba(13,17,20,.32) 30%,rgba(13,17,20,.62) 62%,rgba(13,17,20,.74) 86%,var(--bg) 100%);}
+.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#F5EFE6;--text-dim:#CFCBC2;}
+.v3-light.v3-past-hero nav::before,.v3-light.menu-open nav::before{background:#F6F4EF;border-bottom:1px solid var(--border-dim);}
+.v3-light.v3-past-hero .nav-logo img,.v3-light.menu-open .nav-logo img{filter:invert(1) hue-rotate(180deg);}
+
+.v4 nav::before{background:#F6F4EF;border-bottom:1px solid var(--border-dim);}
+
+@media(min-width:769px){body.v4 nav{height:76px;padding-top:0;padding-bottom:0;}}
+
+body.v4.v3-light:not(.menu-open) nav::before{background:rgba(246,244,239,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);}
+.v4.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#1E1F1C;--text-dim:#5E5D57;}
+.v4 .nav-logo img{filter:invert(1) hue-rotate(180deg);}
+
+.v4-head{padding-top:calc(var(--nav-h,76px) + 56px);padding-bottom:40px;}
+.v4-back{display:inline-block;margin-bottom:28px;font-size:14px;color:rgba(30,31,28,.7);text-decoration:none;}
+.v4-back:hover{color:var(--accent);}
+.v4-title{font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:500;line-height:1.18;letter-spacing:.01em;color:var(--text);word-break:keep-all;}
+.v4-role{margin-top:14px;font-size:14px;letter-spacing:.04em;color:rgba(30,31,28,.62);}
+.v4 .nb{white-space:nowrap;}
+.v4-sub{max-width:34em;margin-top:18px;font-size:18px;line-height:1.7;font-weight:400;color:rgba(30,31,28,.8);}
+.v4-live{display:inline-block;margin-top:22px;font-size:15px;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;}
+.v4-back:focus-visible,.v4-live:focus-visible{outline:1px solid var(--accent);outline-offset:4px;}
+
+.v4-show{margin:0;}
+.v4-show figure{margin:0;}
+.v4-show-row{display:flex;gap:24px;align-items:flex-start;}
+.v4-show-row > figure{min-width:0;}
+.v4-show a{display:block;}
+.v4-show-web{flex:1.7778 1 0;}
+.v4-show-kiosk{flex:.5625 1 0;}
+.v4-show img{display:block;width:100%;height:auto;border-radius:var(--img-radius,8px);}
+.v4-show figcaption{margin-top:10px;font-size:14px;line-height:1.7;color:rgba(30,31,28,.72);}
+@media(max-width:768px){
+  .v4-head{padding-top:calc(var(--nav-h,64px) + 36px);padding-bottom:28px;}
+  .v4-back{margin-bottom:20px;}
+  .v4-sub{font-size:16.5px;}
+  .v4-show-row{gap:14px;}
+}
+
+@media(max-width:600px){.v4-show-row > .v4-show-kiosk{display:none;}}
+
+.v4 .v3-intro .v4-info{display:block;padding-top:44px;}
+.v4 .v3-intro .v4-info .detail-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 32px;margin:0;}
+.v4-info-cols{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);column-gap:64px;margin-top:40px;}
+.v4 .v3-intro .v4-info-cols > .case-role{grid-area:auto;max-width:none;}
+.v4-q{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.v4-q li{font-size:17px;font-weight:400;line-height:1.7;color:rgba(30,31,28,.88);}
+
+body.puli-article{--q-accent:#B97D86;}body.fox-article{--q-accent:#6683B7;}body.mp-article{--q-accent:#D4B26A;}body.mu-article{--q-accent:#8FB59A;}body.gm-article{--q-accent:#EB7934;}
+.v4-q a{color:inherit;text-decoration:none;}
+.v4-q-t{background:linear-gradient(var(--q-accent,currentColor),var(--q-accent,currentColor)) 0 100%/0 2px no-repeat;padding-bottom:3px;transition:background-size .35s ease;}
+.v4-q-arr{display:inline-block;margin-left:8px;color:var(--q-accent,currentColor);transition:transform .35s ease;}
+.v4-q a:hover .v4-q-t,.v4-q a:focus-visible .v4-q-t{background-size:100% 2px;}
+.v4-q a:hover .v4-q-arr,.v4-q a:focus-visible .v4-q-arr{transform:translateX(4px);}
+@media(prefers-reduced-motion:reduce){.v4-q-t,.v4-q-arr{transition:none;}.v4-q a:hover .v4-q-arr,.v4-q a:focus-visible .v4-q-arr{transform:none;}}
+@media(max-width:899px){.v4-info-cols{grid-template-columns:minmax(0,1fr);row-gap:32px;}}
+@media(max-width:768px){.v4 .v3-intro .v4-info{padding-top:36px;}.v4 .v3-intro .v4-info .detail-meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px;}.v4-info-cols{margin-top:32px;}}
+
+.v4 .v3-main{container-type:inline-size;}
+.v4 #entry > .v4-drag{max-width:none;margin-top:0;}
+.v4-drag-text .case-text{max-width:none;}
+.v4 #entry .v4-hint{width:auto;max-width:16em;margin:5em auto 0;text-align:center;}
+.v4-hint img{display:block;width:115px;height:auto;margin:0 auto;}
+
+.v4 #entry .v4-drag > .case-figure--video{width:100%;max-width:280px;margin:28px auto 0;}
+@container (min-width:800px){
+
+  .v4-drag{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px;align-items:start;}
+  .v4 #entry .v4-drag > .case-figure--video{max-width:260px;margin:7px auto 0;}
+}
+
+.v4 .footer-col h4.v3-foot-h{color:var(--accent);}
+
+.v4{--read:700px;--col:700px;}
+
+.v4 .v3-main .case-subhead,.v4 #entry > .case-subhead{max-width:none;}
+
+.v4 .v3-intro .v4-info .detail-meta{padding-bottom:28px;border-bottom:1px solid var(--border-dim);}
+.v4 .v3-intro .v4-info-cols > .case-role{border-top:none;padding-top:0;}
+.v4-info-cols{margin-top:36px;}
+
+.v4 footer{position:relative;border-top:none;}
+.v4 footer::before{content:"";position:absolute;top:0;left:var(--page-x);right:var(--page-x);border-top:1px solid var(--border-dim);}
+
+body.v4{--serif:'Manrope','Manrope Fallback','Noto Sans TC',sans-serif;--sans:'Manrope','Manrope Fallback','Noto Sans TC',sans-serif;font-family:var(--sans);font-weight:400;letter-spacing:.2px;}
+
+body.v4 .v4-title{font-family:var(--sans);font-size:52px;font-weight:600;letter-spacing:1px;line-height:1.2;}
+
+body.v4 .onsite-title{font-family:var(--sans);font-size:30px;font-weight:600;letter-spacing:.8px;line-height:1.4;}
+
+body.v4 .case-subhead{font-family:var(--sans);font-size:21px;font-weight:600;letter-spacing:.8px;line-height:1.5;}
+
+body.v4 .detail-tag,body.v4 .detail-meta-label,body.v4 .case-role h2,body.v4 .v4-role{font-size:14px;font-weight:500;letter-spacing:.8px;line-height:1.5;text-transform:none;opacity:1;color:var(--accent);}
+body.v4 .detail-meta-label{margin-bottom:6px;}
+body.v4 .v4-role{margin-top:16px;}
+
+body.v4 .v4-sub,body.v4 .case-text p,body.v4 .case-role p,body.v4 .v4-q li,body.v4 .case-note{font-family:var(--sans);font-size:18px;font-weight:400;letter-spacing:.2px;line-height:1.8;}
+
+body.v4 .detail-meta-value{font-size:16px;font-weight:400;letter-spacing:.2px;line-height:1.65;}
+
+body.v4 .case-figure figcaption,body.v4 .v4-show figcaption{font-size:14px;font-weight:400;letter-spacing:.2px;line-height:1.7;}
+body.v4 .case-figure figcaption b{font-size:14px;font-weight:500;}
+
+body.v4 .nav-links a{font-size:14px;letter-spacing:.08em;}
+body.v4 .nav-cv{font-size:14px;letter-spacing:.06em;padding:8px 18px;}
+body.v4 .mobile-menu-cv-label{font-size:14px;letter-spacing:.08em;}
+body.v4 .mobile-menu-links a{font-family:var(--sans);font-weight:500;}
+body.v4 .v3-toc-label,body.v4 .v3-toc-toggle-label{font-size:14px;letter-spacing:.08em;text-transform:uppercase;}
+body.v4 .v3-toc a{font-size:15px;}
+body.v4 .v3-toc a b{font-family:var(--sans);font-size:14px;font-weight:500;}
+body.v4 .v4-back{font-size:14px;}
+body.v4 .v4-live{font-size:15px;}
+body.v4 .v3-mark-label{font-size:13px;}
+@media(max-width:540px){
+  body.v4 .v4-title{font-size:36px;}
+  body.v4 .onsite-title{font-size:26px;}
+  body.v4 .case-subhead{font-size:20px;}
+  body.v4 .v4-sub,body.v4 .case-text p,body.v4 .case-role p,body.v4 .v4-q li,body.v4 .case-note{font-size:17px;}
+}
+
+body.v4 footer.v4-foot{display:block;padding:56px var(--page-x) 64px;}
+.v4-foot-title{margin-bottom:16px;font-size:30px;font-weight:600;letter-spacing:.8px;line-height:1.4;color:var(--text);}
+.v4-foot p{font-size:16px;font-weight:400;line-height:1.7;color:rgba(30,31,28,.86);}
+.v4-foot-links{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:12px;}
+.v4-foot-links a{font-size:16px;font-weight:500;color:var(--accent);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;}
+.v4-foot-links a:hover{text-decoration-thickness:2px;}
+.v4-foot-links a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+.v4-foot p.v4-foot-copy{margin-top:28px;font-size:14px;color:#5E5D57;}
+
+body.v4 footer.v4-foot{position:relative;}
+.v4-foot p.v4-foot-copy{position:absolute;right:var(--page-x);bottom:64px;margin:0;line-height:1.7;}
+@media(max-width:540px){.v4-foot p.v4-foot-copy{position:static;margin-top:28px;text-align:right;}}
+@media(max-width:540px){.v4-foot-title{font-size:26px;}}
+
+.v3-light .case-flow-label,.v3-light .case-flow-branch-label{color:rgba(30,31,28,.66);font-size:14px;}
+.v3-light .case-flow-step{color:var(--text);border-color:rgba(30,31,28,.2);background:rgba(255,255,255,.5);}
+.v3-light .case-flow > li + li::before{color:rgba(30,31,28,.45);}
+.v3-light .case-flow-branch{border-left-color:rgba(30,31,28,.2);}
+.v3-light .case-flow-note{color:rgba(30,31,28,.74);}
+.v3-light .case-lane h3{color:var(--text);}
+.v3-light .case-lane li{color:rgba(30,31,28,.84);}
+.v3-light .case-lane p{color:rgba(30,31,28,.74);}
+
+.v4 .onsite-title em{font-style:normal;color:inherit;}
+
+body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:rgba(126,90,28,.06);--border:rgba(126,90,28,.22);}
+
+.v4 .v3-main > .case-section--tight{scroll-margin-top:var(--anchor-offset,120px);padding-top:24px;}
+@media(max-width:1179px){.v4 .v3-main > .case-section--tight{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}}
+.v4 .v3-intro .v4-info .detail-meta{position:static;border-top:1px solid var(--border-dim);}
+.v4 .case-role p + p{margin-top:12px;}
+
+.mp-article .v4-show-row > .v4-show-web{flex:1 1 0;}
+
+.v4 .v3-main .case-row--phones2{max-width:calc(var(--phone-max) * 2 + 24px);}
+
+.mp-article .mp-build-top{max-width:var(--show);align-items:start;}
+.mp-article .mp-build-top > .case-text{max-width:none;}
+.mp-article .mp-build-top .case-figure{max-width:var(--phone-max);}
+.v4 .v3-main .mp-build-cms{max-width:var(--show);margin-top:48px;}
+
+.v4 .v3-main .mp-row-phones3{max-width:calc(var(--phone-max) * 3 + 48px);}
+
+.mp-article .case-lanes-wrap{max-width:var(--show,100%);}
+.mp-article .case-lanes-wrap .case-lanes{display:flex;flex-direction:column;gap:18px;padding-left:28px;}
+.mp-article .case-lane{position:relative;display:grid;grid-template-columns:84px minmax(0,1fr);column-gap:16px;align-items:start;padding:0;border:0;}
+
+.mp-article .case-lane::before{content:'';position:absolute;left:-28px;top:-18px;bottom:0;border-left:1px solid rgba(30,31,28,.28);}
+.mp-article .case-lane:first-child::before{top:-10px;}
+.mp-article .case-lane:last-child::before{bottom:auto;height:40px;}
+.mp-article .case-lane:first-child:last-child::before{height:32px;}
+.mp-article .case-lane::after{content:'';position:absolute;left:-28px;top:22px;width:20px;border-top:1px solid rgba(30,31,28,.28);}
+.mp-article .case-lane h3{grid-column:1;margin:0;padding-top:11px;font-size:15px;font-weight:600;line-height:1.4;}
+
+.mp-article .case-lane ol{grid-column:2;display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;gap:12px 40px;}
+.mp-article .case-lane li{flex:0 1 auto;min-width:0;}
+.mp-article .case-lane li{position:relative;padding:10px 16px;border:1px solid rgba(30,31,28,.2);border-radius:var(--img-radius,8px);background:rgba(255,255,255,.5);font-size:14px;line-height:1.5;color:var(--text);}
+.mp-article .case-lane li::before{content:none;}
+.mp-article .case-lane li + li::before{content:'→';position:absolute;left:-28px;top:50%;transform:translateY(-50%);color:rgba(30,31,28,.45);font-size:14px;}
+.mp-article .case-lane p{grid-column:2;margin-top:12px;font-size:13.5px;line-height:1.7;color:rgba(30,31,28,.66);}
+
+@media(max-width:600px){
+  .mp-article .case-lanes-wrap .case-lanes{padding-left:22px;gap:24px;}
+  .mp-article .case-lane{grid-template-columns:minmax(0,1fr);row-gap:10px;}
+  .mp-article .case-lane::before{left:-22px;top:-24px;}
+  .mp-article .case-lane:last-child::before{height:35px;}
+  .mp-article .case-lane::after{left:-22px;top:11px;width:14px;}
+  .mp-article .case-lane h3,.mp-article .case-lane ol,.mp-article .case-lane p{grid-column:1;}
+  .mp-article .case-lane h3{padding-top:0;}
+  .mp-article .case-lane ol{flex-direction:column;align-items:flex-start;gap:26px;}
+  .mp-article .case-lane li + li::before{content:'↓';left:16px;top:-22px;transform:none;}
+}
+
+.mp-article .mp-hero img{aspect-ratio:2240/936;object-fit:contain;background:#0d1114;}
+@media(max-width:600px){.mp-article .mp-hero img{aspect-ratio:16/9;}}
+
+.mp-article .mp-hero{--mpc-bg:#EFE6D2;}
+.mp-article .mp-hero .mpm{position:relative;aspect-ratio:2240/936;overflow:hidden;border-radius:var(--img-radius,8px);background:var(--mpc-bg);}
+.mp-article .mp-hero .mpm:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.mp-article .mp-hero .mpm-track{display:flex;align-items:center;gap:clamp(16px,2.4vw,32px);width:max-content;height:100%;padding:0 calc(clamp(16px,2.4vw,32px) / 2);animation:mpm-scroll 48s linear infinite;}
+.mp-article .mp-hero .mpm-dup{display:contents;}
+.mp-article .mp-hero .mpm img{flex:none;width:auto;height:82%;max-width:none;aspect-ratio:auto 520 / 925;object-fit:contain;background:none;border-radius:clamp(8px,1.4vw,18px);box-shadow:0 18px 36px -22px rgba(30,31,28,.45);}
+.mp-article .mp-hero .mpm:hover .mpm-track,.mp-article .mp-hero .mpm:focus-within .mpm-track{animation-play-state:paused;}
+@keyframes mpm-scroll{to{transform:translateX(-50%);}}
+@media(max-width:600px){.mp-article .mp-hero .mpm{aspect-ratio:16/9;}.mp-article .mp-hero .mpm-track{animation-duration:36s;}}
+
+@media(prefers-reduced-motion:reduce){
+  .mp-article .mp-hero .mpm{overflow-x:auto;scrollbar-width:thin;}
+  .mp-article .mp-hero .mpm-track{animation:none;}
+  .mp-article .mp-hero .mpm-dup{display:none;}
+}
+
+.zp-open{all:unset;box-sizing:border-box;display:inline;margin-left:4px;color:var(--accent);border-bottom:1px solid transparent;cursor:pointer;transition:border-color .2s;}
+.zp-open:hover{border-bottom-color:currentColor;}
+.zp-open:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.zp{position:fixed;inset:0;z-index:300;background:#F6F4EF;opacity:0;transition:opacity .2s ease;}
+.zp.open{opacity:1;}
+.zp[hidden]{display:none;}
+.zp-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:76px 24px 84px;overflow:hidden;cursor:zoom-in;}
+.zp-stage:focus-visible{outline:2px solid var(--accent);outline-offset:-6px;}
+.zp-stage img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;user-select:none;-webkit-user-drag:none;}
+.zp.is-zoom .zp-stage{display:block;overflow:auto;cursor:grab;}
+.zp.is-zoom .zp-stage.is-dragging{cursor:grabbing;}
+.zp.is-zoom .zp-stage img{max-width:none;max-height:none;margin:0 auto;}
+.zp-bar{position:absolute;left:0;right:0;bottom:24px;display:flex;align-items:center;justify-content:center;gap:16px;pointer-events:none;}
+.zp-bar > *{pointer-events:auto;}
+.zp-title{font-size:14px;line-height:1.6;color:rgba(30,31,28,.78);}
+.zp.is-zoom .zp-title{display:flex;align-items:center;height:44px;padding:0 16px;border:1px solid rgba(30,31,28,.12);border-radius:4px;background:#F6F4EF;}
+.zp button{display:flex;align-items:center;justify-content:center;border:1px solid rgba(30,31,28,.22);background:#F6F4EF;color:var(--text);cursor:pointer;transition:border-color .2s,color .2s;}
+.zp button:hover{border-color:var(--accent);color:var(--accent);}
+.zp button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.zp-close{position:absolute;top:24px;right:var(--page-x);width:44px;height:44px;border-radius:50%;font-size:15px;}
+.zp-zoom{width:44px;height:44px;border-radius:4px;font-size:18px;}
+@media(max-width:600px){.zp-stage{padding:68px 8px 84px;}.zp-close{top:12px;right:12px;}}
+@media(prefers-reduced-motion:reduce){.zp{transition:none;}}
+</style>
+<link rel="stylesheet" href="../css/site-brand.css">
+<link rel="stylesheet" href="../css/hero-grain.css">
+<link rel="stylesheet" href="../css/site-logo.css">
+<link rel="stylesheet" href="../css/site-footer.css">
+<link rel="stylesheet" href="../css/case-next.css?v=8">
+<link rel="stylesheet" href="../css/en.css">
+</head>
+<body id="top" class="case-template case-lede-first mp-article puli-v3 v3-light v4">
+<a class="skip" href="#main">Skip to content</a>
+
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><svg class="logo-h" viewBox="-3.5 -1.5 53.5 52.5" role="img" aria-label="Helen Hsieh home"><path d="M43 5V45M24 25H43"/><circle class="s" cx="5" cy="8" r="7.4" style="--dx:9px"/><circle class="s" cx="5" cy="25" r="7.4" style="--dx:0px"/><circle class="s" cx="5" cy="42" r="7.4" style="--dx:9px"/></svg></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#works">Work</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cv" href="../cv/Helen-Hsieh-Resume.pdf" target="_blank" rel="noopener"><span class="cv-dl">Download </span>Resume</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-menu-links">
+    <li><a href="../index.html#works">Work</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="../cv/Helen-Hsieh-Resume.pdf" target="_blank" rel="noopener">Resume ↗</a></li>
+  </ul>
+</div>
+
+<main id="main">
+<header class="v3-frame v4-head">
+  <a class="v4-back" href="../index.html#works">← All work</a>
+  <h1 class="v4-title">MamyPoko<br>LINE Coupons</h1>
+  <ul class="v4-role" aria-label="My role"><li class="v4-chip">UI/UX design</li><li class="v4-chip">UI guidelines</li><li class="v4-chip">HTML/CSS implementation</li></ul>
+  <p class="v4-sub">MamyPoko, a Unicharm brand, offers digital coupons through a web app inside the LINE messaging app. Shoppers can claim coupons and redeem them in participating stores or online. The shopper-facing pages display campaign content managed through a content management system (CMS).</p>
+</header>
+
+<div class="v3-frame v4-show">
+  <div class="v4-show-row">
+
+    <figure class="v4-show-web mp-hero">
+      <div class="mpm" tabindex="0" role="region" aria-label="MamyPoko LINE coupon screens (8 screens, slowly auto-scrolling; hover to pause)">
+        <div class="mpm-track">
+          <img src="../img/mamypoko-mockup/mamypoko-2-home-w520.webp" alt="Campaign page: friends-only title, body text, and a claim coupon button" width="520" height="925" decoding="async">
+          <img src="../img/mamypoko-mockup/mamypoko-4-cupon-w520.webp" alt="My Coupons: Available, Used, and Expired tabs, with a Redeem now button on the coupon card" width="520" height="925" decoding="async">
+          <img src="../img/mamypoko-mockup/mamypoko-7-redeem-w520.webp" alt="In-store redemption screen: pharmacy name, a 29:54 countdown, a barcode, and a confirm button" width="520" height="925" decoding="async">
+          <img src="../img/mamypoko-mockup/mamypoko-5-channels-w520.webp" alt="Choose where to redeem: a list of pharmacy and baby-store chains" width="520" height="925" decoding="async">
+          <img src="../img/mamypoko-mockup/mamypoko-6-shopee-w520.webp" alt="Online redemption: a Shopee discount code and a link to the retailer’s site" width="520" height="925" decoding="async">
+          <img src="../img/mamypoko-mockup/mamypoko-7a-confirm.jpg" alt="Confirmation before redeeming: the coupon can be used once at the store’s checkout, and the 30-minute countdown starts as soon as you confirm" width="750" height="1334" decoding="async">
+          <img src="../img/mamypoko-mockup/mamypoko-8-success.jpg" alt="Redemption complete, with the redemption date and customer service details" width="750" height="1334" decoding="async">
+          <img src="../img/mamypoko-mockup/mamypoko-9-expired.jpg" alt="Expired: this e-coupon has expired" width="750" height="1334" decoding="async">
+
+          <span class="mpm-dup" aria-hidden="true">
+          <img src="../img/mamypoko-mockup/mamypoko-2-home-w520.webp" alt="" data-alt="Campaign page: friends-only title, body text, and a claim coupon button" width="520" height="925" decoding="async" loading="lazy">
+          <img src="../img/mamypoko-mockup/mamypoko-4-cupon-w520.webp" alt="" data-alt="My Coupons: Available, Used, and Expired tabs, with a Redeem now button on the coupon card" width="520" height="925" decoding="async" loading="lazy">
+          <img src="../img/mamypoko-mockup/mamypoko-7-redeem-w520.webp" alt="" data-alt="In-store redemption screen: pharmacy name, a 29:54 countdown, a barcode, and a confirm button" width="520" height="925" decoding="async" loading="lazy">
+          <img src="../img/mamypoko-mockup/mamypoko-5-channels-w520.webp" alt="" data-alt="Choose where to redeem: a list of pharmacy and baby-store chains" width="520" height="925" decoding="async" loading="lazy">
+          <img src="../img/mamypoko-mockup/mamypoko-6-shopee-w520.webp" alt="" data-alt="Online redemption: a Shopee discount code and a link to the retailer’s site" width="520" height="925" decoding="async" loading="lazy">
+          <img src="../img/mamypoko-mockup/mamypoko-7a-confirm.jpg" alt="" data-alt="Confirmation before redeeming: the coupon can be used once at the store’s checkout, and the 30-minute countdown starts as soon as you confirm" width="750" height="1334" decoding="async" loading="lazy">
+          <img src="../img/mamypoko-mockup/mamypoko-8-success.jpg" alt="" data-alt="Redemption complete, with the redemption date and customer service details" width="750" height="1334" decoding="async" loading="lazy">
+          <img src="../img/mamypoko-mockup/mamypoko-9-expired.jpg" alt="" data-alt="Expired: this e-coupon has expired" width="750" height="1334" decoding="async" loading="lazy">
+          </span>
+        </div>
+      </div>
+      <figcaption>Original Chinese-language screens: campaign page, My Coupons, redemption options, and results</figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="v3-frame v3-intro">
+<div class="detail-body v4-info">
+  <div class="detail-meta">
+    <div class="detail-meta-item"><div class="detail-meta-label">Role</div><div class="detail-meta-value">UI/UX design, UI guidelines, HTML/CSS implementation</div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">Timeline</div><div class="detail-meta-value"><span class="nb">2020</span> · <span class="nb">about 6 months</span></div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">Platform</div><div class="detail-meta-value">Web app within LINE (LIFF)</div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">Worked with</div><div class="detail-meta-value">Client, PM, CMS designer, <span class="nb">engineers</span></div></div>
+  </div>
+  <div class="v4-info-cols">
+    <div class="case-role">
+      <h2>What I did</h2>
+      <p>I designed the shopper-facing screens and defined text styles, character limits, and layout rules. I implemented all front-end pages in responsive HTML/CSS and added some interactions with jQuery.</p>
+      <p>The client and PM defined the redemption rules and flows; another designer handled the CMS. I worked with that designer and the engineers to align the CMS settings with how content appeared on the shopper-facing pages.</p>
+    </div>
+    <div class="case-role v4-challenges">
+      <h2>Challenges</h2>
+      <ul class="v4-q">
+        <li><a href="#flow"><span class="v4-q-t">Connecting in-store and online <span class="v4-q-tail">redemption<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a href="#redeem"><span class="v4-q-t">Making barcodes easy for store staff to <span class="v4-q-tail">read<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a href="#build"><span class="v4-q-t">Setting CMS text <span class="v4-q-tail">limits<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+<div class="v3-frame v3-layout">
+  <div class="v3-toc" role="navigation" aria-label="Case study sections">
+    <span class="v3-toc-label">In This Case</span>
+    <button class="v3-toc-toggle" type="button" aria-expanded="false" aria-controls="v3TocList"><span class="v3-toc-toggle-label">In This Case</span><span class="v3-toc-current">01 Redemption flow</span><svg class="v3-toc-caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <ol id="v3TocList">
+      <li><a href="#flow"><b>01</b><span>Redemption flow</span></a></li>
+      <li><a href="#redeem"><b>02</b><span>In-store screen</span></a></li>
+      <li><a href="#states"><b>03</b><span>Coupon states</span></a></li>
+      <li><a href="#build"><b>04</b><span>Build &amp; QA</span></a></li>
+      <li><a href="#outcome"><b>05</b><span>Outcome</span></a></li>
+    </ol>
+  </div>
+  <div class="v3-main">
+
+<section class="case-section case-section--tight" id="flow">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>01 · FLOW</span>
+    <h2 class="onsite-title">A shared flow for in-store and online redemption</h2>
+  </div>
+  <div class="case-text">
+    <p>Both redemption paths share the same starting steps. Shoppers open the campaign page from LINE, claim a coupon, then select it in My Coupons and choose where to redeem it. Some campaigns also require basic details before a coupon can be claimed.</p>
+  </div>
+  <div class="case-lanes-wrap">
+    <span class="case-flow-label">Shared steps</span>
+    <ol class="case-flow" aria-label="Shared steps">
+      <li><span class="case-flow-step">Open from LINE</span></li>
+      <li><span class="case-flow-step">Claim a coupon</span></li>
+      <li><span class="case-flow-step">My Coupons</span></li>
+      <li><span class="case-flow-step">Choose a channel</span></li>
+    </ol>
+    <span class="case-flow-label case-flow-label--fork">Separate steps for in-store and online use</span>
+    <div class="case-lanes">
+      <div class="case-lane">
+        <h3>In store</h3>
+        <ol>
+          <li>Confirm redemption to start the 30-minute countdown</li>
+          <li>Show the barcode and countdown</li>
+          <li>Store staff tap “Confirm redemption”</li>
+        </ol>
+        <p>If store staff confirm redemption within 30 minutes, the coupon is marked as redeemed. Otherwise, it expires.</p>
+      </div>
+      <div class="case-lane">
+        <h3>Online</h3>
+        <ol>
+          <li>View the retailer’s discount code</li>
+          <li>Open the retailer’s site</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="case-row case-row--phones2 case-media">
+    <figure class="case-figure" style="--r:0.5622">
+      <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-5-channels-w520.webp" alt="Choose where to redeem: a list of pharmacy and baby-store chains" width="750" height="1334" loading="lazy"></span>
+      <figcaption><b>Choose a channel</b>The last shared step</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:0.5622">
+      <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-6-shopee-w520.webp" alt="Online redemption: a Shopee discount code and a link to the retailer’s site" width="750" height="1334" loading="lazy"></span>
+      <figcaption><b>Online</b>A discount code and a link to the retailer’s site</figcaption>
+    </figure>
+  </div>
+  <p class="case-more">See also: <button type="button" class="zp-open" aria-haspopup="dialog" aria-controls="mpFlow">the PM’s original flowchart for one campaign (in&nbsp;Chinese) <span aria-hidden="true">⤢</span></button></p>
+</section>
+
+<section class="case-section" id="redeem">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>02 · REDEMPTION</span>
+    <h2 class="onsite-title">Making redemption details easy for store staff to read</h2>
+  </div>
+  <div class="case-text">
+    <p>At checkout, store staff need to scan the barcode and check the remaining redemption time on the shopper’s phone. I gave the barcode and countdown visual priority, and positioned the button and note to make clear that store staff should confirm redemption.</p>
+  </div>
+  <div class="case-row case-row--phones2 mp-row-phones3 case-media">
+    <figure class="case-figure" style="--r:0.5622">
+      <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-4-cupon-w520.webp" alt="My Coupons: Available, Used, and Expired tabs, with a Redeem now button on the coupon card" width="750" height="1334" loading="lazy"></span>
+      <figcaption><b>My Coupons</b>Pick a coupon to redeem</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:0.5622">
+      <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-7a-confirm.jpg" alt="Confirmation before redeeming: the coupon can be used once at the store’s checkout, and the 30-minute countdown starts as soon as you confirm" width="750" height="1334" loading="lazy"></span>
+      <figcaption><b>Confirmation before redeeming</b>Explains that the countdown starts as soon as the shopper confirms</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:0.5622">
+      <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-7-redeem-w520.webp" alt="In-store redemption screen: pharmacy name, a 29:54 countdown, a barcode, and a confirm button" width="750" height="1334" loading="lazy"></span>
+      <figcaption><b>Redeeming</b>The barcode and countdown take priority. A note identifies store staff as responsible for confirming redemption.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="case-section" id="states">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>03 · STATES</span>
+    <h2 class="onsite-title">Showing coupon status and redemption results</h2>
+  </div>
+  <div class="case-text">
+    <p>My Coupons groups coupons under Available, Used, and Expired tabs. Separate result screens confirm redemption with a date or explain that a coupon has expired. Both include customer service hours and a phone number. Section 02 shows the screen used during in-store redemption.</p>
+  </div>
+  <div class="mp-states case-media">
+    <div class="mp-states-group mp-states-group--entry">
+      <span class="case-flow-label">Manage coupons</span>
+      <figure class="case-figure">
+        <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-4-cupon-w520.webp" alt="My Coupons with Available, Used, and Expired tabs" width="750" height="1334" loading="lazy"></span>
+        <figcaption><b>My Coupons</b>Available / Used / Expired tabs</figcaption>
+      </figure>
+    </div>
+    <div class="mp-states-group mp-states-group--results">
+      <span class="case-flow-label">Results</span>
+      <div class="mp-states-pair">
+        <figure class="case-figure">
+          <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-8-success.jpg" alt="Redemption complete, with the redemption date and customer service details" width="750" height="1334" loading="lazy"></span>
+          <figcaption><b>Redeemed</b>Shows the redemption date</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-9-expired.jpg" alt="Expired: this e-coupon has expired" width="750" height="1334" loading="lazy"></span>
+          <figcaption><b>Expired</b>Says the coupon has expired</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <div class="case-text case-text--after">
+    <p>If redemption fails, the interface prompts the shopper to try again. The “Already claimed” message appears when claiming a coupon; it is separate from the redemption results.</p>
+  </div>
+</section>
+
+<section class="case-section" id="build">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>04 · BUILD &amp; QA</span>
+    <h2 class="onsite-title">Defining display rules for CMS content</h2>
+  </div>
+  <div class="case-split case-split--phone mp-build-top">
+    <div class="case-text">
+      <p>I defined font-size options, character limits, and rules for text wrapping and overflow so campaign content would fit the page layouts. I checked how each text size appeared in the interface and aligned the corresponding CMS settings with the CMS designer. I then implemented the agreed text styles in HTML/CSS for engineering integration.</p>
+      <p>After implementing the pages and jQuery interactions, I checked the claiming and redemption flows in the test environment. I reviewed page transitions and checked that content configured in the CMS displayed as intended.</p>
+    </div>
+    <figure class="case-figure mp-build-front" style="--r:0.5622">
+      <span class="fig-media"><img src="../img/mamypoko-mockup/mamypoko-2-home-w520.webp" alt="Campaign page: friends-only title, body text, and a claim coupon button" width="750" height="1334" loading="lazy"></span>
+      <figcaption><b>Campaign page</b>Body text and button text reflect the CMS settings</figcaption>
+    </figure>
+  </div>
+  <div class="case-row mp-build-cms case-media">
+    <figure class="case-figure" style="--r:1.3534">
+      <span class="fig-media"><img src="../img/mamypoko-process/mamypoko-cms-type.jpg" alt="CMS text style options: title, subtitle, body, and button text each have two size options and a color field" width="720" height="532" loading="lazy"></span>
+      <figcaption><b>CMS text styles</b>Preset font sizes for different text elements. CMS design by another designer.</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:1.3387">
+      <span class="fig-media"><img src="../img/mamypoko-process/mamypoko-cms-home-fields.jpg" alt="CMS campaign page fields: recommended character counts next to the body and button fields, with a front-end preview on the right" width="1000" height="747" loading="lazy"></span>
+      <figcaption><b>CMS campaign page fields</b>Character counts beside the CMS fields correspond to the shopper-facing content shown on the right. CMS design by another designer.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="case-section case-section--end case-outcome" id="outcome">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>05 · OUTCOME</span>
+    <h2 class="onsite-title">A coupon interface for in-store and online use</h2>
+  </div>
+  <div class="case-text">
+    <p>The project took approximately six months, with the shopper-facing interface and CMS delivered together. My work covered the coupon claim flow, My Coupons, in-store and online redemption, and result screens, including the HTML/CSS implementation of all front-end pages.</p>
+  </div>
+  <h3 class="case-subhead">Reflection</h3>
+  <div class="case-text">
+    <p>The front-end layout depended on what campaign editors could enter in the CMS. Defining text limits and display rules alongside the CMS settings was therefore part of the interface design, not just an implementation detail.</p>
+  </div>
+</section>
+
+  </div>
+</div>
+
+</main>
+
+<div class="v3-dock">
+  <div class="v3-switch is-floating" role="navigation" aria-label="Project navigation">
+    <a class="v3-switch-item pe pe--prev" href="../puli/" aria-label="Previous project: Puli Brewery Smart Tour System">←&nbsp;<span class="pe-thumb" aria-hidden="true"><img src="../img/next/puli-thumb.webp" width="144" height="78" alt="" decoding="async"></span>Previous<span class="pe-name" aria-hidden="true">: Puli Brewery Smart Tour</span></a>
+    <span class="v3-sep" aria-hidden="true"></span>
+    <a class="v3-switch-item" href="../index.html#works">All work</a>
+    <span class="v3-sep" aria-hidden="true"></span>
+    <a class="v3-switch-item pe" href="../foxconn/" aria-label="Next project: Foxconn Carnival Wayfinding"><span class="pe-thumb" aria-hidden="true"><img src="../img/next/foxconn-thumb.webp" width="144" height="78" alt="" decoding="async"></span>Next<span class="pe-name" aria-hidden="true">: Foxconn Carnival Wayfinding</span>&nbsp;→</a>
+  </div>
+</div>
+
+<footer id="contact" class="ft" aria-labelledby="contactTitle">
+  <div class="ft-center">
+    <div class="ft-head">
+      <h2 class="ft-title" id="contactTitle" lang="en"><span class="ph">Let’s make things</span> <span class="ph">clearer, <em>together.</em></span></h2>
+      <ul class="ft-tags" aria-label="Skills and related case studies">
+        <li><a class="ft-tag ft-tag--ui" href="../foxconn/#modes"><span lang="en">Interaction Design</span><span class="sr">: Foxconn Carnival, route mode switching</span></a></li>
+        <li><a class="ft-tag ft-tag--ix" href="../museum/#lantern"><span lang="en">Prototyping</span><span class="sr">: National Museum of History, lantern game flow and prototype</span></a></li>
+        <li><a class="ft-tag ft-tag--flow" href="../gomaji/#process"><span lang="en">Visual Design</span><span class="sr">: GOMAJI Carnival City, key visual and web guidelines</span></a></li>
+        <li><a class="ft-tag ft-tag--code" href="../mamypoko/#build"><span lang="en">HTML / CSS</span><span class="sr">: MamyPoko, guidelines, build, and review</span></a></li>
+      </ul>
+    </div>
+    <div class="ft-cta">
+      <a class="ft-btn" href="mailto:helenn1219@gmail.com"><span class="sr">Email me: </span>helenn1219@gmail.com</a>
+      <button type="button" class="ft-copy" data-copy="helenn1219@gmail.com" aria-label="Copy email address">Copy</button>
+    </div>
+    <p class="ft-note">Open to UI/UX and Product Designer roles in Taiwan and abroad.</p>
+    <p class="ft-links">
+      <a href="https://www.linkedin.com/in/helenhsieh-thedesigner" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../cv/Helen-Hsieh-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+    </p>
+  </div>
+  <div class="ft-bottom">
+    <p>© 2026 Helen Hsieh</p>
+    <a class="ft-top" href="#top" aria-label="Back to top"><span lang="en">TOP</span> <svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 13.5V3M4 7l4-4 4 4"/></svg></a>
+  </div>
+</footer>
+
+<div class="zp" id="mpFlow" role="dialog" aria-modal="true" aria-labelledby="mpFlowTitle" hidden>
+  <div class="zp-stage" tabindex="0" aria-label="Image (when zoomed, use arrow keys or drag to move)">
+    <img data-src="../img/mamypoko-process/mamypoko-flow.jpg" alt="The PM’s flowchart for one campaign, in Chinese: adding the LINE account, claiming, a member check, the campaign page and form, My Coupons, the in-store barcode, and redeemed or expired results, with copy notes for each step" width="2000" height="1117" draggable="false">
+  </div>
+  <div class="zp-bar">
+    <p class="zp-title" id="mpFlowTitle">The PM’s original flowchart for one campaign (in&nbsp;Chinese)</p>
+    <button type="button" class="zp-zoom" aria-pressed="false" aria-label="Zoom to full size"><span aria-hidden="true">＋</span></button>
+  </div>
+  <button type="button" class="zp-close" aria-label="Close">✕</button>
+</div>
+
+<script src="../js/nav.js"></script>
+<script>
+</script>
+<script>
+
+(function () {
+  const body = document.body;
+  const nav = document.getElementById('mainNav');
+  const toc = document.querySelector('.v3-toc');
+  const toggle = toc.querySelector('.v3-toc-toggle');
+  const current = toc.querySelector('.v3-toc-current');
+  const links = [...toc.querySelectorAll('a[href^="#"]')];
+  const sections = links.map(a => document.getElementById(a.hash.slice(1)));
+  const narrow = window.matchMedia('(max-width: 1179px)');
+  const dock = document.querySelector('.v3-dock');
+  const bar = dock.querySelector('.v3-switch');
+
+  const hero = document.querySelector('.detail-hero') || document.querySelector('.v4-show');
+  let offset = 120, navH = 96, barGap = 20, dockPad = 48;
+
+  function measure() {
+    navH = nav ? nav.getBoundingClientRect().height : 96;
+    body.style.setProperty('--nav-h', navH + 'px');
+    offset = navH + (narrow.matches ? toggle.offsetHeight : 0) + 20;
+    body.style.setProperty('--anchor-offset', offset + 'px');
+    body.style.setProperty('--bar-h', bar.offsetHeight + 'px');
+    barGap = parseFloat(getComputedStyle(body).getPropertyValue('--bar-gap')) || 20;
+    dockPad = parseFloat(getComputedStyle(dock).paddingTop) || 48;
+  }
+
+  function setOpen(open) {
+    toc.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+
+  // On phones: hide the bottom switch bar while scrolling down, show it again on scroll up, to leave more room for reading
+  const phone = window.matchMedia('(max-width: 768px)');
+  let lastY = window.scrollY, goingDown = false;
+
+  function update() {
+
+    let idx = 0;
+    sections.forEach((s, i) => { if (s.getBoundingClientRect().top - offset <= 8) idx = i; });
+    links.forEach((a, i) => { if (i === idx) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
+    current.textContent = links[idx].textContent.replace(/^(\d+)/, '$1 ');
+
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    body.classList.toggle('v3-past-hero', heroBottom < navH);
+    toc.classList.toggle('is-stuck', narrow.matches && toc.getBoundingClientRect().top <= navH + 1);
+
+    const docked = dock.getBoundingClientRect().top + dockPad <= window.innerHeight - barGap - bar.offsetHeight;
+    bar.classList.toggle('is-floating', !docked);
+
+    const y = window.scrollY;
+    if (Math.abs(y - lastY) > 8) { goingDown = y > lastY; lastY = y; }
+    // On phones, hide while scrolling down (it still shows when docked at the end)
+    const readingDown = phone.matches && goingDown;
+
+    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open') && !readingDown);
+
+    const overlay = body.classList.contains('menu-open') || !!document.querySelector('[role="dialog"]:not([hidden]), .lightbox.open, .taitra-lightbox.open');
+    bar.classList.toggle('is-off', overlay);
+  }
+
+  let ticking = false;
+  const schedule = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; update(); }); } };
+
+  toggle.addEventListener('click', () => {
+    const open = !toc.classList.contains('is-open');
+
+    if (open && narrow.matches) {
+      const gap = toc.getBoundingClientRect().top - navH;
+      if (gap > 1) window.scrollTo(0, window.scrollY + gap);
+    }
+    setOpen(open);
+    schedule();
+  });
+  links.forEach(a => a.addEventListener('click', () => { if (narrow.matches) setOpen(false); }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && toc.classList.contains('is-open')) { setOpen(false); toggle.focus(); } });
+  // Mobile chapter menu: tapping anywhere outside it closes it
+  document.addEventListener('pointerdown', e => { if (toc.classList.contains('is-open') && !toc.contains(e.target)) setOpen(false); });
+  const onBreakpoint = () => { setOpen(false); measure(); schedule(); };
+  if (narrow.addEventListener) narrow.addEventListener('change', onBreakpoint); else narrow.addListener(onBreakpoint);
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', () => { measure(); schedule(); });
+  new MutationObserver(schedule).observe(body, { attributes: true, attributeFilter: ['class'] });
+  window.addEventListener('load', () => { measure(); schedule(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); schedule(); });
+
+  measure();
+  update();
+})();
+</script>
+<script>
+
+(function () {
+  document.querySelectorAll('.zp-open').forEach(openBtn => {
+    const dlg = document.getElementById(openBtn.getAttribute('aria-controls'));
+    if (!dlg) return;
+    const stage = dlg.querySelector('.zp-stage'), img = stage.querySelector('img');
+    const zoomBtn = dlg.querySelector('.zp-zoom'), closeBtn = dlg.querySelector('.zp-close');
+    let last = null, y = 0, zoomed = false, drag = null;
+    const inertBg = on => [...document.body.children].forEach(el => { if (el === dlg || el.tagName === 'SCRIPT') return; on ? el.setAttribute('inert', '') : el.removeAttribute('inert'); });
+    function setZoom(on, cx, cy) {
+      const r = img.getBoundingClientRect();
+      const fx = cx == null ? .5 : Math.min(Math.max((cx - r.left) / r.width, 0), 1);
+      const fy = cy == null ? .5 : Math.min(Math.max((cy - r.top) / r.height, 0), 1);
+      zoomed = on;
+      dlg.classList.toggle('is-zoom', on);
+      img.style.width = on ? img.getAttribute('width') + 'px' : '';
+      zoomBtn.setAttribute('aria-pressed', String(on));
+      zoomBtn.setAttribute('aria-label', on ? 'Fit to screen' : 'Zoom to full size');
+      zoomBtn.firstElementChild.textContent = on ? '－' : '＋';
+      if (on) {
+        stage.scrollLeft = img.offsetLeft + fx * img.offsetWidth - stage.clientWidth / 2;
+        stage.scrollTop = img.offsetTop + fy * img.offsetHeight - stage.clientHeight / 2;
+      }
+    }
+    function open() {
+      last = openBtn; y = window.scrollY;
+      if (!img.getAttribute('src')) img.setAttribute('src', img.dataset.src);
+      document.documentElement.style.overflow = 'hidden';
+      dlg.hidden = false; requestAnimationFrame(() => dlg.classList.add('open'));
+      inertBg(true); setZoom(false); closeBtn.focus();
+    }
+    function close() {
+      if (dlg.hidden) return;
+      dlg.classList.remove('open'); dlg.hidden = true; inertBg(false);
+      document.documentElement.style.overflow = ''; window.scrollTo(0, y);
+      if (last) last.focus({ preventScroll: true });
+    }
+    openBtn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    zoomBtn.addEventListener('click', () => setZoom(!zoomed));
+    stage.addEventListener('pointerdown', e => { if (e.button !== 0) return; drag = { x: e.clientX, y: e.clientY, l: stage.scrollLeft, t: stage.scrollTop, moved: false }; });
+    stage.addEventListener('pointermove', e => {
+      if (!drag || !zoomed) return;
+      const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      if (Math.abs(dx) + Math.abs(dy) > 5) { drag.moved = true; stage.classList.add('is-dragging'); }
+      stage.scrollLeft = drag.l - dx; stage.scrollTop = drag.t - dy;
+    });
+    stage.addEventListener('pointerup', e => {
+      if (!drag) return;
+      const moved = drag.moved; drag = null; stage.classList.remove('is-dragging');
+      if (moved) return;
+      if (e.target === img) setZoom(!zoomed, e.clientX, e.clientY);
+      else if (e.target === stage && !zoomed) close();
+    });
+    stage.addEventListener('pointerleave', () => { drag = null; stage.classList.remove('is-dragging'); });
+    window.addEventListener('keydown', e => {
+      if (dlg.hidden) return;
+      if (e.key === 'Escape') { e.preventDefault(); close(); }
+      else if (e.key === '+' || e.key === '=') setZoom(true);
+      else if (e.key === '-') setZoom(false);
+      else if (e.key === 'Tab') {
+        const f = [stage, zoomBtn, closeBtn], i = f.indexOf(document.activeElement);
+        if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+        else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+      }
+    });
+  });
+})();
+</script>
+<script src="../js/site-footer.js"></script>
+<script src="../js/site-cursor.js"></script>
+<script src="../js/hero-orb.js" data-host="body" data-page data-shift-y="-.15" data-alpha=".7" data-colors="231,213,158|220,195,115|242,232,201"></script>
+</body>
+</html>

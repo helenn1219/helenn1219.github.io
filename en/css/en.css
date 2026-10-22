@@ -1,0 +1,48 @@
+/* English-version layout adjustments. Only rules needed because English text is longer than Chinese live here. */
+
+/* Fallback shaped like Manrope (Arial resized to Manrope's width and line metrics), so text does not reflow
+   and push the cover image when the web font finishes loading. Measured in Chrome against Manrope 400/500/600. */
+@font-face{font-family:'Manrope Fallback';src:local('Arial'),local('ArialMT');font-weight:1 450;size-adjust:102%;ascent-override:104.9%;descent-override:29.4%;line-gap-override:0%;}
+@font-face{font-family:'Manrope Fallback';src:local('Arial'),local('ArialMT');font-weight:451 550;size-adjust:103.8%;ascent-override:103.1%;descent-override:28.9%;line-gap-override:0%;}
+@font-face{font-family:'Manrope Fallback';src:local('Arial Bold'),local('Arial-BoldMT');font-weight:551 1000;size-adjust:98.2%;ascent-override:109%;descent-override:30.5%;line-gap-override:0%;}
+
+/* Case pages: flow steps ("Open from LINE → Claim… → My Coupons → Choose a channel") wrap onto a second row
+   instead of running off-screen between 701px and desktop widths. Below 700px they already stack vertically. */
+.case-template .case-flow{flex-wrap:wrap;row-gap:12px;}
+
+/* Case page titles: English titles are longer, so balance line lengths (avoids a single orphan word such as "End")
+   and use 32px instead of 36px on narrow phones so long names like "GOMAJI Carnival City" take fewer lines. */
+body.v4 .v4-title{text-wrap:balance;}
+@media(max-width:480px){body.v4 .v4-title{font-size:32px;}}
+
+/* Homepage project cards: the Chinese layout puts each phrase on its own line. English phrases are longer, so in the
+   narrow info column that produced 4-line titles. Let the phrases flow inline and balance the lines instead. */
+.pj-title .ph{display:inline;}
+.pj-title{text-wrap:balance;}
+
+/* Homepage role line: keep each role item ("Cross-device UI") on one line on phones. */
+.pj-role-i{white-space:nowrap;}
+
+/* Case pages, side-by-side text and screens (museum lantern chapter): English paragraphs are about twice as long as the
+   Chinese ones, so a 17rem text column became a narrow strip. Stack the text above the screens and keep a readable measure. */
+.case-template .case-group{grid-template-columns:minmax(0,1fr);gap:20px;}
+.case-template .case-group > :first-child{max-width:40rem;}
+
+/* Case page table of contents: a little wider so the shortened English chapter names fit on one line. */
+.puli-v3{--toc-w:220px;}
+
+/* Typography: no single word left alone on the last line. Headings, captions and buttons get even line lengths;
+   running text avoids a lone last word. The hero title and footer title are hand-broken, so they are left as is. */
+h2,h3,h4,figcaption,.case-lane li,.pj-label,.mw-title,.taitra-view-btn,.case-subhead,.level-title,.onsite-title{text-wrap:balance;}
+p,li,dd,blockquote{text-wrap:pretty;}
+.hero-title,.ft-title,.ft-title *{text-wrap:wrap;}
+
+/* Museum, On-site review: the phone caption hangs below the image, in a reserved space sized for the Chinese caption (107px).
+   The English caption runs about 72px taller, so the space grows by the same amount to keep the gap before "05 · Outcome". */
+@media(min-width:761px){.mu-article #review .case-split--phone:has(.mu-frame-view){--cap-space:179px;}}
+
+/* About lead: each phrase stays a unit; on phones balance the lines inside each phrase so "and rules" is not left alone. */
+.ab-lead .ph{text-wrap:balance;}
+
+/* Nav: "Download Resume" is longer than the Chinese label; between 769px and 960px show just "Resume" so it does not crowd the centered links. */
+@media(max-width:960px){.hn-cv .cv-dl,.nav-cv .cv-dl{display:none;}}

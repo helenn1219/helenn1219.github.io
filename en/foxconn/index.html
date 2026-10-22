@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en" class="no-smooth-scroll">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foxconn Carnival Wayfinding | Helen Hsieh</title>
+<meta name="description" content="An app and web guide for the Foxconn Carnival at Taipei Dome: search for a destination, view floors, and switch between walking and accessible routes.">
+<meta property="og:title" content="Foxconn Carnival Wayfinding | Helen Hsieh">
+<meta property="og:description" content="A guide for employees and their families to search for destinations, view floors, and switch between walking and accessible routes. Built into Foxconn’s employee app, with a web version.">
+<meta property="og:image" content="https://helenn1219.github.io/en/img/og/foxconn.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<meta name="theme-color" content="#F6F4EF">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#6683B7; --accent-solid:#003087; --accent-wash:rgba(0,48,135,.09); --accent-glow:rgba(0,48,135,.38);}
+</style>
+<style>
+
+.puli-v3{--read:680px;--col:680px;--toc-w:190px;--toc-gap:48px;--bar-gap:20px;}
+.v3-frame{padding-left:var(--page-x);padding-right:var(--page-x);}
+
+.puli-v3 .v3-intro .detail-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);grid-template-areas:"lede lede" "role meta";column-gap:64px;row-gap:0;padding:96px 0 64px;}
+.puli-v3 .v3-intro .detail-main{display:contents;}
+.puli-v3 .v3-intro .detail-lede{grid-area:lede;max-width:780px;margin:0 0 40px;}
+.puli-v3 .v3-intro .case-role{grid-area:role;max-width:none;}
+.puli-v3 .v3-intro .detail-meta{grid-area:meta;max-width:none;margin:0;padding-top:28px;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;align-content:start;}
+.puli-v3 .v3-intro .detail-meta-item:first-child{grid-column:auto;}
+.puli-v3 .meta-sep{display:none;}
+.puli-v3 .meta-line{display:block;}
+@media(max-width:899px){
+  .puli-v3 .v3-intro .detail-body{grid-template-columns:minmax(0,1fr);grid-template-areas:"lede" "role" "meta";padding:64px 0 48px;}
+  .puli-v3 .v3-intro .detail-meta{margin-top:32px;border-top:1px solid var(--border-dim);}
+}
+
+.v3-layout{display:grid;grid-template-columns:var(--toc-w) minmax(0,1fr);column-gap:var(--toc-gap);}
+.v3-toc{align-self:start;position:sticky;top:calc(var(--nav-h,76px) + 24px);padding-top:24px;padding-bottom:28px;}
+.v3-main{min-width:0;}
+.puli-v3 .v3-main > .case-section{padding-left:0;padding-right:0;scroll-margin-top:calc(var(--anchor-offset,120px) - 56px);}
+.puli-v3 .v3-main > #entry{scroll-margin-top:var(--anchor-offset,120px);}
+.puli-v3 #entry{padding-left:0;padding-right:0;}
+.puli-v3 #entry > *{margin-left:0;margin-right:0;}
+.puli-v3 #entry > .v2-wide{max-width:none;}
+
+.puli-v3 #entry .case-subhead{margin-left:0;margin-right:0;margin-bottom:14px;}
+
+.puli-v3 #entry > .v2-video{margin-left:0;}
+.puli-v3 .v3-main .case-row,.puli-v3 .v3-main .puli-aside{max-width:100%;}
+.puli-v3 .v3-main > .case-section--end{padding-bottom:24px;}
+
+.puli-v3 .case-text p,.puli-v3 .case-role p{font-family:var(--sans);font-size:17.5px;line-height:1.82;font-weight:400;}
+.puli-v3 .detail-lede{font-weight:400;}
+.puli-v3 .onsite-title{font-weight:400;}
+.puli-v3 .case-subhead{font-family:var(--sans);font-size:20px;font-weight:500;line-height:1.5;}
+.puli-v3 .case-figure figcaption,.puli-v3 .case-note,.puli-v3 .case-more,.puli-v3 .case-row-arrow{font-size:14px;line-height:1.7;font-weight:400;}
+.puli-v3 .case-figure figcaption b{font-size:14.5px;font-weight:500;}
+.puli-v3 .case-note{font-size:15.5px;}
+.puli-v3 .detail-meta-value{font-size:15px;font-weight:400;}
+.puli-v3 .detail-meta-label{font-size:11px;}
+@media(max-width:768px){.puli-v3 .case-text p,.puli-v3 .case-role p{font-size:16.5px;line-height:1.8;}.puli-v3 .case-subhead{font-size:18.5px;}}
+
+.puli-v3.v3-past-hero nav::before,.puli-v3.menu-open nav::before{background:#0D1114;border-bottom:1px solid var(--border-dim);}
+
+.v3-toc-label{display:block;margin-bottom:14px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,237,230,.6);}
+.v3-toc-toggle{display:none;}
+.v3-toc ol{list-style:none;display:flex;flex-direction:column;border-left:1px solid var(--border-dim);}
+.v3-toc a{display:flex;gap:10px;align-items:baseline;margin-left:-1px;padding:8px 0 8px 14px;border-left:2px solid transparent;font-size:15px;font-weight:400;line-height:1.5;color:rgba(240,237,230,.7);text-decoration:none;transition:color .2s,border-color .2s;}
+.v3-toc a b{flex:none;font-family:var(--serif);font-weight:400;font-size:13.5px;color:var(--accent);}
+.v3-toc a:hover{color:var(--text);}
+.v3-toc a[aria-current]{color:var(--text);border-left-color:var(--accent);}
+.v3-toc a:focus-visible,.v3-toc-toggle:focus-visible{outline:1px solid var(--accent);outline-offset:2px;}
+@media(max-width:1179px){
+  .v3-layout{grid-template-columns:minmax(0,1fr);}
+  .v3-toc{top:var(--nav-h,72px);z-index:50;margin:0 calc(-1 * var(--page-x));padding:0 var(--page-x);background:var(--bg);border-top:1px solid var(--border-dim);border-bottom:1px solid var(--border-dim);}
+  .puli-v3 .v3-main > #entry{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}
+  .v3-toc-label{display:none;}
+  .v3-toc-toggle{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:10px;width:100%;min-height:48px;cursor:pointer;font-size:15px;color:var(--text);}
+  .v3-toc-toggle-label{font-size:11.5px;letter-spacing:.2em;color:rgba(240,237,230,.6);}
+  .v3-toc-current{flex:1;}
+  .v3-toc-caret{transition:transform .2s;}
+  .v3-toc.is-open .v3-toc-caret{transform:rotate(180deg);}
+  .v3-toc{padding-bottom:0;}
+  .v3-toc ol{display:none;border-left:none;padding-bottom:16px;}
+  .v3-toc.is-open ol{display:flex;}
+  .v3-toc a{margin-left:0;padding:10px 0 10px 12px;}
+}
+
+.v3-dock{height:calc(var(--bar-h,48px) + 96px);padding-top:48px;display:flex;justify-content:center;border-top:1px solid var(--border-dim);margin:0 var(--page-x);}
+.v3-switch{z-index:90;display:flex;align-items:center;gap:2px;height:max-content;padding:5px;border:1px solid rgba(240,237,230,.14);border-radius:999px;background:rgba(13,17,20,.94);}
+.v3-switch.is-floating{position:fixed;left:50%;bottom:var(--bar-gap);transform:translateX(-50%);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .2s;}
+
+.v3-switch.is-floating.is-shown,.v3-switch.is-floating:focus-within{opacity:1;pointer-events:auto;}
+
+.v3-switch.is-off{visibility:hidden;}
+.v3-switch-item{display:inline-flex;align-items:center;min-height:38px;padding:0 15px;border-radius:999px;font-size:14px;font-weight:400;color:rgba(240,237,230,.88);text-decoration:none;white-space:nowrap;}
+a.v3-switch-item:hover{color:var(--text);background:rgba(240,237,230,.07);}
+a.v3-switch-item:focus-visible{outline:1px solid var(--accent);outline-offset:1px;}
+.v3-switch .is-disabled{color:rgba(240,237,230,.36);}
+.v3-sep{width:1px;height:16px;background:rgba(240,237,230,.14);}
+.v3-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+@media(max-width:480px){.puli-v3{--bar-gap:12px;}.v3-long{display:none;}.v3-switch-item{padding:0 12px;}}
+@media(prefers-reduced-motion:reduce){.v3-switch,.v3-toc a,.v3-toc-caret{transition:none;}}
+
+@media(max-width:768px){.puli-v3 nav{padding-top:10px;padding-bottom:10px;}}
+
+.puli-v3 #cross-device .case-row--slots2 .case-figure > a{position:relative;}
+.v3-mark{position:absolute;border:2px solid var(--accent);border-radius:8px;pointer-events:none;box-shadow:0 0 0 2px rgba(255,255,255,.55);}
+.v3-mark--web{left:95.2%;top:10.6%;width:4.8%;height:25.4%;border-right:none;border-radius:8px 0 0 8px;}
+.v3-mark--kiosk{left:59.2%;top:92.6%;width:36.4%;height:5.8%;}
+.v3-mark-label{position:absolute;white-space:nowrap;padding:2px 7px;border-radius:4px;background:var(--accent);color:#fff;font-size:12px;line-height:1.5;font-weight:500;letter-spacing:.02em;}
+.v3-mark--web .v3-mark-label{right:calc(100% + 6px);top:0;}
+.v3-mark--kiosk .v3-mark-label{right:0;bottom:calc(100% + 6px);}
+
+.v3-foot-label{margin-bottom:12px;font-size:13px;letter-spacing:.12em;color:var(--accent,var(--gold));}
+.puli-v3 .footer-col h4.v3-foot-h{font-size:12px;letter-spacing:.1em;text-transform:none;}
+
+body.v3-light{--bg:#F6F4EF;--bg-mid:#ECE8E0;--text:#1E1F1C;--text-dim:#5E5D57;--gold:#8A6A1F;--border:rgba(139,38,53,.22);--border-dim:rgba(30,31,28,.13);--accent:#8B2635;--accent-wash:rgba(139,38,53,.06);}
+
+.v3-light .case-text p,.v3-light .case-role p{color:rgba(30,31,28,.88);}
+.v3-light .detail-meta-value{color:rgba(30,31,28,.86);}
+.v3-light .case-figure figcaption,.v3-light .v2-more,.v3-light .case-note,.v3-light .case-row-arrow,.v3-light .case-more{color:rgba(30,31,28,.74);}
+.v3-light .v3-toc-label,.v3-light .v3-toc-toggle-label{color:rgba(30,31,28,.64);}
+.v3-light .v3-toc a{color:rgba(30,31,28,.74);}
+.v3-light .v3-toc a:hover,.v3-light .v3-toc a[aria-current]{color:var(--text);}
+.v3-light .footer-label,.v3-light .footer-col h4{color:rgba(138,106,31,.85);}
+.v3-light .footer-info p,.v3-light .footer-col a{color:rgba(30,31,28,.66);}
+.v3-light .footer-col p{color:rgba(30,31,28,.55);}
+
+.v3-light .v3-switch{background:rgba(246,244,239,.96);border-color:rgba(30,31,28,.16);box-shadow:0 2px 12px rgba(30,31,28,.08);}
+.v3-light .v3-switch-item{color:rgba(30,31,28,.86);}
+.v3-light a.v3-switch-item:hover{color:var(--text);background:rgba(30,31,28,.06);}
+.v3-light .v3-switch .is-disabled{color:rgba(30,31,28,.36);}
+.v3-light .v3-sep{background:rgba(30,31,28,.16);}
+
+.v3-light .detail-hero{--text:#F5EFE6;--text-dim:#CFCBC2;--accent:#B97D86;color:#F5EFE6;}
+.v3-light .detail-hero-overlay{background:linear-gradient(180deg,rgba(13,17,20,.18) 0%,rgba(13,17,20,.32) 30%,rgba(13,17,20,.62) 62%,rgba(13,17,20,.74) 86%,var(--bg) 100%);}
+.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#F5EFE6;--text-dim:#CFCBC2;}
+.v3-light.v3-past-hero nav::before,.v3-light.menu-open nav::before{background:#F6F4EF;border-bottom:1px solid var(--border-dim);}
+.v3-light.v3-past-hero .nav-logo img,.v3-light.menu-open .nav-logo img{filter:invert(1) hue-rotate(180deg);}
+
+.v4 nav::before{background:#F6F4EF;border-bottom:1px solid var(--border-dim);}
+
+@media(min-width:769px){body.v4 nav{height:76px;padding-top:0;padding-bottom:0;}}
+
+body.v4.v3-light:not(.menu-open) nav::before{background:rgba(246,244,239,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);}
+.v4.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#1E1F1C;--text-dim:#5E5D57;}
+.v4 .nav-logo img{filter:invert(1) hue-rotate(180deg);}
+
+.v4-head{padding-top:calc(var(--nav-h,76px) + 56px);padding-bottom:40px;}
+.v4-back{display:inline-block;margin-bottom:28px;font-size:14px;color:rgba(30,31,28,.7);text-decoration:none;}
+.v4-back:hover{color:var(--accent);}
+.v4-title{font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:500;line-height:1.18;letter-spacing:.01em;color:var(--text);word-break:keep-all;}
+.v4-role{margin-top:14px;font-size:14px;letter-spacing:.04em;color:rgba(30,31,28,.62);}
+.v4 .nb{white-space:nowrap;}
+.v4-sub{max-width:34em;margin-top:18px;font-size:18px;line-height:1.7;font-weight:400;color:rgba(30,31,28,.8);}
+.v4-live{display:inline-block;margin-top:22px;font-size:15px;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;}
+.v4-back:focus-visible,.v4-live:focus-visible{outline:1px solid var(--accent);outline-offset:4px;}
+
+.v4-show{margin:0;}
+.v4-show figure{margin:0;}
+.v4-show-row{display:flex;gap:24px;align-items:flex-start;}
+.v4-show-row > figure{min-width:0;}
+.v4-show a{display:block;}
+.v4-show-web{flex:1.7778 1 0;}
+.v4-show-kiosk{flex:.5625 1 0;}
+.v4-show img{display:block;width:100%;height:auto;border-radius:var(--img-radius,8px);}
+.v4-show figcaption{margin-top:10px;font-size:14px;line-height:1.7;color:rgba(30,31,28,.72);}
+@media(max-width:768px){
+  .v4-head{padding-top:calc(var(--nav-h,64px) + 36px);padding-bottom:28px;}
+  .v4-back{margin-bottom:20px;}
+  .v4-sub{font-size:16.5px;}
+  .v4-show-row{gap:14px;}
+}
+
+@media(max-width:600px){.v4-show-row > .v4-show-kiosk{display:none;}}
+
+.v4 .v3-intro .v4-info{display:block;padding-top:44px;}
+.v4 .v3-intro .v4-info .detail-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 32px;margin:0;}
+.v4-info-cols{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);column-gap:64px;margin-top:40px;}
+.v4 .v3-intro .v4-info-cols > .case-role{grid-area:auto;max-width:none;}
+.v4-q{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.v4-q li{font-size:17px;font-weight:400;line-height:1.7;color:rgba(30,31,28,.88);}
+
+body.puli-article{--q-accent:#B97D86;}body.fox-article{--q-accent:#6683B7;}body.mp-article{--q-accent:#D4B26A;}body.mu-article{--q-accent:#8FB59A;}body.gm-article{--q-accent:#EB7934;}
+.v4-q a{color:inherit;text-decoration:none;}
+.v4-q-t{background:linear-gradient(var(--q-accent,currentColor),var(--q-accent,currentColor)) 0 100%/0 2px no-repeat;padding-bottom:3px;transition:background-size .35s ease;}
+.v4-q-arr{display:inline-block;margin-left:8px;color:var(--q-accent,currentColor);transition:transform .35s ease;}
+.v4-q a:hover .v4-q-t,.v4-q a:focus-visible .v4-q-t{background-size:100% 2px;}
+.v4-q a:hover .v4-q-arr,.v4-q a:focus-visible .v4-q-arr{transform:translateX(4px);}
+@media(prefers-reduced-motion:reduce){.v4-q-t,.v4-q-arr{transition:none;}.v4-q a:hover .v4-q-arr,.v4-q a:focus-visible .v4-q-arr{transform:none;}}
+@media(max-width:899px){.v4-info-cols{grid-template-columns:minmax(0,1fr);row-gap:32px;}}
+@media(max-width:768px){.v4 .v3-intro .v4-info{padding-top:36px;}.v4 .v3-intro .v4-info .detail-meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px;}.v4-info-cols{margin-top:32px;}}
+
+.v4 .v3-main{container-type:inline-size;}
+.v4 #entry > .v4-drag{max-width:none;margin-top:0;}
+.v4-drag-text .case-text{max-width:none;}
+.v4 #entry .v4-hint{width:auto;max-width:16em;margin:5em auto 0;text-align:center;}
+.v4-hint img{display:block;width:115px;height:auto;margin:0 auto;}
+
+.v4 #entry .v4-drag > .case-figure--video{width:100%;max-width:280px;margin:28px auto 0;}
+@container (min-width:800px){
+
+  .v4-drag{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px;align-items:start;}
+  .v4 #entry .v4-drag > .case-figure--video{max-width:260px;margin:7px auto 0;}
+}
+
+.v4 .footer-col h4.v3-foot-h{color:var(--accent);}
+
+.v4{--read:700px;--col:700px;}
+
+.v4 .v3-main .case-subhead,.v4 #entry > .case-subhead{max-width:none;}
+
+.v4 .v3-intro .v4-info .detail-meta{padding-bottom:28px;border-bottom:1px solid var(--border-dim);}
+.v4 .v3-intro .v4-info-cols > .case-role{border-top:none;padding-top:0;}
+.v4-info-cols{margin-top:36px;}
+
+.v4 footer{position:relative;border-top:none;}
+.v4 footer::before{content:"";position:absolute;top:0;left:var(--page-x);right:var(--page-x);border-top:1px solid var(--border-dim);}
+
+body.v4{--serif:'Manrope','Manrope Fallback','Noto Sans TC',sans-serif;--sans:'Manrope','Manrope Fallback','Noto Sans TC',sans-serif;font-family:var(--sans);font-weight:400;letter-spacing:.2px;}
+
+body.v4 .v4-title{font-family:var(--sans);font-size:52px;font-weight:600;letter-spacing:1px;line-height:1.2;}
+
+body.v4 .onsite-title{font-family:var(--sans);font-size:30px;font-weight:600;letter-spacing:.8px;line-height:1.4;}
+
+body.v4 .case-subhead{font-family:var(--sans);font-size:21px;font-weight:600;letter-spacing:.8px;line-height:1.5;}
+
+body.v4 .detail-tag,body.v4 .detail-meta-label,body.v4 .case-role h2,body.v4 .v4-role{font-size:14px;font-weight:500;letter-spacing:.8px;line-height:1.5;text-transform:none;opacity:1;color:var(--accent);}
+body.v4 .detail-meta-label{margin-bottom:6px;}
+body.v4 .v4-role{margin-top:16px;}
+
+body.v4 .v4-sub,body.v4 .case-text p,body.v4 .case-role p,body.v4 .v4-q li,body.v4 .case-note{font-family:var(--sans);font-size:18px;font-weight:400;letter-spacing:.2px;line-height:1.8;}
+
+body.v4 .detail-meta-value{font-size:16px;font-weight:400;letter-spacing:.2px;line-height:1.65;}
+
+body.v4 .case-figure figcaption,body.v4 .v4-show figcaption{font-size:14px;font-weight:400;letter-spacing:.2px;line-height:1.7;}
+body.v4 .case-figure figcaption b{font-size:14px;font-weight:500;}
+
+body.v4 .nav-links a{font-size:14px;letter-spacing:.08em;}
+body.v4 .nav-cv{font-size:14px;letter-spacing:.06em;padding:8px 18px;}
+body.v4 .mobile-menu-cv-label{font-size:14px;letter-spacing:.08em;}
+body.v4 .mobile-menu-links a{font-family:var(--sans);font-weight:500;}
+body.v4 .v3-toc-label,body.v4 .v3-toc-toggle-label{font-size:14px;letter-spacing:.08em;text-transform:uppercase;}
+body.v4 .v3-toc a{font-size:15px;}
+body.v4 .v3-toc a b{font-family:var(--sans);font-size:14px;font-weight:500;}
+body.v4 .v4-back{font-size:14px;}
+body.v4 .v4-live{font-size:15px;}
+body.v4 .v3-mark-label{font-size:13px;}
+@media(max-width:540px){
+  body.v4 .v4-title{font-size:36px;}
+  body.v4 .onsite-title{font-size:26px;}
+  body.v4 .case-subhead{font-size:20px;}
+  body.v4 .v4-sub,body.v4 .case-text p,body.v4 .case-role p,body.v4 .v4-q li,body.v4 .case-note{font-size:17px;}
+}
+
+body.v4 footer.v4-foot{display:block;padding:56px var(--page-x) 64px;}
+.v4-foot-title{margin-bottom:16px;font-size:30px;font-weight:600;letter-spacing:.8px;line-height:1.4;color:var(--text);}
+.v4-foot p{font-size:16px;font-weight:400;line-height:1.7;color:rgba(30,31,28,.86);}
+.v4-foot-links{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:12px;}
+.v4-foot-links a{font-size:16px;font-weight:500;color:var(--accent);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;}
+.v4-foot-links a:hover{text-decoration-thickness:2px;}
+.v4-foot-links a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+.v4-foot p.v4-foot-copy{margin-top:28px;font-size:14px;color:#5E5D57;}
+
+body.v4 footer.v4-foot{position:relative;}
+.v4-foot p.v4-foot-copy{position:absolute;right:var(--page-x);bottom:64px;margin:0;line-height:1.7;}
+@media(max-width:540px){.v4-foot p.v4-foot-copy{position:static;margin-top:28px;text-align:right;}}
+@media(max-width:540px){.v4-foot-title{font-size:26px;}}
+
+body.v3-light.fox-article{--accent:#003087;--accent-wash:rgba(0,48,135,.06);--border:rgba(0,48,135,.22);}
+
+.v4 .v3-main > .case-section--tight{scroll-margin-top:var(--anchor-offset,120px);}
+@media(max-width:1179px){.v4 .v3-main > .case-section--tight{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}}
+
+.fox-article .v4-show-row > .v4-show-web{flex:1.7794 1 0;}
+.fox-article .v4-show-row > .v4-show-kiosk{flex:.4607 1 0;}
+
+.v4 .v3-intro .v4-info .detail-meta{position:static;border-top:1px solid var(--border-dim);}
+.v4 .case-role p + p{margin-top:12px;}
+
+.v4 .v3-main > .case-section--tight{padding-top:24px;}
+
+body.v3-light.fox-article video{background:#fff;}
+
+.fox-article .fox-row-phones3{max-width:calc(var(--phone-max) * 3 + 48px);}
+@media(max-width:600px){.fox-article .fox-row-phones3 > .case-figure{max-width:var(--phone-max);}}
+</style>
+<link rel="stylesheet" href="../css/link-preview.css">
+<link rel="stylesheet" href="../css/site-brand.css">
+<link rel="stylesheet" href="../css/hero-grain.css">
+<link rel="stylesheet" href="../css/site-logo.css">
+<link rel="stylesheet" href="../css/site-footer.css">
+<link rel="stylesheet" href="../css/case-next.css?v=8">
+<link rel="stylesheet" href="../css/en.css">
+</head>
+<body id="top" class="case-template case-lede-first fox-article puli-v3 v3-light v4">
+<a class="skip" href="#main">Skip to content</a>
+
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><svg class="logo-h" viewBox="-3.5 -1.5 53.5 52.5" role="img" aria-label="Helen Hsieh home"><path d="M43 5V45M24 25H43"/><circle class="s" cx="5" cy="8" r="7.4" style="--dx:9px"/><circle class="s" cx="5" cy="25" r="7.4" style="--dx:0px"/><circle class="s" cx="5" cy="42" r="7.4" style="--dx:9px"/></svg></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#works">Work</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cv" href="../cv/Helen-Hsieh-Resume.pdf" target="_blank" rel="noopener"><span class="cv-dl">Download </span>Resume</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-menu-links">
+    <li><a href="../index.html#works">Work</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="../cv/Helen-Hsieh-Resume.pdf" target="_blank" rel="noopener">Resume ↗</a></li>
+  </ul>
+</div>
+
+<main id="main">
+<header class="v3-frame v4-head">
+  <a class="v4-back" href="../index.html#works">← All work</a>
+  <h1 class="v4-title">Foxconn Carnival<br>Wayfinding</h1>
+  <ul class="v4-role" aria-label="My role"><li class="v4-chip">UI/UX design</li><li class="v4-chip">Map design</li><li class="v4-chip">App and web UI</li></ul>
+  <p class="v4-sub">A wayfinding guide for Foxconn employees and their families attending the company carnival at Taipei Dome. Visitors can find booths and facilities, choose a starting point and destination, and preview their route. Available within Foxconn’s employee app and on the web, the guide provides route planning and simulation rather than live, location-based navigation.</p>
+  <a class="v4-live" href="https://omnig-anyplace-foxconn.omniguider.com/arena/" data-preview="../img/link-preview/foxconn-live-site.webp" target="_blank" rel="noopener">Visit live site ↗</a>
+</header>
+
+<div class="v3-frame v4-show">
+  <div class="v4-show-row">
+    <figure class="v4-show-web"><span class="fig-media"><img src="../img/foxconn-case/cover-web-search-w1920.webp" alt="Web search: a search panel at top left, category tabs, the Taipei Dome guide map, and floor switching on the right" width="1920" height="1080"></span><figcaption>Web | Search</figcaption></figure>
+    <figure class="v4-show-kiosk"><span class="fig-media"><img src="../img/foxconn-case/cover-app-route-w450.webp" alt="App route planning: starting point and destination, a route mode selector, and route simulation controls" width="750" height="1622"></span><figcaption>App | Route planning and simulation</figcaption></figure>
+  </div>
+</div>
+
+<div class="v3-frame v3-intro">
+<div class="detail-body v4-info">
+  <div class="detail-meta">
+    <div class="detail-meta-item"><div class="detail-meta-label">Role</div><div class="detail-meta-value">UI/UX Designer</div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">Timeline</div><div class="detail-meta-value"><span class="nb">Sep – Dec 2024</span></div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">Event &amp; venue</div><div class="detail-meta-value">About 35,000 attendees · <span class="nb">7 floors</span></div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">Platform</div><div class="detail-meta-value"><span class="nb">Employee app</span> · <span class="nb">Web</span></div></div>
+  </div>
+  <div class="v4-info-cols">
+    <div class="case-role">
+      <h2>What I did</h2>
+      <p>I contributed to the information architecture and user flows. I designed the search, route planning, and location details interfaces, along with the wayfinding map. I also documented shared components and UI guidelines for the app and web versions.</p>
+      <p>To address the client’s requirement for accessible routes, I proposed a selector for switching between walking and accessible route modes. The PM defined the location categories, supplied or verified booth locations and route data, and proposed route simulation and automatic floor switching.</p>
+    </div>
+    <div class="case-role v4-challenges">
+      <h2>Challenges</h2>
+      <ul class="v4-q">
+        <li><a href="#search"><span class="v4-q-t">From search to route <span class="v4-q-tail">planning<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a href="#modes"><span class="v4-q-t">Adding accessible routes without starting <span class="v4-q-tail">over<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a href="#map"><span class="v4-q-t">Simplifying the venue <span class="v4-q-tail">map<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+<div class="v3-frame v3-layout">
+  <div class="v3-toc" role="navigation" aria-label="Case study sections">
+    <span class="v3-toc-label">In This Case</span>
+    <button class="v3-toc-toggle" type="button" aria-expanded="false" aria-controls="v3TocList"><span class="v3-toc-toggle-label">In This Case</span><span class="v3-toc-current">01 Search</span><svg class="v3-toc-caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <ol id="v3TocList">
+      <li><a href="#search"><b>01</b><span>Search</span></a></li>
+      <li><a href="#modes"><b>02</b><span>Route modes</span></a></li>
+      <li><a href="#map"><b>03</b><span>Guide map</span></a></li>
+      <li><a href="#platform"><b>04</b><span>App &amp; web</span></a></li>
+      <li><a href="#outcome"><b>05</b><span>Outcome</span></a></li>
+    </ol>
+  </div>
+  <div class="v3-main">
+
+<section class="case-section case-section--tight" id="search">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>01 · SEARCH</span>
+    <h2 class="onsite-title">From search results to route planning</h2>
+  </div>
+  <div class="case-text">
+    <p>Visitors need to find booths and facilities across a large venue. I designed the search interface and results list around these location categories. From a selected result, visitors can set the location as their starting point or destination and view the route.</p>
+  </div>
+  <div class="case-row fox-row-phones3 case-media">
+    <figure class="case-figure" style="--r:0.4607">
+      <span class="fig-media device-trim"><img src="../img/foxconn-mockup/mockup-1-w1080.webp" alt="App search: matching places on B1 listed under the search box" width="1080" height="1920" loading="lazy"></span>
+      <figcaption><b>Search results</b>Matching locations appear as you type</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:0.4607">
+      <span class="fig-media device-trim"><img src="../img/foxconn-mockup/mockup-3-w1080.webp" alt="App after selecting a place: category tabs at the top and a card with Set as start and Set as destination buttons" width="1080" height="1920" loading="lazy"></span>
+      <figcaption><b>After selecting a location</b>Category tabs remain at the top. The location card lets visitors set a starting point or destination.</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:0.4607">
+      <span class="fig-media device-trim"><img src="../img/foxconn-mockup/mockup-5-w1080.webp" alt="App route planning: the destination is filled in with a burger stand, and options under the start field include tapping a map icon or choosing on the map" width="1080" height="1920" loading="lazy"></span>
+      <figcaption><b>Choosing a starting point</b>After selecting a destination, visitors choose where their route begins.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="case-section" id="modes">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>02 · ROUTE MODES</span>
+    <h2 class="onsite-title">Adding accessible routes without making visitors start over</h2>
+  </div>
+  <div class="fox-aside">
+    <div class="case-text fox-aside-main">
+      <p>I placed the route mode selector and simulation button in a single row to keep related controls together and leave more room for the map. I also proposed preserving the selected starting point and destination when switching modes, so visitors could compare routes without entering the same locations again.</p>
+    </div>
+    <figure class="case-figure case-figure--video fox-aside-media">
+      <video class="loop-demo" width="888" height="1504" muted loop playsinline preload="none" tabindex="0" poster="../video/poster-foxconn-route-modes.jpg" aria-label="Mobile browser recording: after setting a start and destination, switching from walking to accessible mode keeps both, then the simulation plays. Click or press Space to pause or play."><source src="../video/foxconn-route-modes-w600.mp4" type="video/mp4"></video>
+      <figcaption><b>Switching modes without resetting locations</b>Mobile browser recording: the selected starting point and destination remain unchanged when switching route modes. The route simulation then plays. Tap or click to pause or play.</figcaption>
+    </figure>
+    <div class="fox-aside-sub">
+      <figure class="case-figure fox-panel">
+        <span class="fig-media"><img src="../img/foxconn-mockup/web-3-panel-w1100.webp" alt="Web route planning panel: start and destination, with the walking/accessible toggle and the simulation button in one row below" width="1120" height="840" loading="lazy"></span>
+        <figcaption><b>Route controls — web detail</b>The route mode selector and simulation button share a single row.</figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="fox-aside fox-aside--after">
+    <div class="case-text fox-aside-main">
+      <p>Once a route is set, visitors can play the simulation and adjust its speed. The map switches floors automatically as the route moves between levels. I designed the controls for playing the simulation and adjusting its speed.</p>
+    </div>
+    <figure class="case-figure case-figure--video fox-aside-media">
+      <video class="loop-demo" src="../video/foxconn-speeds-demo-w600.mp4" poster="../video/poster-foxconn-speeds-demo.jpg" width="886" height="1508" style="width:100%;height:auto;aspect-ratio:886/1508;object-fit:contain" muted loop playsinline preload="none" tabindex="0" aria-label="Mobile browser recording: playing the simulated route after setting a start and destination. Click or press Space to pause or play."></video>
+      <figcaption><b>Route simulation</b>Mobile browser recording of the route simulation and playback controls. Tap or click to pause or play.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="case-section" id="map">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>03 · MAP DESIGN</span>
+    <h2 class="onsite-title">Simplifying engineering drawings for visitor navigation</h2>
+  </div>
+  <div class="case-text">
+    <p>The engineering drawings included structural details that were unnecessary for visitor wayfinding. After the engineers marked key areas and facilities, I simplified the map to emphasize information visitors needed, while keeping it aligned with the location data used for routing.</p>
+    <p>I used color, markers, and icons to distinguish restrooms, elevators, entrances, and stairs. I confirmed each subsidiary’s booth location with the PM.</p>
+  </div>
+  <div class="case-row case-row--pair case-media">
+    <figure class="case-figure" style="--r:1.0309">
+      <span class="fig-media"><img src="../img/foxconn-case/map-source-detail.jpg" alt="Detail of the original B1 engineering drawing of Taipei Dome: columns and wall lines around the east stands, outer walkway, and plaza" width="1000" height="970" loading="lazy"></span>
+      <figcaption><b>Original drawing (detail)</b>Structural and seating details in the original engineering drawing</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:1.0309">
+      <span class="fig-media"><img src="../img/foxconn-case/map-illustrated-detail-aligned.jpg" alt="The same area on the guide map: colored seating sections, numbered entrances, and facility icons for restrooms, elevators, and stairs" width="1000" height="970" loading="lazy"></span>
+      <figcaption><b>Guide map (same area)</b>Colors, markers, and icons highlight facilities; unrelated structural details are omitted.</figcaption>
+    </figure>
+  </div>
+  <figure class="case-figure case-media fox-wide">
+    <span class="fig-media"><img src="../img/foxconn-case/cover-web-route-w1920.webp" alt="The guide map in the web version: a route planning panel at top left (start, destination, walking/accessible toggle), route playback controls, and floor switching on the right" width="1920" height="1080" loading="lazy"></span>
+    <figcaption><b>In the web interface</b>Route planning panel, playback controls, and floor switching over the map</figcaption>
+  </figure>
+</section>
+
+<section class="case-section" id="platform">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>04 · CROSS-PLATFORM</span>
+    <h2 class="onsite-title">Adapting location details for app and web</h2>
+  </div>
+  <div class="case-text">
+    <p>I used different panel layouts to balance location details with map visibility. In the app, selecting a location opens an expandable bottom sheet with its details and options to set it as the starting point or destination. Visitors can drag the sheet upward to reveal more information. On the web, a left-side panel displays the details alongside the map.</p>
+  </div>
+  <div class="fox-row-platform case-media">
+    <figure class="case-figure case-figure--video">
+      <video class="loop-demo" src="../video/foxconn-slideup-demo-w600.mp4" poster="../video/poster-foxconn-slideup-demo.jpg" width="888" height="1516" muted loop playsinline preload="none" tabindex="0" aria-label="Mobile browser recording: after searching for and selecting a place, the bottom sheet slides up, expands when pulled up, then collapses. Click or press Space to pause or play."></video>
+      <figcaption><b>App layout — expandable bottom sheet</b>Mobile browser recording: selecting a location opens the sheet, which can be expanded and collapsed. Tap or click to pause or play.</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:1.5574">
+      <span class="fig-media"><img src="../img/foxconn-mockup/web-4-poi-w1140.webp" alt="Web place details: a left panel with the name, Set as start and Set as destination buttons, a photo, and a description, with the map still visible on the right" width="1520" height="976" loading="lazy"></span>
+      <figcaption><b>Web</b>Location details in a left panel, with the map still visible</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="case-section case-section--end case-outcome" id="outcome">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>05 · OUTCOME</span>
+    <h2 class="onsite-title">Launch and on-site checks</h2>
+  </div>
+  <div class="fox-aside">
+    <div class="case-text fox-aside-main">
+      <p>The guide launched for the carnival on January 24, 2025. My deliverables included the app and web interfaces, the wayfinding map, and Figma UI guidelines. After launch, I used the guide on site at Taipei Dome.</p>
+    </div>
+    <figure class="case-figure case-figure--video fox-aside-media">
+      <video controls preload="none" poster="../video/poster-onsite.jpg" playsinline aria-label="Recording of the guide opened on a phone at the event"><source src="../video/foxconn-onsite.mp4" type="video/mp4"></video>
+      <figcaption><b>At the event</b>Opening the guide on a phone in the Taipei Dome stands</figcaption>
+    </figure>
+    <div class="fox-aside-sub">
+      <h3 class="case-subhead">Reflection</h3>
+      <div class="case-text">
+        <p>The brief called for accessible routes but left the interaction approach open. I focused on keeping the map visible and preserving the selected locations when visitors switched modes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </div>
+</div>
+
+</main>
+
+<div class="v3-dock">
+  <div class="v3-switch is-floating" role="navigation" aria-label="Project navigation">
+    <a class="v3-switch-item pe pe--prev" href="../mamypoko/" aria-label="Previous project: MamyPoko LINE Coupons">←&nbsp;<span class="pe-thumb" aria-hidden="true"><img src="../img/next/mamypoko-thumb.webp?v=2" width="144" height="78" alt="" decoding="async"></span>Previous<span class="pe-name" aria-hidden="true">: MamyPoko LINE Coupons</span></a>
+    <span class="v3-sep" aria-hidden="true"></span>
+    <a class="v3-switch-item" href="../index.html#works">All work</a>
+    <span class="v3-sep" aria-hidden="true"></span>
+    <a class="v3-switch-item pe" href="../museum/" aria-label="Next project: National Museum of History Outdoor AR Experiences"><span class="pe-thumb" aria-hidden="true"><img src="../img/next/museum-thumb.webp" width="144" height="78" alt="" decoding="async"></span>Next<span class="pe-name" aria-hidden="true">: Outdoor AR Experiences</span>&nbsp;→</a>
+  </div>
+</div>
+
+<footer id="contact" class="ft" aria-labelledby="contactTitle">
+  <div class="ft-center">
+    <div class="ft-head">
+      <h2 class="ft-title" id="contactTitle" lang="en"><span class="ph">Let’s make things</span> <span class="ph">clearer, <em>together.</em></span></h2>
+      <ul class="ft-tags" aria-label="Skills and related case studies">
+        <li><a class="ft-tag ft-tag--ui" href="../foxconn/#modes"><span lang="en">Interaction Design</span><span class="sr">: Foxconn Carnival, route mode switching</span></a></li>
+        <li><a class="ft-tag ft-tag--ix" href="../museum/#lantern"><span lang="en">Prototyping</span><span class="sr">: National Museum of History, lantern game flow and prototype</span></a></li>
+        <li><a class="ft-tag ft-tag--flow" href="../gomaji/#process"><span lang="en">Visual Design</span><span class="sr">: GOMAJI Carnival City, key visual and web guidelines</span></a></li>
+        <li><a class="ft-tag ft-tag--code" href="../mamypoko/#build"><span lang="en">HTML / CSS</span><span class="sr">: MamyPoko, guidelines, build, and review</span></a></li>
+      </ul>
+    </div>
+    <div class="ft-cta">
+      <a class="ft-btn" href="mailto:helenn1219@gmail.com"><span class="sr">Email me: </span>helenn1219@gmail.com</a>
+      <button type="button" class="ft-copy" data-copy="helenn1219@gmail.com" aria-label="Copy email address">Copy</button>
+    </div>
+    <p class="ft-note">Open to UI/UX and Product Designer roles in Taiwan and abroad.</p>
+    <p class="ft-links">
+      <a href="https://www.linkedin.com/in/helenhsieh-thedesigner" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../cv/Helen-Hsieh-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+    </p>
+  </div>
+  <div class="ft-bottom">
+    <p>© 2026 Helen Hsieh</p>
+    <a class="ft-top" href="#top" aria-label="Back to top"><span lang="en">TOP</span> <svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 13.5V3M4 7l4-4 4 4"/></svg></a>
+  </div>
+</footer>
+
+<script src="../js/nav.js"></script>
+<script>
+
+document.querySelectorAll('video.loop-demo').forEach(v => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let userPaused = reduce.matches, inView = false;
+  const sync = () => { if (inView && !userPaused && !document.hidden) { const p = v.play(); if (p) p.catch(() => {}); } else v.pause(); };
+  const toggle = () => { userPaused = !v.paused; if (v.paused) { userPaused = false; const p = v.play(); if (p) p.catch(() => {}); } else v.pause(); };
+  v.addEventListener('click', toggle);
+  v.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); } });
+  if ('IntersectionObserver' in window) new IntersectionObserver(es => { inView = es[0].intersectionRatio >= .5; sync(); }, { threshold: [0, .5] }).observe(v);
+  document.addEventListener('visibilitychange', sync);
+});
+
+</script>
+<script>
+
+(function () {
+  const body = document.body;
+  const nav = document.getElementById('mainNav');
+  const toc = document.querySelector('.v3-toc');
+  const toggle = toc.querySelector('.v3-toc-toggle');
+  const current = toc.querySelector('.v3-toc-current');
+  const links = [...toc.querySelectorAll('a[href^="#"]')];
+  const sections = links.map(a => document.getElementById(a.hash.slice(1)));
+  const narrow = window.matchMedia('(max-width: 1179px)');
+  const dock = document.querySelector('.v3-dock');
+  const bar = dock.querySelector('.v3-switch');
+
+  const hero = document.querySelector('.detail-hero') || document.querySelector('.v4-show');
+  let offset = 120, navH = 96, barGap = 20, dockPad = 48;
+
+  function measure() {
+    navH = nav ? nav.getBoundingClientRect().height : 96;
+    body.style.setProperty('--nav-h', navH + 'px');
+    offset = navH + (narrow.matches ? toggle.offsetHeight : 0) + 20;
+    body.style.setProperty('--anchor-offset', offset + 'px');
+    body.style.setProperty('--bar-h', bar.offsetHeight + 'px');
+    barGap = parseFloat(getComputedStyle(body).getPropertyValue('--bar-gap')) || 20;
+    dockPad = parseFloat(getComputedStyle(dock).paddingTop) || 48;
+  }
+
+  function setOpen(open) {
+    toc.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+
+  // On phones: hide the bottom switch bar while scrolling down, show it again on scroll up, to leave more room for reading
+  const phone = window.matchMedia('(max-width: 768px)');
+  let lastY = window.scrollY, goingDown = false;
+
+  function update() {
+
+    let idx = 0;
+    sections.forEach((s, i) => { if (s.getBoundingClientRect().top - offset <= 8) idx = i; });
+    links.forEach((a, i) => { if (i === idx) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
+    current.textContent = links[idx].textContent.replace(/^(\d+)/, '$1 ');
+
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    body.classList.toggle('v3-past-hero', heroBottom < navH);
+    toc.classList.toggle('is-stuck', narrow.matches && toc.getBoundingClientRect().top <= navH + 1);
+
+    const docked = dock.getBoundingClientRect().top + dockPad <= window.innerHeight - barGap - bar.offsetHeight;
+    bar.classList.toggle('is-floating', !docked);
+
+    const y = window.scrollY;
+    if (Math.abs(y - lastY) > 8) { goingDown = y > lastY; lastY = y; }
+    // On phones, hide while scrolling down (it still shows when docked at the end)
+    const readingDown = phone.matches && goingDown;
+
+    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open') && !readingDown);
+
+    const overlay = body.classList.contains('menu-open') || !!document.querySelector('[role="dialog"]:not([hidden]), .lightbox.open, .taitra-lightbox.open');
+    bar.classList.toggle('is-off', overlay);
+  }
+
+  let ticking = false;
+  const schedule = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; update(); }); } };
+
+  toggle.addEventListener('click', () => {
+    const open = !toc.classList.contains('is-open');
+
+    if (open && narrow.matches) {
+      const gap = toc.getBoundingClientRect().top - navH;
+      if (gap > 1) window.scrollTo(0, window.scrollY + gap);
+    }
+    setOpen(open);
+    schedule();
+  });
+  links.forEach(a => a.addEventListener('click', () => { if (narrow.matches) setOpen(false); }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && toc.classList.contains('is-open')) { setOpen(false); toggle.focus(); } });
+  // Mobile chapter menu: tapping anywhere outside it closes it
+  document.addEventListener('pointerdown', e => { if (toc.classList.contains('is-open') && !toc.contains(e.target)) setOpen(false); });
+  const onBreakpoint = () => { setOpen(false); measure(); schedule(); };
+  if (narrow.addEventListener) narrow.addEventListener('change', onBreakpoint); else narrow.addListener(onBreakpoint);
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', () => { measure(); schedule(); });
+  new MutationObserver(schedule).observe(body, { attributes: true, attributeFilter: ['class'] });
+  window.addEventListener('load', () => { measure(); schedule(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); schedule(); });
+
+  measure();
+  update();
+})();
+</script>
+<script src="../js/link-preview.js"></script>
+<script src="../js/site-footer.js"></script>
+<script src="../js/site-cursor.js"></script>
+<script src="../js/hero-orb.js" data-host="body" data-page data-shift-y="-.15" data-alpha=".7" data-colors="161,183,221|120,151,206|203,215,236"></script>
+</body>
+</html>

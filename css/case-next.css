@@ -1,0 +1,22 @@
+/* 案例頁「下一個專案」：專案切換列的「下一個」在桌機滑鼠移入或鍵盤聚焦時，膠囊平滑展開，帶出下一個專案的首圖縮圖與名稱。觸控裝置維持原樣。 */
+.v3-switch-item.pe{gap:0;}
+/* 「所有專案」固定在正中間：左右兩欄等寬，上一個往左展開、下一個往右展開，中間按鈕不會被推動。 */
+body.v4 .v3-switch{display:grid;grid-template-columns:1fr auto auto auto 1fr;align-items:center;width:max-content;flex:none;}
+body.v4 .v3-switch > .pe{justify-self:stretch;justify-content:center;}
+.pe-thumb{display:block;flex:none;width:0;height:26px;margin-right:0;overflow:hidden;border-radius:5px;opacity:0;transition:width .45s cubic-bezier(.2,.7,.2,1),margin .45s cubic-bezier(.2,.7,.2,1),opacity .3s;}
+.pe-thumb img{display:block;width:48px;height:26px;object-fit:cover;}
+.pe-name{display:inline-block;max-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;opacity:0;vertical-align:bottom;transition:max-width .5s cubic-bezier(.2,.7,.2,1),opacity .3s;}
+@media(hover:hover) and (pointer:fine){
+  /* 滑鼠停留 0.15 秒才展開，經過時不觸發。 */
+  .pe:hover .pe-thumb,.pe:focus-visible .pe-thumb{width:48px;margin-right:10px;opacity:1;}
+  .pe:hover .pe-name,.pe:focus-visible .pe-name{max-width:min(280px,calc(50vw - 270px));opacity:1;}
+  .pe:hover .pe-thumb,.pe:hover .pe-name{transition-delay:.15s;}
+}
+@media(prefers-reduced-motion:reduce){.pe-thumb,.pe-name{transition:none;}}
+
+/* 「← 返回所有專案」文字只有 20px 高：用透明延伸區把點擊範圍加到 44px，版面不變。 */
+body.v4 .v4-back{position:relative;}
+body.v4 .v4-back::before{content:'';position:absolute;inset:-12px -8px;}
+
+/* 設計挑戰：最後一個字與箭頭綁在一起不換行；整句在同一個底線元素內，hover 底線從頭畫到尾 */
+.v4-q-tail{white-space:nowrap;}

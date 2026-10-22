@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>玩心大FUN探險趣 · Interactive Demo</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/responsive.css">
+<style>
+.screen{display:none;}
+.screen.active{display:block;}
+.upload-review .sample-frame img{max-width:220px;margin:12px auto 0;display:block;border-radius:4px;}
+</style>
+</head>
+<body class="index">
+<div class="wrapper d-flex flex-column">
+
+  <!-- 01 首頁 -->
+  <div class="screen active" id="screen-home">
+    <img src="img/index-title.jpg" alt="玩心大FUN探險趣" class="index-title">
+    <h4>— 2021/3/2 至 2021/8/31 —</h4>
+    <div class="d-flex flex-column index-btn-group">
+      <a href="javascript:void(0)" class="index-btn my-1" onclick="goTo('screen-rule')">活動辦法</a>
+      <a href="javascript:void(0)" class="index-btn my-1" onclick="goTo('screen-choose')">立即登錄發票</a>
+      <a href="javascript:void(0)" class="index-btn my-1" onclick="goTo('screen-progress')">登錄進度查詢</a>
+      <a href="javascript:void(0)" class="index-btn my-1" onclick="goTo('screen-join')">參加月月抽/集點送</a>
+      <a href="javascript:void(0)" class="index-btn my-1" onclick="goTo('screen-namelist')">月月抽得獎名單</a>
+    </div>
+  </div>
+
+  <!-- 01b 活動辦法（簡易示意） -->
+  <div class="screen" id="screen-rule">
+    <img src="img/title.jpg" alt="" class="title">
+    <content>
+      <div class="progress-check" style="padding:24px 20px;">
+        <h5>活動辦法</h5>
+        <p style="font-size:13px;line-height:1.9;color:#333;margin-top:12px;">活動期間內至元本山系列商品購買通路消費，登錄發票即可獲得點數，集滿點數可兌換好禮，並有機會參加每月抽獎。詳細辦法請見活動首頁公告。</p>
+        <div class="main-btn-group mt-5">
+          <a href="javascript:void(0)" class="main-btn bg-white" onclick="goTo('screen-home')">回到首頁</a>
+        </div>
+      </div>
+    </content>
+  </div>
+
+  <!-- 02 選擇登錄方式 -->
+  <div class="screen" id="screen-choose">
+    <img src="img/title.jpg" alt="" class="title">
+    <content>
+      <div class="progress-check choose-way">
+        <a href="javascript:void(0)" class="main-btn mb-2" onclick="goTo('screen-electronic')">電子發票</a>
+        <a href="javascript:void(0)" class="main-btn mb-2" onclick="goTo('screen-electronic')">雲端載具</a>
+        <a href="javascript:void(0)" class="main-btn mb-4" onclick="goTo('screen-electronic')">傳統發票</a>
+        <a href="javascript:void(0)" class="main-btn bg-white" onclick="goTo('screen-home')">回到首頁</a>
+      </div>
+    </content>
+  </div>
+
+  <!-- 03 電子發票：選擇拍照辨識 / 手動輸入 -->
+  <div class="screen" id="screen-electronic">
+    <img src="img/title.jpg" alt="" class="title">
+    <content>
+      <div class="progress-check electronic">
+        <img src="img/t-electronic.png" alt="請選擇登錄方式" class="t-electronic">
+        <div class="area-btn">
+          <a href="javascript:void(0)" onclick="goTo('screen-identify')"><img src="img/photo-btn.png" alt="拍照辨識發票資訊" class="pr-2 photo-btn"></a>
+          <a href="javascript:void(0)" onclick="goTo('screen-manual')"><img src="img/hand-btn.png" alt="手動輸入發票資訊" class="pl-2 hand-btn"></a>
+        </div>
+        <h4>*若發票類型錯誤，將不具集點資格</h4>
+        <div class="main-btn-group">
+          <a href="javascript:void(0)" class="main-btn mb-2" onclick="goTo('screen-choose')">重新選擇登錄發票類型</a>
+          <a href="javascript:void(0)" class="main-btn bg-white" onclick="goTo('screen-home')">回到首頁</a>
+        </div>
+        <h2>電子發票範本如下</h2>
+        <img src="img/electric-sample.jpg" alt="">
+      </div>
+    </content>
+  </div>
+
+  <!-- 04a 拍照辨識：上傳即時預覽 -->
+  <div class="screen" id="screen-identify">
+    <img src="img/title.jpg" alt="" class="title">
+    <content>
+      <div class="progress-check electronic-enter">
+        <img src="img/t-electronic-enter.png" alt="電子發票" class="t-electronic">
+        <div class="paper-frame mt-2">
+          <div class="paper">
+            <form onsubmit="return false;">
+              <div class="upload-review">
+                <div class="input-g">
+                  <label class="input-title">上傳發票照片</label>
+                  <label class="form-control upload-btn" for="upload-1">選擇發票照片</label>
+                  <input type="file" class="upload-input" id="upload-1" name="upload" accept="image/*" hidden>
+                </div>
+                <div class="sample-frame">
+                  <img id="preview-img" src="img/electric-sample.jpg" alt="">
+                </div>
+              </div>
+              <div class="end-btn-g mt-5">
+                <button class="main-btn" type="button" onclick="goTo('screen-result')">送出登錄資料</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </content>
+  </div>
+
+  <!-- 04b 手動輸入表單 -->
+  <div class="screen" id="screen-manual">
+    <img src="img/title.jpg" alt="" class="title">
+    <content>
+      <div class="progress-check electronic-enter">
+        <img src="img/t-electronic-enter.png" alt="電子發票" class="t-electronic">
+        <div class="paper-frame mt-2">
+          <div class="paper">
+            <form onsubmit="return false;">
+              <div class="input-g">
+                <label class="input-title">發票號碼</label>
+                <input type="text" class="form-control" placeholder="例：DF12345678" name="receiptnum" autocomplete="off">
+              </div>
+              <div class="input-g">
+                <label class="input-title">發票隨機碼</label>
+                <input type="text" class="form-control" placeholder="例：1234" name="receiptrandom" autocomplete="off">
+              </div>
+              <div class="input-g">
+                <label class="input-title">發票開立日期</label>
+                <div class="date-frame">
+                  <input type="date" class="form-control" name="receiptdate">
+                  <span><img src="img/chevron-down.svg" alt=""></span>
+                </div>
+              </div>
+              <div class="end-btn-g mt-5">
+                <button class="main-btn" type="button" onclick="goTo('screen-result')">送出登錄資料</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </content>
+  </div>
+
+  <!-- 05 結果頁 -->
+  <div class="screen" id="screen-result">
+    <img src="img/title.jpg" alt="" class="title">
+    <content>
+      <div class="progress-check electronic-result">
+        <div class="paper-frame mt-2">
+          <div class="paper results">
+            <div class="result-icon">
+              <img src="img/result-success.png" alt="">
+            </div>
+            <p>歡迎參加月月抽/集點送活動</p>
+            <a href="javascript:void(0)" class="main-btn mb-2 mt-5" onclick="goTo('screen-join')">參加月月抽/集點送</a>
+            <a href="javascript:void(0)" class="main-btn bg-white" onclick="goTo('screen-home')">回到首頁</a>
+          </div>
+        </div>
+      </div>
+    </content>
+  </div>
+
+  <!-- 06 登錄進度查詢 -->
+  <div class="screen" id="screen-progress">
+    <img src="img/title.jpg" alt="" class="title">
+    <content>
+      <div class="progress-check">
+        <img src="img/t-progress.png" alt="登錄進度查詢" class="t-text">
+        <div class="area1">
+          <div class="total-price">
+            <h5>累積總登錄金額</h5>
+            <h5>$<span>3,333</span></h5>
+          </div>
+          <div class="total-point mt-2">
+            <h5>累積總點數</h5>
+            <h5><span>10</span>點</h5>
+          </div>
+          <p class="almost">每50元換算一點，尚差<span>ＸＸ</span>元可多1點</p>
+        </div>
+        <div class="area2">
+          <div class="progress-text no-data-outer">
+            <div class="no-data">目前尚無資料</div>
+          </div>
+        </div>
+        <div class="main-btn-group">
+          <a href="javascript:void(0)" class="main-btn mb-2" onclick="goTo('screen-join')">參加月月抽/集點送</a>
+          <a href="javascript:void(0)" class="main-btn bg-white" onclick="goTo('screen-home')">回到首頁</a>
+        </div>
+      </div>
+    </content>
+  </div>
+
+  <!-- 07 參加月月抽/集點送 -->
+  <div class="screen" id="screen-join">
+    <img src="img/title.jpg" alt="" class="title">
+    <content>
+      <div class="progress-check join">
+        <img src="img/t-join.png" alt="參加月月抽/集點送" class="t-text">
+        <div class="area1">
+          <div class="total-point">
+            <h5>累積總登錄點數</h5>
+            <h5><span>100</span>點</h5>
+          </div>
+          <div class="total-point mt-2">
+            <h5>剩餘點數</h5>
+            <h5><span>5</span>點</h5>
+          </div>
+          <div class="total-point mt-2">
+            <h5>已使用點數</h5>
+            <h5><span>5</span>點</h5>
+          </div>
+        </div>
+        <div class="area-btn">
+          <a href="javascript:void(0)" onclick="goTo('screen-lottery')"><img src="img/left-btn.png" alt="參加月月抽大獎" class="px-2"></a>
+          <a href="javascript:void(0)" onclick="goTo('screen-points')"><img src="img/right-btn.png" alt="參加集點直接送" class="px-2"></a>
+        </div>
+        <div class="main-btn-group">
+          <a href="javascript:void(0)" class="main-btn mb-2" onclick="goTo('screen-choose')">立即登錄發票</a>
+          <a href="javascript:void(0)" class="main-btn bg-white" onclick="goTo('screen-home')">回到首頁</a>
+        </div>
+      </div>
+    </content>
+  </div>
+
+  <!-- 07a 月月抽大獎 -->
+  <div class="screen" id="screen-lottery">
+    <img src="img/title.jpg" alt="" class="title">
+    <content class="lottery">
+      <div class="progress-check text-center">
+        <img src="img/t-lottery.png" alt="月月抽大獎" class="t-text">
+        <h4 class="mt-3 mb-1">您已累積<span class="times mx-1">10</span>次抽獎資格</h4>
+        <div class="draw">
+          <p>使用1點，即獲得1次抽獎資格！當月未中獎，則資格會保留並持續累積。越早參加、累積越多，中獎機會越大！</p>
+          <h5>目前有<span class="mx-1">10點</span><br>此次您想使用多少點？</h5>
+          <form onsubmit="return false;"><input type="text" name="points" placeholder="0">點</form>
+        </div>
+        <a href="javascript:void(0)" class="short-btn" onclick="goTo('screen-join')">確認使用</a>
+        <h3>月月抽大獎 獎項</h3>
+        <div class="gift">
+          <img src="img/logo1.png" alt="" class="logo12">
+          <h6>氣候達人 2 - AIRIUM 帳篷</h6>
+          <div class="product"><img src="img/p1.png" alt="" class="p1"><p>市價 NT$ 24,900</p></div>
+          <hr>
+          <h6>四輪拖車（紅色）</h6>
+          <div class="product product2"><img src="img/p2.png" alt="" class="p2"><p>市價 NT$ 4,990</p></div>
+          <hr>
+          <h6>BL 295 懷舊露營燈</h6>
+          <div class="product"><img src="img/p3.png" alt="" class="p3"><p>市價 NT$ 4,100</p></div>
+          <hr>
+          <h6>兩段式輕量烤肉箱（紅色）</h6>
+          <div class="product"><img src="img/p4.png" alt="" class="p4"><p>市價 NT$ 2,900</p></div>
+          <hr>
+          <img src="img/logo2.png" alt="" class="logo12">
+        </div>
+        <div class="main-btn-group">
+          <a href="javascript:void(0)" class="main-btn bg-white" onclick="goTo('screen-home')">回到首頁</a>
+        </div>
+      </div>
+    </content>
+  </div>
+
+  <!-- 07b 集點直接送 -->
+  <div class="screen" id="screen-points">
+    <img src="img/title.jpg" alt="" class="title">
+    <content class="points">
+      <div class="progress-check text-center">
+        <img src="img/t-points.png" alt="集點直接送" class="t-points">
+        <h4 class="mt-3 mb-1">累積達指定點數即可兌換以下元本山野餐好禮！數量有限，換完為止（同品項限兌換2組）</h4>
+        <img src="img/logo2.png" alt="" class="logo12">
+        <div class="exchange">
+          <img src="img/p6.png" alt="" class="p6">
+          <div class="words text-left">
+            <h6>保持新鮮保冰桶</h6>
+            <p class="green-text">13L</p>
+            <img src="img/30p.png" alt="30點兌換">
+            <p>市價 NT$799</p>
+            <p>剩餘限量<span>328</span>個</p>
+            <a href="javascript:void(0)" class="exchange-btn" onclick="goTo('screen-join')">兌換</a>
+          </div>
+        </div>
+        <div class="exchange">
+          <img src="img/p7.png" alt="" class="p7">
+          <div class="words text-left">
+            <h6>坐好坐滿野餐椅</h6>
+            <p class="green-text">長54x寬54x高90 cm</p>
+            <img src="img/25p.png" alt="25點兌換">
+            <p>市價 NT$699</p>
+            <p>剩餘限量<span>328</span>個</p>
+            <a href="javascript:void(0)" class="exchange-btn" onclick="goTo('screen-join')">兌換</a>
+          </div>
+        </div>
+        <div class="main-btn-group mt-4">
+          <a href="javascript:void(0)" class="main-btn bg-white" onclick="goTo('screen-home')">回到首頁</a>
+        </div>
+      </div>
+    </content>
+  </div>
+
+  <!-- 08 月月抽得獎名單 -->
+  <div class="screen" id="screen-namelist">
+    <img src="img/index-title.jpg" alt="" class="index-title">
+    <h4>— 月月抽中獎名單 —</h4>
+    <div class="d-flex flex-column index-btn-group">
+      <a href="javascript:void(0)" class="index-btn my-1 px-3 py-2 d-flex justify-content-between align-items-center" onclick="goTo('screen-namelist-detail')">
+        <div>三月中獎名單<br><small>(2021/4/9公佈)</small></div>
+        <div><span class="arrow"></span></div>
+      </a>
+      <a href="javascript:void(0)" class="index-btn my-1 px-3 py-2 d-flex justify-content-between align-items-center" onclick="goTo('screen-namelist-detail')">
+        <div>四月中獎名單<br><small>(2021/5/7公佈)</small></div>
+        <div><span class="arrow"></span></div>
+      </a>
+      <a href="javascript:void(0)" class="index-btn my-1 px-3 py-2 d-flex justify-content-between align-items-center" onclick="goTo('screen-namelist-detail')">
+        <div>五月中獎名單<br><small>(2021/6/7公佈)</small></div>
+        <div><span class="arrow"></span></div>
+      </a>
+      <a href="javascript:void(0)" class="main-btn mt-2 bg-white" onclick="goTo('screen-home')">回到首頁</a>
+    </div>
+  </div>
+
+  <!-- 08a 中獎名單細節（示範：三月） -->
+  <div class="screen" id="screen-namelist-detail">
+    <img src="img/title.jpg" alt="" class="index-title">
+    <h4>— 三月中獎名單 —</h4>
+    <div class="progress-check gift">
+      <h6>Coleman氣候達人2 - AIRIUM帳篷</h6>
+      <p>市價：NT$ 24,900元</p>
+      <ul class="list-unstyled">
+        <li>姓名：李○明</li>
+        <li>手機：0912XXXX78</li>
+        <li>中獎發票號碼：AB1XXXXX78</li>
+      </ul>
+      <hr>
+      <h6>Coleman四輪拖車(紅色)</h6>
+      <p>市價：NT$ 4,990元</p>
+      <ul class="list-unstyled">
+        <li>姓名：李○明</li>
+        <li>手機：0912XXXX78</li>
+        <li>中獎發票號碼：AB1XXXXX78</li>
+      </ul>
+      <hr>
+      <h6>Coleman BL 295懷舊露營燈</h6>
+      <p>市價：NT$ 4,100元</p>
+      <ul class="list-unstyled">
+        <li>姓名：李○明</li>
+        <li>手機：0912XXXX78</li>
+        <li>中獎發票號碼：AB1XXXXX78</li>
+      </ul>
+      <hr>
+      <h6>Coleman 兩段式輕量烤肉箱(紅色)</h6>
+      <p>市價：NT$ 2,900元</p>
+      <ul class="list-unstyled">
+        <li>姓名：李○明</li>
+        <li>手機：0912XXXX78</li>
+        <li>中獎發票號碼：AB1XXXXX78</li>
+      </ul>
+      <hr>
+      <h6>元本山 玩心大FUN 隨時野餐組</h6>
+      <p>市價：NT$ 1,948元</p>
+      <ul class="list-unstyled">
+        <li>姓名：李○明</li>
+        <li>手機：0912XXXX78</li>
+        <li>中獎發票號碼：AB1XXXXX78</li>
+      </ul>
+    </div>
+    <div class="progress-check namelist-detail">
+      <a href="javascript:void(0)" class="main-btn mt-1 bg-white" onclick="goTo('screen-home')">回到首頁</a>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+function goTo(id){
+  document.querySelectorAll('.screen').forEach(function(el){ el.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  document.body.classList.toggle('namelist', id === 'screen-namelist' || id === 'screen-namelist-detail');
+  // 只捲動 Demo 本身回到頂端；scrollIntoView 在 iframe 內會連外層頁面一起捲動
+  window.scrollTo(0, 0);
+}
+
+document.getElementById('upload-1').addEventListener('change', function(e){
+  if (e.target.files && e.target.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(ev){
+      document.getElementById('preview-img').src = ev.target.result;
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  }
+});
+</script>
+</body>
+</html>

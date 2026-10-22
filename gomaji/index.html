@@ -45,7 +45,7 @@
 }
 
 .v3-layout{display:grid;grid-template-columns:var(--toc-w) minmax(0,1fr);column-gap:var(--toc-gap);}
-.v3-toc{align-self:start;position:sticky;top:calc(var(--nav-h,96px) + 24px);padding-top:24px;padding-bottom:28px;}
+.v3-toc{align-self:start;position:sticky;top:calc(var(--nav-h,76px) + 24px);padding-top:24px;padding-bottom:28px;}
 .v3-main{min-width:0;}
 .puli-v3 .v3-main > .case-section{padding-left:0;padding-right:0;scroll-margin-top:calc(var(--anchor-offset,120px) - 56px);}
 .puli-v3 .v3-main > #entry{scroll-margin-top:var(--anchor-offset,120px);}
@@ -157,7 +157,7 @@ body.v4.v3-light:not(.menu-open) nav::before{background:rgba(246,244,239,.94);-w
 .v4.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#1E1F1C;--text-dim:#5E5D57;}
 .v4 .nav-logo img{filter:invert(1) hue-rotate(180deg);}
 
-.v4-head{padding-top:calc(var(--nav-h,96px) + 56px);padding-bottom:40px;}
+.v4-head{padding-top:calc(var(--nav-h,76px) + 56px);padding-bottom:40px;}
 .v4-back{display:inline-block;margin-bottom:28px;font-size:14px;color:rgba(30,31,28,.7);text-decoration:none;}
 .v4-back:hover{color:var(--accent);}
 .v4-title{font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:500;line-height:1.18;letter-spacing:.01em;color:var(--text);word-break:keep-all;}
@@ -368,6 +368,7 @@ body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:r
 <link rel="stylesheet" href="../css/hero-grain.css">
 <link rel="stylesheet" href="../css/site-logo.css">
 <link rel="stylesheet" href="../css/site-footer.css">
+<link rel="stylesheet" href="../css/case-next.css?v=8">
 </head>
 <body id="top" class="case-template case-lede-first gm-article puli-v3 v3-light v4">
 <a class="skip" href="#main">跳到內容</a>
@@ -426,7 +427,7 @@ body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:r
     <div class="case-role v4-challenges">
       <h2>設計挑戰</h2>
       <ul class="v4-q">
-        <li><a href="#process"><span class="v4-q-t">如何用既有品牌元素做出城市樂園的主視覺，並讓訪客一路捲動到購票入</span><span class="v4-q-end"><span class="v4-q-t">口</span><span class="v4-q-arr" aria-hidden="true">→</span></span></a></li>
+        <li><a href="#process"><span class="v4-q-t">如何延續既有品牌元素打造城市樂園主視覺，並引導訪客從購票順利完成核<span class="v4-q-tail">銷<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
       </ul>
     </div>
   </div>
@@ -498,11 +499,11 @@ body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:r
 
 <div class="v3-dock">
   <div class="v3-switch is-floating" role="navigation" aria-label="專案切換">
-    <a class="v3-switch-item" href="../museum/">← 上一個<span class="v3-long">專案</span><span class="v3-sr">：國立歷史博物館 AR 探索</span></a>
+    <a class="v3-switch-item pe pe--prev" href="../museum/" aria-label="上一個專案：國立歷史博物館 AR 探索">←&nbsp;<span class="pe-thumb" aria-hidden="true"><img src="../img/next/museum-thumb.webp" width="144" height="78" alt="" decoding="async"></span>上一個<span class="pe-name" aria-hidden="true">：史博館 AR 探索</span></a>
     <span class="v3-sep" aria-hidden="true"></span>
     <a class="v3-switch-item" href="../index.html#works">所有專案</a>
     <span class="v3-sep" aria-hidden="true"></span>
-    <span class="v3-switch-item is-disabled" aria-disabled="true" title="這是最後一個專案">下一個<span class="v3-long">專案</span> →</span>
+    <a class="v3-switch-item pe" href="../puli/" aria-label="下一個專案：埔里酒廠智慧導覽系統"><span class="pe-thumb" aria-hidden="true"><img src="../img/next/puli-thumb.webp" width="144" height="78" alt="" decoding="async"></span>下一個<span class="pe-name" aria-hidden="true">：埔里酒廠智慧導覽</span>&nbsp;→</a>
   </div>
 </div>
 
@@ -627,6 +628,10 @@ body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:r
     toggle.setAttribute('aria-expanded', String(open));
   }
 
+  // 手機閱讀時：往下捲隱藏底部切換列、往上捲再出現，多留閱讀空間
+  const phone = window.matchMedia('(max-width: 768px)');
+  let lastY = window.scrollY, goingDown = false;
+
   function update() {
 
     let idx = 0;
@@ -641,7 +646,12 @@ body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:r
     const docked = dock.getBoundingClientRect().top + dockPad <= window.innerHeight - barGap - bar.offsetHeight;
     bar.classList.toggle('is-floating', !docked);
 
-    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open'));
+    const y = window.scrollY;
+    if (Math.abs(y - lastY) > 8) { goingDown = y > lastY; lastY = y; }
+    // 手機往下捲時暫時隱藏（文末停靠時照常顯示）
+    const readingDown = phone.matches && goingDown;
+
+    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open') && !readingDown);
 
     const overlay = body.classList.contains('menu-open') || !!document.querySelector('[role="dialog"]:not([hidden]), .lightbox.open, .taitra-lightbox.open');
     bar.classList.toggle('is-off', overlay);
@@ -662,6 +672,8 @@ body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:r
   });
   links.forEach(a => a.addEventListener('click', () => { if (narrow.matches) setOpen(false); }));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && toc.classList.contains('is-open')) { setOpen(false); toggle.focus(); } });
+  // 手機章節選單：點選單以外的地方就收起
+  document.addEventListener('pointerdown', e => { if (toc.classList.contains('is-open') && !toc.contains(e.target)) setOpen(false); });
   const onBreakpoint = () => { setOpen(false); measure(); schedule(); };
   if (narrow.addEventListener) narrow.addEventListener('change', onBreakpoint); else narrow.addListener(onBreakpoint);
   window.addEventListener('scroll', schedule, { passive: true });

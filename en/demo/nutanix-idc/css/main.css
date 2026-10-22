@@ -1,0 +1,364 @@
+/* 2026-10-16：原本的 Gotham Rounded 為付費字型，改用 Google Fonts 的 Varela Round（SIL OFL 授權，可公開使用） */
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Varela Round', 'Noto Sans TC', sans-serif;
+    color: #4c4c4e;
+    overflow-x: hidden;
+    line-height: 2;
+}
+
+main {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+}
+
+ul, dt, dd, dl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 2.5;
+}
+a {
+    color: inherit;
+    display: block;
+    transition: 0.5s;
+}
+a:hover {
+    color: inherit;
+}
+img {
+    max-width: 100%;
+}
+
+h2 {
+    font-weight: 400;
+}
+h4 {
+    margin-bottom: 1.5rem;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5;
+}
+p {
+    line-height: 1.5;
+}
+
+
+/* ---------------------- */
+section {
+    position: relative;
+}
+.container-fluid.w-1480{
+    max-width: 1480px;
+}
+.container-fluid.w-1280{
+    max-width: 1280px;
+}
+.container-fluid.w-1080{
+    max-width: 1080px;
+}
+.container-fluid.w-960{
+    max-width: 960px;
+}
+/* ---------------------- */
+.ff-Varela {
+    font-family: 'Varela Round', sans-serif;
+}
+.ff-notoSans{
+    font-family: 'Noto Sans TC', sans-serif;
+}
+.color-red{
+    color: #EF465D;
+}
+.color-yellow{
+    color: #FFC20E;
+}
+.color-green{
+    color: #72C6B5;
+}
+.color-blue{
+    color: #4469B0;
+}
+/* ------- */
+.img-box>a {
+    width: 100%;
+    height: 100%;
+}
+.img-box>img,
+.img-box>a>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body.modal-open {
+    padding-right: 0;
+}
+
+/*區塊斜切裝飾*/
+.angle-bottom {
+    position: absolute;
+    bottom: -0.05px;
+    color: #fff;
+}
+
+/*背景色*/
+.bg-blue {
+    background: rgb(74, 144, 225);
+}
+.bg-shallow {
+    background: rgb(118, 169, 226);
+}
+.bg-light{
+    background-color: #f5f8fb !important;
+}
+.dot {
+    background: -webkit-radial-gradient(rgba(0,0,0,.08) 7%,transparent 8%),-webkit-radial-gradient(rgba(0,0,0,.08) 7%,transparent 8%),transparent;
+    background: -o-radial-gradient(rgba(0,0,0,.08) 7%,transparent 8%),-o-radial-gradient(rgba(0,0,0,.08) 7%,transparent 8%),transparent;
+    background: radial-gradient(rgba(0,0,0,.08) 7%,transparent 8%),radial-gradient(rgba(0,0,0,.08) 7%,transparent 8%),transparent;
+    background-clip: border-box;
+    background-position: 0 0,25px 25px;
+    background-origin: padding-box;
+    background-repeat: repeat;
+    background-size: 25px 25px;
+    bottom: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+.dot.bg-blue {
+    background-color: #4a90e1;
+}
+/*文字色*/
+.text-shallow {
+    color: #aed3ff;
+    font-weight: normal;
+}
+.text-op {
+    font-size: 18px;
+    opacity: 0.9;
+    font-weight: 400;
+    text-align: left;
+}
+
+/* 實心按鈕 */
+.btn-prime {
+    color: #ffffff;
+    background-color: #AFD135;
+    border-color: #AFD135;
+    border-radius: 5px;
+    letter-spacing: 1.5px;
+    min-width: 128px;
+    font-size: 17px;
+}
+.btn-prime:hover {
+    color: #ffffff;
+    background-color: #8FAC27;
+    border-color: #8FAC27;
+}
+.btn-prime.focus,
+.btn-prime:focus {
+    box-shadow: 0 0 0 0.2rem rgba(199, 230, 202, 0.5);
+}
+
+.btn-send {
+    color: #ffffff;
+    background-color: #B9CE42;
+    border-color: #B9CE42;
+    letter-spacing: 1.5px;
+    width: 100%;
+    height: 48px;
+    font-size: 20px;
+}
+.btn-send:hover {
+    background-color: #0459b9;
+    border-color: #0459b9;
+    color:#fff;
+}
+.btn-send.focus,
+.btn-send:focus {
+    box-shadow: 0 0 0 0.2rem rgba(199, 230, 202, 0.5);
+}
+
+/* 空心按鈕 */
+.btn-empty {
+    border-style: none;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid #034ea2;
+    color: #034ea2;    
+    letter-spacing: 1.5px;
+}
+.btn-empty:hover {
+    background: #034ea2;
+    color: #fff;
+}
+
+/* 箭頭 */
+.arrow{
+    position: relative;
+    display: flex;
+    top: 51%;
+
+}
+.arrow-down {
+    width: 30px;
+    height: 30px;
+    border-width: 3px 3px 0 0;
+    border-style: solid;
+    border-color: #fff;
+    transform: rotate(135deg);
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 24px;
+    animation: move 1s infinite alternate;
+}
+@keyframes move {
+    0% {top: -15px;}
+    50% {}
+    60% {top: 3px;}
+    100% {top: -3px;}
+}
+.arrow-right {
+    width: 14px;
+    height: 14px;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    border-color: #696b6d;
+    transform: rotate(45deg);
+    display: inline-block;
+    margin: 0 auto;
+    position: absolute;
+    top: -8px;
+    margin-top: 24px;
+}
+.arrow-right:after {
+    transform: rotate(-135deg) translate(7px, 0px);
+    content: '';
+    width: 1px;
+    height: 30px;
+    background-color: #696b6d;
+    position: absolute;
+    left: 50%;
+}
+.arrow-left {
+    width: 14px;
+    height: 14px;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    border-color: #696b6d;
+    transform: rotate(225deg);
+    display: inline-block;
+    margin: 0 auto;
+    position: absolute;
+    top: -8px;
+    margin-top: 24px;
+}
+.arrow-left:after {
+    transform: rotate(-135deg) translate(7px, 0px);
+    content: '';
+    width: 1px;
+    height: 30px;
+    background-color: #696b6d;
+    position: absolute;
+    left: 50%;
+}
+
+/*打勾icon*/
+.check-icon {
+    background: url(../img/zzxxx.png); 
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    vertical-align: middle;
+}
+/*checkbox*/
+.check { 
+    position: relative;
+    display: inline-block;
+    margin-right: 5px; 
+}
+.check input {
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-bottom: 1px;
+ /* 前面三行代码是为了让radio单选按钮与文字对齐 */
+    width: 20px;
+    height: 20px;
+    appearance: none;/*清楚默认样式*/
+    -webkit-appearance: none;
+    opacity: 0;
+    outline: none;/* 注意不能设置为display:none*/
+    }
+.check label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    /*注意层级关系，如果不把label层级设为最低，会遮挡住input而不能单选*/
+    width: 20px;
+    height: 20px;
+    border: 1px solid #3582E9;
+    border-radius: 100%;
+} 
+.check input: checked + label {
+    background: #3582E9; 
+} 
+.check input: checked + label::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 2px;
+    width: 5px;
+    height: 12px;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    transform: rotate(45deg);
+}
+/*border*/
+.border {
+    border-radius: 6px;
+    border: 1px solid #e7e7e7;
+    -webkit-box-shadow: 0 5px 20px 0 hsla(210,2%,47%,.08);
+    box-shadow: 0 5px 20px 0 hsla(210,2%,47%,.08);
+}
+
+/*form input*/
+.form-control {
+    background-color: transparent!important;
+    border: 1px solid #e7e7e7!important;
+    border-radius: 3px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 48px;
+}
+.form-control:focus {
+    border: 1px solid #034ea3!important;
+    box-shadow: none;
+}
+
+/*邊距*/
+.px-8 {
+    padding-right: 80px;
+    padding-left: 80px;
+}
+
+/* FOOTER
+========================================================= */
+footer{
+    background: #414042;
+    color: #ffffff;
+    padding: 20px 0;
+    position: relative;
+}
+footer h2.logo{
+    width: 140px;
+    padding: 10px 0;
+}
+footer p{
+    margin-bottom: 0;
+}

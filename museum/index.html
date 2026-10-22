@@ -56,7 +56,7 @@
 }
 
 .v3-layout{display:grid;grid-template-columns:var(--toc-w) minmax(0,1fr);column-gap:var(--toc-gap);}
-.v3-toc{align-self:start;position:sticky;top:calc(var(--nav-h,96px) + 24px);padding-top:24px;padding-bottom:28px;}
+.v3-toc{align-self:start;position:sticky;top:calc(var(--nav-h,76px) + 24px);padding-top:24px;padding-bottom:28px;}
 .v3-main{min-width:0;}
 .puli-v3 .v3-main > .case-section{padding-left:0;padding-right:0;scroll-margin-top:calc(var(--anchor-offset,120px) - 56px);}
 .puli-v3 .v3-main > #entry{scroll-margin-top:var(--anchor-offset,120px);}
@@ -168,7 +168,7 @@ body.v4.v3-light:not(.menu-open) nav::before{background:rgba(246,244,239,.94);-w
 .v4.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#1E1F1C;--text-dim:#5E5D57;}
 .v4 .nav-logo img{filter:invert(1) hue-rotate(180deg);}
 
-.v4-head{padding-top:calc(var(--nav-h,96px) + 56px);padding-bottom:40px;}
+.v4-head{padding-top:calc(var(--nav-h,76px) + 56px);padding-bottom:40px;}
 .v4-back{display:inline-block;margin-bottom:28px;font-size:14px;color:rgba(30,31,28,.7);text-decoration:none;}
 .v4-back:hover{color:var(--accent);}
 .v4-title{font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:500;line-height:1.18;letter-spacing:.01em;color:var(--text);word-break:keep-all;}
@@ -300,7 +300,7 @@ body.v4 footer.v4-foot{position:relative;}
 
 .v4 .onsite-title em{font-style:normal;color:inherit;}
 
-.mu-article{--page-x:max(10vw, calc((100vw - 1120px) / 2));--show:1120px;--phone-max:280px;}
+.mu-article{--page-x:max(10vw, calc((100vw - 1360px) / 2));--show:1360px;--phone-max:280px;}
 @media(max-width:768px){.mu-article{--page-x:6vw;}}
 
 body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:rgba(70,112,79,.06);--border:rgba(70,112,79,.22);}
@@ -394,7 +394,7 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
 .mu-frame-badge{position:absolute;right:10px;top:68%;padding:3px 10px;border-radius:999px;background:rgba(30,31,28,.72);color:#fff;font-size:12px;line-height:1.6;letter-spacing:.04em;}
 
 @media(min-width:761px){
-  .mu-article #review .case-split--phone:has(.mu-frame-view){--cap-space:88px;align-items:stretch;padding-bottom:var(--cap-space);}
+  .mu-article #review .case-split--phone:has(.mu-frame-view){--cap-space:107px;align-items:stretch;padding-bottom:var(--cap-space);}
   .mu-article #review .case-split--phone:has(.mu-frame-view) > .case-text{display:flex;flex-direction:column;}
   .mu-article #review .case-split--phone:has(.mu-frame-view) > .case-text > .mu-compare{margin-top:auto;}
   .mu-article #review .case-split--phone:has(.mu-frame-view) > .case-text > p:last-of-type{margin-bottom:28px;}
@@ -410,6 +410,7 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
 <link rel="stylesheet" href="../css/hero-grain.css">
 <link rel="stylesheet" href="../css/site-logo.css">
 <link rel="stylesheet" href="../css/site-footer.css">
+<link rel="stylesheet" href="../css/case-next.css?v=8">
 </head>
 <body id="top" class="case-template case-lede-first mu-article puli-v3 v3-light v4">
 <a class="skip" href="#main">跳到內容</a>
@@ -467,9 +468,9 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
     <div class="case-role v4-challenges">
       <h2>設計挑戰</h2>
       <ul class="v4-q">
-        <li><a href="#entry"><span class="v4-q-t">如何讓訪客從 App 入口找到並進入戶外 AR 關</span><span class="v4-q-end"><span class="v4-q-t">卡</span><span class="v4-q-arr" aria-hidden="true">→</span></span></a></li>
-        <li><a href="#lantern"><span class="v4-q-t">如何串起製作祝福、施放天燈與拍攝的步</span><span class="v4-q-end"><span class="v4-q-t">驟</span><span class="v4-q-arr" aria-hidden="true">→</span></span></a></li>
-        <li><a href="#review"><span class="v4-q-t">如何讓操作提示在相機背景上容易辨</span><span class="v4-q-end"><span class="v4-q-t">識</span><span class="v4-q-arr" aria-hidden="true">→</span></span></a></li>
+        <li><a href="#entry"><span class="v4-q-t">如何讓訪客從 App 入口找到並進入戶外 AR 關<span class="v4-q-tail">卡<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a href="#lantern"><span class="v4-q-t">如何串起製作祝福、施放天燈與拍攝的步<span class="v4-q-tail">驟<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a href="#review"><span class="v4-q-t">如何讓操作提示在相機背景上容易辨<span class="v4-q-tail">識<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
       </ul>
     </div>
   </div>
@@ -664,11 +665,11 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
 
 <div class="v3-dock">
   <div class="v3-switch is-floating" role="navigation" aria-label="專案切換">
-    <a class="v3-switch-item" href="../foxconn/">← 上一個<span class="v3-long">專案</span><span class="v3-sr">：鴻海嘉年華活動導覽</span></a>
+    <a class="v3-switch-item pe pe--prev" href="../foxconn/" aria-label="上一個專案：鴻海嘉年華活動導覽">←&nbsp;<span class="pe-thumb" aria-hidden="true"><img src="../img/next/foxconn-thumb.webp" width="144" height="78" alt="" decoding="async"></span>上一個<span class="pe-name" aria-hidden="true">：鴻海嘉年華活動導覽</span></a>
     <span class="v3-sep" aria-hidden="true"></span>
     <a class="v3-switch-item" href="../index.html#works">所有專案</a>
     <span class="v3-sep" aria-hidden="true"></span>
-    <a class="v3-switch-item" href="../gomaji/">下一個<span class="v3-long">專案</span><span class="v3-sr">：麻吉城市樂園 活動主視覺與網站</span> →</a>
+    <a class="v3-switch-item pe" href="../gomaji/" aria-label="下一個專案：麻吉城市樂園 活動主視覺與網站"><span class="pe-thumb" aria-hidden="true"><img src="../img/next/gomaji-thumb.webp" width="144" height="78" alt="" decoding="async"></span>下一個<span class="pe-name" aria-hidden="true">：麻吉城市樂園</span>&nbsp;→</a>
   </div>
 </div>
 
@@ -746,6 +747,10 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
     toggle.setAttribute('aria-expanded', String(open));
   }
 
+  // 手機閱讀時：往下捲隱藏底部切換列、往上捲再出現，多留閱讀空間
+  const phone = window.matchMedia('(max-width: 768px)');
+  let lastY = window.scrollY, goingDown = false;
+
   function update() {
 
     let idx = 0;
@@ -760,7 +765,12 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
     const docked = dock.getBoundingClientRect().top + dockPad <= window.innerHeight - barGap - bar.offsetHeight;
     bar.classList.toggle('is-floating', !docked);
 
-    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open'));
+    const y = window.scrollY;
+    if (Math.abs(y - lastY) > 8) { goingDown = y > lastY; lastY = y; }
+    // 手機往下捲時暫時隱藏（文末停靠時照常顯示）
+    const readingDown = phone.matches && goingDown;
+
+    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open') && !readingDown);
 
     const overlay = body.classList.contains('menu-open') || !!document.querySelector('[role="dialog"]:not([hidden]), .lightbox.open, .taitra-lightbox.open');
     bar.classList.toggle('is-off', overlay);
@@ -781,6 +791,8 @@ body.v3-light.mu-article{--accent:#46704F;--accent-solid:#8FB59A;--accent-wash:r
   });
   links.forEach(a => a.addEventListener('click', () => { if (narrow.matches) setOpen(false); }));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && toc.classList.contains('is-open')) { setOpen(false); toggle.focus(); } });
+  // 手機章節選單：點選單以外的地方就收起
+  document.addEventListener('pointerdown', e => { if (toc.classList.contains('is-open') && !toc.contains(e.target)) setOpen(false); });
   const onBreakpoint = () => { setOpen(false); measure(); schedule(); };
   if (narrow.addEventListener) narrow.addEventListener('change', onBreakpoint); else narrow.addListener(onBreakpoint);
   window.addEventListener('scroll', schedule, { passive: true });

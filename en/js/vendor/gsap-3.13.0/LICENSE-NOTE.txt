@@ -1,0 +1,4 @@
+GSAP 3.13.0（gsap.min.js、ScrollTrigger.min.js、Draggable.min.js）
+來源：https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/
+授權：GreenSock Standard "No Charge" License — https://gsap.com/standard-license
+各檔案開頭保留原始版權與授權聲明。本站只在首頁 Hero 使用：捲動時間軸與能力標籤拖曳。

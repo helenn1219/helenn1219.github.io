@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Page not found | Helen Hsieh</title>
+
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#F6F4EF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F4EF;--ink:#242421;--ink-2:#66645F;--brand:#616A15;--lime:#DCE987;}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{display:grid;place-items:center;padding:24px;background:var(--bg);color:var(--ink);font-family:'Manrope','Manrope Fallback','Noto Sans TC',system-ui,sans-serif;overflow:hidden}
+body>header{position:fixed;top:0;left:0}
+/* Every child shares one grid cell, so elements injected by extensions or preview tools cannot push the content off center */
+body>*{grid-area:1/1}
+.nf{position:relative;z-index:1;max-width:680px;text-align:center}
+.nf-code{font-size:clamp(96px,20vw,180px);font-weight:500;line-height:1;letter-spacing:-.035em}
+.nf h1{margin-top:18px;font-size:clamp(20px,2.4vw,24px);font-weight:600}
+.nf p:not(.nf-code){margin-top:10px;font-size:16px;line-height:1.75;color:var(--ink-2)}
+.nf a{display:inline-flex;align-items:center;gap:10px;min-height:48px;margin-top:28px;padding:0 24px;font-size:15px;font-weight:600;color:var(--ink);text-decoration:none;background:var(--lime);border-radius:6px;transition:background-color .18s}
+.nf a:hover{background:#E8F1A8}
+.nf a:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
+.nf-logo{position:fixed;left:max(24px,6vw);top:23px;z-index:2;display:inline-flex}
+.nf-logo svg{display:block;height:30px;width:auto;overflow:visible}
+.nf-logo path{fill:none;stroke:#8E8B84;stroke-width:10.5;stroke-linecap:round}
+.nf-logo circle{fill:#9DAF2C;opacity:.85;transform:translateX(var(--dx,0));transition:transform .55s cubic-bezier(.2,1.25,.4,1)}
+.nf-logo circle:nth-of-type(2){transition-delay:.05s}.nf-logo circle:nth-of-type(3){transition-delay:.1s}
+.nf-logo:hover circle,.nf-logo:focus-visible circle{transform:none}
+.nf-logo:focus-visible{outline:2px solid var(--brand);outline-offset:6px;border-radius:4px}
+.nf-logo::before{content:'';position:absolute;inset:-8px}
+@media(min-width:769px){.nf-logo{left:max(10vw,calc((100vw - 1360px)/2))}}
+.orb{position:fixed;right:-18vmax;top:-18vmax;width:70vmax;height:70vmax;border-radius:50%;background:radial-gradient(circle,rgba(220,233,135,.9),rgba(220,233,135,0) 68%);filter:blur(4px);pointer-events:none}
+@media(prefers-reduced-motion:no-preference){.orb{animation:drift 14s ease-in-out infinite alternate}}
+@media(prefers-reduced-motion:reduce){.nf-logo circle{transition:none}}
+@keyframes drift{to{transform:translate(-6vmax,6vmax)}}
+</style>
+<link rel="stylesheet" href="css/en.css">
+</head>
+<body>
+<div class="orb" aria-hidden="true"></div>
+<header><a class="nf-logo" href="index.html" aria-label="Helen Hsieh home"><svg viewBox="-3.5 -1.5 53.5 52.5" aria-hidden="true" focusable="false"><path d="M43 5V45M24 25H43"/><circle cx="5" cy="8" r="7.4" style="--dx:9px"/><circle cx="5" cy="25" r="7.4" style="--dx:0px"/><circle cx="5" cy="42" r="7.4" style="--dx:9px"/></svg></a></header>
+<main class="nf">
+  <p class="nf-code" aria-hidden="true">404</p>
+  <h1>Page not found</h1>
+  <p>This link may have changed or no longer exists.<br>Head back to the homepage to see my work.</p>
+  <a href="index.html">Back to homepage →</a>
+</main>
+</body>
+</html>

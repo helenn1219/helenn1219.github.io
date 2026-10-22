@@ -45,7 +45,7 @@
 }
 
 .v3-layout{display:grid;grid-template-columns:var(--toc-w) minmax(0,1fr);column-gap:var(--toc-gap);}
-.v3-toc{align-self:start;position:sticky;top:calc(var(--nav-h,96px) + 24px);padding-top:24px;padding-bottom:28px;}
+.v3-toc{align-self:start;position:sticky;top:calc(var(--nav-h,76px) + 24px);padding-top:24px;padding-bottom:28px;}
 .v3-main{min-width:0;}
 .puli-v3 .v3-main > .case-section{padding-left:0;padding-right:0;scroll-margin-top:calc(var(--anchor-offset,120px) - 56px);}
 .puli-v3 .v3-main > #entry{scroll-margin-top:var(--anchor-offset,120px);}
@@ -157,7 +157,7 @@ body.v4.v3-light:not(.menu-open) nav::before{background:rgba(246,244,239,.94);-w
 .v4.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#1E1F1C;--text-dim:#5E5D57;}
 .v4 .nav-logo img{filter:invert(1) hue-rotate(180deg);}
 
-.v4-head{padding-top:calc(var(--nav-h,96px) + 56px);padding-bottom:40px;}
+.v4-head{padding-top:calc(var(--nav-h,76px) + 56px);padding-bottom:40px;}
 .v4-back{display:inline-block;margin-bottom:28px;font-size:14px;color:rgba(30,31,28,.7);text-decoration:none;}
 .v4-back:hover{color:var(--accent);}
 .v4-title{font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:500;line-height:1.18;letter-spacing:.01em;color:var(--text);word-break:keep-all;}
@@ -345,7 +345,7 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
 .mp-article .mp-hero .mpm:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 .mp-article .mp-hero .mpm-track{display:flex;align-items:center;gap:clamp(16px,2.4vw,32px);width:max-content;height:100%;padding:0 calc(clamp(16px,2.4vw,32px) / 2);animation:mpm-scroll 48s linear infinite;}
 .mp-article .mp-hero .mpm-dup{display:contents;}
-.mp-article .mp-hero .mpm img{flex:none;width:auto;height:82%;max-width:none;aspect-ratio:auto;object-fit:contain;background:none;border-radius:clamp(8px,1.4vw,18px);box-shadow:0 18px 36px -22px rgba(30,31,28,.45);}
+.mp-article .mp-hero .mpm img{flex:none;width:auto;height:82%;max-width:none;aspect-ratio:auto 520 / 925;object-fit:contain;background:none;border-radius:clamp(8px,1.4vw,18px);box-shadow:0 18px 36px -22px rgba(30,31,28,.45);}
 .mp-article .mp-hero .mpm:hover .mpm-track,.mp-article .mp-hero .mpm:focus-within .mpm-track{animation-play-state:paused;}
 @keyframes mpm-scroll{to{transform:translateX(-50%);}}
 @media(max-width:600px){.mp-article .mp-hero .mpm{aspect-ratio:16/9;}.mp-article .mp-hero .mpm-track{animation-duration:36s;}}
@@ -384,6 +384,7 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
 <link rel="stylesheet" href="../css/hero-grain.css">
 <link rel="stylesheet" href="../css/site-logo.css">
 <link rel="stylesheet" href="../css/site-footer.css">
+<link rel="stylesheet" href="../css/case-next.css?v=8">
 </head>
 <body id="top" class="case-template case-lede-first mp-article puli-v3 v3-light v4">
 <a class="skip" href="#main">跳到內容</a>
@@ -467,9 +468,9 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
     <div class="case-role v4-challenges">
       <h2>設計挑戰</h2>
       <ul class="v4-q">
-        <li><a href="#flow"><span class="v4-q-t">如何讓門市與 EC 兩種兌換方式共用前段流</span><span class="v4-q-end"><span class="v4-q-t">程</span><span class="v4-q-arr" aria-hidden="true">→</span></span></a></li>
-        <li><a href="#redeem"><span class="v4-q-t">如何讓門市人員快速辨識條碼與剩餘時</span><span class="v4-q-end"><span class="v4-q-t">間</span><span class="v4-q-arr" aria-hidden="true">→</span></span></a></li>
-        <li><a href="#build"><span class="v4-q-t">如何讓 CMS 設定的內容在前台穩定呈</span><span class="v4-q-end"><span class="v4-q-t">現</span><span class="v4-q-arr" aria-hidden="true">→</span></span></a></li>
+        <li><a href="#flow"><span class="v4-q-t">如何讓門市與 EC 兩種兌換方式共用前段流<span class="v4-q-tail">程<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a href="#redeem"><span class="v4-q-t">如何讓門市人員快速辨識條碼與剩餘時<span class="v4-q-tail">間<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a href="#build"><span class="v4-q-t">如何讓 CMS 設定的內容在前台穩定呈<span class="v4-q-tail">現<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
       </ul>
     </div>
   </div>
@@ -645,11 +646,11 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
 
 <div class="v3-dock">
   <div class="v3-switch is-floating" role="navigation" aria-label="專案切換">
-    <a class="v3-switch-item" href="../puli/">← 上一個<span class="v3-long">專案</span><span class="v3-sr">：埔里酒廠智慧導覽系統</span></a>
+    <a class="v3-switch-item pe pe--prev" href="../puli/" aria-label="上一個專案：埔里酒廠智慧導覽系統">←&nbsp;<span class="pe-thumb" aria-hidden="true"><img src="../img/next/puli-thumb.webp" width="144" height="78" alt="" decoding="async"></span>上一個<span class="pe-name" aria-hidden="true">：埔里酒廠智慧導覽</span></a>
     <span class="v3-sep" aria-hidden="true"></span>
     <a class="v3-switch-item" href="../index.html#works">所有專案</a>
     <span class="v3-sep" aria-hidden="true"></span>
-    <a class="v3-switch-item" href="../foxconn/">下一個<span class="v3-long">專案</span><span class="v3-sr">：鴻海嘉年華活動導覽</span> →</a>
+    <a class="v3-switch-item pe" href="../foxconn/" aria-label="下一個專案：鴻海嘉年華活動導覽"><span class="pe-thumb" aria-hidden="true"><img src="../img/next/foxconn-thumb.webp" width="144" height="78" alt="" decoding="async"></span>下一個<span class="pe-name" aria-hidden="true">：鴻海嘉年華活動導覽</span>&nbsp;→</a>
   </div>
 </div>
 
@@ -726,6 +727,10 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
     toggle.setAttribute('aria-expanded', String(open));
   }
 
+  // 手機閱讀時：往下捲隱藏底部切換列、往上捲再出現，多留閱讀空間
+  const phone = window.matchMedia('(max-width: 768px)');
+  let lastY = window.scrollY, goingDown = false;
+
   function update() {
 
     let idx = 0;
@@ -740,7 +745,12 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
     const docked = dock.getBoundingClientRect().top + dockPad <= window.innerHeight - barGap - bar.offsetHeight;
     bar.classList.toggle('is-floating', !docked);
 
-    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open'));
+    const y = window.scrollY;
+    if (Math.abs(y - lastY) > 8) { goingDown = y > lastY; lastY = y; }
+    // 手機往下捲時暫時隱藏（文末停靠時照常顯示）
+    const readingDown = phone.matches && goingDown;
+
+    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open') && !readingDown);
 
     const overlay = body.classList.contains('menu-open') || !!document.querySelector('[role="dialog"]:not([hidden]), .lightbox.open, .taitra-lightbox.open');
     bar.classList.toggle('is-off', overlay);
@@ -761,6 +771,8 @@ body.v3-light.mp-article{--accent:#7E5A1C;--accent-solid:#7E5A1C;--accent-wash:r
   });
   links.forEach(a => a.addEventListener('click', () => { if (narrow.matches) setOpen(false); }));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && toc.classList.contains('is-open')) { setOpen(false); toggle.focus(); } });
+  // 手機章節選單：點選單以外的地方就收起
+  document.addEventListener('pointerdown', e => { if (toc.classList.contains('is-open') && !toc.contains(e.target)) setOpen(false); });
   const onBreakpoint = () => { setOpen(false); measure(); schedule(); };
   if (narrow.addEventListener) narrow.addEventListener('change', onBreakpoint); else narrow.addListener(onBreakpoint);
   window.addEventListener('scroll', schedule, { passive: true });

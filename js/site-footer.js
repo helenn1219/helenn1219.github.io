@@ -78,7 +78,9 @@
     const y = id === 'top' ? 0 : target.getBoundingClientRect().top + scrollY;
 
     requestAnimationFrame(() => {
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      // scrollIntoView 會套用各章節的 scroll-margin-top，章節標題不會被導覽列蓋住
+      if (target === document.body) window.scrollTo({ top: y, behavior: 'smooth' });
+      else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       history.pushState(null, '', url.hash);
       if (target !== document.body) target.focus({ preventScroll: true });
     });

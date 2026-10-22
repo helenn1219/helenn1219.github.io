@@ -11,7 +11,8 @@
   html.on-dark-cursor .cur-bead.is-gray{background:rgba(213,210,202,.6) !important;}`;
   document.head.appendChild(css);
   const COLORS = ['rgba(220,233,135,.95)', 'rgba(185,201,74,.85)', 'rgba(220,233,135,.75)', 'rgba(142,139,132,.7)', 'rgba(142,139,132,.5)'];
-  const LAG = [.55, .32, .22, .16, .12];
+  // 第一顆即時跟隨滑鼠，點擊位置才精準；後面四顆保留拖尾
+  const LAG = [1, .32, .22, .16, .12];
   const beads = COLORS.map((c, i) => {
     const el = document.createElement('div');
     el.className = 'cur cur-bead' + (i >= 3 ? ' is-gray' : ''); el.setAttribute('aria-hidden', 'true');

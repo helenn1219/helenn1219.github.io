@@ -1,0 +1,22 @@
+/* Case pages, "Next project": on desktop hover or keyboard focus, the "Next" item in the project switch bar expands smoothly to reveal the next project's cover thumbnail and name. Touch devices keep the plain pill. */
+.v3-switch-item.pe{gap:0;}
+/* Keep "All work" fixed in the center: equal side columns, so Previous grows left and Next grows right without moving the middle button. */
+body.v4 .v3-switch{display:grid;grid-template-columns:1fr auto auto auto 1fr;align-items:center;width:max-content;flex:none;}
+body.v4 .v3-switch > .pe{justify-self:stretch;justify-content:center;}
+.pe-thumb{display:block;flex:none;width:0;height:26px;margin-right:0;overflow:hidden;border-radius:5px;opacity:0;transition:width .45s cubic-bezier(.2,.7,.2,1),margin .45s cubic-bezier(.2,.7,.2,1),opacity .3s;}
+.pe-thumb img{display:block;width:48px;height:26px;object-fit:cover;}
+.pe-name{display:inline-block;max-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;opacity:0;vertical-align:bottom;transition:max-width .5s cubic-bezier(.2,.7,.2,1),opacity .3s;}
+@media(hover:hover) and (pointer:fine){
+  /* Expand only after the pointer rests for 0.15s, so passing over does not trigger it. */
+  .pe:hover .pe-thumb,.pe:focus-visible .pe-thumb{width:48px;margin-right:10px;opacity:1;}
+  .pe:hover .pe-name,.pe:focus-visible .pe-name{max-width:min(280px,calc(50vw - 270px));opacity:1;}
+  .pe:hover .pe-thumb,.pe:hover .pe-name{transition-delay:.15s;}
+}
+@media(prefers-reduced-motion:reduce){.pe-thumb,.pe-name{transition:none;}}
+
+/* "← All work" is only 20px tall: an invisible extension raises the hit area to 44px without changing the layout. */
+body.v4 .v4-back{position:relative;}
+body.v4 .v4-back::before{content:'';position:absolute;inset:-12px -8px;}
+
+/* Design challenges: the last word and arrow never wrap apart; the whole sentence sits in one underlined element so the hover underline runs start to end */
+.v4-q-tail{white-space:nowrap;}

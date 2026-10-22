@@ -1,0 +1,566 @@
+#lead-banner{
+    height: 80vh; 
+    background-color: #024DA1;
+    background-size: cover ,cover;
+    position: relative;
+}
+#lead-banner .banner-bg{
+    background: url(../img/banner.jpg) no-repeat center top;
+    position: absolute;
+    right: 0;
+    background-size: cover;
+}
+#lead-banner h1{
+    font-size: 7.5vh;
+    color: #B9CE42;
+    line-height: 5rem;
+    letter-spacing: 3px;
+}
+#lead-banner h2{
+    display: inline-block;
+    position: relative;
+    font-size: 5.5vh;
+    margin-top: 10px;
+    color: #fff;
+    left: 5px;
+    margin-bottom: 0px;
+}
+#lead-banner h3{
+    display: inline-block;
+    position: relative;
+    color: #fff;
+    font-size: 3.6vh;
+    font-weight: 300;
+    left: 5px;
+    letter-spacing: 3px;
+}
+#lead-banner .bground{
+    position: fixed;
+    justify-content: center;
+}
+#lead-banner .fixed-bg{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 100%;
+}
+/*.content-left{
+    padding: 0;
+}*/
+#lead-banner .logo{
+    max-width: 10rem;
+    margin: 40px 17px 0px 17px;
+    left: 0;
+}
+#lead-banner .content-right{
+    margin-left: 65px;
+    margin-top: 5%;
+
+}
+
+
+
+#lead-banner .btn-prime{
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: 500;
+} 
+/* 前言
+=============================================================== */
+.bg-grey{
+    background-color: #e8e8e8;
+}
+.bg-blue{
+    background-color: #034ea2;
+}
+.open {
+    min-height: 35vh;
+    display: flex;
+    align-items: center;
+    padding-bottom: 32vh;
+    background: url(../img/b-bg.png) no-repeat center;
+    background-size: cover;
+}
+.open .container-fluid{
+
+}
+.open h6{
+    text-align: center;
+    padding: 5px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+.open h5{
+    color: #B9CE42;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+.open .row{
+    align-items: center;
+}
+.cama{
+    display: block;
+}
+/* 影片
+=============================================================== */
+
+.video-bg{
+    min-height: 50vh;
+    position: relative;
+}
+/*.iframe-box{
+    position: relative;
+}*/
+.video-out{
+    width: 100vh;
+}
+video{
+    display: block;
+    width: 100%;
+    max-width: 1080px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    z-index: 100;
+}
+.video-play{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    width: 1080px;
+    height: 60vh;
+
+}
+.video .iframe-box{
+
+}
+
+/* 1.取代傳統基礎架構，超融合基礎架構HCI 成為時代主流
+=============================================================== */
+.intro{
+    min-height: 35vh;
+    padding-top: 10vh;
+    padding-bottom: 5vh;
+}
+.intro img{
+    width: inherit;
+}
+.hpe-img{
+    background: url(../img/HPE.png) no-repeat center top;
+    background-size: contain;
+    max-width: 90%;
+    height: 38rem;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+}
+
+
+/* 特色
+=============================================================== */
+.features h2{
+    color: #034ea2;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 500;
+}
+.features .bg-white {
+    position: relative;
+    height: 101%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+}
+.features h5{
+    color: #034ea2;
+    font-size: 1.6rem;
+    margin-bottom: 0;
+}
+.features .green-title h5{
+    color: #fff;
+    letter-spacing: 2px;
+}
+.features ul li p{
+    display: inline-block;
+}
+.features .last{
+    justify-content: center;
+    margin: inherit;
+}
+.features .align-items-stretch{
+    padding-top: 5vh;
+    margin-top: 25px;
+}
+#more{
+    display: inline-block;
+    border: solid 1.5px #99c10a;
+    color: #99c10a;
+}
+#hide-area{
+    margin: inherit;
+}
+.border-green{
+    border-color: #B9CE42 !important;
+    border-width: 2px !important;
+}
+.img-out{
+    /*display: flex;*/
+}
+.f-img{
+    display: block;
+    max-width: 6rem;
+    position: relative;
+    margin: 10px auto;
+}
+.text-s{
+    font-size: 16px;
+}
+.green-title{
+    display: block;
+    color: #fff;
+    background-color: #B9CE42;
+    border-radius: 50px;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    padding: 9px 0;
+    z-index: 200;
+}
+.green-title h5{
+    font-size: 1.2rem;
+    margin: 0 10px;
+}
+/* Nutanix 攜手 HPE
+=============================================================== */
+/* 成功案例
+=============================================================== */
+.success h2{
+    color: #fff;
+    font-size: 1.8rem;
+    text-align: center;
+}
+.success h6{
+    color: #333;
+}
+.success{
+    background: url(../img/g-bg.png) no-repeat center;
+    background-size: cover;
+}
+
+/* 立即體驗！
+=============================================================== */
+.gift h2{
+    color: #B9CE42;
+    font-size: 1.8rem;
+    text-align: center;
+}
+.gift h6{
+    color: #fff;
+}
+.gift li{
+    color: #fff;
+}
+.gift p{
+    color: #333;
+    padding-right: 0;
+}
+.check-text{
+    font-size: 15px;
+    padding-left: 2px;
+}
+
+/*活動內容*/
+.ad-box{
+    max-width: 100%;
+    position: relative;
+    align-self: center;
+}
+.ad{
+    background:rgba(225,225,225,0.3);
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: 81vh;;
+    margin-bottom: 2rem !important;
+}
+.ad img{
+    display: flex;
+    overflow: hidden;
+}
+.ad h5{
+    color:#B9CE42;
+    font-size: 23px;
+    font-weight: 500;
+}
+.ad p{
+    color: #fff;
+    display: block;
+    font-size: 1.1rem;
+    line-height: 1.5 !important;
+    margin-bottom: 0.8rem;
+}
+.ad-content{
+    display: -webkit-box;
+}
+.ad-up{
+    margin: 30px 40px;
+    display: inline-block;
+}
+.circle-g{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: #B9CE42;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: 8px;
+}
+.circle{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: 8px;
+}
+.ad-img-g{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ad-img-g .ad-img{
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    background: url(../img/ad.png) no-repeat center;
+    background-size: cover;
+    height: 15rem;
+}
+/*表單按鈕*/
+
+.gotoform{
+    justify-content: center;
+}
+.gotoform .left {
+    position: relative;
+    background-color: #EAB447;
+    border: solid #fff 4px;
+}
+.gotoform .right {
+    position: relative;
+    background-color: #ef864c;
+    border: solid #fff 4px;
+}
+
+.gotoform .left h4{
+    color: #fff;
+}
+.gotoform .right h4{
+    color: #fff;
+}
+.gotoform img{
+    position: relative;
+    max-width: 10rem;
+    margin: 0 auto;
+    height: 10rem;
+    object-fit: contain;
+    display: inline-block;
+/*    object-fit: cover;
+    width: 100%;*/
+}
+.wc{
+    position: absolute !important;
+    left: 0;
+    width: 9rem !important;
+    height: auto;
+    bottom: -8px;
+}
+
+#thankyou h3{
+    color: #0459b9;
+    font-size: 1.5rem;
+}
+#thankyou2 h3{
+    color: #B9CE42;
+    font-size: 1.5rem;
+}
+
+/*表單*/
+#form .ad-content{
+    justify-content: space-between;
+}
+#form .right h3{
+    text-align: center;
+    margin-top: 10px;
+}
+.modal .date{
+    background-image: url(../img/caret.png);
+    background-repeat: no-repeat;
+    background-size: 8px;
+    background-position: right 16px center;
+}
+.modal select {
+    background-image: url(../img/caret.png);
+    background-repeat: no-repeat;
+    background-size: 8px;
+    background-position: right 16px center;
+}
+.modal img {
+  /*  max-width: initial;*/
+    float: right;
+    display: block;
+    width: auto;
+    height: auto;
+}
+.modal .container-fluid{
+    padding-top: 1%;
+}
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+.time-text{
+    position: absolute;
+    z-index: 1;
+    left: 13px;
+    top: 8px;
+    background-color: #fff;
+    padding-right: 34px;
+}
+
+.tel {
+    display: flex;
+}
+
+.tel input {
+    border: none;
+    background-color: transparent;
+}
+
+.tel input:focus {
+    outline: none;
+}
+
+.tel input:nth-of-type(1) {
+    width: 50%;
+    /*min-width: 260px;*/
+}
+
+.tel input:nth-of-type(2) {
+    width: 20%;
+    /*min-width: 100px; */
+}
+
+.tel input:nth-of-type(3) {
+    width: 20%;
+}
+
+.modal .bg-white {
+    padding: 1rem!important;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.area-code{
+    width: 30%;
+  /*  min-width: 100px;*/
+}
+.city{
+    width: 50%;
+}
+.area{
+    width: 50%;
+}
+.address{
+ /*   width: 50%;*/
+}
+
+
+/*MODAL*/
+.modal {
+  text-align: center;
+  padding: 0!important;
+
+}
+
+
+.modal-dialog {
+  display: flex;
+  vertical-align: middle;
+}
+.thankyou-content{
+  max-width: 1200px;
+    
+}
+.thankyou-content .text-box{
+    justify-content: center;
+    padding: 27px;
+/*    width: 48vh;*/
+}
+.thankyou-content .text-box h4{
+    color: #024da0;
+}
+.thankyou-content .text-box h6{
+    margin: 10px 0;
+}
+.thankyou-content .text-box p{
+    font-size: 15px;
+}
+.thankyou-content .close{
+    padding: 10px;
+    position: absolute;
+    right: 0;
+}
+.modal-content{
+    max-height: 90vh;
+    align-items: center;
+    /*margin: auto 20px;*/
+    overflow-y: scroll;
+}
+
+
+
+
+/*裝飾*/
+.d1,.d2,.d3{
+    display: block;
+    position: absolute;
+}
+.d1{
+   /* z-index: -10; */
+   top: 80%;
+    width: 18rem;
+    left: -6%;
+}
+.d2{
+    top: 70%;
+    z-index: 100;
+    width: 17rem;
+    left: -6%;
+}
+.d3{
+    z-index: 100;
+    top: 68%;
+    width: 16rem!important;
+    right: -12%;
+}
+
+
+.line{
+    width: 38.5px;
+    margin-right: 4px;
+}
+

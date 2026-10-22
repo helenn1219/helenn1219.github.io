@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en" class="no-smooth-scroll">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Puli Brewery Smart Tour System | Helen Hsieh</title>
+<meta name="description" content="A four-language tour of 13 locations at Puli Brewery for phones, the web, and a 43-inch kiosk, covering information architecture, cross-device UI, and the map.">
+<meta property="og:title" content="Puli Brewery Smart Tour System | Helen Hsieh">
+<meta property="og:description" content="Shared components support four languages on phones, the web, and a 43-inch kiosk, with layouts adjusted for screen height and text length.">
+<meta property="og:image" content="https://helenn1219.github.io/en/img/og/puli.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<meta name="theme-color" content="#F6F4EF">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#B97D86; --accent-solid:#8B2635; --accent-wash:rgba(139,38,53,.09); --accent-glow:rgba(139,38,53,.38);}
+</style>
+<style>
+
+.puli-v2{--col:720px;--wide:1040px;--gut:max(6vw,24px);}
+
+.puli-v2 .detail-body{display:block;padding:96px var(--gut) 40px;}
+.puli-v2 .detail-main,.puli-v2 .detail-meta{max-width:var(--col);margin-left:auto;margin-right:auto;}
+.puli-v2 .detail-lede{max-width:none;margin-bottom:32px;}
+.puli-v2 .case-role p + p{margin-top:12px;}
+.puli-v2 .detail-meta{position:static;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 32px;margin-top:36px;padding-top:24px;border-top:1px solid var(--border-dim);}
+.puli-v2 .detail-meta-label{margin-bottom:6px;}
+.puli-v2 .detail-meta-value{font-size:14.5px;line-height:1.7;}
+@media(max-width:600px){
+  .puli-v2 .detail-body{padding-top:64px;}
+  .puli-v2 .detail-meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px;}
+  .puli-v2 .detail-meta-item:first-child{grid-column:1 / -1;}
+}
+.puli-v2 .case-chapters{width:min(var(--col),calc(100% - 2 * var(--gut)));margin:0 auto 56px;}
+
+.puli-v2 #entry{padding:24px var(--gut) 0;}
+.puli-v2 #entry > *{max-width:var(--col);margin-left:auto;margin-right:auto;}
+.puli-v2 #entry > .v2-wide{max-width:var(--wide);}
+.puli-v2 #entry > .v2-map{max-width:840px;}
+.puli-v2 #entry .case-head{margin-bottom:24px;}
+
+.puli-v2 #entry .case-subhead{margin:88px auto 12px;}
+.puli-v2 #entry .case-media{margin-top:20px;}
+.puli-v2 #entry .case-figure figcaption{margin-top:8px;}
+@media(max-width:768px){.puli-v2 #entry .case-subhead{margin-top:60px;}}
+
+.puli-v2 #entry > .v2-video{max-width:280px;margin-left:max(0px,calc((100% - var(--col)) / 2));}
+.puli-v2 .v2-more{display:block;margin-top:6px;}
+.puli-v2 .v2-more a{color:var(--accent,var(--gold));text-decoration:none;margin-left:10px;}
+.puli-v2 .v2-more a:first-child{margin-left:6px;}
+</style>
+<style>
+
+.puli-v3{--read:680px;--col:680px;--toc-w:190px;--toc-gap:48px;--bar-gap:20px;}
+.v3-frame{padding-left:var(--page-x);padding-right:var(--page-x);}
+
+.puli-v3 .v3-intro .detail-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);grid-template-areas:"lede lede" "role meta";column-gap:64px;row-gap:0;padding:96px 0 64px;}
+.puli-v3 .v3-intro .detail-main{display:contents;}
+.puli-v3 .v3-intro .detail-lede{grid-area:lede;max-width:780px;margin:0 0 40px;}
+.puli-v3 .v3-intro .case-role{grid-area:role;max-width:none;}
+.puli-v3 .v3-intro .detail-meta{grid-area:meta;max-width:none;margin:0;padding-top:28px;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;align-content:start;}
+.puli-v3 .v3-intro .detail-meta-item:first-child{grid-column:auto;}
+.puli-v3 .meta-sep{display:none;}
+.puli-v3 .meta-line{display:block;}
+@media(max-width:899px){
+  .puli-v3 .v3-intro .detail-body{grid-template-columns:minmax(0,1fr);grid-template-areas:"lede" "role" "meta";padding:64px 0 48px;}
+  .puli-v3 .v3-intro .detail-meta{margin-top:32px;border-top:1px solid var(--border-dim);}
+}
+
+.v3-layout{display:grid;grid-template-columns:var(--toc-w) minmax(0,1fr);column-gap:var(--toc-gap);}
+.v3-toc{align-self:start;position:sticky;top:calc(var(--nav-h,76px) + 24px);padding-top:24px;padding-bottom:28px;}
+.v3-main{min-width:0;}
+.puli-v3 .v3-main > .case-section{padding-left:0;padding-right:0;scroll-margin-top:calc(var(--anchor-offset,120px) - 56px);}
+.puli-v3 .v3-main > #entry{scroll-margin-top:var(--anchor-offset,120px);}
+.puli-v3 #entry{padding-left:0;padding-right:0;}
+.puli-v3 #entry > *{margin-left:0;margin-right:0;}
+.puli-v3 #entry > .v2-wide{max-width:none;}
+
+.puli-v3 #entry .case-subhead{margin-left:0;margin-right:0;margin-bottom:14px;}
+
+.puli-v3 #entry > .v2-video{margin-left:0;}
+.puli-v3 .v3-main .case-row,.puli-v3 .v3-main .puli-aside{max-width:100%;}
+.puli-v3 .v3-main > .case-section--end{padding-bottom:24px;}
+
+.puli-v3 .case-text p,.puli-v3 .case-role p{font-family:var(--sans);font-size:17.5px;line-height:1.82;font-weight:400;}
+.puli-v3 .detail-lede{font-weight:400;}
+.puli-v3 .onsite-title{font-weight:400;}
+.puli-v3 .case-subhead{font-family:var(--sans);font-size:20px;font-weight:500;line-height:1.5;}
+.puli-v3 .case-figure figcaption,.puli-v3 .case-note,.puli-v3 .case-more,.puli-v3 .case-row-arrow{font-size:14px;line-height:1.7;font-weight:400;}
+.puli-v3 .case-figure figcaption b{font-size:14.5px;font-weight:500;}
+.puli-v3 .case-note{font-size:15.5px;}
+.puli-v3 .detail-meta-value{font-size:15px;font-weight:400;}
+.puli-v3 .detail-meta-label{font-size:11px;}
+@media(max-width:768px){.puli-v3 .case-text p,.puli-v3 .case-role p{font-size:16.5px;line-height:1.8;}.puli-v3 .case-subhead{font-size:18.5px;}}
+
+.puli-v3.v3-past-hero nav::before,.puli-v3.menu-open nav::before{background:#0D1114;border-bottom:1px solid var(--border-dim);}
+
+.v3-toc-label{display:block;margin-bottom:14px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,237,230,.6);}
+.v3-toc-toggle{display:none;}
+.v3-toc ol{list-style:none;display:flex;flex-direction:column;border-left:1px solid var(--border-dim);}
+.v3-toc a{display:flex;gap:10px;align-items:baseline;margin-left:-1px;padding:8px 0 8px 14px;border-left:2px solid transparent;font-size:15px;font-weight:400;line-height:1.5;color:rgba(240,237,230,.7);text-decoration:none;transition:color .2s,border-color .2s;}
+.v3-toc a b{flex:none;font-family:var(--serif);font-weight:400;font-size:13.5px;color:var(--accent);}
+.v3-toc a:hover{color:var(--text);}
+.v3-toc a[aria-current]{color:var(--text);border-left-color:var(--accent);}
+.v3-toc a:focus-visible,.v3-toc-toggle:focus-visible{outline:1px solid var(--accent);outline-offset:2px;}
+@media(max-width:1179px){
+  .v3-layout{grid-template-columns:minmax(0,1fr);}
+  .v3-toc{top:var(--nav-h,72px);z-index:50;margin:0 calc(-1 * var(--page-x));padding:0 var(--page-x);background:var(--bg);border-top:1px solid var(--border-dim);border-bottom:1px solid var(--border-dim);}
+  .puli-v3 .v3-main > #entry{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}
+  .v3-toc-label{display:none;}
+  .v3-toc-toggle{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:10px;width:100%;min-height:48px;cursor:pointer;font-size:15px;color:var(--text);}
+  .v3-toc-toggle-label{font-size:11.5px;letter-spacing:.2em;color:rgba(240,237,230,.6);}
+  .v3-toc-current{flex:1;}
+  .v3-toc-caret{transition:transform .2s;}
+  .v3-toc.is-open .v3-toc-caret{transform:rotate(180deg);}
+  .v3-toc{padding-bottom:0;}
+  .v3-toc ol{display:none;border-left:none;padding-bottom:16px;}
+  .v3-toc.is-open ol{display:flex;}
+  .v3-toc a{margin-left:0;padding:10px 0 10px 12px;}
+}
+
+.v3-dock{height:calc(var(--bar-h,48px) + 96px);padding-top:48px;display:flex;justify-content:center;border-top:1px solid var(--border-dim);margin:0 var(--page-x);}
+.v3-switch{z-index:90;display:flex;align-items:center;gap:2px;height:max-content;padding:5px;border:1px solid rgba(240,237,230,.14);border-radius:999px;background:rgba(13,17,20,.94);}
+.v3-switch.is-floating{position:fixed;left:50%;bottom:var(--bar-gap);transform:translateX(-50%);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .2s;}
+
+.v3-switch.is-floating.is-shown,.v3-switch.is-floating:focus-within{opacity:1;pointer-events:auto;}
+
+.v3-switch.is-off{visibility:hidden;}
+.v3-switch-item{display:inline-flex;align-items:center;min-height:38px;padding:0 15px;border-radius:999px;font-size:14px;font-weight:400;color:rgba(240,237,230,.88);text-decoration:none;white-space:nowrap;}
+a.v3-switch-item:hover{color:var(--text);background:rgba(240,237,230,.07);}
+a.v3-switch-item:focus-visible{outline:1px solid var(--accent);outline-offset:1px;}
+.v3-switch .is-disabled{color:rgba(240,237,230,.36);}
+.v3-sep{width:1px;height:16px;background:rgba(240,237,230,.14);}
+.v3-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+@media(max-width:480px){.puli-v3{--bar-gap:12px;}.v3-long{display:none;}.v3-switch-item{padding:0 12px;}}
+@media(prefers-reduced-motion:reduce){.v3-switch,.v3-toc a,.v3-toc-caret{transition:none;}}
+
+@media(max-width:768px){.puli-v3 nav{padding-top:10px;padding-bottom:10px;}}
+
+.puli-v3 #cross-device .case-row--slots2 .case-figure > a{position:relative;}
+.v3-mark{position:absolute;border:2px solid var(--accent);border-radius:8px;pointer-events:none;box-shadow:0 0 0 2px rgba(255,255,255,.55);}
+.v3-mark--web{left:95.2%;top:10.6%;width:4.8%;height:25.4%;border-right:none;border-radius:8px 0 0 8px;}
+.v3-mark--kiosk{left:59.2%;top:92.6%;width:36.4%;height:5.8%;}
+.v3-mark-label{position:absolute;white-space:nowrap;padding:2px 7px;border-radius:4px;background:var(--accent);color:#fff;font-size:12px;line-height:1.5;font-weight:500;letter-spacing:.02em;}
+.v3-mark--web .v3-mark-label{right:calc(100% + 6px);top:0;}
+.v3-mark--kiosk .v3-mark-label{right:0;bottom:calc(100% + 6px);}
+
+.v3-foot-label{margin-bottom:12px;font-size:13px;letter-spacing:.12em;color:var(--accent,var(--gold));}
+.puli-v3 .footer-col h4.v3-foot-h{font-size:12px;letter-spacing:.1em;text-transform:none;}
+
+body.v3-light{--bg:#F6F4EF;--bg-mid:#ECE8E0;--text:#1E1F1C;--text-dim:#5E5D57;--gold:#8A6A1F;--border:rgba(139,38,53,.22);--border-dim:rgba(30,31,28,.13);--accent:#8B2635;--accent-wash:rgba(139,38,53,.06);}
+
+.v3-light .case-text p,.v3-light .case-role p{color:rgba(30,31,28,.88);}
+.v3-light .detail-meta-value{color:rgba(30,31,28,.86);}
+.v3-light .case-figure figcaption,.v3-light .v2-more,.v3-light .case-note,.v3-light .case-row-arrow,.v3-light .case-more{color:rgba(30,31,28,.74);}
+.v3-light .v3-toc-label,.v3-light .v3-toc-toggle-label{color:rgba(30,31,28,.64);}
+.v3-light .v3-toc a{color:rgba(30,31,28,.74);}
+.v3-light .v3-toc a:hover,.v3-light .v3-toc a[aria-current]{color:var(--text);}
+.v3-light .footer-label,.v3-light .footer-col h4{color:rgba(138,106,31,.85);}
+.v3-light .footer-info p,.v3-light .footer-col a{color:rgba(30,31,28,.66);}
+.v3-light .footer-col p{color:rgba(30,31,28,.55);}
+
+.v3-light .v3-switch{background:rgba(246,244,239,.96);border-color:rgba(30,31,28,.16);box-shadow:0 2px 12px rgba(30,31,28,.08);}
+.v3-light .v3-switch-item{color:rgba(30,31,28,.86);}
+.v3-light a.v3-switch-item:hover{color:var(--text);background:rgba(30,31,28,.06);}
+.v3-light .v3-switch .is-disabled{color:rgba(30,31,28,.36);}
+.v3-light .v3-sep{background:rgba(30,31,28,.16);}
+
+.v3-light .detail-hero{--text:#F5EFE6;--text-dim:#CFCBC2;--accent:#B97D86;color:#F5EFE6;}
+.v3-light .detail-hero-overlay{background:linear-gradient(180deg,rgba(13,17,20,.18) 0%,rgba(13,17,20,.32) 30%,rgba(13,17,20,.62) 62%,rgba(13,17,20,.74) 86%,var(--bg) 100%);}
+.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#F5EFE6;--text-dim:#CFCBC2;}
+.v3-light.v3-past-hero nav::before,.v3-light.menu-open nav::before{background:#F6F4EF;border-bottom:1px solid var(--border-dim);}
+.v3-light.v3-past-hero .nav-logo img,.v3-light.menu-open .nav-logo img{filter:invert(1) hue-rotate(180deg);}
+
+.v4 nav::before{background:#F6F4EF;border-bottom:1px solid var(--border-dim);}
+
+@media(min-width:769px){body.v4 nav{height:76px;padding-top:0;padding-bottom:0;}}
+
+body.v4.v3-light:not(.menu-open) nav::before{background:rgba(246,244,239,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);}
+.v4.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#1E1F1C;--text-dim:#5E5D57;}
+.v4 .nav-logo img{filter:invert(1) hue-rotate(180deg);}
+
+.v4-head{padding-top:calc(var(--nav-h,76px) + 56px);padding-bottom:40px;}
+.v4-back{display:inline-block;margin-bottom:28px;font-size:14px;color:rgba(30,31,28,.7);text-decoration:none;}
+.v4-back:hover{color:var(--accent);}
+.v4-title{font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:500;line-height:1.18;letter-spacing:.01em;color:var(--text);word-break:keep-all;}
+.v4-role{margin-top:14px;font-size:14px;letter-spacing:.04em;color:rgba(30,31,28,.62);}
+.v4 .nb{white-space:nowrap;}
+.v4-sub{max-width:34em;margin-top:18px;font-size:18px;line-height:1.7;font-weight:400;color:rgba(30,31,28,.8);}
+.v4-live{display:inline-block;margin-top:22px;font-size:15px;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;}
+.v4-back:focus-visible,.v4-live:focus-visible{outline:1px solid var(--accent);outline-offset:4px;}
+
+.v4-show{margin:0;}
+.v4-show figure{margin:0;}
+.v4-show-row{display:flex;gap:24px;align-items:flex-start;}
+.v4-show-row > figure{min-width:0;}
+.v4-show a{display:block;}
+.v4-show-web{flex:1.7778 1 0;}
+.v4-show-kiosk{flex:.5625 1 0;}
+.v4-show img{display:block;width:100%;height:auto;border-radius:var(--img-radius,8px);}
+.v4-show figcaption{margin-top:10px;font-size:14px;line-height:1.7;color:rgba(30,31,28,.72);}
+@media(max-width:768px){
+  .v4-head{padding-top:calc(var(--nav-h,64px) + 36px);padding-bottom:28px;}
+  .v4-back{margin-bottom:20px;}
+  .v4-sub{font-size:16.5px;}
+  .v4-show-row{gap:14px;}
+}
+
+@media(max-width:600px){.v4-show-row > .v4-show-kiosk{display:none;}}
+
+.v4 .v3-intro .v4-info{display:block;padding-top:44px;}
+.v4 .v3-intro .v4-info .detail-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 32px;margin:0;}
+.v4-info-cols{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);column-gap:64px;margin-top:40px;}
+.v4 .v3-intro .v4-info-cols > .case-role{grid-area:auto;max-width:none;}
+.v4-q{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.v4-q li{font-size:17px;font-weight:400;line-height:1.7;color:rgba(30,31,28,.88);}
+
+body.puli-article{--q-accent:#B97D86;}body.fox-article{--q-accent:#6683B7;}body.mp-article{--q-accent:#D4B26A;}body.mu-article{--q-accent:#8FB59A;}body.gm-article{--q-accent:#EB7934;}
+.v4-q a{color:inherit;text-decoration:none;}
+.v4-q-t{background:linear-gradient(var(--q-accent,currentColor),var(--q-accent,currentColor)) 0 100%/0 2px no-repeat;padding-bottom:3px;transition:background-size .35s ease;}
+.v4-q-arr{display:inline-block;margin-left:8px;color:var(--q-accent,currentColor);transition:transform .35s ease;}
+.v4-q a:hover .v4-q-t,.v4-q a:focus-visible .v4-q-t{background-size:100% 2px;}
+.v4-q a:hover .v4-q-arr,.v4-q a:focus-visible .v4-q-arr{transform:translateX(4px);}
+@media(prefers-reduced-motion:reduce){.v4-q-t,.v4-q-arr{transition:none;}.v4-q a:hover .v4-q-arr,.v4-q a:focus-visible .v4-q-arr{transform:none;}}
+@media(max-width:899px){.v4-info-cols{grid-template-columns:minmax(0,1fr);row-gap:32px;}}
+@media(max-width:768px){.v4 .v3-intro .v4-info{padding-top:36px;}.v4 .v3-intro .v4-info .detail-meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px;}.v4-info-cols{margin-top:32px;}}
+
+.v4 .v3-main{container-type:inline-size;}
+.v4 #entry > .v4-drag{max-width:none;margin-top:0;}
+.v4-drag-text .case-text{max-width:none;}
+.v4 #entry .v4-hint{width:auto;max-width:16em;margin:5em auto 0;text-align:center;}
+.v4-hint img{display:block;width:115px;height:auto;margin:0 auto;}
+
+.v4 #entry .v4-drag > .case-figure--video{width:100%;max-width:280px;margin:28px auto 0;}
+@container (min-width:800px){
+
+  .v4-drag{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px;align-items:start;}
+  .v4 #entry .v4-drag > .case-figure--video{max-width:260px;margin:7px auto 0;}
+}
+
+.v4 .footer-col h4.v3-foot-h{color:var(--accent);}
+
+.v4{--read:700px;--col:700px;}
+
+.v4 .v3-main .case-subhead,.v4 #entry > .case-subhead{max-width:none;}
+
+.v4 .v3-intro .v4-info .detail-meta{padding-bottom:28px;border-bottom:1px solid var(--border-dim);}
+.v4 .v3-intro .v4-info-cols > .case-role{border-top:none;padding-top:0;}
+.v4-info-cols{margin-top:36px;}
+
+.v4 footer{position:relative;border-top:none;}
+.v4 footer::before{content:"";position:absolute;top:0;left:var(--page-x);right:var(--page-x);border-top:1px solid var(--border-dim);}
+
+body.v4{--serif:'Manrope','Manrope Fallback','Noto Sans TC',sans-serif;--sans:'Manrope','Manrope Fallback','Noto Sans TC',sans-serif;font-family:var(--sans);font-weight:400;letter-spacing:.2px;}
+
+body.v4 .v4-title{font-family:var(--sans);font-size:52px;font-weight:600;letter-spacing:1px;line-height:1.2;}
+
+body.v4 .onsite-title{font-family:var(--sans);font-size:30px;font-weight:600;letter-spacing:.8px;line-height:1.4;}
+
+body.v4 .case-subhead{font-family:var(--sans);font-size:21px;font-weight:600;letter-spacing:.8px;line-height:1.5;}
+
+body.v4 .detail-tag,body.v4 .detail-meta-label,body.v4 .case-role h2,body.v4 .v4-role{font-size:14px;font-weight:500;letter-spacing:.8px;line-height:1.5;text-transform:none;opacity:1;color:var(--accent);}
+body.v4 .detail-meta-label{margin-bottom:6px;}
+body.v4 .v4-role{margin-top:16px;}
+
+body.v4 .v4-sub,body.v4 .case-text p,body.v4 .case-role p,body.v4 .v4-q li,body.v4 .case-note{font-family:var(--sans);font-size:18px;font-weight:400;letter-spacing:.2px;line-height:1.8;}
+
+body.v4 .detail-meta-value{font-size:16px;font-weight:400;letter-spacing:.2px;line-height:1.65;}
+
+body.v4 .case-figure figcaption,body.v4 .v4-show figcaption{font-size:14px;font-weight:400;letter-spacing:.2px;line-height:1.7;}
+body.v4 .case-figure figcaption b{font-size:14px;font-weight:500;}
+
+body.v4 .nav-links a{font-size:14px;letter-spacing:.08em;}
+body.v4 .nav-cv{font-size:14px;letter-spacing:.06em;padding:8px 18px;}
+body.v4 .mobile-menu-cv-label{font-size:14px;letter-spacing:.08em;}
+body.v4 .mobile-menu-links a{font-family:var(--sans);font-weight:500;}
+body.v4 .v3-toc-label,body.v4 .v3-toc-toggle-label{font-size:14px;letter-spacing:.08em;text-transform:uppercase;}
+body.v4 .v3-toc a{font-size:15px;}
+body.v4 .v3-toc a b{font-family:var(--sans);font-size:14px;font-weight:500;}
+body.v4 .v4-back{font-size:14px;}
+body.v4 .v4-live{font-size:15px;}
+body.v4 .v3-mark-label{font-size:13px;}
+@media(max-width:540px){
+  body.v4 .v4-title{font-size:36px;}
+  body.v4 .onsite-title{font-size:26px;}
+  body.v4 .case-subhead{font-size:20px;}
+  body.v4 .v4-sub,body.v4 .case-text p,body.v4 .case-role p,body.v4 .v4-q li,body.v4 .case-note{font-size:17px;}
+}
+
+body.v4 footer.v4-foot{display:block;padding:56px var(--page-x) 64px;}
+.v4-foot-title{margin-bottom:16px;font-size:30px;font-weight:600;letter-spacing:.8px;line-height:1.4;color:var(--text);}
+.v4-foot p{font-size:16px;font-weight:400;line-height:1.7;color:rgba(30,31,28,.86);}
+.v4-foot-links{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:12px;}
+.v4-foot-links a{font-size:16px;font-weight:500;color:var(--accent);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;}
+.v4-foot-links a:hover{text-decoration-thickness:2px;}
+.v4-foot-links a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+.v4-foot p.v4-foot-copy{margin-top:28px;font-size:14px;color:#5E5D57;}
+
+body.v4 footer.v4-foot{position:relative;}
+.v4-foot p.v4-foot-copy{position:absolute;right:var(--page-x);bottom:64px;margin:0;line-height:1.7;}
+@media(max-width:540px){.v4-foot p.v4-foot-copy{position:static;margin-top:28px;text-align:right;}}
+@media(max-width:540px){.v4-foot-title{font-size:26px;}}
+</style>
+<link rel="stylesheet" href="../css/link-preview.css">
+<link rel="stylesheet" href="../css/site-brand.css">
+<link rel="stylesheet" href="../css/hero-grain.css">
+<link rel="stylesheet" href="../css/site-logo.css">
+<link rel="stylesheet" href="../css/site-footer.css">
+<link rel="stylesheet" href="../css/case-next.css?v=8">
+<link rel="stylesheet" href="../css/en.css">
+<style>
+/* Puli: compact navigation with a centered supplementary thumbnail. */
+.v3-switch{max-width:calc(100vw - 32px);position:relative;}
+.v3-switch-item{min-height:44px;}
+@media(max-width:480px){.v3-switch-item{font-size:12px;padding:0 12px;}}
+</style>
+</head>
+<body id="top" class="case-template case-lede-first puli-article puli-v2 puli-v3 v3-light v4">
+<a class="skip" href="#main">Skip to content</a>
+
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><svg class="logo-h" viewBox="-3.5 -1.5 53.5 52.5" role="img" aria-label="Helen Hsieh home"><path d="M43 5V45M24 25H43"/><circle class="s" cx="5" cy="8" r="7.4" style="--dx:9px"/><circle class="s" cx="5" cy="25" r="7.4" style="--dx:0px"/><circle class="s" cx="5" cy="42" r="7.4" style="--dx:9px"/></svg></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#works">Work</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cv" href="../cv/Helen-Hsieh-Resume.pdf" target="_blank" rel="noopener"><span class="cv-dl">Download </span>Resume</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-menu-links">
+    <li><a href="../index.html#works">Work</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="../cv/Helen-Hsieh-Resume.pdf" target="_blank" rel="noopener">Resume ↗</a></li>
+  </ul>
+</div>
+
+<main id="main">
+<header class="v3-frame v4-head">
+  <a class="v4-back" href="../index.html#works">← All work</a>
+  <h1 class="v4-title">Puli Brewery<br>Smart Tour System</h1>
+  <ul class="v4-role" aria-label="My role"><li class="v4-chip">UI/UX design</li><li class="v4-chip">Cross-device UI</li><li class="v4-chip">Illustrated map</li></ul>
+  <p class="v4-sub">A digital visitor guide for Puli Brewery in Taiwan. Visitors can browse locations and floors on a map, or scan an on-site <span class="nb">QR code</span> to open a location page. The guide supports Chinese, English, Japanese, and Korean, with layouts adapted for desktop browsers, phones, and a <span class="nb">43-inch kiosk</span>.</p>
+  <a class="v4-live" href="https://puli-brewery.omniguider.com/home/" data-preview="../img/link-preview/puli-live-site.webp" target="_blank" rel="noopener">Visit live site ↗</a>
+</header>
+
+<div class="v3-frame v4-show">
+  <div class="v4-show-row">
+    <figure class="v4-show-web"><span class="fig-media"><img src="../img/puli-case/cover-web-home.webp" fetchpriority="high" decoding="async" alt="Web homepage: illustrated map with location labels, a language switch on the right, and a brewery tour button at bottom left" width="1600" height="900"></span><figcaption>Web homepage</figcaption></figure>
+    <figure class="v4-show-kiosk"><span class="fig-media"><img src="../img/puli-case/cover-kiosk-floor.webp" alt="43-inch kiosk floor page for the flagship hall: 1F/2F tabs, a floor plan, and a language switch at the bottom" width="720" height="1280"></span><figcaption>43-inch kiosk | Flagship hall floors</figcaption></figure>
+  </div>
+</div>
+
+<div class="v3-frame v3-intro">
+<div class="detail-body v4-info">
+  <div class="detail-meta">
+    <div class="detail-meta-item"><div class="detail-meta-label">Role</div><div class="detail-meta-value">UI/UX Designer</div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">Timeline</div><div class="detail-meta-value"><span class="nb">Dec 2024 –</span> <span class="nb">Apr 2025</span></div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">Scope</div><div class="detail-meta-value"><span class="nb">13 locations</span> / <span class="nb">4 languages</span></div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">Devices</div><div class="detail-meta-value">Desktop browser, phone<br><span class="nb">43-inch kiosk</span></div></div>
+  </div>
+  <div class="v4-info-cols">
+    <div class="case-role">
+      <h2>What I did</h2>
+      <p>I took part in requirements discussions and the site survey. My work covered information architecture, user flows, wireframes, cross-device UI, and the illustrated map. I also designed the QR-code entry flow, on-site signs, and location pages. For the AI guide, I designed its entry points and their connection to the location content.</p>
+      <p>I organized shared components and UI guidelines in Figma and worked with the PM and engineers. Once the pages were built, I tested and adjusted them with the team on desktop browsers, phones, and the <span class="nb">43-inch kiosk</span>.</p>
+    </div>
+    <div class="case-role v4-challenges">
+      <h2>Design challenges</h2>
+      <ul class="v4-q">
+        <li><a href="#entry"><span class="v4-q-t">Keeping labels readable on a dense <span class="v4-q-tail">map<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a href="#cross-device"><span class="v4-q-t">Designing for both phone and <span class="v4-q-tail">kiosk<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a href="#multilingual"><span class="v4-q-t">Handling text length across four <span class="v4-q-tail">languages<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="v3-frame v3-layout">
+  <div class="v3-toc" role="navigation" aria-label="Case study sections">
+    <span class="v3-toc-label">In This Case</span>
+    <button class="v3-toc-toggle" type="button" aria-expanded="false" aria-controls="v3TocList"><span class="v3-toc-toggle-label">In This Case</span><span class="v3-toc-current">01 Map &amp; locations</span><svg class="v3-toc-caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <ol id="v3TocList">
+      <li><a href="#entry"><b>01</b><span>Map &amp; locations</span></a></li>
+      <li><a href="#cross-device"><b>02</b><span>Phone vs. kiosk</span></a></li>
+      <li><a href="#multilingual"><b>03</b><span>Four languages</span></a></li>
+      <li><a href="#outcome"><b>04</b><span>Outcome</span></a></li>
+    </ol>
+  </div>
+  <div class="v3-main">
+
+<section class="case-section case-section--tight" id="entry">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>01 · MAP &amp; ENTRY</span>
+    <h2 class="onsite-title">Connecting the map to location pages</h2>
+  </div>
+  <div class="case-text">
+    <p>Before designing, I visited Puli Brewery to photograph the site and clarify requirements with brewery staff. The homepage is an illustrated map of the grounds: tapping a location label opens its content. For buildings with multiple floors, such as the flagship hall, the interface includes 1F/2F tabs.</p>
+    <p>The client agreed to the illustrated map style proposed by our team. During the pitch, I explored styles with Stable Diffusion. I drew the final map in Illustrator and Photoshop, following the actual roads, buildings, and locations on site.</p>
+  </div>
+  <figure class="case-figure case-media v2-map">
+    <span class="fig-media"><img src="../img/puli-case/map-zh-full-alpha.webp" alt="Full illustrated map of the Puli Brewery grounds with roads, buildings, parking, and location labels" width="1600" height="1219" loading="lazy"></span>
+    <figcaption><b>Full map</b>Locations, roads, and parking placed to match the site</figcaption>
+  </figure>
+
+  <h3 class="case-subhead">Keeping location labels readable on the map</h3>
+  <div class="case-text">
+    <p>The map is colorful and some buildings sit close together, so labels can cover buildings or run into each other. I chose white text on a semi-transparent dark brown label, balancing readability, the brand look, and how much of the map it hides. When I moved labels, I kept each one pointing to the right building.</p>
+  </div>
+  <figure class="case-figure case-media">
+    <span class="fig-media"><img src="../img/puli-case/map-labels-detail.jpg" alt="Detail of a dense area with labels for the flagship hall, Shaohsing Cuisine, and the outdoor shop area" width="1200" height="785" loading="lazy"></span>
+    <figcaption><b>Dense area (detail)</b>The flagship hall, Shaohsing Cuisine, and the outdoor shop area sit side by side, so the labels go between the buildings</figcaption>
+  </figure>
+
+  <h3 class="case-subhead">Showing that the map can be dragged</h3>
+  <div class="v4-drag">
+    <div class="v4-drag-text">
+  <div class="case-text">
+    <p>Phones and the kiosk show only part of the map at a time. I anticipated that visitors might not realize the map can be dragged, or might think the page had not loaded properly, so I proposed a left–right drag hint. It appears briefly and disappears once the map moves, so it doesn’t keep covering the content.</p>
+  </div>
+      <figure class="case-figure v4-hint">
+        <span class="fig-media"><img src="../img/puli-case/swipe-hint-component.png" alt="Drag hint component in the Figma library: a hand gesture with left and right arrows in a dark square" width="229" height="230" loading="lazy"></span>
+        <figcaption><b>Hint component</b>The left–right drag hint in the Figma component library.</figcaption>
+      </figure>
+    </div>
+    <figure class="case-figure case-figure--video case-media v2-video">
+    <video class="loop-demo" src="../video/puli-drag-hint.mp4" poster="../video/poster-puli-drag-hint.jpg" muted loop playsinline preload="none" tabindex="0" aria-label="Phone recording: a drag hint appears on the map and disappears after the map is moved. Click or press Space to pause or play."></video>
+    <figcaption><b>Drag hint</b>Hint appears → map is moved → hint disappears. Tap or click to pause or play.</figcaption>
+  </figure>
+  </div>
+
+  <h3 class="case-subhead">From on-site signs to location content</h3>
+  <div class="case-text">
+    <p>Direct access to location pages through QR codes was part of the project requirements. I designed the entry flow, the on-site signs, and the location pages, so that a visitor scanning the code beside a location opens that same location’s content.</p>
+  </div>
+  <div class="case-row case-row--qr case-media v2-wide">
+    <figure class="case-figure" style="--r:1.3333">
+      <span class="fig-media"><img src="../img/puli-onsite/onsite-2-w1130.webp" alt="Photo of a four-language QR code sign beside the Brewery Timeline exhibit" width="2048" height="1536" loading="lazy"></span>
+      <figcaption><b>On-site sign</b>QR-code sign with information in four languages beside the Brewery Timeline (brewery history) exhibit</figcaption>
+    </figure>
+    <span class="case-row-arrow" aria-hidden="true">Scan to open</span>
+    <figure class="case-figure" style="--r:0.4607">
+      <span class="fig-media device-trim"><img src="../img/puli-mockup/mockup-2-w1080.webp" alt="Mobile design of the Brewery Timeline location page: a photo, description, and language switch at the bottom" width="1080" height="1920" loading="lazy"></span>
+      <figcaption><b>Location page design</b>Same location: Brewery Timeline</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="case-section" id="cross-device">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>02 · KIOSK LAYOUT</span>
+    <h2 class="onsite-title">Adjusting layouts for reach and viewing distance</h2>
+  </div>
+  <div class="case-text">
+    <p>The phone and kiosk share interface elements, but the kiosk is not just a scaled-up phone. For the kiosk, I considered how far people stand from a large screen and what visitors of different heights can reach. I moved the language switch from the right side, where it sits on the web version, to the bottom, then checked and adjusted the layout on the device.</p>
+  </div>
+  <div class="case-row case-row--slots2 case-media">
+    <figure class="case-figure" style="--r:0.6656">
+      <span class="fig-media"><img src="../img/puli-case/puli-p3b-kiosk-home.jpg" alt="Kiosk homepage with the language switch at the bottom" width="645" height="969" loading="lazy"><span class="v3-mark v3-mark--kiosk" aria-hidden="true"><span class="v3-mark-label">Language</span></span></span>
+      <figcaption><b>Kiosk homepage</b>Language switch at the bottom</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:1.7778">
+      <span class="fig-media"><img src="../img/puli-case/puli-p3a-web-home-w1250.webp" alt="Web homepage with the language switch on the right and the brewery tour button at bottom left" width="1920" height="1080" loading="lazy"><span class="v3-mark v3-mark--web" aria-hidden="true"><span class="v3-mark-label">Language</span></span></span>
+      <figcaption><b>Web homepage</b>Language switch on the right</figcaption>
+    </figure>
+  </div>
+
+  <h3 class="case-subhead">Shared components</h3>
+  <div class="puli-aside puli-aside--floors">
+    <div class="case-text puli-aside-main">
+      <p>The phone and kiosk share floor tabs, map markers, buttons, and the language switch. I documented these components in Figma and adapted their layout to each screen’s proportions.</p>
+    </div>
+    <div class="case-row case-row--small puli-aside-media">
+      <figure class="case-figure" style="--r:0.4607">
+        <span class="fig-media device-trim"><img src="../img/puli-mockup/mockup-3-w570.webp" alt="Mobile floor guide for the flagship hall with 1F/2F switching" width="570" height="1013" loading="lazy"></span>
+        <figcaption><b>Phone</b>Flagship hall floors</figcaption>
+      </figure>
+      <figure class="case-figure" style="--r:0.5625">
+        <span class="fig-media"><img src="../img/puli-case/kiosk-floor-1f-w430.webp" alt="Flagship hall floor guide on the 43-inch portrait kiosk with 1F/2F switching" width="900" height="1600" loading="lazy"></span>
+        <figcaption><b>43-inch kiosk</b>Same floor tabs and bottom bar</figcaption>
+      </figure>
+    </div>
+    <p class="case-note puli-aside-sub">For motion, I gathered ways to implement map effects such as drifting clouds, flocks of birds, and a zoom bounce, and discussed them with engineers. After the PM and engineers reviewed them, the team decided to cut non-essential decoration and put navigation and device performance first.</p>
+  </div>
+</section>
+
+<section class="case-section" id="multilingual">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>03 · MULTILINGUAL</span>
+    <h2 class="onsite-title">Leaving room for text in four languages</h2>
+  </div>
+  <div class="case-text">
+    <p>The tour had to support Chinese, English, Japanese, and Korean. From the start, I planned the location labels around the longer English names. Labels expand to a shared maximum width, with longer names wrapping onto additional lines to limit how much of the map they obscure. I reviewed and refined the layouts throughout the design process and noted these rules in the handoff document. After implementation, I checked the layouts on the target devices and refined them with the team.</p>
+    <p>Elements such as the language switch and the floating “Brewery Tour” button were also set up in Figma as components and variants for each language.</p>
+  </div>
+  <div class="case-row case-row--pair case-media">
+    <figure class="case-figure" style="--r:1.397">
+      <span class="fig-media"><img src="../img/puli-case/landmark-zh-alpha.webp" alt="Detail of the Chinese map with location names such as the flagship hall, Shaohsing Cuisine, a pavilion, and the lawn art area" width="1200" height="859" loading="lazy"></span>
+      <figcaption><b>Chinese</b>Location names in the same area</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:1.397">
+      <span class="fig-media"><img src="../img/puli-case/landmark-en-alpha-w860.webp" alt="Detail of the English map: longer names such as Shaohsing Cuisine in Puli and Lawn Installation Art Area wrap onto two lines" width="1200" height="859" loading="lazy"></span>
+      <figcaption><b>English</b>Longer names wrap, e.g. Lawn Installation Art Area</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="case-section case-section--end case-outcome" id="outcome">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>04 · OUTCOME</span>
+    <h2 class="onsite-title">A four-language guide for desktop, mobile, and kiosk</h2>
+  </div>
+  <div class="case-text">
+    <p>The PM, the engineering team, and I launched the project within its 90-working-day schedule, covering 13 locations in four languages. I delivered the tour UI, the illustrated map, the entry flow and on-site signs, and the shared Figma components and UI guidelines. After launch, I also used the mobile version on site in Puli.</p>
+  </div>
+  <div class="case-row case-row--pair case-media">
+    <figure class="case-figure" style="--r:1.333">
+      <span class="fig-media"><img src="../img/puli-onsite/onsite-1-w1100.webp" alt="Composite image: a phone showing the tour’s home map, with the Puli Brewery entrance behind it" width="2048" height="1536" loading="lazy"></span>
+      <figcaption><b>Mobile homepage</b>Composite image; the background is the Puli Brewery entrance</figcaption>
+    </figure>
+    <figure class="case-figure" style="--r:0.75">
+      <span class="fig-media"><img src="../img/puli-onsite/onsite-3-w690.webp" alt="Entrance and signage of the flagship hall at Puli Brewery" width="1536" height="2048" loading="lazy"></span>
+      <figcaption><b>Flagship hall entrance</b>On site</figcaption>
+    </figure>
+  </div>
+
+  <h3 class="case-subhead">Reflection</h3>
+  <div class="case-text">
+    <p>Shared components gave the interfaces a consistent base, but reach and text length still required different layouts. I carried those decisions into the handoff guidelines and checked them with the team on the actual devices.</p>
+  </div>
+</section>
+  </div>
+</div>
+
+</main>
+
+<div class="v3-dock">
+  <div class="v3-switch is-floating" role="navigation" aria-label="Project navigation">
+    <a class="v3-switch-item pe pe--prev" href="../gomaji/" aria-label="Previous project: GOMAJI Carnival City Key Visual and Website">←&nbsp;<span class="pe-thumb" aria-hidden="true"><img src="../img/next/gomaji-thumb.webp" width="144" height="78" alt="" decoding="async"></span>Previous<span class="pe-name" aria-hidden="true">: GOMAJI Carnival City</span></a>
+    <span class="v3-sep" aria-hidden="true"></span>
+    <a class="v3-switch-item" href="../index.html#works">All work</a>
+    <span class="v3-sep" aria-hidden="true"></span>
+    <a class="v3-switch-item pe" href="../mamypoko/" aria-label="Next project: MamyPoko LINE Coupons"><span class="pe-thumb" aria-hidden="true"><img src="../img/next/mamypoko-thumb.webp?v=2" width="144" height="78" alt="" decoding="async"></span>Next<span class="pe-name" aria-hidden="true">: MamyPoko LINE Coupons</span>&nbsp;→</a>
+  </div>
+</div>
+
+
+
+<footer id="contact" class="ft" aria-labelledby="contactTitle">
+  <div class="ft-center">
+    <div class="ft-head">
+      <h2 class="ft-title" id="contactTitle" lang="en"><span class="ph">Let’s make things</span> <span class="ph">clearer, <em>together.</em></span></h2>
+      <ul class="ft-tags" aria-label="Skills and related case studies">
+        <li><a class="ft-tag ft-tag--ui" href="../foxconn/#modes"><span lang="en">Interaction Design</span><span class="sr">: Foxconn Carnival, route mode switching</span></a></li>
+        <li><a class="ft-tag ft-tag--ix" href="../museum/#lantern"><span lang="en">Prototyping</span><span class="sr">: National Museum of History, lantern game flow and prototype</span></a></li>
+        <li><a class="ft-tag ft-tag--flow" href="../gomaji/#process"><span lang="en">Visual Design</span><span class="sr">: GOMAJI Carnival City, key visual and web guidelines</span></a></li>
+        <li><a class="ft-tag ft-tag--code" href="../mamypoko/#build"><span lang="en">HTML / CSS</span><span class="sr">: MamyPoko, guidelines, build, and review</span></a></li>
+      </ul>
+    </div>
+    <div class="ft-cta">
+      <a class="ft-btn" href="mailto:helenn1219@gmail.com"><span class="sr">Email me: </span>helenn1219@gmail.com</a>
+      <button type="button" class="ft-copy" data-copy="helenn1219@gmail.com" aria-label="Copy email address">Copy</button>
+    </div>
+    <p class="ft-note">Open to UI/UX and Product Designer roles in Taiwan and abroad.</p>
+    <p class="ft-links">
+      <a href="https://www.linkedin.com/in/helenhsieh-thedesigner" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../cv/Helen-Hsieh-Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+    </p>
+  </div>
+  <div class="ft-bottom">
+    <p>© 2026 Helen Hsieh</p>
+    <a class="ft-top" href="#top" aria-label="Back to top"><span lang="en">TOP</span> <svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 13.5V3M4 7l4-4 4 4"/></svg></a>
+  </div>
+</footer>
+
+<script src="../js/nav.js"></script>
+<script>
+document.querySelectorAll('video.loop-demo').forEach(v => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (reduce.matches) { v.removeAttribute('autoplay'); v.pause(); }
+  const toggle = () => { if (v.paused) v.play(); else v.pause(); };
+  v.addEventListener('click', toggle);
+  v.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); } });
+
+  let userPaused = reduce.matches;
+  v.addEventListener('pause', () => { if (v.dataset.auto !== '1') userPaused = true; delete v.dataset.auto; });
+  v.addEventListener('play', () => { userPaused = false; });
+  if ('IntersectionObserver' in window) new IntersectionObserver(es => {
+    const vis = es[0].intersectionRatio >= .5;
+    if (vis && !userPaused && v.paused) v.play().catch(() => {});
+    else if (!vis && !v.paused) { v.dataset.auto = '1'; v.pause(); }
+  }, { threshold: [0, .5] }).observe(v);
+});
+</script>
+<script>
+</script>
+<script>
+
+(function () {
+  const body = document.body;
+  const nav = document.getElementById('mainNav');
+  const toc = document.querySelector('.v3-toc');
+  const toggle = toc.querySelector('.v3-toc-toggle');
+  const current = toc.querySelector('.v3-toc-current');
+  const links = [...toc.querySelectorAll('a[href^="#"]')];
+  const sections = links.map(a => document.getElementById(a.hash.slice(1)));
+  const narrow = window.matchMedia('(max-width: 1179px)');
+  const dock = document.querySelector('.v3-dock');
+  const bar = dock.querySelector('.v3-switch');
+
+  const hero = document.querySelector('.detail-hero') || document.querySelector('.v4-show');
+  let offset = 120, navH = 96, barGap = 20, dockPad = 48;
+
+  function measure() {
+    navH = nav ? nav.getBoundingClientRect().height : 96;
+    body.style.setProperty('--nav-h', navH + 'px');
+    offset = navH + (narrow.matches ? toggle.offsetHeight : 0) + 20;
+    body.style.setProperty('--anchor-offset', offset + 'px');
+    body.style.setProperty('--bar-h', bar.offsetHeight + 'px');
+    barGap = parseFloat(getComputedStyle(body).getPropertyValue('--bar-gap')) || 20;
+    dockPad = parseFloat(getComputedStyle(dock).paddingTop) || 48;
+  }
+
+  function setOpen(open) {
+    toc.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+
+  // On phones: hide the bottom switch bar while scrolling down, show it again on scroll up, to leave more room for reading
+  const phone = window.matchMedia('(max-width: 768px)');
+  let lastY = window.scrollY, goingDown = false;
+
+  function update() {
+
+    let idx = 0;
+    sections.forEach((s, i) => { if (s.getBoundingClientRect().top - offset <= 8) idx = i; });
+    links.forEach((a, i) => { if (i === idx) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
+    current.textContent = links[idx].textContent.replace(/^(\d+)/, '$1 ');
+
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    body.classList.toggle('v3-past-hero', heroBottom < navH);
+    toc.classList.toggle('is-stuck', narrow.matches && toc.getBoundingClientRect().top <= navH + 1);
+
+    const docked = dock.getBoundingClientRect().top + dockPad <= window.innerHeight - barGap - bar.offsetHeight;
+    bar.classList.toggle('is-floating', !docked);
+
+    const y = window.scrollY;
+    if (Math.abs(y - lastY) > 8) { goingDown = y > lastY; lastY = y; }
+    // On phones, hide while scrolling down (it still shows when docked at the end)
+    const readingDown = phone.matches && goingDown;
+
+    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open') && !readingDown);
+
+    const overlay = body.classList.contains('menu-open') || !!document.querySelector('[role="dialog"]:not([hidden]), .lightbox.open, .taitra-lightbox.open');
+    bar.classList.toggle('is-off', overlay);
+  }
+
+  let ticking = false;
+  const schedule = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; update(); }); } };
+
+  toggle.addEventListener('click', () => {
+    const open = !toc.classList.contains('is-open');
+
+    if (open && narrow.matches) {
+      const gap = toc.getBoundingClientRect().top - navH;
+      if (gap > 1) window.scrollTo(0, window.scrollY + gap);
+    }
+    setOpen(open);
+    schedule();
+  });
+  links.forEach(a => a.addEventListener('click', () => { if (narrow.matches) setOpen(false); }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && toc.classList.contains('is-open')) { setOpen(false); toggle.focus(); } });
+  // Mobile chapter menu: tapping anywhere outside it closes it
+  document.addEventListener('pointerdown', e => { if (toc.classList.contains('is-open') && !toc.contains(e.target)) setOpen(false); });
+  const onBreakpoint = () => { setOpen(false); measure(); schedule(); };
+  if (narrow.addEventListener) narrow.addEventListener('change', onBreakpoint); else narrow.addListener(onBreakpoint);
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', () => { measure(); schedule(); });
+  new MutationObserver(schedule).observe(body, { attributes: true, attributeFilter: ['class'] });
+  window.addEventListener('load', () => { measure(); schedule(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); schedule(); });
+
+  measure();
+  update();
+})();
+</script>
+<script src="../js/link-preview.js"></script>
+<script src="../js/site-footer.js"></script>
+<script src="../js/site-cursor.js"></script>
+<script src="../js/hero-orb.js" data-host="body" data-page data-shift-y="-.15" data-alpha=".7" data-colors="203,157,164|180,114,124|226,201,204"></script>
+</body>
+</html>

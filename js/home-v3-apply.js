@@ -125,12 +125,27 @@
       const spots = plan();
       [...tagList.children].forEach((li, i) => { li.style.left = Math.round(spots[i].x) + 'px'; li.style.top = Math.round(spots[i].y) + 'px'; });
 
-      const ROT = [10, 10, 6.1, -7, -6], NUDGE = [[24, 4], [111, 8], [-159, -1], [24, -6], [35, -17]];
-      const iw = inner.getBoundingClientRect().width;
+      const ROT = [10, 10, 6.1, -7, -6];
+      // 依 Helen 2026-10-21 拖曳定稿的排法（1440 寬時的位置）換算成以主標題字級為單位，各種桌機尺寸比例一致
+      const ir = inner.getBoundingClientRect(), iw = ir.width, cs = getComputedStyle(titleEl), fs = parseFloat(cs.fontSize);
+      const cx = document.createElement('canvas').getContext('2d'); cx.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+      const asc = cx.measureText('H').fontBoundingBoxAscent, cap = cx.measureText('H').actualBoundingBoxAscent;
+      const baseline = ph => { const w = document.createTreeWalker(ph, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.trim() ? 1 : 3 }); const g = document.createRange(); g.selectNodeContents(w.nextNode()); return g.getBoundingClientRect().top + asc - ir.top; };
+      const [ph1, ph2] = titleEl.querySelectorAll(':scope > .ph'), t1 = textBox(ph1), t2 = textBox(ph2);
+      const shiftY = el => { const t = getComputedStyle(el).transform; return t && t !== 'none' ? new DOMMatrixReadOnly(t).m42 : 0; }; // 進場動畫還在位移時，扣掉位移，用最終位置計算
+      const capTop = baseline(ph1) - shiftY(ph1) - cap, b2 = baseline(ph2) - shiftY(ph2);
+      const L1 = t1.l - ir.left, R1 = t1.r - ir.left, L2 = t2.l - ir.left, R2 = t2.r - ir.left;
       [...tagList.children].forEach((li, i) => {
-        const w = li.firstElementChild.offsetWidth;
-        li.style.left = Math.round(Math.max(0, Math.min(iw - w, spots[i].x + NUDGE[i][0]))) + 'px';
-        li.style.top = Math.round(Math.max(0, spots[i].y + NUDGE[i][1])) + 'px';
+        const w = li.firstElementChild.offsetWidth, h = li.firstElementChild.offsetHeight;
+        const [x, y] = [
+          [L2 - .259 * fs - w, b2 - .554 * fs - h / 2],   // UI Design：右緣在「to」左側，垂直置中於 to
+          [R1 - 1.43 * fs, capTop - h],        // UX Flow：底緣略高於大寫頂端
+          [R2 - 2.545 * fs, b2 + .215 * fs],              // Cross-device：在 Interaction 下方
+          [L1 + 3.282 * fs, capTop - .132 * fs - h],      // Design System：在 Information 上方
+          [L2 + .547 * fs, b2 - .037 * fs]                // HTML / CSS：微微壓到 to 的底部
+        ][i];
+        li.style.left = Math.round(Math.max(0, Math.min(iw - w, x))) + 'px';
+        li.style.top = Math.round(Math.max(0, y)) + 'px';
         li.style.setProperty('--rot', ROT[i] + 'deg');
       });
       if (hint) { hint.style.left = Math.round(spots[2].x) + 'px'; hint.style.top = Math.round(spots[2].y + 52) + 'px'; }
@@ -164,6 +179,7 @@
 
     window.addEventListener('load', setup);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(setup);
+    setTimeout(setup, 1250); // 標題進場動畫結束後再定位一次（按鈕在這之後才出現，不會看到跳動）
     let tr = 0; window.addEventListener('resize', () => { clearTimeout(tr); tr = setTimeout(setup, 150); });
     setup();
   }

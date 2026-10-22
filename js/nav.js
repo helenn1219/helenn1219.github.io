@@ -21,6 +21,7 @@
     document.body.classList.add('menu-open');
     if (nav) nav.classList.remove('hidden');
     navToggle.setAttribute('aria-expanded', 'true');
+    navToggle.setAttribute('aria-label', '關閉導覽選單');
     document.body.style.overflow = 'hidden';
     setBackgroundInert(true);
   }
@@ -30,6 +31,7 @@
     mobileMenu.classList.remove('open');
     document.body.classList.remove('menu-open');
     navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', '開啟導覽選單');
     document.body.style.overflow = '';
     setBackgroundInert(false);
     if (returnFocus) navToggle.focus();

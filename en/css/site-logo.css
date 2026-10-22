@@ -1,0 +1,9 @@
+.logo-h{display:block;height:30px;width:auto;overflow:visible;--logo-l:#9DAF2C;--logo-r:#8E8B84;}
+.logo-h path{fill:none;stroke:var(--logo-r);stroke-width:10.5;stroke-linecap:round;transition:stroke .3s;}
+.logo-h circle{fill:var(--logo-l);opacity:.85;transform:translateX(var(--dx,0));transition:transform .55s cubic-bezier(.2,1.25,.4,1),fill .3s;}
+.logo-h circle:nth-of-type(2){transition-delay:.05s;}
+.logo-h circle:nth-of-type(3){transition-delay:.1s;}
+a:hover > .logo-h circle,a:focus-visible > .logo-h circle{transform:none;}
+body:not(.menu-open) .hn.on-dark .logo-h,body:not(.menu-open) nav#mainNav.ft-under .logo-h{--logo-l:#DCE987;--logo-r:#D5D2CA;}
+@media(max-width:768px){.logo-h{height:26px;}}
+@media(prefers-reduced-motion:reduce){.logo-h circle{transition:none;}}
