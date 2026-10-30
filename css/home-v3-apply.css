@@ -474,13 +474,13 @@ html.ybs-lock .hn{padding-right:calc(var(--px) + var(--ybs-sbw,0px));}
 @media(prefers-reduced-motion:reduce){.ab-ways b{transition:none;}}
 
 /* 首屏定稿（2026-10-23）：名字加大、整組往下（依螢幕高度）、桌機標題縮小；標籤在標題上方時名字再下移半行，貼近標題 */
-.hero-meta{font-size:19px;}
-@media(max-width:1023px){.hero-meta{font-size:15px;}}
-@media(max-width:768px){.hero-meta{font-size:14px;}}
+.hero-meta{font-size:15px;}
+@media(max-width:1023px){.hero-meta{font-size:14px;}}
+@media(max-width:768px){.hero-meta{font-size:13px;}}
 @media(min-width:1024px){
   .hero-stage{padding-top:calc(var(--nav-h) + clamp(32px,6vh,72px) + clamp(12px, 8vh - 30px, 72px));}
   .hero-title{font-size:clamp(46px, min(8.4vw, 14.5svh), 124px);}
 }
 html.tags-free .hero-meta{position:relative;top:.5em;}
-@media(min-width:1200px){.hero-meta{font-size:20px;}}
+@media(min-width:1200px){.hero-meta{font-size:16px;}}
 @media(max-width:1365px){html.tags-free .hero-meta{top:.2em;}}
