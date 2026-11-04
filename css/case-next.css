@@ -12,7 +12,18 @@ body.v4 .v3-switch > .pe{justify-self:stretch;justify-content:center;}
   .pe:hover .pe-name,.pe:focus-visible .pe-name{max-width:min(280px,calc(50vw - 270px));opacity:1;}
   .pe:hover .pe-thumb,.pe:hover .pe-name{transition-delay:.15s;}
 }
-@media(prefers-reduced-motion:reduce){.pe-thumb,.pe-name{transition:none;}}
+/* 桌機：左右欄平時等寬，讓「所有專案」置中；移入時只有該側展開，另一側的邊緣固定不動，「所有專案」位置不變。--sw-side、--sw-rest 是切換列收合時的側欄與總寬，改標籤文字時要一起更新。 */
+@media(hover:hover) and (pointer:fine) and (min-width:769px){
+  body.v4 .v3-switch{--sw-side:90px;--sw-rest:288px;grid-template-columns:minmax(var(--sw-side),auto) auto auto auto minmax(var(--sw-side),auto);transition:opacity .2s,translate 0s linear .3s;}
+  .pe-thumb{transition-duration:.28s,.28s,.2s;}
+  .pe-name{transition-duration:.28s,.2s;}
+  .pe:hover .pe-thumb,.pe:focus-visible .pe-thumb{transition-duration:.45s,.45s,.3s;}
+  .pe:hover .pe-name,.pe:focus-visible .pe-name{transition-duration:.5s,.3s;}
+  body.v4 .v3-switch:has(.pe:hover),body.v4 .v3-switch:has(.pe:focus-visible){transition:opacity .2s,translate 0s linear .15s;}
+  body.v4 .v3-switch:has(.pe:not(.pe--prev):hover),body.v4 .v3-switch:has(.pe:not(.pe--prev):focus-visible){translate:calc(50% - var(--sw-rest) / 2) 0;}
+  body.v4 .v3-switch:has(.pe--prev:hover),body.v4 .v3-switch:has(.pe--prev:focus-visible){translate:calc(var(--sw-rest) / 2 - 50%) 0;}
+}
+@media(prefers-reduced-motion:reduce){.pe-thumb,.pe-name{transition:none;}body.v4 .v3-switch,body.v4 .v3-switch:has(.pe:hover),body.v4 .v3-switch:has(.pe:focus-visible){transition:opacity .2s;}}
 
 /* 「← 返回所有專案」文字只有 20px 高：用透明延伸區把點擊範圍加到 44px，版面不變。 */
 body.v4 .v4-back{position:relative;}
