@@ -631,10 +631,6 @@ body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:r
     toggle.setAttribute('aria-expanded', String(open));
   }
 
-  // 手機閱讀時：往下捲隱藏底部切換列、往上捲再出現，多留閱讀空間
-  const phone = window.matchMedia('(max-width: 768px)');
-  let lastY = window.scrollY, goingDown = false;
-
   function update() {
 
     let idx = 0;
@@ -649,12 +645,7 @@ body.v3-light.gm-article{--accent:#B04D11;--accent-solid:#EB7934;--accent-wash:r
     const docked = dock.getBoundingClientRect().top + dockPad <= window.innerHeight - barGap - bar.offsetHeight;
     bar.classList.toggle('is-floating', !docked);
 
-    const y = window.scrollY;
-    if (Math.abs(y - lastY) > 8) { goingDown = y > lastY; lastY = y; }
-    // 手機往下捲時暫時隱藏（文末停靠時照常顯示）
-    const readingDown = phone.matches && goingDown;
-
-    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open') && !readingDown);
+    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open'));
 
     const overlay = body.classList.contains('menu-open') || !!document.querySelector('[role="dialog"]:not([hidden]), .lightbox.open, .taitra-lightbox.open');
     bar.classList.toggle('is-off', overlay);

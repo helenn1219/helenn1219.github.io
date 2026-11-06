@@ -640,10 +640,6 @@ document.querySelectorAll('video.loop-demo').forEach(v => {
     toggle.setAttribute('aria-expanded', String(open));
   }
 
-  // On phones: hide the bottom switch bar while scrolling down, show it again on scroll up, to leave more room for reading
-  const phone = window.matchMedia('(max-width: 768px)');
-  let lastY = window.scrollY, goingDown = false;
-
   function update() {
 
     let idx = 0;
@@ -658,12 +654,7 @@ document.querySelectorAll('video.loop-demo').forEach(v => {
     const docked = dock.getBoundingClientRect().top + dockPad <= window.innerHeight - barGap - bar.offsetHeight;
     bar.classList.toggle('is-floating', !docked);
 
-    const y = window.scrollY;
-    if (Math.abs(y - lastY) > 8) { goingDown = y > lastY; lastY = y; }
-    // On phones, hide while scrolling down (it still shows when docked at the end)
-    const readingDown = phone.matches && goingDown;
-
-    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open') && !readingDown);
+    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open'));
 
     const overlay = body.classList.contains('menu-open') || !!document.querySelector('[role="dialog"]:not([hidden]), .lightbox.open, .taitra-lightbox.open');
     bar.classList.toggle('is-off', overlay);
