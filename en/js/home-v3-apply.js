@@ -301,6 +301,15 @@
       if (orig) { e.preventDefault(); e.stopPropagation(); if (orig.tagName === 'BUTTON') orig.focus({ preventScroll: true }); orig.click(); }
     }, true);
     strip.addEventListener('dragstart', e => e.preventDefault());
+    // image click = the card's main link (summary toggles its list; clones forward to the original via the handler above)
+    track.addEventListener('click', e => {
+      const img = e.target.closest('.mw-img'); if (!img) return;
+      const li = img.closest('.mw'), main = li.querySelector('.mw-link'); if (!main) return;
+      if (main.tagName === 'SUMMARY') { const d = main.closest('details'); d.open = !d.open; return; }
+      const orig = li.classList.contains('mw-clone') ? originals[+li.dataset.of].querySelector('.mw-link') : main;
+      if (orig.tagName === 'BUTTON') orig.focus({ preventScroll: true });
+      orig.click();
+    });
 
     const moreSec = document.getElementById('more');
     let lastP = null, dt = false;
