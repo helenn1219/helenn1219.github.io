@@ -31,3 +31,9 @@ body.v4 .v4-back::before{content:'';position:absolute;inset:-12px -8px;}
 
 /* Design challenges: the last word and arrow never wrap apart; the whole sentence sits in one underlined element so the hover underline runs start to end */
 .v4-q-tail{white-space:nowrap;}
+
+/* Project switch bar: size to content and align to the top (Safari stretched the floating bar into a tall panel); compact on short screens (landscape phones); tighter padding at 320px wide */
+.v3-dock{align-items:flex-start;}
+body.v4 .v3-switch{height:auto;align-self:flex-start;}
+@media(max-height:500px){body.v4.puli-v3{--bar-gap:8px;}body.v4 .v3-switch{padding:3px;}body.v4 .v3-switch-item{min-height:32px;padding:0 12px;font-size:13px;}}
+@media(max-width:340px){body.v4 .v3-switch-item{padding:0 10px;}}

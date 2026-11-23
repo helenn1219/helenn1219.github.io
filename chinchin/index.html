@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="no-smooth-scroll">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>親親影城 購票體驗設計與專案管理 | Helen Hsieh</title>
+<meta name="description" content="親親影城官網改版：從使用者研究、網站架構與 WBS、時程管理到前台驗收，新增會員專區與線上購票。">
+<meta property="og:title" content="親親影城 購票體驗設計與專案管理 | Helen Hsieh">
+<meta property="og:description" content="從使用者研究、網站架構與 WBS、時程管理到前台驗收，新增會員專區與線上購票。">
+<meta property="og:image" content="https://helenn1219.github.io/img/og-cover.jpg">
+<link rel="canonical" href="https://helenn1219.github.io/chinchin/">
+<meta property="og:url" content="https://helenn1219.github.io/chinchin/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<meta name="theme-color" content="#F6F4EF">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#4F7FD0; --accent-solid:#1C4FA0; --accent-wash:rgba(28,79,160,.09); --accent-glow:rgba(28,79,160,.38);}
+</style>
+<style>
+
+.puli-v3{--read:680px;--col:680px;--toc-w:190px;--toc-gap:48px;--bar-gap:20px;}
+.v3-frame{padding-left:var(--page-x);padding-right:var(--page-x);}
+
+.puli-v3 .v3-intro .detail-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);grid-template-areas:"lede lede" "role meta";column-gap:64px;row-gap:0;padding:96px 0 64px;}
+.puli-v3 .v3-intro .detail-main{display:contents;}
+.puli-v3 .v3-intro .detail-lede{grid-area:lede;max-width:780px;margin:0 0 40px;}
+.puli-v3 .v3-intro .case-role{grid-area:role;max-width:none;}
+.puli-v3 .v3-intro .detail-meta{grid-area:meta;max-width:none;margin:0;padding-top:28px;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;align-content:start;}
+.puli-v3 .v3-intro .detail-meta-item:first-child{grid-column:auto;}
+.puli-v3 .meta-sep{display:none;}
+.puli-v3 .meta-line{display:block;}
+@media(max-width:899px){
+  .puli-v3 .v3-intro .detail-body{grid-template-columns:minmax(0,1fr);grid-template-areas:"lede" "role" "meta";padding:64px 0 48px;}
+  .puli-v3 .v3-intro .detail-meta{margin-top:32px;border-top:1px solid var(--border-dim);}
+}
+
+.v3-layout{display:grid;grid-template-columns:var(--toc-w) minmax(0,1fr);column-gap:var(--toc-gap);}
+.v3-toc{align-self:start;position:sticky;top:calc(var(--nav-h,76px) + 24px);padding-top:24px;padding-bottom:28px;}
+.v3-main{min-width:0;}
+.puli-v3 .v3-main > .case-section{padding-left:0;padding-right:0;scroll-margin-top:calc(var(--anchor-offset,120px) - 56px);}
+.puli-v3 .v3-main > #entry{scroll-margin-top:var(--anchor-offset,120px);}
+.puli-v3 #entry{padding-left:0;padding-right:0;}
+.puli-v3 #entry > *{margin-left:0;margin-right:0;}
+.puli-v3 #entry > .v2-wide{max-width:none;}
+
+.puli-v3 #entry .case-subhead{margin-left:0;margin-right:0;margin-bottom:14px;}
+
+.puli-v3 #entry > .v2-video{margin-left:0;}
+.puli-v3 .v3-main .case-row,.puli-v3 .v3-main .puli-aside{max-width:100%;}
+.puli-v3 .v3-main > .case-section--end{padding-bottom:24px;}
+
+.puli-v3 .case-text p,.puli-v3 .case-role p{font-family:var(--sans);font-size:17.5px;line-height:1.82;font-weight:400;}
+.puli-v3 .detail-lede{font-weight:400;}
+.puli-v3 .onsite-title{font-weight:400;}
+.puli-v3 .case-subhead{font-family:var(--sans);font-size:20px;font-weight:500;line-height:1.5;}
+.puli-v3 .case-figure figcaption,.puli-v3 .case-note,.puli-v3 .case-more,.puli-v3 .case-row-arrow{font-size:14px;line-height:1.7;font-weight:400;}
+.puli-v3 .case-figure figcaption b{font-size:14.5px;font-weight:500;}
+.puli-v3 .case-note{font-size:15.5px;}
+.puli-v3 .detail-meta-value{font-size:15px;font-weight:400;}
+.puli-v3 .detail-meta-label{font-size:11px;}
+@media(max-width:768px){.puli-v3 .case-text p,.puli-v3 .case-role p{font-size:16.5px;line-height:1.8;}.puli-v3 .case-subhead{font-size:18.5px;}}
+
+.puli-v3.v3-past-hero nav::before,.puli-v3.menu-open nav::before{background:#0D1114;border-bottom:1px solid var(--border-dim);}
+
+.v3-toc-label{display:block;margin-bottom:14px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,237,230,.6);}
+.v3-toc-toggle{display:none;}
+.v3-toc ol{list-style:none;display:flex;flex-direction:column;border-left:1px solid var(--border-dim);}
+.v3-toc a{display:flex;gap:10px;align-items:baseline;margin-left:-1px;padding:8px 0 8px 14px;border-left:2px solid transparent;font-size:15px;font-weight:400;line-height:1.5;color:rgba(240,237,230,.7);text-decoration:none;transition:color .2s,border-color .2s;}
+.v3-toc a b{flex:none;font-family:var(--serif);font-weight:400;font-size:13.5px;color:var(--accent);}
+.v3-toc a:hover{color:var(--text);}
+.v3-toc a[aria-current]{color:var(--text);border-left-color:var(--accent);}
+.v3-toc a:focus-visible,.v3-toc-toggle:focus-visible{outline:1px solid var(--accent);outline-offset:2px;}
+@media(max-width:1179px){
+  .v3-layout{grid-template-columns:minmax(0,1fr);}
+  .v3-toc{top:var(--nav-h,72px);z-index:50;margin:0 calc(-1 * var(--page-x));padding:0 var(--page-x);background:var(--bg);border-top:1px solid var(--border-dim);border-bottom:1px solid var(--border-dim);}
+  .puli-v3 .v3-main > #entry{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}
+  .v3-toc-label{display:none;}
+  .v3-toc-toggle{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:10px;width:100%;min-height:48px;cursor:pointer;font-size:15px;color:var(--text);}
+  .v3-toc-toggle-label{font-size:11.5px;letter-spacing:.2em;color:rgba(240,237,230,.6);}
+  .v3-toc-current{flex:1;}
+  .v3-toc-caret{transition:transform .2s;}
+  .v3-toc.is-open .v3-toc-caret{transform:rotate(180deg);}
+  .v3-toc{padding-bottom:0;}
+  .v3-toc ol{display:none;border-left:none;padding-bottom:16px;}
+  .v3-toc.is-open ol{display:flex;}
+  .v3-toc a{margin-left:0;padding:10px 0 10px 12px;}
+}
+
+.v3-dock{height:calc(var(--bar-h,48px) + 96px);padding-top:48px;display:flex;justify-content:center;border-top:1px solid var(--border-dim);margin:0 var(--page-x);}
+.v3-switch{z-index:90;display:flex;align-items:center;gap:2px;height:max-content;padding:5px;border:1px solid rgba(240,237,230,.14);border-radius:999px;background:rgba(13,17,20,.94);}
+.v3-switch.is-floating{position:fixed;left:50%;bottom:var(--bar-gap);transform:translateX(-50%);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .2s;}
+
+.v3-switch.is-floating.is-shown,.v3-switch.is-floating:focus-within{opacity:1;pointer-events:auto;}
+
+.v3-switch.is-off{visibility:hidden;}
+.v3-switch-item{display:inline-flex;align-items:center;min-height:38px;padding:0 15px;border-radius:999px;font-size:14px;font-weight:400;color:rgba(240,237,230,.88);text-decoration:none;white-space:nowrap;}
+a.v3-switch-item:hover{color:var(--text);background:rgba(240,237,230,.07);}
+a.v3-switch-item:focus-visible{outline:1px solid var(--accent);outline-offset:1px;}
+.v3-switch .is-disabled{color:rgba(240,237,230,.36);}
+.v3-sep{width:1px;height:16px;background:rgba(240,237,230,.14);}
+.v3-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+@media(max-width:480px){.puli-v3{--bar-gap:12px;}.v3-long{display:none;}.v3-switch-item{padding:0 12px;}}
+@media(prefers-reduced-motion:reduce){.v3-switch,.v3-toc a,.v3-toc-caret{transition:none;}}
+
+@media(max-width:768px){.puli-v3 nav{padding-top:10px;padding-bottom:10px;}}
+
+.puli-v3 #cross-device .case-row--slots2 .case-figure > a{position:relative;}
+.v3-mark{position:absolute;border:2px solid var(--accent);border-radius:8px;pointer-events:none;box-shadow:0 0 0 2px rgba(255,255,255,.55);}
+.v3-mark--web{left:95.2%;top:10.6%;width:4.8%;height:25.4%;border-right:none;border-radius:8px 0 0 8px;}
+.v3-mark--kiosk{left:59.2%;top:92.6%;width:36.4%;height:5.8%;}
+.v3-mark-label{position:absolute;white-space:nowrap;padding:2px 7px;border-radius:4px;background:var(--accent);color:#fff;font-size:12px;line-height:1.5;font-weight:500;letter-spacing:.02em;}
+.v3-mark--web .v3-mark-label{right:calc(100% + 6px);top:0;}
+.v3-mark--kiosk .v3-mark-label{right:0;bottom:calc(100% + 6px);}
+
+.v3-foot-label{margin-bottom:12px;font-size:13px;letter-spacing:.12em;color:var(--accent,var(--gold));}
+.puli-v3 .footer-col h4.v3-foot-h{font-size:12px;letter-spacing:.1em;text-transform:none;}
+
+body.v3-light{--bg:#F6F4EF;--bg-mid:#ECE8E0;--text:#1E1F1C;--text-dim:#5E5D57;--gold:#8A6A1F;--border:rgba(139,38,53,.22);--border-dim:rgba(30,31,28,.13);--accent:#8B2635;--accent-wash:rgba(139,38,53,.06);}
+
+.v3-light .case-text p,.v3-light .case-role p{color:rgba(30,31,28,.88);}
+.v3-light .detail-meta-value{color:rgba(30,31,28,.86);}
+.v3-light .case-figure figcaption,.v3-light .v2-more,.v3-light .case-note,.v3-light .case-row-arrow,.v3-light .case-more{color:rgba(30,31,28,.74);}
+.v3-light .v3-toc-label,.v3-light .v3-toc-toggle-label{color:rgba(30,31,28,.64);}
+.v3-light .v3-toc a{color:rgba(30,31,28,.74);}
+.v3-light .v3-toc a:hover,.v3-light .v3-toc a[aria-current]{color:var(--text);}
+.v3-light .footer-label,.v3-light .footer-col h4{color:rgba(138,106,31,.85);}
+.v3-light .footer-info p,.v3-light .footer-col a{color:rgba(30,31,28,.66);}
+.v3-light .footer-col p{color:rgba(30,31,28,.55);}
+
+.v3-light .v3-switch{background:rgba(246,244,239,.96);border-color:rgba(30,31,28,.16);box-shadow:0 2px 12px rgba(30,31,28,.08);}
+.v3-light .v3-switch-item{color:rgba(30,31,28,.86);}
+.v3-light a.v3-switch-item:hover{color:var(--text);background:rgba(30,31,28,.06);}
+.v3-light .v3-switch .is-disabled{color:rgba(30,31,28,.36);}
+.v3-light .v3-sep{background:rgba(30,31,28,.16);}
+
+.v3-light .detail-hero{--text:#F5EFE6;--text-dim:#CFCBC2;--accent:#B97D86;color:#F5EFE6;}
+.v3-light .detail-hero-overlay{background:linear-gradient(180deg,rgba(13,17,20,.18) 0%,rgba(13,17,20,.32) 30%,rgba(13,17,20,.62) 62%,rgba(13,17,20,.74) 86%,var(--bg) 100%);}
+.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#F5EFE6;--text-dim:#CFCBC2;}
+.v3-light.v3-past-hero nav::before,.v3-light.menu-open nav::before{background:#F6F4EF;border-bottom:1px solid var(--border-dim);}
+.v3-light.v3-past-hero .nav-logo img,.v3-light.menu-open .nav-logo img{filter:invert(1) hue-rotate(180deg);}
+
+.v4 nav::before{background:#F6F4EF;border-bottom:1px solid var(--border-dim);}
+
+@media(min-width:769px){body.v4 nav{height:76px;padding-top:0;padding-bottom:0;}}
+
+body.v4.v3-light:not(.menu-open) nav::before{background:rgba(246,244,239,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);}
+.v4.v3-light:not(.v3-past-hero):not(.menu-open) nav{--text:#1E1F1C;--text-dim:#5E5D57;}
+.v4 .nav-logo img{filter:invert(1) hue-rotate(180deg);}
+
+.v4-head{padding-top:calc(var(--nav-h,76px) + 56px);padding-bottom:40px;}
+.v4-back{display:inline-block;margin-bottom:28px;font-size:14px;color:rgba(30,31,28,.7);text-decoration:none;}
+.v4-back:hover{color:var(--accent);}
+.v4-title{font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:500;line-height:1.18;letter-spacing:.01em;color:var(--text);word-break:keep-all;}
+.v4-role{margin-top:14px;font-size:14px;letter-spacing:.04em;color:rgba(30,31,28,.62);}
+.v4 .nb{white-space:nowrap;}
+.v4-sub{max-width:34em;margin-top:18px;font-size:18px;line-height:1.7;font-weight:400;color:rgba(30,31,28,.8);}
+.v4-live{display:inline-block;margin-top:22px;font-size:15px;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;}
+.v4-back:focus-visible,.v4-live:focus-visible{outline:1px solid var(--accent);outline-offset:4px;}
+
+.v4-show{margin:0;}
+.v4-show figure{margin:0;}
+.v4-show-row{display:flex;gap:24px;align-items:flex-start;}
+.v4-show-row > figure{min-width:0;}
+.v4-show a{display:block;}
+.v4-show-web{flex:1.7778 1 0;}
+.v4-show-kiosk{flex:.5625 1 0;}
+.v4-show img{display:block;width:100%;height:auto;border-radius:var(--img-radius,8px);}
+.v4-show figcaption{margin-top:10px;font-size:14px;line-height:1.7;color:rgba(30,31,28,.72);}
+@media(max-width:768px){
+  .v4-head{padding-top:calc(var(--nav-h,64px) + 36px);padding-bottom:28px;}
+  .v4-back{margin-bottom:20px;}
+  .v4-sub{font-size:16.5px;}
+  .v4-show-row{gap:14px;}
+}
+
+@media(max-width:600px){.v4-show-row > .v4-show-kiosk{display:none;}}
+
+.v4 .v3-intro .v4-info{display:block;padding-top:44px;}
+.v4 .v3-intro .v4-info .detail-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 32px;margin:0;}
+.v4-info-cols{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);column-gap:64px;margin-top:40px;}
+.v4 .v3-intro .v4-info-cols > .case-role{grid-area:auto;max-width:none;}
+.v4-q{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.v4-q li{font-size:17px;font-weight:400;line-height:1.7;color:rgba(30,31,28,.88);}
+
+body.puli-article{--q-accent:#B97D86;}body.fox-article{--q-accent:#6683B7;}body.mp-article{--q-accent:#D4B26A;}body.mu-article{--q-accent:#8FB59A;}body.gm-article{--q-accent:#EB7934;}
+.v4-q a{color:inherit;text-decoration:none;}
+.v4-q-t{background:linear-gradient(var(--q-accent,currentColor),var(--q-accent,currentColor)) 0 100%/0 2px no-repeat;padding-bottom:3px;transition:background-size .35s ease;}
+.v4-q-arr{display:inline-block;margin-left:8px;color:var(--q-accent,currentColor);transition:transform .35s ease;}
+.v4-q a:hover .v4-q-t,.v4-q a:focus-visible .v4-q-t{background-size:100% 2px;}
+.v4-q a:hover .v4-q-arr,.v4-q a:focus-visible .v4-q-arr{transform:translateX(4px);}
+@media(prefers-reduced-motion:reduce){.v4-q-t,.v4-q-arr{transition:none;}.v4-q a:hover .v4-q-arr,.v4-q a:focus-visible .v4-q-arr{transform:none;}}
+@media(max-width:899px){.v4-info-cols{grid-template-columns:minmax(0,1fr);row-gap:32px;}}
+@media(max-width:768px){.v4 .v3-intro .v4-info{padding-top:36px;}.v4 .v3-intro .v4-info .detail-meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px;}.v4-info-cols{margin-top:32px;}}
+
+.v4 .v3-main{container-type:inline-size;}
+.v4 #entry > .v4-drag{max-width:none;margin-top:0;}
+.v4-drag-text .case-text{max-width:none;}
+.v4 #entry .v4-hint{width:auto;max-width:16em;margin:5em auto 0;text-align:center;}
+.v4-hint img{display:block;width:115px;height:auto;margin:0 auto;}
+
+.v4 #entry .v4-drag > .case-figure--video{width:100%;max-width:280px;margin:28px auto 0;}
+@container (min-width:800px){
+
+  .v4-drag{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px;align-items:start;}
+  .v4 #entry .v4-drag > .case-figure--video{max-width:260px;margin:7px auto 0;}
+}
+
+.v4 .footer-col h4.v3-foot-h{color:var(--accent);}
+
+.v4{--read:700px;--col:700px;}
+
+.v4 .v3-main .case-subhead,.v4 #entry > .case-subhead{max-width:none;}
+
+.v4 .v3-intro .v4-info .detail-meta{padding-bottom:28px;border-bottom:1px solid var(--border-dim);}
+.v4 .v3-intro .v4-info-cols > .case-role{border-top:none;padding-top:0;}
+.v4-info-cols{margin-top:36px;}
+
+.v4 footer{position:relative;border-top:none;}
+.v4 footer::before{content:"";position:absolute;top:0;left:var(--page-x);right:var(--page-x);border-top:1px solid var(--border-dim);}
+
+body.v4{--serif:'Manrope','Noto Sans TC',sans-serif;--sans:'Manrope','Noto Sans TC',sans-serif;font-family:var(--sans);font-weight:400;letter-spacing:.2px;}
+
+body.v4 .v4-title{font-family:var(--sans);font-size:52px;font-weight:600;letter-spacing:1px;line-height:1.2;}
+
+body.v4 .onsite-title{font-family:var(--sans);font-size:30px;font-weight:600;letter-spacing:.8px;line-height:1.4;}
+
+body.v4 .case-subhead{font-family:var(--sans);font-size:21px;font-weight:600;letter-spacing:.8px;line-height:1.5;}
+
+body.v4 .detail-tag,body.v4 .detail-meta-label,body.v4 .case-role h2,body.v4 .v4-role{font-size:14px;font-weight:500;letter-spacing:.8px;line-height:1.5;text-transform:none;opacity:1;color:var(--accent);}
+body.v4 .detail-meta-label{margin-bottom:6px;}
+body.v4 .v4-role{margin-top:16px;}
+
+body.v4 .v4-sub,body.v4 .case-text p,body.v4 .case-role p,body.v4 .v4-q li,body.v4 .case-note{font-family:var(--sans);font-size:18px;font-weight:400;letter-spacing:.2px;line-height:1.8;}
+
+body.v4 .detail-meta-value{font-size:16px;font-weight:400;letter-spacing:.2px;line-height:1.65;}
+
+body.v4 .case-figure figcaption,body.v4 .v4-show figcaption{font-size:14px;font-weight:400;letter-spacing:.2px;line-height:1.7;}
+body.v4 .case-figure figcaption b{font-size:14px;font-weight:500;}
+
+body.v4 .nav-links a{font-size:14px;letter-spacing:.08em;}
+body.v4 .nav-cv{font-size:14px;letter-spacing:.06em;padding:8px 18px;}
+body.v4 .mobile-menu-cv-label{font-size:14px;letter-spacing:.08em;}
+body.v4 .mobile-menu-links a{font-family:var(--sans);font-weight:500;}
+body.v4 .v3-toc-label,body.v4 .v3-toc-toggle-label{font-size:14px;letter-spacing:.08em;text-transform:uppercase;}
+body.v4 .v3-toc a{font-size:15px;}
+body.v4 .v3-toc a b{font-family:var(--sans);font-size:14px;font-weight:500;}
+body.v4 .v4-back{font-size:14px;}
+body.v4 .v4-live{font-size:15px;}
+body.v4 .v3-mark-label{font-size:13px;}
+@media(max-width:540px){
+  body.v4 .v4-title{font-size:36px;}
+  body.v4 .onsite-title{font-size:26px;}
+  body.v4 .case-subhead{font-size:20px;}
+  body.v4 .v4-sub,body.v4 .case-text p,body.v4 .case-role p,body.v4 .v4-q li,body.v4 .case-note{font-size:17px;}
+}
+
+body.v4 footer.v4-foot{display:block;padding:56px var(--page-x) 64px;}
+.v4-foot-title{margin-bottom:16px;font-size:30px;font-weight:600;letter-spacing:.8px;line-height:1.4;color:var(--text);}
+.v4-foot p{font-size:16px;font-weight:400;line-height:1.7;color:rgba(30,31,28,.86);}
+.v4-foot-links{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:12px;}
+.v4-foot-links a{font-size:16px;font-weight:500;color:var(--accent);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;}
+.v4-foot-links a:hover{text-decoration-thickness:2px;}
+.v4-foot-links a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+.v4-foot p.v4-foot-copy{margin-top:28px;font-size:14px;color:#5E5D57;}
+
+body.v4 footer.v4-foot{position:relative;}
+.v4-foot p.v4-foot-copy{position:absolute;right:var(--page-x);bottom:64px;margin:0;line-height:1.7;}
+@media(max-width:540px){.v4-foot p.v4-foot-copy{position:static;margin-top:28px;text-align:right;}}
+@media(max-width:540px){.v4-foot-title{font-size:26px;}}
+
+
+.v4 .v3-main > .case-section--tight{scroll-margin-top:var(--anchor-offset,120px);}
+@media(max-width:1179px){.v4 .v3-main > .case-section--tight{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}}
+
+
+.v4 .v3-intro .v4-info .detail-meta{position:static;border-top:1px solid var(--border-dim);}
+.v4 .case-role p + p{margin-top:12px;}
+
+.v4 .v3-main > .case-section--tight{padding-top:24px;}
+
+
+
+/* 親親影城（cc-article）：沿用其他案例頁的 v4 樣式，只換主色並加上表格與每週檢核點 */
+body.v3-light.cc-article{--accent:#1C4FA0;--accent-wash:rgba(28,79,160,.06);--border:rgba(28,79,160,.22);}
+body.cc-article{--q-accent:#4F7FD0;}
+@media(max-width:540px){body.cc-article .v4-title{font-size:30px;text-wrap:balance;}}
+@media(max-width:374px){body.cc-article .v4-title{word-break:normal;}}
+/* 本頁切換列只有兩個連結，不用 5 欄格線 */
+body.v4.cc-article .v3-switch{display:flex;}
+.cc-article .cc-show{margin:0;}
+.cc-article .cc-show img{aspect-ratio:1024/390;}
+.v4 .v3-main > .case-section--tight{scroll-margin-top:var(--anchor-offset,120px);}
+@media(max-width:1179px){.v4 .v3-main > .case-section--tight{scroll-margin-top:calc(var(--anchor-offset,120px) - 20px);}}
+.v4 .v3-intro .v4-info .detail-meta{position:static;border-top:1px solid var(--border-dim);}
+.v4 .case-role p + p{margin-top:12px;}
+.v4 .v3-main > .case-section--tight{padding-top:24px;}
+.cc-article .case-subhead.cc-sub{margin-top:56px;margin-bottom:14px;}
+.cc-article .cc-after{margin-top:48px;}
+.cc-article .case-figure img{border:1px solid var(--border-dim);}
+.cc-article .cc-tall{max-width:560px;}
+/* 表格：WBS 與 QAQC 節錄 */
+.cc-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.cc-table-wrap:focus-visible{outline:2px solid var(--accent);outline-offset:4px;}
+.cc-table{width:100%;min-width:560px;border-collapse:collapse;font-size:15px;line-height:1.65;color:rgba(30,31,28,.88);}
+.cc-table caption{text-align:left;padding-bottom:12px;font-size:14px;font-weight:500;letter-spacing:.8px;color:var(--accent);}
+.cc-table th{text-align:left;padding:10px 16px 10px 0;font-size:13px;font-weight:500;letter-spacing:.4px;color:rgba(30,31,28,.64);border-bottom:1px solid rgba(30,31,28,.22);white-space:nowrap;}
+.cc-table td{padding:14px 16px 14px 0;vertical-align:top;border-bottom:1px solid var(--border-dim);}
+.cc-table td:first-child{white-space:nowrap;}
+.cc-dots{letter-spacing:2px;font-size:12px;color:var(--accent);}
+.cc-dots i{font-style:normal;color:rgba(30,31,28,.16);}
+.cc-st{display:inline-block;padding:1px 10px;border-radius:999px;font-size:13px;white-space:nowrap;background:var(--accent-wash);color:var(--accent);}
+.cc-st.is-urgent{background:rgba(196,94,20,.1);color:#9A4A0E;}
+/* 每週檢核點 */
+.cc-weeks{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-left:0;padding:0;}
+.cc-weeks li{display:flex;flex-direction:column;gap:6px;padding:20px 22px 22px;border:1px solid var(--border-dim);border-top:2px solid var(--accent);border-radius:0 0 var(--img-radius,8px) var(--img-radius,8px);background:rgba(255,255,255,.45);}
+.cc-wk{font-size:13px;font-weight:500;letter-spacing:.6px;color:var(--accent);}
+.cc-weeks b{font-size:17px;font-weight:600;line-height:1.5;color:var(--text);}
+.cc-wk-d{font-size:15px;line-height:1.7;color:rgba(30,31,28,.74);}
+.cc-article .cc-note{margin-top:14px;font-size:14px;color:rgba(30,31,28,.64);}
+@media(max-width:600px){
+  .cc-table-wrap{overflow:visible;}
+  .cc-table{min-width:0;}
+  .cc-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+  .cc-table,.cc-table tbody,.cc-table tr,.cc-table td{display:block;}
+  .cc-table tr{padding:14px 0;border-bottom:1px solid var(--border-dim);}
+  .cc-table td{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:12px;padding:4px 0;border:none;white-space:normal;}
+  .cc-table td:first-child{white-space:normal;}
+  .cc-table td::before{content:attr(data-label);font-size:13px;font-weight:500;color:rgba(30,31,28,.6);}
+  .cc-table .cc-st,.cc-table .cc-dots{justify-self:start;}
+}
+@media(max-width:600px){.cc-weeks{grid-template-columns:minmax(0,1fr);}.cc-article .case-subhead.cc-sub{margin-top:44px;}}
+</style>
+<link rel="stylesheet" href="../css/link-preview.css">
+<link rel="stylesheet" href="../css/site-brand.css">
+<link rel="stylesheet" href="../css/hero-grain.css">
+<link rel="stylesheet" href="../css/site-logo.css">
+<link rel="stylesheet" href="../css/site-footer.css">
+<link rel="stylesheet" href="../css/case-next.css?v=10">
+</head>
+<body id="top" class="case-template case-lede-first cc-article puli-v3 v3-light v4">
+<a class="skip" href="#main">跳到內容</a>
+
+<nav id="mainNav">
+  <a href="../index.html" class="nav-logo"><svg class="logo-h" viewBox="-3.5 -1.5 53.5 52.5" role="img" aria-label="Helen Hsieh 首頁"><path d="M43 5V45M24 25H43"/><circle class="s" cx="5" cy="8" r="7.4" style="--dx:9px"/><circle class="s" cx="5" cy="25" r="7.4" style="--dx:0px"/><circle class="s" cx="5" cy="42" r="7.4" style="--dx:9px"/></svg></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#works">Work</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cv" href="../cv/Helen-Hsieh-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+  <button class="nav-toggle" id="navToggle" aria-label="開啟導覽選單" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-menu-links">
+    <li><a href="../index.html#works">Work</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="../cv/Helen-Hsieh-CV.pdf" target="_blank" rel="noopener">CV ↗</a></li>
+  </ul>
+</div>
+
+<main id="main">
+<header class="v3-frame v4-head">
+  <a class="v4-back" href="../index.html#more">← 返回更多作品</a>
+  <h1 class="v4-title">親親影城<br>購票體驗設計與專案管理</h1>
+  <ul class="v4-role" aria-label="負責項目"><li class="v4-chip">專案管理</li><li class="v4-chip">使用者研究</li><li class="v4-chip">UI/UX 設計</li></ul>
+  <p class="v4-sub">親親影城是以台中北屯區居民為主的社區型影城，原官網無法線上購票，也沒有響應式版面。這是 5 人團隊的 side project，我擔任 PM 並參與 UI/UX 設計：從使用者研究與網站架構開始，規劃新增會員專區與線上購票，管理約一個月的時程，並在前端完成後負責前台驗收。</p>
+  <a class="v4-live" href="https://www.behance.net/gallery/215677267/-UI-UX-Redesign" target="_blank" rel="noopener">在 Behance 查看 ↗</a>
+</header>
+
+<div class="v3-frame v4-show">
+  <figure class="cc-show"><span class="fig-media"><img src="../img/chinchin-case/cover-redesign.webp" alt="改版後的親親影城網站，以筆電與手機展示：首頁有藍色與橘色形象角色、會員優惠橫幅與跑馬燈；手機為線上購票的選擇座位畫面" width="1024" height="390"></span><figcaption>改版後的網站｜桌機首頁與手機購票畫面</figcaption></figure>
+</div>
+
+<div class="v3-frame v3-intro">
+<div class="detail-body v4-info">
+  <div class="detail-meta">
+    <div class="detail-meta-item"><div class="detail-meta-label">我的角色</div><div class="detail-meta-value">PM + UI/UX Designer</div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">專案期間</div><div class="detail-meta-value"><span class="nb">2024.07–08</span> · <span class="nb">約一個月</span></div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">團隊</div><div class="detail-meta-value"><span class="nb">5 人</span> · <span class="nb">企劃、設計、前端</span></div></div>
+    <div class="detail-meta-item"><div class="detail-meta-label">專案範圍</div><div class="detail-meta-value"><span class="nb">響應式網站</span> · <span class="nb">前台與後台</span></div></div>
+  </div>
+  <div class="v4-info-cols">
+    <div class="case-role">
+      <h2>我的工作</h2>
+      <p>負責原網站分析、使用者研究與網站前後台架構，把架構展開成 WBS，標出每一頁的優先程度與流程；也製作時程表與檢核點行事曆，每天更新企劃、設計、前端三條工作線的進度。</p>
+      <p>設計端參與 Wireframe 與前台 UI；前端完成後，我主責前台驗收，用 QAQC 測試表逐頁比對設計稿並追蹤修正。前端切版由團隊其他成員負責。</p>
+    </div>
+    <div class="case-role v4-challenges">
+      <h2>專案挑戰</h2>
+      <ul class="v4-q">
+        <li><a href="#research"><span class="v4-q-t">如何從舊官網的問題，決定要新增哪些功<span class="v4-q-tail">能<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a href="#plan"><span class="v4-q-t">如何讓 5 人團隊在一個月內對齊範圍與進<span class="v4-q-tail">度<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+        <li><a href="#qa"><span class="v4-q-t">如何確認前端成品與設計稿一<span class="v4-q-tail">致<span class="v4-q-arr" aria-hidden="true">→</span></span></span></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+<div class="v3-frame v3-layout">
+  <div class="v3-toc" role="navigation" aria-label="案例章節">
+    <span class="v3-toc-label">In This Case</span>
+    <button class="v3-toc-toggle" type="button" aria-expanded="false" aria-controls="v3TocList"><span class="v3-toc-toggle-label">In This Case</span><span class="v3-toc-current">01 研究與需求</span><svg class="v3-toc-caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <ol id="v3TocList">
+      <li><a href="#research"><b>01</b><span>研究與需求</span></a></li>
+      <li><a href="#architecture"><b>02</b><span>網站架構與 WBS</span></a></li>
+      <li><a href="#plan"><b>03</b><span>時程與進度</span></a></li>
+      <li><a href="#design"><b>04</b><span>品牌與介面</span></a></li>
+      <li><a href="#qa"><b>05</b><span>驗收與回顧</span></a></li>
+    </ol>
+  </div>
+  <div class="v3-main">
+
+<section class="case-section case-section--tight" id="research">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>01 · RESEARCH</span>
+    <h2 class="onsite-title">從舊官網的問題整理需求</h2>
+  </div>
+  <div class="case-text">
+    <p>親親影城的主要客群是台中北屯區的居民。原官網設計較陽春、沒有 RWD，在手機上不容易瀏覽。我們先整理官網現況：介面操作不夠直覺、場次沒有即時更新、會員制度不明確，官網也無法購票，只顯示今明兩天的場次。</p>
+  </div>
+  <figure class="case-figure case-media">
+    <span class="fig-media"><img src="../img/chinchin-case/research-old-site.webp" alt="研究動機與網站現況整理：左側列出介面操作不夠直覺、場次未及時更新、會員制度不夠明確、官網無法購票、僅顯示今明兩天場次；右側與下方為舊官網的桌機與手機截圖" width="1024" height="576" loading="lazy"></span>
+    <figcaption><b>研究動機與現況整理</b>右側與下方為改版前的官網截圖</figcaption>
+  </figure>
+  <h3 class="case-subhead cc-sub">從 Persona 歸納五項需求</h3>
+  <div class="case-text">
+    <p>我們以兩位 Persona 代表主要客群：在地媽媽「美惠」每次購票都要在櫃檯反覆確認資訊，會員資料也只能臨櫃查詢；高中生「張佑」遇過官網時刻表和現場不符，也無法提前查到即將上映的場次。</p>
+    <p>由此歸納出五項需求：購票效率化、線上查看會員資料、資訊即時更新、自由選擇觀影座位、提供更多場次選擇。這些需求決定了改版要新增「會員專區」與「線上購票」，也成為後續排定頁面優先順序的依據。</p>
+  </div>
+  <figure class="case-figure case-media">
+    <span class="fig-media"><img src="../img/chinchin-case/persona.webp" alt="人物誌：北屯在地媽媽美惠 41 歲、新民高中高二生張佑 17 歲，下方歸納五大需求：購票效率化、線上查看會員資料、資訊即時更新、自由選擇觀影座位、提供更多場次選擇，以及五項改善方式" width="1024" height="576" loading="lazy"></span>
+    <figcaption><b>人物誌與需求分析</b>兩位 Persona 的痛點，對應到五項需求與改善方式</figcaption>
+  </figure>
+</section>
+
+<section class="case-section" id="architecture">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>02 · ARCHITECTURE</span>
+    <h2 class="onsite-title">把需求整理成前後台架構與 WBS</h2>
+  </div>
+  <div class="case-text">
+    <p>我依研究結果整理網站地圖。前台保留原有的主要選單，新增「會員專區」與「線上購票劃位」頁面，並加入快速購票、FB、IG 與 GO TOP 懸浮按鈕；後台則規劃電影、場次、活動公告、會員資料與客服信箱的管理功能，讓影城人員能自行維護內容。</p>
+  </div>
+  <figure class="case-figure case-media">
+    <span class="fig-media"><img src="../img/chinchin-case/sitemap.webp" alt="親親影城網站地圖：前台八個主選單與新增的會員專區、線上購票劃位頁面，懸浮按鈕為快速購票、FB、IG、GO TOP；後台為電影、場次、活動公告、會員資料、客服信箱與幫助中心管理；右側對照 Wireframe 中的位置" width="1024" height="576" loading="lazy"></span>
+    <figcaption><b>網站地圖｜前台與後台</b>黃色為新增的功能頁面，右側對照在 Wireframe 中的位置</figcaption>
+  </figure>
+  <h3 class="case-subhead cc-sub">用 WBS 決定先做什麼</h3>
+  <div class="case-text">
+    <p>接著我把網站地圖展開成 WBS，替每個頁面標上優先程度，寫下頁面之間的流程，以及成功、失敗時的跳窗與返回位置，再填入製作狀態與負責人。設計與前端看同一張表，就知道每一頁要做什麼、哪些頁面要先完成。</p>
+  </div>
+  <div class="cc-table-wrap case-media" role="region" aria-label="WBS 節錄" tabindex="0">
+    <table class="cc-table">
+      <caption>WBS 節錄｜優先程度與頁面流程</caption>
+      <thead><tr><th scope="col">優先程度</th><th scope="col">頁面</th><th scope="col">流程與狀態</th></tr></thead>
+      <tbody>
+        <tr><td data-label="優先程度"><span class="cc-dots" aria-label="4 級">●●●●</span></td><td data-label="頁面">線上購票</td><td data-label="流程與狀態">選擇場次 → 選擇座位 → 選擇票種 → 付款；付款失敗時停留在原頁並以跳窗提示</td></tr>
+        <tr><td data-label="優先程度"><span class="cc-dots" aria-label="4 級">●●●●</span></td><td data-label="頁面">會員專區</td><td data-label="流程與狀態">依「已登入／未登入、有無會員」分流到會員中心、登入或註冊；註冊成功與失敗各有跳窗</td></tr>
+        <tr><td data-label="優先程度"><span class="cc-dots" aria-label="4 級">●●●●</span></td><td data-label="頁面">場次查詢</td><td data-label="流程與狀態">以 5 天的日期切換場次，選好時間後接續線上購票</td></tr>
+        <tr><td data-label="優先程度"><span class="cc-dots" aria-label="3 級">●●●<i>●</i></span></td><td data-label="頁面">電影介紹</td><td data-label="流程與狀態">「現正熱映／即將上映」切換，電影簡介使用共用模板</td></tr>
+        <tr><td data-label="優先程度"><span class="cc-dots" aria-label="2 級">●●<i>●●</i></span></td><td data-label="頁面">活動公告、幫助中心</td><td data-label="流程與狀態">聯絡我們表單送出前驗證，成功後以跳窗提示</td></tr>
+        <tr><td data-label="優先程度"><span class="cc-dots" aria-label="1 級">●<i>●●●</i></span></td><td data-label="頁面">票價資訊、影城介紹</td><td data-label="流程與狀態">以內容呈現為主</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <figure class="case-figure case-media cc-tall">
+    <span class="fig-media"><img src="../img/chinchin-case/function-map-v1.webp" alt="前台功能架構心智圖：從首頁展開會員專區、線上購票、場次查詢、電影介紹、活動公告、影城介紹與幫助中心的功能與分支" width="806" height="1024" loading="lazy"></span>
+    <figcaption><b>前台功能架構</b>在 Miro 整理各頁的功能與分支</figcaption>
+  </figure>
+</section>
+
+<section class="case-section" id="plan">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>03 · PLANNING</span>
+    <h2 class="onsite-title">用時程表與檢核點對齊三條工作線</h2>
+  </div>
+  <div class="case-text">
+    <p>專案從 7 月下旬到 8 月中，約一個月，團隊分成企劃、設計與前端三條工作線。我製作時程表，把 PM、設計師與工程師每天的工作排在同一張表上；再用檢核點行事曆標出每週目標、上課討論與報告日，每天更新進度。</p>
+    <p>設計與前端的工作有先後關係，所以我在每週目標裡寫清楚交接點，例如 Wireframe 先在週五前完成，假日製作 UI；UI 完成後，前端就能接著切版。</p>
+  </div>
+  <ol class="cc-weeks case-media" aria-label="檢核點行事曆：每週目標">
+    <li><span class="cc-wk">Week 1 · 7/22–7/28</span><b>確定網站架構與 Wireframe</b><span class="cc-wk-d">原網站分析、前台架構、WBS、網站內容；Wireframe 單頁到多頁討論</span></li>
+    <li><span class="cc-wk">Week 2 · 7/29–8/4</span><b>UI 全部完成，前端切版 60%</b><span class="cc-wk-d">後台架構、Logo 與品牌風格、首頁視覺；邊設計邊切版</span></li>
+    <li><span class="cc-wk">Week 3 · 8/5–8/11</span><b>前端完成，週末開始測試</b><span class="cc-wk-d">UI 精稿、切版與 RWD；開始測試與 debug</span></li>
+    <li><span class="cc-wk">Week 4 · 8/12–8/15</span><b>測試完成與最終簡報</b><span class="cc-wk-d">完整測試檢查、後台視覺、最後修正與報告</span></li>
+  </ol>
+  <p class="case-note cc-note">依專案的時程表與檢核點行事曆整理。</p>
+</section>
+
+<section class="case-section" id="design">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>04 · INTERFACE</span>
+    <h2 class="onsite-title">從 Wireframe 到品牌與介面</h2>
+  </div>
+  <div class="case-text">
+    <p>依照網站架構產出 Wireframe，再完成前台桌機版與手機版的 UI。版面參考 Netflix、Disney+、Spotify 等影音串流平台的排版邏輯。</p>
+  </div>
+  <figure class="case-figure case-media">
+    <span class="fig-media"><img src="../img/chinchin-case/wireframe.webp" alt="多張灰階 Wireframe 斜向排列，包含首頁、電影列表、場次查詢、線上購票與會員中心" width="1024" height="576" loading="lazy"></span>
+    <figcaption><b>Wireframe</b>首頁、電影介紹、場次查詢、線上購票與會員中心等頁面</figcaption>
+  </figure>
+  <div class="case-text cc-after">
+    <p>團隊也重新設計品牌：Logo 以英文 CHIN CHIN 的首字「C」發想，搭配四個形象角色；色彩從「朝氣的」情緒版延伸出溫暖黃、熱情橙、專業藍與輕鬆綠，並作為按鈕與文字的標準色。</p>
+  </div>
+  <figure class="case-figure case-media">
+    <span class="fig-media"><img src="../img/chinchin-case/brand-logo.webp" alt="品牌介紹：原始 Logo 與新 Logo 對照，品牌定位為全齡友善、價位親民、社區型；四個形象角色啾啾、啾咪、嗨啾、咪啾；色彩規範為溫暖黃 #FFD75A、熱情橙 #FC951B、專業藍 #2A579B、輕鬆綠 #83D6B5" width="1024" height="576" loading="lazy"></span>
+    <figcaption><b>品牌識別</b>新舊 Logo、品牌定位、形象角色與色彩規範</figcaption>
+  </figure>
+</section>
+
+<section class="case-section case-section--end case-outcome" id="qa">
+  <div class="case-head">
+    <span class="detail-tag"><i class="detail-tag-dot"></i>05 · OUTCOME</span>
+    <h2 class="onsite-title">逐頁驗收，讓成品回到設計稿</h2>
+  </div>
+  <div class="case-text">
+    <p>前端完成後，我主責前台驗收：用 QAQC 測試表逐頁比對 Figma 設計稿與實際網頁，記錄頁面位置、需要修改的地方與建議寫法，並標示緊急程度，請前端修正後改為「已修正」。我先完成第一輪測試，再由其他組員補測。</p>
+    <p>問題涵蓋排版間距、色票不一致、按鈕樣式與 RWD 顯示。測試時也發現流程沒有接上的地方，例如按下「確認付款」或「取消」後該去哪一頁，表中也補上了跳轉規則。</p>
+  </div>
+  <div class="cc-table-wrap case-media" role="region" aria-label="QAQC 測試表節錄" tabindex="0">
+    <table class="cc-table">
+      <caption>QAQC 測試表節錄</caption>
+      <thead><tr><th scope="col">頁面</th><th scope="col">需修改的地方</th><th scope="col">修改內容</th><th scope="col">狀態</th></tr></thead>
+      <tbody>
+        <tr><td data-label="頁面">全站</td><td data-label="需修改的地方">按鈕文字與 icon</td><td data-label="修改內容">依色彩標準：藍 #2A579B、黃 #FFD75A、橘 #FC951B、綠 #83D6B5</td><td data-label="狀態"><span class="cc-st">已修正</span></td></tr>
+        <tr><td data-label="頁面">全站</td><td data-label="需修改的地方">頁面左右邊距</td><td data-label="修改內容">兩側距離統一，與「票價資訊」頁相同</td><td data-label="狀態"><span class="cc-st">已修正</span></td></tr>
+        <tr><td data-label="頁面">線上購票｜選擇資訊</td><td data-label="需修改的地方">文字顏色</td><td data-label="修改內容">黃色色票有誤，改為 #FC951B</td><td data-label="狀態"><span class="cc-st">已修正</span></td></tr>
+        <tr><td data-label="頁面">線上購票｜確認訂單</td><td data-label="需修改的地方">按下「確認付款」</td><td data-label="修改內容">跳轉到購票紀錄頁（訂單詳情）</td><td data-label="狀態"><span class="cc-st is-urgent">緊急</span></td></tr>
+        <tr><td data-label="頁面">幫助中心｜常見問題</td><td data-label="需修改的地方">標題與分隔線</td><td data-label="修改內容">橘色標題字級統一，線條改細</td><td data-label="狀態"><span class="cc-st">已修正</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 class="case-subhead">回顧</h3>
+  <div class="case-text">
+    <p>這次擔任 PM，我發現前期寫得越清楚，後面越少來回確認。WBS 先把每一頁的流程和成功、失敗狀態寫下來，驗收時就有明確的比對依據；測試表也讓設計與前端用同一份清單討論修正。</p>
+  </div>
+</section>
+
+  </div>
+</div>
+</main>
+
+<div class="v3-dock">
+  <div class="v3-switch is-floating" role="navigation" aria-label="專案切換">
+    <a class="v3-switch-item" href="../index.html#more">←&nbsp;更多作品</a>
+    <span class="v3-sep" aria-hidden="true"></span>
+    <a class="v3-switch-item" href="../index.html#works">所有專案</a>
+  </div>
+</div>
+
+<footer id="contact" class="ft" aria-labelledby="contactTitle">
+  <div class="ft-center">
+    <div class="ft-head">
+      <h2 class="ft-title" id="contactTitle" lang="en"><span class="ph">Let’s make things</span> <span class="ph">clearer, <em>Together.</em></span></h2>
+      <ul class="ft-tags" aria-label="技能與對應案例">
+        <li><a class="ft-tag ft-tag--ui" href="../foxconn/#modes"><span lang="en">Interaction Design</span><span class="sr">：鴻海｜路線模式切換</span></a></li>
+        <li><a class="ft-tag ft-tag--ix" href="../museum/#lantern"><span lang="en">Prototyping</span><span class="sr">：史博館｜天燈操作流程與 Prototype</span></a></li>
+        <li><a class="ft-tag ft-tag--flow" href="../gomaji/#process"><span lang="en">Visual Design</span><span class="sr">：麻吉城市樂園｜主視覺與網頁規範</span></a></li>
+        <li><a class="ft-tag ft-tag--code" href="../mamypoko/#build"><span lang="en">HTML / CSS</span><span class="sr">：滿意寶寶｜規範、切版與確認</span></a></li>
+      </ul>
+    </div>
+    <div class="ft-cta">
+      <a class="ft-btn" href="mailto:helenn1219@gmail.com"><span class="sr">寄信給我：</span>helenn1219@gmail.com</a>
+      <button type="button" class="ft-copy" data-copy="helenn1219@gmail.com" aria-label="複製 Email 地址">複製</button>
+    </div>
+    <p class="ft-note">開放 UI/UX 與 Product Designer 工作機會，台灣與海外</p>
+    <p class="ft-links">
+      <a href="https://www.linkedin.com/in/helenhsieh-thedesigner" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../cv/Helen-Hsieh-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+    </p>
+  </div>
+  <div class="ft-bottom">
+    <p>© 2026 Helen Hsieh</p>
+    <a class="ft-top" href="#top" aria-label="返回頁面頂部"><span lang="en">TOP</span> <svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 13.5V3M4 7l4-4 4 4"/></svg></a>
+  </div>
+</footer>
+
+<script src="../js/nav.js"></script>
+<script>
+
+document.querySelectorAll('video.loop-demo').forEach(v => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let userPaused = reduce.matches, inView = false;
+  const sync = () => { if (inView && !userPaused && !document.hidden) { const p = v.play(); if (p) p.catch(() => {}); } else v.pause(); };
+  const toggle = () => { userPaused = !v.paused; if (v.paused) { userPaused = false; const p = v.play(); if (p) p.catch(() => {}); } else v.pause(); };
+  v.addEventListener('click', toggle);
+  v.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); } });
+  if ('IntersectionObserver' in window) new IntersectionObserver(es => { inView = es[0].intersectionRatio >= .5; sync(); }, { threshold: [0, .5] }).observe(v);
+  document.addEventListener('visibilitychange', sync);
+});
+
+</script>
+<script>
+
+(function () {
+  const body = document.body;
+  const nav = document.getElementById('mainNav');
+  const toc = document.querySelector('.v3-toc');
+  const toggle = toc.querySelector('.v3-toc-toggle');
+  const current = toc.querySelector('.v3-toc-current');
+  const links = [...toc.querySelectorAll('a[href^="#"]')];
+  const sections = links.map(a => document.getElementById(a.hash.slice(1)));
+  const narrow = window.matchMedia('(max-width: 1179px)');
+  const dock = document.querySelector('.v3-dock');
+  const bar = dock.querySelector('.v3-switch');
+
+  const hero = document.querySelector('.detail-hero') || document.querySelector('.v4-show');
+  let offset = 120, navH = 96, barGap = 20, dockPad = 48;
+
+  function measure() {
+    navH = nav ? nav.getBoundingClientRect().height : 96;
+    body.style.setProperty('--nav-h', navH + 'px');
+    offset = navH + (narrow.matches ? toggle.offsetHeight : 0) + 20;
+    body.style.setProperty('--anchor-offset', offset + 'px');
+    body.style.setProperty('--bar-h', bar.offsetHeight + 'px');
+    barGap = parseFloat(getComputedStyle(body).getPropertyValue('--bar-gap')) || 20;
+    dockPad = parseFloat(getComputedStyle(dock).paddingTop) || 48;
+  }
+
+  function setOpen(open) {
+    toc.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+
+  function update() {
+
+    let idx = 0;
+    sections.forEach((s, i) => { if (s.getBoundingClientRect().top - offset <= 8) idx = i; });
+    links.forEach((a, i) => { if (i === idx) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
+    current.textContent = links[idx].textContent.replace(/^(\d+)/, '$1 ');
+
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    body.classList.toggle('v3-past-hero', heroBottom < navH);
+    toc.classList.toggle('is-stuck', narrow.matches && toc.getBoundingClientRect().top <= navH + 1);
+
+    const docked = dock.getBoundingClientRect().top + dockPad <= window.innerHeight - barGap - bar.offsetHeight;
+    bar.classList.toggle('is-floating', !docked);
+
+    bar.classList.toggle('is-shown', !docked && heroBottom < 0 && !toc.classList.contains('is-open'));
+
+    const overlay = body.classList.contains('menu-open') || !!document.querySelector('[role="dialog"]:not([hidden]), .lightbox.open, .taitra-lightbox.open');
+    bar.classList.toggle('is-off', overlay);
+  }
+
+  let ticking = false;
+  const schedule = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; update(); }); } };
+
+  toggle.addEventListener('click', () => {
+    const open = !toc.classList.contains('is-open');
+
+    if (open && narrow.matches) {
+      const gap = toc.getBoundingClientRect().top - navH;
+      if (gap > 1) window.scrollTo(0, window.scrollY + gap);
+    }
+    setOpen(open);
+    schedule();
+  });
+  links.forEach(a => a.addEventListener('click', () => { if (narrow.matches) setOpen(false); }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && toc.classList.contains('is-open')) { setOpen(false); toggle.focus(); } });
+  // 手機章節選單：點選單以外的地方就收起
+  document.addEventListener('pointerdown', e => { if (toc.classList.contains('is-open') && !toc.contains(e.target)) setOpen(false); });
+  const onBreakpoint = () => { setOpen(false); measure(); schedule(); };
+  if (narrow.addEventListener) narrow.addEventListener('change', onBreakpoint); else narrow.addListener(onBreakpoint);
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', () => { measure(); schedule(); });
+  new MutationObserver(schedule).observe(body, { attributes: true, attributeFilter: ['class'] });
+  window.addEventListener('load', () => { measure(); schedule(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); schedule(); });
+
+  measure();
+  update();
+})();
+</script>
+<script src="../js/link-preview.js"></script>
+<script src="../js/site-footer.js"></script>
+<script src="../js/site-cursor.js"></script>
+<script src="../js/hero-orb.js" data-host="body" data-page data-shift-y="-.15" data-alpha=".7" data-colors="140,170,225|90,130,205|195,212,240"></script>
+</body>
+</html>

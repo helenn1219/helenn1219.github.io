@@ -31,3 +31,9 @@ body.v4 .v4-back::before{content:'';position:absolute;inset:-12px -8px;}
 
 /* 設計挑戰：最後一個字與箭頭綁在一起不換行；整句在同一個底線元素內，hover 底線從頭畫到尾 */
 .v4-q-tail{white-space:nowrap;}
+
+/* 專案切換列：依內容決定高度並靠上對齊（Safari 浮動時曾被拉成整條長面板）；矮螢幕（橫式手機）縮小；320 寬收窄左右留白 */
+.v3-dock{align-items:flex-start;}
+body.v4 .v3-switch{height:auto;align-self:flex-start;}
+@media(max-height:500px){body.v4.puli-v3{--bar-gap:8px;}body.v4 .v3-switch{padding:3px;}body.v4 .v3-switch-item{min-height:32px;padding:0 12px;font-size:13px;}}
+@media(max-width:340px){body.v4 .v3-switch-item{padding:0 10px;}}
